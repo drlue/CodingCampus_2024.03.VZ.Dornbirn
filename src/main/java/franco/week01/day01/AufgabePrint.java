@@ -15,6 +15,8 @@ public class AufgabePrint {
 
         printTriangleTopRight("* ", 5);
 
+        printEmptySquare("+ ", 10);
+
 
     }
 
@@ -80,6 +82,21 @@ public class AufgabePrint {
             }
 
             System.out.println();
+        }
+
+    }
+
+    public static void printEmptySquare(String text, int number){
+        for (int i = 0; i <= number; i++)  {
+            for (int j = 0; j<= number; j++) {
+                if (i==0||j==0||i==number||j==number){
+                    System.out.print(text);}
+                else {
+                    System.out.print("  ");
+                }
+
+            }System.out.println();
+
         }
 
     }
