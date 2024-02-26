@@ -27,16 +27,21 @@ public class Methods {
     public static String printSquareString(char a, int count) {
         String solution = "";
         boolean first = true;
-        if (first == true) {
-            for (int i = 0; i < count; i++) {
-                solution += a;
-                first = false;
-            }
-        } else {
-            for (int i = 0; i < count; i++) {
-                solution += "\n";
-                for (int j = 0; j < count; j++) {
+        int globalCount = 0;
+        while (globalCount <= 10) {
+            if (first == true) {
+                for (int i = 0; i < count; i++) {
                     solution += a;
+                    first = false;
+                    globalCount++;
+                }
+            } else {
+                for (int i = 0; i < count-1; i++) {
+                    solution += "\n";
+                    globalCount++;
+                    for (int j = 0; j < count; j++) {
+                        solution += a;
+                    }
                 }
             }
         }
