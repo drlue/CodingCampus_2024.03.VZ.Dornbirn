@@ -60,8 +60,4 @@ public class Aufgaben {
 
 
     }
-
-    public static String printChars (char a, int b) {}
-    }
-
 }
