@@ -45,5 +45,15 @@ public class day1 {
             index--;
         } while (index < -10);
         System.out.println(index);
+
+        int a = 2;
+        int b = 4;
+        System.out.println(add(a, b));
+
+    }
+
+    public static int add(int a, int b) {
+        int sum = a + b;
+        return sum;
     }
 }
