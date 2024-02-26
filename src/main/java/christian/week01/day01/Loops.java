@@ -26,7 +26,7 @@ public class Loops {
         System.out.println(ZweitePotenz(5));
     }
 
-    public static int ZweitePotenz(int a) {
+    public static int  ZweitePotenz(int a) {
         int potenz = a * a;
         return potenz;
     }
