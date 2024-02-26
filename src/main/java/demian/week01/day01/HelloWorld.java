@@ -1,7 +1,7 @@
-package lukas.week01.day01;
+package demian.week01.day01;
 
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("Hallo Lukas");
+        System.out.println("Hello World2!");
     }
 }
