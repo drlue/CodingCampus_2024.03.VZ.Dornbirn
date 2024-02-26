@@ -1,5 +1,7 @@
 package demian.week01.day01;
 
+import java.util.Scanner;
+
 public class Day1 {
     public static void main(String[] args) {
         //Variable declaration
@@ -72,9 +74,35 @@ public class Day1 {
         do {
             System.out.println("Do While Current Index: " + index);
             index++;
-        } while (index < -10);
+        } while (index <= -10);
         System.out.println("Do While Current Index: " + index);
 
+        // Sinnvolle Anwendung für Do-While-Schleife
+        //????????
+        //????????
+        //????????
+
+        //Methode verwenden auf zwei verschiedene Arten:
+        System.out.println("Die Summe von 10 und 20 ist: " + add(10, 20));
+
+        int sum5 = add(10, 20);
+        System.out.println("Die Summe von 10 und 20 ist: " + sum5);
+
+        System.out.println();           //ln mach einen Zeilenumbruch nach der Ausgabe die in der Klammer steht
+
+        System.out.print("a");
+        System.out.print("a");
+        System.out.print("a");
+        System.out.println("a");
+        System.out.println("a");
 
     }
+
+
+
+    public static int add(int a, int b) {           // Mehtoden Beispiel
+        int sum = a + b;                            //alternative return = a + b
+        return sum;
+    }
+
 }
