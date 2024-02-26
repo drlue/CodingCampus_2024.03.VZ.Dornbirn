@@ -2,7 +2,7 @@ package christian.week01.day01;
 
 public class Methods {
     public static void main(String[] args) {
-        System.out.println(printSquareString('x',10));
+        System.out.println(printSquareString('x', 10));
     }
 
     public static String charXCount(char a, int count) {
