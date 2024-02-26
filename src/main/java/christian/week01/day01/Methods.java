@@ -3,6 +3,7 @@ package christian.week01.day01;
 public class Methods {
     public static void main(String[] args) {
         System.out.println(printSquareString('x', 10));
+        printRectangle('x', 20, 6);
     }
 
     public static String charXCount(char a, int count) {
@@ -36,7 +37,7 @@ public class Methods {
                     globalCount++;
                 }
             } else {
-                for (int i = 0; i < count-1; i++) {
+                for (int i = 0; i < count - 1; i++) {
                     solution += "\n";
                     globalCount++;
                     for (int j = 0; j < count; j++) {
@@ -46,5 +47,14 @@ public class Methods {
             }
         }
         return solution;
+    }
+
+    public static void printRectangle(char a, int counthorizontal, int countvertical) {
+        for (int i = 0; i <= countvertical-1; i++) {
+            System.out.println();
+            for (int j = 0; j <= counthorizontal; j++) {
+                System.out.print(a);
+            }
+        }
     }
 }
