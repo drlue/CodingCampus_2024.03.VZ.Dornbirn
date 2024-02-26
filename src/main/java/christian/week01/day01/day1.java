@@ -42,7 +42,7 @@ public class day1 {
         index = 0;
         do {
             System.out.println(index);
-            index++;
+            index--;
         } while (index < -10);
         System.out.println(index);
     }
