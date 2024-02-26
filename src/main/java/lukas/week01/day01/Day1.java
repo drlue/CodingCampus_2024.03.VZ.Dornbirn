@@ -1,5 +1,7 @@
 package lukas.week01.day01;
 
+import java.util.Scanner;
+
 public class Day1 {
     public static void main(String[] args) {
         //Variable declaration
@@ -76,8 +78,16 @@ public class Day1 {
         do {
             System.out.println("Do While Current Index: " + index);
             index++;
-        } while (index < -10);
+        } while (index < -5);
 
 
+        //Beispiel für sinnvollen Einsatz von do while
+        String username = "";
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("Please tell me your name:");
+            username = scanner.nextLine();
+        } while (username.equals(""));
+        System.out.println("Yor name is: " + username);
     }
 }
