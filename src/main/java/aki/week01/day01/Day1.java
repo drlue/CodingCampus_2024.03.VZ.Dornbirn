@@ -73,6 +73,18 @@ public class Day1 {
             index++;
         } while (index < -10);
 
+        System.out.println("Die Summe von 10 und 20 ist: " + add(10, 20));
+
+        int sum5 = add(10, 20);
+        System.out.println("Die Summe von 10 und 20 ist: " + sum5);
+
 
     }
+
+    public static int add(int a, int b) {
+        int sum = a + b;
+        return sum;
+    }
+
 }
+
