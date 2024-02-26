@@ -27,7 +27,6 @@ public class Loops {
     }
 
     public static int  ZweitePotenz(int a) {
-        int potenz = a * a;
-        return potenz;
+        return a * a;
     }
 }
