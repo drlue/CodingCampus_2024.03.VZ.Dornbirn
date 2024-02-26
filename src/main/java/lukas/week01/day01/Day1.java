@@ -82,12 +82,35 @@ public class Day1 {
 
 
         //Beispiel für sinnvollen Einsatz von do while
-        String username = "";
-        Scanner scanner = new Scanner(System.in);
-        do {
-            System.out.println("Please tell me your name:");
-            username = scanner.nextLine();
-        } while (username.equals(""));
-        System.out.println("Yor name is: " + username);
+//        String username = "";
+//        Scanner scanner = new Scanner(System.in);
+//        do {
+//            System.out.println("Please tell me your name:");
+//            username = scanner.nextLine();
+//        } while (username.equals(""));
+//        System.out.println("Yor name is: " + username);
+
+        System.out.println("Die Summe von 10 und 20 ist: " + add(10, 20));
+        int sum4 = add(10, 20);
+        System.out.println("Die Summe von 10 und 20 ist: " +  sum4);
+
+
+
+
     }
+
+    /**
+     * This method adds two numbers
+     * @param a first number
+     * @param b second number
+     * @return ergebnis
+     */
+    public static int add(int a, int b) {
+        int sum = a + b;
+        return sum;
+    }
+
+
+
+
 }
