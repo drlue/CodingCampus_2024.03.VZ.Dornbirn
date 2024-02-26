@@ -1,5 +1,7 @@
 package luki.week01.day01;
 
+import java.util.Scanner;
+
 public class Day1 {
     public static void main(String[] args) {
         //Variable declaration
@@ -68,10 +70,40 @@ public class Day1 {
 
         index = 0;
         do {
-            System.out.println("Do While Current Index: "+index);
+            System.out.println("Do While Current Index: " + index);
             index++;
-        } while(index < -10);
+        } while (index < -10);
 
+        //Example for do - while
+        String username = "";
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("Please tell me your name:");
+            username = scanner.nextLine();
+        } while (username.equals(""));
 
+        System.out.println("Your name is: " + username);
+
+        System.out.println("Die Summe von 10 und 20 ist: " + add(10, 20));
+
+        int sum5 = add(10, 20);
+        System.out.println("Die Summ von 10 und 20 ist: " + sum5);
+
+        System.out.print("a");
+        System.out.print("a");
+        System.out.print("a");
+        System.out.println();
+    }
+
+    /**
+     * This method adds to given numbers
+     * @param a the first number
+     * @param b the second number
+     * @return sum of a and b
+     */
+    public static int add(int a, int b) {
+        int sum = a + b;
+
+        return sum;
     }
 }
