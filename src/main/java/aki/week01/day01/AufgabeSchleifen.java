@@ -21,8 +21,12 @@ public class AufgabeSchleifen {
         //Zählen mit Trick
         for (int count = 0; count <= 10; count++) {
             if (count % 2 == 0) {
-                System.out.println("Gerade Zahl: " + count);
+                System.out.println("Gerade Zahl mit Modulo Operator %: " + count);
             }
+        }
+
+        for (int count = 0; count <= 10; count += 2) {
+            System.out.println("Gerade Zahl: " + count);
         }
 
         System.out.println("--------------------");
