@@ -17,6 +17,14 @@ public class AufgabePrint {
 
         printEmptySquare("+ ", 10);
 
+        printEmptySquare("A ",3);
+
+        printSlash("X", 6, true);
+
+        printSlash2("Y",5,true);
+
+        printTri("X",4);
+
 
     }
 
@@ -46,7 +54,7 @@ public class AufgabePrint {
         }
     }
 
-    public static void printRect(String text, int number) {
+    public static void printRect(String text, int length, int height) {
         //for(int=)
     }
 
@@ -72,11 +80,11 @@ public class AufgabePrint {
     }
 
     public static void printTriangleTopRight(String text, int number) {
-        for (int i = 1; i <= number; i++) {
+        for (int i = 0; i < number; i++) {
             for (int j = 1; j <= i; j++) {
                 System.out.print("  ");
             }
-            for (int j = i; j <= number; j++) {
+            for (int j = i; j < number; j++) {
                 System.out.print(text);
 
             }
@@ -87,9 +95,9 @@ public class AufgabePrint {
     }
 
     public static void printEmptySquare(String text, int number){
-        for (int i = 0; i <= number; i++)  {
-            for (int j = 0; j<= number; j++) {
-                if (i==0||j==0||i==number||j==number){
+        for (int i = 1; i <= number; i++)  {
+            for (int j = 1; j<= number; j++) {
+                if (i==1||j==1||i==number||j==number){
                     System.out.print(text);}
                 else {
                     System.out.print("  ");
@@ -100,4 +108,60 @@ public class AufgabePrint {
         }
 
     }
+    public static void printSlash(String text,int number,boolean isSlashOrNot){
+        for (int i = 0; i < number; i++) {
+            for (int j = 0; j < number; j++)
+            {
+                if (i==j)
+                {
+                    System.out.print(text);
+                }
+                else {
+                    System.out.print(" ");
+
+                }
+
+
+            }
+            System.out.println();
+
+        }
+    }
+
+    public static void printSlash2(String text,int size,boolean isSlashOrNot){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++)
+            {
+                if (i + j == size - 1)
+                {
+                    System.out.print(text);
+                }
+                else {
+                    System.out.print(".");
+                }
+
+            }
+
+            System.out.println( );
+        }
+    }
+     //Code  not functioning properly-Modification to be made
+    public static void printTri(String text,int size){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+
+                if (i+j == size ||  i==j){
+                    System.out.println(text);
+                }
+                else {
+                    System.out.print(".");
+                }
+
+            }
+            System.out.println();
+        }
+
+    }
+
+
 }
