@@ -6,8 +6,12 @@ public class AufgabePrintChars {
         printSquare("X", 10);
         printRectangle("x", 10, 3);
         printTriangleBottomLeft("x", 4);
+        System.out.println("\nprintTriangleTopLeft");
         printTriangleTopLeft("x", 5);
-        printTriangleTopRight("x", 5);
+        System.out.println("\nprintTriangleTopRight");
+        printTriangleTopRight("x ", 5);
+        System.out.println("\nprintTriangleTopLeft2");
+        printTriangleTopLeft2("x ", 5);
     }
 //Vor dem Schlaf und nach der Methodendefinition Semikolon nicht vergessen!
 
@@ -67,31 +71,39 @@ public class AufgabePrintChars {
     //Und ab der ersten Reihe nach der nullten Reihe soll immer ein Buchstabe hinzukommen. Also erst ab buchstabe = eins wird was hinzugefügt.
 
     //Ich erzeuge noch ein Dreieck, aber andersherum
-    public static void printTriangleTopLeft(String text, int number) {
-        for (int reihe = 0; number > reihe; reihe++) {
-            for (int buchstabe = 4; reihe <= buchstabe; buchstabe--) {
+    public static void printTriangleTopLeft(String text, int size) {
+        for (int reihe = 0; size > reihe; reihe++) {
+            for (int buchstabe = size - 1; reihe <= buchstabe; buchstabe--) {
                 System.out.print(text);
             }
             System.out.println();
         }
-        System.out.println();
-        System.out.println();
     }
-    //Merke: Wenn du subtrahieren willst (aber statt Zahlen Text ausgibst), musst du dem Affen Zucker geben (also ein paar Zahlen zum Aufessen.)
+    //Merke: Wenn du subtrahieren willst (aber statt Zahlen Text ausgibst), musst du dem Affen Zucker geben (also ein paar Zahlen zum Aufessen. In diesem Fall: Die Zahl, die eh schon definiert ist)
 
     //Und nun soll das gleiche Dreieck erzeugt werden, aber ... gespiegelt.
 
-    public static void printTriangleTopRight(String text, int number) {
-        for (int reihe = 0; number > reihe; reihe++) {
-            for (int buchstabe = 4; reihe <= buchstabe; buchstabe--) {
+    public static void printTriangleTopLeft2(String text, int size) {
+        for (int reihe = 0; size > reihe; reihe++) {
+            for (int buchstabe = size - 1; reihe <= buchstabe; buchstabe--) {
                 System.out.print(text);
-                for (int leerzeichen = 1; buchstabe <= reihe; leerzeichen++) {
-                }
-                System.out.print(" ");
             }
             System.out.println();
         }
-        System.out.println();
-        System.out.println();
+    }
+
+    public static void printTriangleTopRight(String text, int size) {
+        for (int reihe = 0; size > reihe; reihe++) {
+            for (int buchstabe = 0; buchstabe <= reihe; buchstabe++) {
+                System.out.print(text);
+            }
+            for (int buchstabe = reihe + 1; buchstabe < size; buchstabe++) {
+                System.out.print(". ");
+            }
+            System.out.println();
+        }
     }
 }
+
+
+
