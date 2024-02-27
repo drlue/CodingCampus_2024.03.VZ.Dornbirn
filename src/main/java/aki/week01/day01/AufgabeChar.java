@@ -2,21 +2,7 @@ package aki.week01.day01;
 
 public class AufgabeChar {
     public static void main(String[] args) {
-        printChars("x", 10);
-
-        System.out.println();
-
-        printSquare("x", 10);
-
-        System.out.println();
-
-        printRectangle("x", 10, 3);
-
-        printTriangleBottomLeft("x", 4);
-
-        System.out.println();
-
-        printTriangleTopLeft("x", 4);
+        printTriangle("x", 3);
     }
 
     public static void printChars(String zeichen, int number) {
@@ -62,5 +48,40 @@ public class AufgabeChar {
         }
     }
 
+    public static void printTriangleTopRight(String zeichen, int number) {
+        for (int i = 0; i < number; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < number - i; j++) {
+                System.out.print(zeichen);
+            }
+            System.out.println();
+        }
+    }
 
+    public static void printTriangleBottomRight(String zeichen, int number) {
+        for (int i = number; i >= 0; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(" ");
+            }
+            for (int j = 0; j < number - i; j++) {
+                System.out.print(zeichen);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printEmptySquare(String zeichen, int number) {
+        for (int i = 0; i < number; i++) {
+            for (int j = 0; j < number; j++) {
+                if (i == 0 || i == number - 1 || j == 0 || j == number - 1) {
+                    System.out.print(zeichen);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }

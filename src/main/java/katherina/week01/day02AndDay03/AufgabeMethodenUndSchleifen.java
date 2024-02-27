@@ -1,4 +1,4 @@
-package katherina.week01.day02;
+package katherina.week01.day02AndDay03;
 
 public class AufgabePrintChars {
     public static void main(String[] args) {
@@ -87,8 +87,13 @@ public class AufgabePrintChars {
         for (int reihe = 0; size > reihe; reihe++) {
             for (int buchstabe = size - 1; reihe <= buchstabe; buchstabe--) {
                 System.out.print(text);
+                {
+                    for (buchstabe = reihe + 1; buchstabe < size; buchstabe++) {
+                        System.out.print(". ");
+                    }
+                    System.out.println();
+                }
             }
-            System.out.println();
         }
     }
 
