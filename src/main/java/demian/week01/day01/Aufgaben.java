@@ -58,110 +58,73 @@ public class Aufgaben {
 
         }
 
+        ////////////////////////////////////////
+        ///////////METHODEN AUFGABE/////////////
+        ////////////////////////////////////////
+
         System.out.println();
-        //AUFGABE: Zeichenkette Ausgeben
-        //Erstelle eine Methode die eine bestimmte Anzahl parameterisierbarer Zeichen einer Zeile ausgibt.
-        //Aufruf: printChars("x", 10);
-        //Ausgabe: xxxxxxxxxx
         System.out.println("Aufgabe: Zeichenkette Ausgeben");
         printChars("x", 10);
 
         System.out.println();
-        System.out.println();
-        System.out.println();
-        //AUFGABE: Quadrat Ausgeben
-        //Erstelle eine Methode welche ein Quader mit variabler Größe und mit angegebenem Zeichen ausgibt.
-        //Aufruf: printSquare("x", 10);
-        //Ausgabe: xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
         System.out.println("Aufgabe: Quadrat Ausgeben");
         printSquare("x", 10);
 
-
         System.out.println();
-        System.out.println();
-        System.out.println();
-        //AUFGABE: Rechteck Ausgeben
-        //Erstelle eine Methode welche ein Viereck mit variabler Größe und mit angegebenem Zeichen ausgibt.
-        //Aufruf: printReqt("x", 10, 5);
-        //Ausgabe: xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-        //         xxxxxxxxxx
-
         System.out.println("Aufgabe: Rechteck Ausgeben");
         printReqt("A", 10, 5);
 
-
         System.out.println();
-        System.out.println();
-        System.out.println();
-        //AUFGABE: Erstelle eine Methode welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
-        //Aufruf: printTriangleBottomLeft("x", 4);
-        //Ausgabe: x
-        //         xx
-        //         xxx
-        //         xxxx
         System.out.println("Aufgabe: Dreieck mit Ecke links unten");
         printTriangleBottomLeft("X", 5);
 
-
         System.out.println();
-        System.out.println();
-        System.out.println();
-        //AUFGABE: Erstelle eine Methode welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
-        //Aufruf: printTriangleTopLeft("x", 4);
-        //Ausgabe: xxxx
-        //         xxx
-        //         xx
-        //         x
         System.out.println("Aufgabe: Dreieck mit Ecke links oben");
         printTriangleTopLeft("x", 5);
 
         System.out.println();
-        System.out.println();
-        System.out.println();
-        //AUFGABE: Erstelle eine Methode welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
-        //Aufruf: printTriangleTopRight("x", 4);
-        //Ausgabe: xxxx
-        //          xxx
-        //           xx
-        //            x
         System.out.println("Aufgabe: Dreieck mit Ecke rechts oben");
-        printTriangleTopRight("X",5);
+        printTriangleTopRight("X", 5);
 
+        System.out.println();
+        System.out.println("Aufgabe: Dreieck mit Ecke rechts unten");
+        printTriangleBottomRight("x", 5);
 
-        //Ausgabe: xxxxxxxxxx
-        //         x        x
-        //         x        x
-        //         x        x
-        //         x        x
-        //         x        x
-        //         x        x
-        //         x        x
-        //         x        x
-        //         x        x
-        //         xxxxxxxxxx
+        System.out.println();
+        System.out.println("Aufgabe: \nPrint Empty Square");
+        printEmptySquare("X", 10);
+        System.out.println();
+        printEmptySquare("A", 3);
 
 
     }
 
+
+    //AUFGABE: Zeichenkette Ausgeben
+    //Erstelle eine Methode die eine bestimmte Anzahl parameterisierbarer Zeichen einer Zeile ausgibt.
+    //Aufruf: printChars("x", 10);
+    //Ausgabe: xxxxxxxxxx
     public static void printChars(String Zeichen, int Zahl) {
         for (int i = 0; i <= Zahl; i++) {
             System.out.print(Zeichen);
         }
     }
 
+
+    //AUFGABE: Quadrat Ausgeben
+    //Erstelle eine Methode welche ein Quader mit variabler Größe und mit angegebenem Zeichen ausgibt.
+    //Aufruf: printSquare("x", 10);
+    //Ausgabe: xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
     public static void printSquare(String zeichen, int zahl) {
         for (int a = 0; a < zahl; a++) {
             for (int i = 0; i < zahl; i++) {
@@ -170,9 +133,19 @@ public class Aufgaben {
 
             System.out.println();
 
+
         }
     }
 
+
+    //AUFGABE: Rechteck Ausgeben
+    //Erstelle eine Methode welche ein Viereck mit variabler Größe und mit angegebenem Zeichen ausgibt.
+    //Aufruf: printReqt("x", 10, 5);
+    //Ausgabe: xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
+    //         xxxxxxxxxx
     public static void printReqt(String Zeichen, int breite, int hoehe) {
         for (int i = 0; i < hoehe; i++) {
             for (int a = 0; a < breite; a++) {
@@ -182,6 +155,13 @@ public class Aufgaben {
         }
     }
 
+
+    //AUFGABE: Erstelle eine Methode welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
+    //Aufruf: printTriangleBottomLeft("x", 4);
+    //Ausgabe: x
+    //         xx
+    //         xxx
+    //         xxxx
     public static void printTriangleBottomLeft(String Zeichen, int Schenkellaenge) {
         for (int i = 0; i < Schenkellaenge; i++) {
             for (int a = 0; a <= i; a++) {
@@ -191,22 +171,34 @@ public class Aufgaben {
         }
     }
 
+
+    //AUFGABE: Erstelle eine Methode welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
+    //Aufruf: printTriangleTopLeft("x", 4);
+    //Ausgabe: xxxx
+    //         xxx
+    //         xx
+    //         x
     public static void printTriangleTopLeft(String Zeichen, int Schenkellaenge) {
         for (int rowx = 0; rowx < Schenkellaenge; rowx++) {
-            for (int col = 0; col < Schenkellaenge -rowx; col++) {
+            for (int col = 0; col < Schenkellaenge - rowx; col++) {
                 System.out.print(Zeichen);
             }
             System.out.println();
         }
     }
 
-    public static void printTriangleTopRight(String zeichen, int schenkellaenge){
-        for (int zeile = 0; zeile < schenkellaenge; zeile++){
-            for (int spalte = 0; spalte < schenkellaenge; spalte++){
-                if (spalte >= zeile){
+    //AUFGABE: Erstelle eine Methode welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
+    //Aufruf: printTriangleTopRight("x", 4);
+    //Ausgabe: xxxx
+    //          xxx
+    //           xx
+    //            x
+    public static void printTriangleTopRight(String zeichen, int schenkellaenge) {
+        for (int zeile = 0; zeile < schenkellaenge; zeile++) {
+            for (int spalte = 0; spalte < schenkellaenge; spalte++) {
+                if (spalte >= zeile) {
                     System.out.print(zeichen);
-                }
-                else {
+                } else {
                     System.out.print(".");
                 }
             }
@@ -214,5 +206,68 @@ public class Aufgaben {
 
         }
     }
+
+    //AUFGABE: Erstelle eine Methode welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
+    //Aufruf printTriangleBottomRight("x", 4);
+    //Ausgabe:    x
+    //           xx
+    //          xxx
+    //         xxxx
+    public static void printTriangleBottomRight(String zeichen, int schenkellaenge) {
+        for (int row = 0; row < schenkellaenge; row++) {
+            for (int col = 0; col < schenkellaenge; col++) {
+                if (col < (schenkellaenge - row - 1)) {
+                    System.out.print('.');
+                } else {
+                    System.out.print(zeichen);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    //AUFGABE: Erstelle eine Methode welche ein Quader mit variabler Größe und mit angegebenem Zeichen ausgibt.
+    //Aufruf: printEmptySquare("x", 10);
+    //Ausgabe: xxxxxxxxxx
+    //         x        x
+    //         x        x
+    //         x        x
+    //         x        x
+    //         x        x
+    //         x        x
+    //         x        x
+    //         x        x
+    //         x        x
+    //         xxxxxxxxxx
+    public static void printEmptySquare(String zeichen, int laenge){
+        for (int row = 0; row < laenge; row++) {
+            for (int col = 0; col < laenge; col++) {
+                if (row == 0 || row == (laenge-1) || col == 0 || col == (laenge-1)){
+                    System.out.print(zeichen);
+                } else {
+                    System.out.print('.');}
+            }
+            System.out.println();
+        }
+    }
+
+
+    /* AUFGABE: Print Slash
+    Erstelle eine Methode welche eine Diagonale von variabler Größe und mit angegebene Zeichen ausgibt,
+    weiters soll der Parameter backslash angegeben werden können.
+    Wenn backslash wahr ist, soll die Diagonale von rechts Unten nach Links Oben gehen, ansonsten umgekehrt.
+
+    Aufruf:
+    printSlash("x", 3, true);
+    Ausgabe:
+    x
+     x
+      x
+    printSlash("y", 4, false);
+     */
+
+
+
+
 
 }
