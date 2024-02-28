@@ -1,50 +1,7 @@
 package lukas.week01.day01;
 
-public class UebungDay1 {
-
+public class UeMethodenSchleifen {
     public static void main(String[] args) {
-        System.out.println("Hello World");
-        System.out.println("Hallo12313föäasödlfkjasdfasdffasdkfj123");
-        System.out.println("     /--\\");
-        System.out.println("    / /\\ \\");
-        System.out.println("   / /  \\ \\");
-        System.out.println("  / /    \\ \\");
-        System.out.println(" /  ======  \\");
-        System.out.println("/ /        \\ \\");
-
-        //Zählen 1a
-        for (int i = 0; i <= 10; i++) {
-            System.out.println(i);
-        }
-
-        //Zählen 1b
-        int j = 0;
-        while (j <= 10) {
-            System.out.println(j);
-            j++;
-        }
-
-        //Zählen 2
-        for (int i = 0; i < 10; i++) {
-            System.out.println(i);
-        }
-
-        //Zählen 3a
-        for (int i = 0; i <= 10; i++) {
-            if (i % 2 == 0) {
-                System.out.println(i);
-            }
-        }
-
-        //Zählen 3b
-        for (int i = 0; i <= 10; i += 2) {
-            System.out.println(i);
-        }
-
-        //Zählen 4
-        for (int i = 10; i >= -10; i--) {
-            System.out.println(i);
-        }
 
         System.out.println("printChars");
         printChars("x", 10);
@@ -119,7 +76,7 @@ public class UebungDay1 {
         System.out.println();
 
         System.out.println("printChristmasTree");
-        printChristmasTree(9, 2,5);
+        printChristmasTree(5, 2, 5);
         System.out.println();
     }
 
@@ -297,7 +254,7 @@ public class UebungDay1 {
         //Stamm
         for (int row3 = 0; row3 < hStamm; row3++) {
             for (int col3 = 0; col3 < size * 2; col3++) {
-                if (col3 >= size-1 - bStamm / 2 && col3 <= size-1 + bStamm / 2) {
+                if (col3 >= size - 1 - bStamm / 2 && col3 <= size - 1 + bStamm / 2) {
                     System.out.print("+");
                 } else {
                     System.out.print(" ");
@@ -308,4 +265,3 @@ public class UebungDay1 {
     }
 
 }
-
