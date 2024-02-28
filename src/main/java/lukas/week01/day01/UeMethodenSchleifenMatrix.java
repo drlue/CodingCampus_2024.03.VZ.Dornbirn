@@ -1,6 +1,6 @@
 package lukas.week01.day01;
 
-public class UebungDay2Matrix {
+public class UeMethodenSchleifenMatrix {
     public static void main(String[] args) {
 
         System.out.println("printSquare");
