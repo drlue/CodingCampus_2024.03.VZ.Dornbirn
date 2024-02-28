@@ -1,6 +1,6 @@
 package irem;
 
-public class Schleifen4 {
+public class Schleifen3 {
     public static void main(String[] args) {
 
         for (int counter = 0; counter <= 10; counter++) {
@@ -10,9 +10,11 @@ public class Schleifen4 {
             } else {
                 System.out.println("ungerade");
             }
+            counter++;
+        }
+
+
         }
 
 
     }
-
-}
