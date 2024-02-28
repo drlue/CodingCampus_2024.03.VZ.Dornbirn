@@ -138,8 +138,20 @@ public class Aufgaben {
         //           xx
         //            x
         System.out.println("Aufgabe: Dreieck mit Ecke rechts oben");
-        printTriangleTopRight("X",5);
+        printTriangleTopRight("X", 5);
 
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        //AUFGABE: Erstelle eine Methode welche ein Dreieck mit variabler Größe und mit angegebenem Zeichen ausgibt.
+        //Aufruf printTriangleBottomRight("x", 4);
+        //Ausgabe:    x
+        //           xx
+        //          xxx
+        //         xxxx
+        System.out.println("Aufgabe: Dreieck mit Ecke rechts unten");
+        printTriangleBottomRight("x", 5);
 
         //Ausgabe: xxxxxxxxxx
         //         x        x
@@ -170,6 +182,7 @@ public class Aufgaben {
 
             System.out.println();
 
+
         }
     }
 
@@ -193,20 +206,19 @@ public class Aufgaben {
 
     public static void printTriangleTopLeft(String Zeichen, int Schenkellaenge) {
         for (int rowx = 0; rowx < Schenkellaenge; rowx++) {
-            for (int col = 0; col < Schenkellaenge -rowx; col++) {
+            for (int col = 0; col < Schenkellaenge - rowx; col++) {
                 System.out.print(Zeichen);
             }
             System.out.println();
         }
     }
 
-    public static void printTriangleTopRight(String zeichen, int schenkellaenge){
-        for (int zeile = 0; zeile < schenkellaenge; zeile++){
-            for (int spalte = 0; spalte < schenkellaenge; spalte++){
-                if (spalte >= zeile){
+    public static void printTriangleTopRight(String zeichen, int schenkellaenge) {
+        for (int zeile = 0; zeile < schenkellaenge; zeile++) {
+            for (int spalte = 0; spalte < schenkellaenge; spalte++) {
+                if (spalte >= zeile) {
                     System.out.print(zeichen);
-                }
-                else {
+                } else {
                     System.out.print(".");
                 }
             }
@@ -214,5 +226,20 @@ public class Aufgaben {
 
         }
     }
+
+    public static void printTriangleBottomRight(String zeichen, int schenkellaenge) {
+        for (int row = 0; row < schenkellaenge; row++) {
+            for (int col = 0; col < schenkellaenge; col++) {
+                if (col < (schenkellaenge - row - 1)) {
+                    System.out.print('.');
+                } else {
+                    System.out.print(zeichen);
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
 
 }
