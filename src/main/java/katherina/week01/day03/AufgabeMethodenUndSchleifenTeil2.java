@@ -12,6 +12,10 @@ public class AufgabeMethodenUndSchleifenTeil2 {
         printSlash("y ", 4, false);
         System.out.println("\nprintTriangle");
         printTriangle("x ", 3);
+        System.out.println("\nprintTriangle");
+        printTriangle("x ", 5);
+        System.out.println("\nprintTriangle");
+        printTriangle("x ", 1);
     }
 
     public static void printemptySquare(String text, int size) {
@@ -85,17 +89,12 @@ public class AufgabeMethodenUndSchleifenTeil2 {
     //Ich habe hier so viel Spaß!
 
     public static void printTriangle(String text, int size) {
-        for (int reihe = 0; size > reihe; reihe++) {
-            for (int spalte = 0; spalte < size; spalte++) {
-                if (reihe + spalte == size - 1) {
-                    System.out.print(text);
-                } else {
-                    System.out.print(". ");
-                }
+        for (int reihe = 0; reihe < size; reihe++) {
+            for (int spalte = 0; spalte < 2*size-1; spalte++) {
+
             }
             System.out.println();
         }
-
     }
 }
 
