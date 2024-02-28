@@ -17,33 +17,66 @@ public class PrintA {
 
         }
 
-        for (int num1 = 0; num1 >= 10; num1++) {
+        int XY = 10;
+
+        for (int i = 0; i < XY; i++) {
+            System.out.println(i);
+        }
+
+
+        int i = 10;
+
+        while (i <= XY) {
+            System.out.println(i);
+            i++;
+        }
+
+        for (int num1 = 0; num1 <= XY; num1++) {
             System.out.println("For loops number is: " + num1);
 
 
         }
 
-        for (int num1 = 0; num1 < 10; num1++) {
+        for (int num1 = 0; num1 < XY; num1++) {
             System.out.println("Runde: " + num1);
 
         }
 
-        for (int num1 = 0; num1 <= 10; num1++) {
-            if (num1 % 2 == 0) {
+        for (int num1 = 0; num1 <= XY; num1++) {
+            if ((num1 % 2) == 0) {
                 System.out.println(num1);
-
-
             }
-
-
         }
 
+
+        System.out.println("Lösung ardi");
+        for (int num1 = 0; num1 <= XY; num1 += 2) {
+
+            System.out.println(num1);
+        }
+
+
         int num1 = 10;
-        int num2 = -11;
-        while (num1 > num2) {
+        int num2 = -10;
+        while (num1 >= num2) {
             System.out.println("Countdown: " + num1);
             num1--;
 
+        }
+
+
+        int num3 = 10;
+        while (num3 >= -num3) {
+            System.out.println("Countdown: " + num3);
+            num3--;
+
+        }
+
+
+        int begin = 10;
+
+        for (int j = begin; j >= -begin; j--) {
+            System.out.println(j);
         }
 
 

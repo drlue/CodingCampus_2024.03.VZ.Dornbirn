@@ -15,6 +15,8 @@ public class Sandkasten {
         System.out.println(Ausgabe);
     }
 
+
+
     public static String erzeugeZeichenkette(char buchstabe, int anzahl) {
         // Initialisiere eine leere Zeichenkette
         String result = "";

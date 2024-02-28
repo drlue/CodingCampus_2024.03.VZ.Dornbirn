@@ -2,7 +2,7 @@ package aki.week01.day01;
 
 public class AufgabeChar {
     public static void main(String[] args) {
-        printTriangle("x", 3);
+        System.out.println("Hello WOrld");
     }
 
     public static void printChars(String zeichen, int number) {
