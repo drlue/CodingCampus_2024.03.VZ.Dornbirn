@@ -1,6 +1,6 @@
 package lukas.week01.day01;
 
-public class UebungDay2Matrix {
+public class UeMethodenSchleifenMatrix {
     public static void main(String[] args) {
 
         System.out.println("printSquare");
@@ -35,9 +35,14 @@ public class UebungDay2Matrix {
         printEmptySquare("A", 3);
         System.out.println();
 
-        System.out.println("printSlash");
+        System.out.println("printBackslash");
         printSlash("x", 5, true);
         System.out.println();
+
+        System.out.println("printSlash");
+        printSlash("y", 5, false);
+        System.out.println();
+        
 
 
     }
@@ -128,9 +133,9 @@ public class UebungDay2Matrix {
     public static void printSlash(String txt, int size, boolean backslash){
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
-                if (row == col) {
+                if ((backslash && col == row) || (!backslash && col == size-1 - row)) {
                     System.out.print(txt);
-                } else {
+                }  else {
                     System.out.print(" ");
                 }
             }
