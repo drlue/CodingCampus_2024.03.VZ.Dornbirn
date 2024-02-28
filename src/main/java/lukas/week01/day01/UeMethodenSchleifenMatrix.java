@@ -47,6 +47,17 @@ public class UeMethodenSchleifenMatrix {
         printTriangle("x", 5);
         System.out.println();
 
+        System.out.println("printRhombus");
+        printRhombus("x", 7);
+        System.out.println();
+
+        System.out.println("printX");
+        printX("x", 5);
+        System.out.println();
+
+        System.out.println("printChristmasTree");
+        printChristmasTree( 15);
+        System.out.println();
 
     }
 
@@ -152,7 +163,7 @@ public class UeMethodenSchleifenMatrix {
                 if (col == size - 1 - row || col == size - 1 + row || row == size - 1) {
                     System.out.print(txt);
                 } else {
-                    System.out.print(".");
+                    System.out.print(" ");
                 }
             }
             System.out.println();
@@ -160,19 +171,70 @@ public class UeMethodenSchleifenMatrix {
     }
 
     public static void printRhombus(String txt, int size) {
+        int h2 = size / 2;
         for (int col = 0; col < size; col++) {
             for (int row = 0; row < size; row++) {
-                //if Bedingungen ergänzen
-                if(row == col){
+                //if 4x Geradengleichung (1x je Seite) Abszisse (x) -> col, Ordinate (y) -> row
+                if (row == -col + h2 || row == col + h2 || row == col - h2 || row == -col + 3 * h2) {
                     System.out.print(txt);
+                } else {
+                    System.out.print(" ");
                 }
-                else{
-                    System.out.print(".");
-                }
-
             }
-
+            System.out.println();
         }
     }
+
+    public static void printX(String txt, int size) {
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
+                if (row == col || row == -col + size - 1 ) {
+                    System.out.print(txt);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printChristmasTree(int height){
+        int width = 2*height-1;
+        //Baum
+        for (int row = 0; row < height; row++) {
+            for (int col = 0; col < width; col++) {
+                if(col >= height-1-row && col <= row+height-1){
+                    System.out.print("x");
+                }else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+        //Kugeln
+        for (int col = 0; col < width; col++) {
+            if(col%2!=0) {
+                System.out.print(".");
+            } else {
+                System.out.print("O");
+            }
+        }
+        System.out.println();
+        //Stamm soll sich proportional zu height ändern
+        int bStamm = width/2-1;
+        int hStamm = height/2;
+        for (int row = 0; row < hStamm; row++) {
+            for (int col = 0; col < width; col++) {
+                if(col >= width/2 - bStamm/2 && col <= width/2 + bStamm/2) {
+                    System.out.print("+");
+                }
+                else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
 
 }

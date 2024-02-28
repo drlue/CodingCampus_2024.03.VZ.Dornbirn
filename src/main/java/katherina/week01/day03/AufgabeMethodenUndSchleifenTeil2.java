@@ -12,6 +12,10 @@ public class AufgabeMethodenUndSchleifenTeil2 {
         printSlash("y ", 4, false);
         System.out.println("\nprintTriangle");
         printTriangle("x ", 3);
+        System.out.println("\nprintTriangle");
+        printTriangle("x ", 5);
+        System.out.println("\nprintTriangle");
+        printTriangle("x ", 1);
     }
 
     public static void printemptySquare(String text, int size) {
@@ -86,8 +90,8 @@ public class AufgabeMethodenUndSchleifenTeil2 {
 
     public static void printTriangle(String text, int size) {
         for (int reihe = 0; size > reihe; reihe++) {
-            for (int spalte = 0; spalte < size; spalte++) {
-                if (reihe + spalte == size - 1) {
+            for (int spalte = 0; spalte < 2 * size - 1; spalte++) {
+                if (reihe + spalte == size - 1 || reihe == spalte - size + 1 || reihe == size - 1) {
                     System.out.print(text);
                 } else {
                     System.out.print(". ");
@@ -95,7 +99,6 @@ public class AufgabeMethodenUndSchleifenTeil2 {
             }
             System.out.println();
         }
-
     }
+    //Merke: Die Formel für die Matrix eines Dreieckes lautet: size (Höhe) x 2xsize -1 (Breite)
 }
-
