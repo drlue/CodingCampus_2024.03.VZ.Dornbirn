@@ -2,7 +2,7 @@ package aki.week01.day01;
 
 public class AufgabeChar {
     public static void main(String[] args) {
-        printTriangle("x", 3);
+        printSlash("x", 3, true);
     }
 
     public static void printChars(String zeichen, int number) {
@@ -75,13 +75,22 @@ public class AufgabeChar {
     public static void printEmptySquare(String zeichen, int number) {
         for (int i = 0; i < number; i++) {
             for (int j = 0; j < number; j++) {
-                if (i == 0 || i == number - 1 || j == 0 || j == number - 1) {
+                if (i == 0 || i == number - 1|| j == 0 || j == number -1) {
                     System.out.print(zeichen);
                 } else {
                     System.out.print(" ");
                 }
             }
             System.out.println();
+        }
+    }
+
+    public static void printSlash(String zeichen, int number, boolean backslash) {
+        for (int i = 0; i < number; i++) {
+            for (int j = 0; j < i; j++) {
+                System.out.print(zeichen);
+            }
+            System.out.print(" ");
         }
     }
 }
