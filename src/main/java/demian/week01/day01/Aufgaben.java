@@ -92,7 +92,9 @@ public class Aufgaben {
 
         System.out.println();
         System.out.println("Aufgabe: \nPrint Empty Square");
-
+        printEmptySquare("X", 10);
+        System.out.println();
+        printEmptySquare("A", 3);
 
 
     }
@@ -240,10 +242,29 @@ public class Aufgaben {
     public static void printEmptySquare(String zeichen, int laenge){
         for (int row = 0; row < laenge; row++) {
             for (int col = 0; col < laenge; col++) {
-                if ()
+                if (row == 0 || row == (laenge-1) || col == 0 || col == (laenge-1)){
+                    System.out.print(zeichen);
+                } else {
+                    System.out.print('.');}
             }
+            System.out.println();
         }
     }
+
+
+    /* AUFGABE: Print Slash
+    Erstelle eine Methode welche eine Diagonale von variabler Größe und mit angegebene Zeichen ausgibt,
+    weiters soll der Parameter backslash angegeben werden können.
+    Wenn backslash wahr ist, soll die Diagonale von rechts Unten nach Links Oben gehen, ansonsten umgekehrt.
+
+    Aufruf:
+    printSlash("x", 3, true);
+    Ausgabe:
+    x
+     x
+      x
+    printSlash("y", 4, false);
+     */
 
 
 
