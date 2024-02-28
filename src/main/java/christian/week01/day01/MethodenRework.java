@@ -2,7 +2,8 @@ package christian.week01.day01;
 
 public class MethodenRework {
     public static void main(String[] args) {
-
+        System.out.println(printXChars('x', 10));
+        System.out.println(printXSquare('x',9));
         printTriangleMiddle('x', 3);
         printRhombus('x', 9);
     }
@@ -10,21 +11,24 @@ public class MethodenRework {
     // Aufgabe xbeliebige Buchstaben ausgeben
     public static String printXChars(char xChar, int count) {
         String solution = "";
+        java.lang.StringBuilder solutionB = new java.lang.StringBuilder(300);
         for (int row = 0; row < count; row++) {
-            solution += xChar;
+            solutionB.append(xChar);
         }
+        solution = solutionB.toString();
         return solution;
     }
 
     // ausgefülltes Quadrat mit Seitenlänge count ausgeben
     public static String printXSquare(char xChar, int count) {
         String solution = "";
+        java.lang.StringBuilder solutionB = new java.lang.StringBuilder();
         for (int row = 0; row < count; row++) {
+            solutionB.append(printXChars(xChar, count));
+            solutionB.append("\n");
 
-            solution += printXChars(xChar, count);
-            solution += "\n";
         }
-
+        solution = solutionB.toString();
         return solution;
     }
 
@@ -140,6 +144,7 @@ public class MethodenRework {
         }
 
     }
+
     // Rhombus zeichnen
     public static void printRhombus(char xChar, int height) {
         for (int row = 0; row < height; row++) {
@@ -154,7 +159,8 @@ public class MethodenRework {
             System.out.println();
         }
     }
-    public static void printScalableX(char xChar, int height){
+
+    public static void printScalableX(char xChar, int height) {
 
     }
 }
