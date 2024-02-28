@@ -124,6 +124,7 @@ public class UeMethodenSchleifenMatrix {
                     System.out.print(txt);
                 } else {
                     System.out.print(" ");
+
                 }
             }
             System.out.println();
