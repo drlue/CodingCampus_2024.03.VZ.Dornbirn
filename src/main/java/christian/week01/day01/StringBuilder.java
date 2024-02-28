@@ -15,7 +15,7 @@ public static void main(String[] args) {
                 if (row == 0 || col == 0 || row == count - 1 || col == count - 1) {
                    solutionB.append(xChar);
                 } else {
-                   solutionB.append(" ");
+                   solutionB.insert(solutionB.length()," ");
                 }
             }
             solutionB.append("\n");
