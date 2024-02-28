@@ -6,7 +6,7 @@ public class Aufgaben {
         //Aufgabe Print A
 
         System.out.println("Hello World!");
-        System.out.println("");
+        System.out.println();
         System.out.println("     /--\\ ");
         System.out.println("    / /\\ \\ ");
         System.out.println("   / /  \\ \\ ");
@@ -33,13 +33,13 @@ public class Aufgaben {
             System.out.println(index);
             index++;
 
-        } while (index < 10);
+        } while (index < 11);
         System.out.println(index);
 
 
         // AUFGABE ZÄHLEN 2: Zähle in einer Schleife von 0 bis exklusive 10 und gib die Zählvariable aus.
         System.out.println("Zählen 2");
-        for (int index2 = 0; index2 <= 9; index2++) {
+        for (int index2 = 0; index2 < 10; index2++) {
             System.out.println(index2);
         }
 
@@ -158,24 +158,24 @@ public class Aufgaben {
 
     public static void printChars(String Zeichen, int Zahl) {
         for (int i = 0; i <= Zahl; i++) {
-            System.out.print("x");
+            System.out.print(Zeichen);
         }
     }
 
-    public static void printSquare(String Zeichen, int Zahl) {
-        for (int a = 0; a <= Zahl; a++) {
-            for (int i = 0; i <= Zahl; i++) {
-                System.out.print("x");
+    public static void printSquare(String zeichen, int zahl) {
+        for (int a = 0; a < zahl; a++) {
+            for (int i = 0; i < zahl; i++) {
+                System.out.print(zeichen);
             }
-            ;
+
             System.out.println();
 
         }
     }
 
     public static void printReqt(String Zeichen, int breite, int hoehe) {
-        for (int i = 1; i <= hoehe; i++) {
-            for (int a = 1; a <= breite; a++) {
+        for (int i = 0; i < hoehe; i++) {
+            for (int a = 0; a < breite; a++) {
                 System.out.print(Zeichen);
             }
             System.out.println();
@@ -183,8 +183,8 @@ public class Aufgaben {
     }
 
     public static void printTriangleBottomLeft(String Zeichen, int Schenkellaenge) {
-        for (int i = 1; i <= Schenkellaenge; i++) {
-            for (int a = 0; a < i; a++) {
+        for (int i = 0; i < Schenkellaenge; i++) {
+            for (int a = 0; a <= i; a++) {
                 System.out.print(Zeichen);
             }
             System.out.println();
@@ -192,19 +192,19 @@ public class Aufgaben {
     }
 
     public static void printTriangleTopLeft(String Zeichen, int Schenkellaenge) {
-        for (int Spalten = 0; Spalten <= Schenkellaenge; Spalten++) {
-            for (int Zeile = 1; Zeile <= Schenkellaenge -Spalten; Zeile++) {
+        for (int rowx = 0; rowx < Schenkellaenge; rowx++) {
+            for (int col = 0; col < Schenkellaenge -rowx; col++) {
                 System.out.print(Zeichen);
             }
             System.out.println();
         }
     }
 
-    public static void printTriangleTopRight(String Zeichen, int Schenkellaenge){
-        for (int Spalte = 0; Spalte <= Schenkellaenge; Spalte++){
-            for (int Zeile = 1; Zeile <= Schenkellaenge; Zeile++){
-                if (Zeile > Spalte){
-                    System.out.print(Zeichen);
+    public static void printTriangleTopRight(String zeichen, int schenkellaenge){
+        for (int zeile = 0; zeile < schenkellaenge; zeile++){
+            for (int spalte = 0; spalte < schenkellaenge; spalte++){
+                if (spalte >= zeile){
+                    System.out.print(zeichen);
                 }
                 else {
                     System.out.print(".");

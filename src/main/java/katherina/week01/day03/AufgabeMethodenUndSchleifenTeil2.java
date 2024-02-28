@@ -10,6 +10,8 @@ public class AufgabeMethodenUndSchleifenTeil2 {
         printSlash("x ", 3, true);
         System.out.println("\nprintSlash2");
         printSlash2("y ", 4, false);
+        System.out.println("\nprintTriangle");
+        printTriangle("x ",3);
     }
 
     public static void printemptySquare(String text, int size) {
@@ -58,7 +60,7 @@ public class AufgabeMethodenUndSchleifenTeil2 {
     public static void printSlash2(String text, int size, boolean b) {
         for (int reihe = 0; size > reihe; reihe++) {
             for (int spalte = 0; spalte < size; spalte++) {
-                if (reihe + spalte == size/2) {
+                if (reihe + spalte == size-1) {
                     System.out.print(text);
                 } else {
                     System.out.print(". ");
@@ -69,5 +71,21 @@ public class AufgabeMethodenUndSchleifenTeil2 {
 
     }
 
+    //Episode III: Die Rückkehr der Dreiecke!
+    //Ich habe hier so viel Spaß!
+
+    public static void printTriangle(String text, int size) {
+        for (int reihe = 0; size > reihe; reihe++) {
+            for (int spalte = 0; spalte < size; spalte++) {
+                if (reihe + spalte == size-1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
 }
 
