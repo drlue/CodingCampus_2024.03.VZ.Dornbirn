@@ -15,7 +15,7 @@ public class MethodenUndSchleifen {
         printSlash("B", 4, true);
         printSlash("B", 4, false);
         printTriangle("X", 5);
-        printRhombus("X",7);
+        printRhombus("X", 10);
 
     }
 
@@ -170,37 +170,45 @@ public class MethodenUndSchleifen {
 
             System.out.println();
         }
-        printChars(x,bottom * 2 -1);
+        printChars(x, bottom * 2 - 1);
     }
 
 
-    public static void printRhombus(String x, int size){
+    public static void printRhombus(String x, int size) {
+        System.out.println("Rhombus");
 
-        int h2 = size / 2;
-        for (int row = 0; row < size; row++) {
+        int s2 = size / 2;
+        for (int row = 0; row <= size; row++) {
+            int currentRow;
 
-            for (int col = 0; col < size - row - (size / 2) -1; col++) {
+
+            if (row <= s2) {
+                currentRow = row;
+            } else {
+                currentRow = size - row ;
+            }
+
+
+            // Leerzeichen vor dem ersten Zeichen
+            for (int col = 0; col < s2 - currentRow; col++) {
                 System.out.print(".");
             }
+
+            // Erstes Zeichen
             System.out.print(x);
-            for (int col = 0; col < 2 * row -1; col++) {
-                System.out.print(".");
-            }
-            if (row != 0){
+
+            // Leerzeichen zwischen den Zeichen, falls nötig
+            if (currentRow > 0) {
+
+                for (int col = 0; col < 2 * currentRow - 1; col++) {
+                    System.out.print(".");
+                }
+                // Zweites Zeichen, falls nicht in der ersten oder letzten Zeile
                 System.out.print(x);
             }
 
-
-
-
-
-
-
-
             System.out.println();
         }
-
-
     }
 
 
