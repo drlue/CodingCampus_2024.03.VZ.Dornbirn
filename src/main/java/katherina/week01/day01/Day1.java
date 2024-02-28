@@ -98,7 +98,7 @@ public class Day1 {
             index++;
         } while (index < -10);
 
-       // System.out.println("Die Summe von 10 und 20 ist: " + add( a:10, b:20));
+        // System.out.println("Die Summe von 10 und 20 ist: " + add( a:10, b:20));
 
         //int sum5 = add( a:10, b:20);
         //System.out.println("Die Summe von 10 und 20 ist: " + sum5);
@@ -107,25 +107,26 @@ public class Day1 {
 
     /**
      * This method adds to given numbers
+     *
      * @param a the first number
      * @param b the second number
      * @return sum of a and b
      */
-    public static int add(int a, int b){
+    public static int add(int a, int b) {
         int sum = a + b;
         return sum;
 
     }
 }
 
-    //Beispiel für "Do- While"
-       // String username = "";
-        //Scanner scanner = new Scanner(System.in);
-        //do {
-          //  System.out.println("Please tell me your name:");
-            //username = scanner.nextLine();
-        //} while (username.equals(""));
+//Beispiel für "Do- While"
+// String username = "";
+//Scanner scanner = new Scanner(System.in);
+//do {
+//  System.out.println("Please tell me your name:");
+//username = scanner.nextLine();
+//} while (username.equals(""));
 
-        //System.out.println("Your name is: " + username);
+//System.out.println("Your name is: " + username);
 
 
