@@ -4,7 +4,7 @@ public class StringBuilder {
 
     public static void main(String[] args) {
 
-        System.out.println(printEmptyXSquare("x", 15));
+        System.out.println(printEmptyXSquare("x", 10));
     }
 
     // leeres Quadrat ausgeben mit Stringbuilder .append und .insert (int offset, string)
@@ -15,9 +15,8 @@ public class StringBuilder {
             for (int col = 0; col < count; col++) {
                 if (row == 0 || col == 0 || row == count - 1 || col == count - 1) {
                     solutionB.append(xChar);
-                    solutionB.append(' ');
                 } else {
-                    solutionB.insert(solutionB.length(), "  ");
+                    solutionB.insert(solutionB.length(), " ");
                 }
             }
             solutionB.append("\n");
