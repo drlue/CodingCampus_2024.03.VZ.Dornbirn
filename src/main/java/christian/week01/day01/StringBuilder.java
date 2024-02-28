@@ -8,7 +8,7 @@ public static void main(String[] args) {
     }
     // leeres Quadrat ausgeben
     public static String printEmptyXSquare(String xChar, int count) {
-    String solution = "";
+    String solution;
         java.lang.StringBuilder solutionB = new java.lang.StringBuilder();
         for (int row = 0; row < count; row++) {
             for (int col = 0; col < count; col++) {
