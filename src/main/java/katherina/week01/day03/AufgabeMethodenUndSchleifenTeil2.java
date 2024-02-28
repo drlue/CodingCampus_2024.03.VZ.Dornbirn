@@ -9,9 +9,9 @@ public class AufgabeMethodenUndSchleifenTeil2 {
         System.out.println("\nprintSlash");
         printSlash("x ", 3, true);
         System.out.println("\nprintSlash2");
-        printSlash2("y ", 4, false);
+        printSlash("y ", 4, false);
         System.out.println("\nprintTriangle");
-        printTriangle("x ",3);
+        printTriangle("x ", 3);
     }
 
     public static void printemptySquare(String text, int size) {
@@ -44,6 +44,16 @@ public class AufgabeMethodenUndSchleifenTeil2 {
     }
 
     public static void printSlash(String text, int size, boolean b) {
+        if (b) {
+            printSlashBackward(text, size);
+        } else {
+            printSlashForward(text, size);
+        }
+    }
+    //Im Grunde genommen kann ich mit dieser Funktion sagen: Zeig mir mal Variante 1 und Variante 2. Ich habe die jeweiligen Funktionen einzeln gebaut und dann kann ich sie über einen Schalter "zusammenführen".
+    //Das werde ich gleich mit verschiedengroßen Dreiecken selbst ausprobieren. (Siehe "Die Rückkehr der Dreiecke")
+
+    public static void printSlashForward(String text, int size) {
         for (int reihe = 0; size > reihe; reihe++) {
             for (int spalte = 0; spalte < size; spalte++) {
                 if (reihe == spalte) {
@@ -57,10 +67,10 @@ public class AufgabeMethodenUndSchleifenTeil2 {
 
     }
 
-    public static void printSlash2(String text, int size, boolean b) {
+    public static void printSlashBackward(String text, int size) {
         for (int reihe = 0; size > reihe; reihe++) {
             for (int spalte = 0; spalte < size; spalte++) {
-                if (reihe + spalte == size-1) {
+                if (reihe + spalte == size - 1) {
                     System.out.print(text);
                 } else {
                     System.out.print(". ");
@@ -77,7 +87,7 @@ public class AufgabeMethodenUndSchleifenTeil2 {
     public static void printTriangle(String text, int size) {
         for (int reihe = 0; size > reihe; reihe++) {
             for (int spalte = 0; spalte < size; spalte++) {
-                if (reihe + spalte == size-1) {
+                if (reihe + spalte == size - 1) {
                     System.out.print(text);
                 } else {
                     System.out.print(". ");
