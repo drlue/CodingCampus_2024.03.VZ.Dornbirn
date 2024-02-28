@@ -6,7 +6,7 @@ public class MethodenUndSchleifen {
         System.out.println("Print Char");
         printChars("A", 3);
         printSquare("B", 5);
-        printRect("C", 2, 5);
+        printRect("C", 4, 5);
         printTriangleBottomLeft("T", 5);
         printTriangleTopLeft("X", 5);
         printTriangleTopRight("S", 5);
@@ -14,8 +14,11 @@ public class MethodenUndSchleifen {
         printEmptySquare("K", 5);
         printSlash("B", 4, true);
         printSlash("B", 4, false);
-        printTriangle("X", 5);
-        printRhombus("X",7);
+        printTriangle("X", 10);
+        printRhombus("X", 30);
+        printX("X", 5);
+        printChristmasTree("*", 9);
+        Test();
 
     }
 
@@ -41,7 +44,7 @@ public class MethodenUndSchleifen {
     }
 
     public static void printRect(String character, int length, int height) {
-        System.out.println("Print Rectangle");
+//        System.out.println("Print Rectangle");
 
         String Output = printChars(character, length);
 
@@ -170,38 +173,126 @@ public class MethodenUndSchleifen {
 
             System.out.println();
         }
-        printChars(x,bottom * 2 -1);
+        printChars(x, bottom * 2 - 1);
     }
 
 
-    public static void printRhombus(String x, int size){
+    public static void printRhombus(String x, int size) {
+        System.out.println("Rhombus");
 
-        int h2 = size / 2;
-        for (int row = 0; row < size; row++) {
+        int s2 = size / 2;
+        for (int row = 0; row <= size; row++) {
+            int currentRow;
 
-            for (int col = 0; col < size - row - (size / 2) -1; col++) {
+
+            if (row <= s2) {
+                currentRow = row;
+            } else {
+                currentRow = size - row;
+            }
+
+
+            for (int col = 0; col < s2 - currentRow; col++) {
                 System.out.print(".");
             }
+
+
             System.out.print(x);
-            for (int col = 0; col < 2 * row -1; col++) {
-                System.out.print(".");
-            }
-            if (row != 0){
+
+
+            if (currentRow > 0) {
+
+                for (int col = 0; col < 2 * currentRow - 1; col++) {
+                    System.out.print(".");
+                }
                 System.out.print(x);
             }
 
+            System.out.println();
+        }
+    }
+
+    public static void printX(String ch, int size) {
+        System.out.println("Print X");
+
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size; col++) {
 
 
+                if (row == col || row + col == size - 1) {
+                    System.out.print(ch);
+                } else {
+                    System.out.print(" ");
+                }
+
+            }
+            System.out.println();
+        }
+    }
 
 
+    public static void printChristmasTree(String ch, int size) {
+        System.out.println("Christmas Tree");
+        int counter = 1;
 
-
+        for (int row = 0; row < size; row++) {
+            counter++;
+            for (int Col = 0; Col < (size - row) - 1; Col++) {
+                System.out.print(" ");
+            }
+            System.out.print(ch);
+            for (int i = 0; i < (2 * row) - 1; i++) {
+                System.out.print(ch);
+            }
+            if (row != 0) {
+                System.out.print(ch);
+            }
 
             System.out.println();
         }
 
+        printChars("o", size * 2 - 1);
+
+
+        int logHeight = size / 3;
+        for (int row = 0; row < logHeight; row++) {
+
+            for (int col = 0; col < size / 2 + 2; col++) {
+                System.out.print(".");
+
+            }
+            printRect("+", 5, 0);
+        }
+
 
     }
+
+
+    public static void Test(){
+        int groesse = 9;
+
+        char[][] koordinatenSystem = new char[groesse][groesse];
+
+        for(int i = 0; i < groesse; i++) {
+            for(int j = 0; j < groesse; j++) {
+                koordinatenSystem[i][j] = ' ';
+            }
+        }
+
+        for(int i = 0; i < groesse; i++) {
+            koordinatenSystem[i][i] = 'X';
+            koordinatenSystem[i][groesse - 1 - i] = 'X';
+        }
+
+        for(int i = 0; i < groesse; i++) {
+            for(int j = 0; j < groesse; j++) {
+                System.out.print(koordinatenSystem[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
+
 
 
 }

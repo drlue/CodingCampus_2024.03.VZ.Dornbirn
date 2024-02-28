@@ -1,6 +1,6 @@
 package lukas.week01.day01;
 
-public class UebungDay2Matrix {
+public class UeMethodenSchleifenMatrix {
     public static void main(String[] args) {
 
         System.out.println("printSquare");
@@ -35,8 +35,16 @@ public class UebungDay2Matrix {
         printEmptySquare("A", 3);
         System.out.println();
 
-        System.out.println("printSlash");
+        System.out.println("printBackslash");
         printSlash("x", 5, true);
+        System.out.println();
+
+        System.out.println("printSlash");
+        printSlash("y", 5, false);
+        System.out.println();
+
+        System.out.println("printTriangle");
+        printTriangle("x", 5);
         System.out.println();
 
 
@@ -102,7 +110,7 @@ public class UebungDay2Matrix {
     public static void printTriangleBottomRight(String txt, int size) {
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
-                if (col < size-row-1) {
+                if (col < size - row - 1) {
                     System.out.print(" ");
                 } else {
                     System.out.print(txt);
@@ -112,10 +120,10 @@ public class UebungDay2Matrix {
         }
     }
 
-    public static void printEmptySquare(String txt, int size){
+    public static void printEmptySquare(String txt, int size) {
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
-                if (row == 0 || row == size-1 || col == 0 || col == size-1) {
+                if (row == 0 || row == size - 1 || col == 0 || col == size - 1) {
                     System.out.print(txt);
                 } else {
                     System.out.print(" ");
@@ -125,16 +133,45 @@ public class UebungDay2Matrix {
         }
     }
 
-    public static void printSlash(String txt, int size, boolean backslash){
+    public static void printSlash(String txt, int size, boolean backslash) {
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
-                if (row == col) {
+                if ((backslash && col == row) || (!backslash && col == size - 1 - row)) {
                     System.out.print(txt);
                 } else {
                     System.out.print(" ");
                 }
             }
             System.out.println();
+        }
+    }
+
+    public static void printTriangle(String txt, int size) {
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size * 2 - 1; col++) {
+                if (col == size - 1 - row || col == size - 1 + row || row == size - 1) {
+                    System.out.print(txt);
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printRhombus(String txt, int size) {
+        for (int col = 0; col < size; col++) {
+            for (int row = 0; row < size; row++) {
+                //if Bedingungen ergänzen
+                if(row == col){
+                    System.out.print(txt);
+                }
+                else{
+                    System.out.print(".");
+                }
+
+            }
+
         }
     }
 

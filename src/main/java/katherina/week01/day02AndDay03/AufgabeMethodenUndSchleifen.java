@@ -16,7 +16,8 @@ public class AufgabeMethodenUndSchleifen {
         printTriangleTopRight("x ", 5);
         System.out.println("\nprintTriangleBottomRight");
         printTriangleBottomRight("x ", 5);
-
+        System.out.println("\nprintTriangleBottomRight2");
+        printTriangleBottomRight2("x ", 5);
     }
 //Vor dem Schlaf und nach der Methodendefinition Semikolon nicht vergessen!
 
@@ -105,8 +106,24 @@ public class AufgabeMethodenUndSchleifen {
             System.out.println();
         }
     }
-}
-//Merke: Ich kann auf zwei Weisen steuern, welches Zeichen zuerst gedruckt wird. Erstens, indem ich festlege, welche Schleife was druckt.
+    //Merke: Ich kann auf zwei Weisen steuern, welches Zeichen zuerst gedruckt wird. Erstens, indem ich festlege, welche Schleife was druckt.
 //Zweitens, indem ich festlege, welche der For-Schleifen zuerst ausgeführt wird. Alle Dreiecke sollen genau darauf angeschaut werden.
 
+    public static void printTriangleBottomRight2(String text, int size) {
+        for (int reihe = 0; size > reihe; reihe++) {
+            for (int spalte = 0; spalte < size; spalte++) {
+                if (reihe + spalte >= size - 1) {
+                    System.out.print(text);
+
+                } else {
+                    System.out.print(". ");
+                }
+            }
+            System.out.println();
+        }
+    }
+//DIES ist eine Bonusaufgabe für mich. Lehrstoff dabei ist das, was auf meinem Fresszettel steht oder eher:
+    //Ich muss das Muster identifizieren (Was haben die Orte, an denen ein Zeichen hin soll, gemeinsam?)
+    //Und dann kann ich davon eine Rechenaufgabe ableiten.
+}
 
