@@ -11,10 +11,11 @@ public class MethodenUndSchleifen {
         printTriangleTopLeft("X", 5);
         printTriangleTopRight("S", 5);
         printTriangleBottomRight("H", 5);
-        printEmptySquare("K", 3);
-        printSlash("B",4,true);
-        printSlash("B",4,false);
-        printTriangle("X",5);
+        printEmptySquare("K", 5);
+        printSlash("B", 4, true);
+        printSlash("B", 4, false);
+        printTriangle("X", 5);
+        printRhombus("X",7);
 
     }
 
@@ -110,6 +111,7 @@ public class MethodenUndSchleifen {
         for (int i = 0; i < size - 2; i++) {
 
             for (int j = 0; j < size; j++) {
+
                 if (j == i) {
                     System.out.print(x);
                     for (int k = 0; k < size - 2; k++) {
@@ -124,7 +126,7 @@ public class MethodenUndSchleifen {
     }
 
 
-    public static void printSlash(String x,int value,boolean backslash){
+    public static void printSlash(String x, int value, boolean backslash) {
         System.out.println("Print Slash");
 
         if (backslash) {
@@ -147,15 +149,60 @@ public class MethodenUndSchleifen {
     }
 
 
-
-    public static void printTriangle(String x, int size){
+    public static void printTriangle(String x, int size) {
         System.out.println("Print Triangle");
-        int spaceCounter = 0;
+
+        int bottom = 0;
+
+        for (int row = 0; row < size; row++) {
+            bottom++;
+            for (int Col = 0; Col < (size - row) - 1; Col++) {
+                System.out.print(" ");
+            }
+            System.out.print(x);
+            for (int i = 0; i < (2 * row) - 1; i++) {
+                System.out.print(" ");
+            }
+            if (row != 0) {
+                System.out.print(x);
+            }
 
 
+            System.out.println();
+        }
+        printChars(x,bottom * 2 -1);
+    }
+
+
+    public static void printRhombus(String x, int size){
+
+        int h2 = size / 2;
+        for (int row = 0; row < size; row++) {
+
+            for (int col = 0; col < size - row - (size / 2) -1; col++) {
+                System.out.print(".");
+            }
+            System.out.print(x);
+            for (int col = 0; col < 2 * row -1; col++) {
+                System.out.print(".");
+            }
+            if (row != 0){
+                System.out.print(x);
+            }
+
+
+
+
+
+
+
+
+            System.out.println();
+        }
 
 
     }
+
 
 }
 
