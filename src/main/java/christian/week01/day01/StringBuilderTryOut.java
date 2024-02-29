@@ -1,6 +1,6 @@
 package christian.week01.day01;
 
-public class StringBuilder {
+public class StringBuilderTryOut {
 
     public static void main(String[] args) {
 
@@ -10,7 +10,7 @@ public class StringBuilder {
     // leeres Quadrat ausgeben mit Stringbuilder .append und .insert (int offset, string)
     public static String printEmptyXSquare(String xChar, int count) {
         String solution;
-        java.lang.StringBuilder solutionB = new java.lang.StringBuilder();
+        StringBuilder solutionB = new StringBuilder();
         for (int row = 0; row < count; row++) {
             for (int col = 0; col < count; col++) {
                 if (row == 0 || col == 0 || row == count - 1 || col == count - 1) {
