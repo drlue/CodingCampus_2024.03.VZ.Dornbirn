@@ -103,7 +103,6 @@ public class PrimitiveDatentypen {
             nenner2 += 2;
             nenner3 += 2;
             pi -= (4 / (nenner1 * nenner2 * nenner3));
-
         }
         return pi;
     }
@@ -113,7 +112,7 @@ public class PrimitiveDatentypen {
         boolean first = true;
         int counter = 1;
         double solution = 1.0;
-        double solutionMinusOne=0;
+        double solutionMinusOne = 0;
         while (counter <= limit)
             if (first) {
                 solutionMinusOne = solution;
