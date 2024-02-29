@@ -18,7 +18,7 @@ public class MethodenUndSchleifen {
         printRhombus("X", 30);
         printX("X", 5);
         printChristmasTree("*", 9);
-        Test();
+        printCriclePythagoras(5);
 
     }
 
@@ -27,7 +27,6 @@ public class MethodenUndSchleifen {
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < number; i++) {
             output.append(character);
-
         }
         System.out.println(output);
         return output.toString();
@@ -268,31 +267,25 @@ public class MethodenUndSchleifen {
     }
 
 
-    public static void Test(){
-        int groesse = 9;
+    public static void printCriclePythagoras(int n) {
+        System.out.println("Print Circle");
 
-        char[][] koordinatenSystem = new char[groesse][groesse];
+        // durchmesser
+        int d = n * n;
 
-        for(int i = 0; i < groesse; i++) {
-            for(int j = 0; j < groesse; j++) {
-                koordinatenSystem[i][j] = ' ';
-            }
-        }
+        for (int y = -n; y <= n; y++) {
 
-        for(int i = 0; i < groesse; i++) {
-            koordinatenSystem[i][i] = 'X';
-            koordinatenSystem[i][groesse - 1 - i] = 'X';
-        }
+            for (int x = -n; x <= n; x++) {
 
-        for(int i = 0; i < groesse; i++) {
-            for(int j = 0; j < groesse; j++) {
-                System.out.print(koordinatenSystem[i][j]);
+                if (y * y + x * x <= d) {
+                    System.out.print("X");
+                } else {
+                    System.out.print(".");
+                }
             }
             System.out.println();
         }
     }
-
-
 
 
 }
