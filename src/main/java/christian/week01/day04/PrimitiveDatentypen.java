@@ -10,7 +10,7 @@ public class PrimitiveDatentypen {
         oneToTwenty();
         System.out.println(calculatePiWithGregorySeries());
         System.out.println(calculatePiWithNilakantha(2));
-
+        geheimeReihe(20);
     }
 
     // Aufgabe Faktoriell1
@@ -57,7 +57,7 @@ public class PrimitiveDatentypen {
     //eigene Methode zum Runden, funktioniert mit Stellenwertverschiebung und dem normalen Math.round()
     public static double roundxdecimalpoints(double x, int decimalpoints) {
         double d = Math.pow(10, decimalpoints);
-        return  (Math.round(x * d)) / d;
+        return (Math.round(x * d)) / d;
 
     }
 
@@ -106,6 +106,26 @@ public class PrimitiveDatentypen {
 
         }
         return pi;
+    }
+
+    //Bonusaufgabe Geheime Reihe
+    public static void geheimeReihe(int limit) {
+        boolean first = true;
+        int counter = 1;
+        double solution = 1.0;
+        double solutionMinusOne=0;
+        while (counter <= limit)
+            if (first) {
+                solutionMinusOne = solution;
+                first = false;
+                counter++;
+            } else {
+                System.out.println(solutionMinusOne);
+                solution = solutionMinusOne / 2 + 1 / solutionMinusOne;
+                solutionMinusOne = solution;
+                System.out.println(solution);
+                counter++;
+            }
     }
 
 }
