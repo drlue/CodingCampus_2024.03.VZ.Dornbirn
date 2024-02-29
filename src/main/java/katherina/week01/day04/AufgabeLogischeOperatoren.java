@@ -5,8 +5,48 @@ import java.util.Random;
 public class AufgabeLogischeOperatoren {
 
     public static void main(String[] args) {
-        //   Random random = new Random();
-        //   int zufallszahl = random.nextInt(-100, 101);
+        //fixedNumbers();
+        randomNumber();
+    }
+
+    //Notiz: Die Klasse oben erlaubt es mir, zwischen meinen Kontroll-Fixzahlen und den zufälligen Zahlen zu switchen. Dafür hat Lukas mir eine zusätzliche Void-Klasse definiert namens "RandomNumber"
+    //und eine zweite namens FixedNumber. Aufgerufen wird die Klasse jeweils dann, wenn sie nicht auskommentiert ist.
+
+    public static void randomNumber() {
+        Random random = new Random();
+        int zufallszahl = random.nextInt(-100, 101);
+        System.out.println("Die Zufallszahl ist: " + zufallszahl);
+        System.out.println("\nAufgabe eins: Zahl gerade UND größer als 10");
+        //   System.out.println("Generierte Zufallszahl:" + zufallszahl);
+        System.out.println(geradeGroesserZehn(zufallszahl));
+        System.out.println(geradeGroesserZehn2(zufallszahl));
+        System.out.println("\nAufgabe zwei: Zahl kleiner als 5 UND größer als 100");
+        System.out.println(kleinerFuenfGroesserHundert(zufallszahl));
+        System.out.println(kleinerFuenfGroesserHundert2(zufallszahl));
+        System.out.println("\nAufgabe drei: Zahl positiv und ungerade");
+        System.out.println(positivUngerade(zufallszahl));
+        System.out.println(positivUngerade2(zufallszahl));
+        System.out.println("\nAufgabe vier: Zahl negativ, aber nicht -1");
+        System.out.println(negativNichtMinusEins(zufallszahl));
+        System.out.println(negativNichtMinusEins2(zufallszahl));
+        System.out.println("\nAufgabe fünf: Zahl größer oder gleich 5, und kleiner als 100");
+        System.out.println(mindestensFuenfUndUnterHundert(zufallszahl));
+        System.out.println(mindestensFuenfUndUnterHundert2(zufallszahl));
+        System.out.println("\nAufgabe sechs: Zahl ist ohne Rest durch 3 oder 16 teilbar, aber nicht durch 32");
+        System.out.println(teilbarDurchDreiSechszehnAberNichtZweiunddreissig(zufallszahl));
+        System.out.println(teilbarDurchDreiSechszehnAberNichtZweiunddreissig2(zufallszahl));
+        System.out.println("\nAufgabe sieben: Zahl ist ein Schaltjahr");
+        System.out.println(schaltjahr(zufallszahl));
+        System.out.println(schaltjahr2(zufallszahl));
+        System.out.println("\nAufgabe acht: Zahl größer gleich lowerLimit und kleiner gleich upperLimit");
+        System.out.println(lowerLimitUpperLimit(zufallszahl));
+        System.out.println(lowerLimitUpperLimit2(zufallszahl));
+        System.out.println("\nAufgabe neun: Zahl liegt exakt zwischen Obergrenze und Untergrenze");
+        System.out.println(middleNumber(zufallszahl));
+        System.out.println(middleNumber2(zufallszahl));
+    }
+
+    public static void fixedNumbers() {
         System.out.println("\nAufgabe eins: Zahl gerade UND größer als 10");
         //   System.out.println("Generierte Zufallszahl:" + zufallszahl);
         System.out.println(geradeGroesserZehn(16));
@@ -168,7 +208,8 @@ Zuweisungsoperatoren (z.B.:, =, +=, -=)
     }
 
     public static boolean lowerLimitUpperLimit(int wert) {
-        int untergrenze = -100; int obergrenze = 101;
+        int untergrenze = -100;
+        int obergrenze = 101;
         try {
             return ((wert >= untergrenze) && (wert <= obergrenze));
         } finally {
@@ -177,7 +218,8 @@ Zuweisungsoperatoren (z.B.:, =, +=, -=)
     }
 
     public static boolean lowerLimitUpperLimit2(int wert) {
-        int untergrenze = -100; int obergrenze = 101;
+        int untergrenze = -100;
+        int obergrenze = 101;
         if ((wert >= untergrenze) && (wert <= obergrenze)) {
             return true;
         } else {
@@ -186,17 +228,19 @@ Zuweisungsoperatoren (z.B.:, =, +=, -=)
     }
 
     public static boolean middleNumber(int wert) {
-        int untergrenze = -100; int obergrenze = 101;
+        int untergrenze = -100;
+        int obergrenze = 101;
         try {
-            return (wert == (untergrenze + obergrenze)/2);
+            return (wert == (untergrenze + obergrenze) / 2);
         } finally {
             System.out.println(wert);
         }
     }
 
     public static boolean middleNumber2(int wert) {
-        int untergrenze = -100; int obergrenze = 101;
-        if ((wert == (untergrenze + obergrenze)/2)) {
+        int untergrenze = -100;
+        int obergrenze = 101;
+        if ((wert == (untergrenze + obergrenze) / 2)) {
             return true;
         } else {
             return false;
