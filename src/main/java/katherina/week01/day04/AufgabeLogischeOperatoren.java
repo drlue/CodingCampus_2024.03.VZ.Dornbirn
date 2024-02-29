@@ -2,21 +2,85 @@ package katherina.week01.day04;
 
 import java.util.Random;
 
-/*public class AufgabeLogischeOperatoren {
+public class AufgabeLogischeOperatoren {
 
     public static void main(String[] args) {
+        //fixedNumbers();
+        randomNumber();
+    }
+
+    //Notiz: Die Klasse oben erlaubt es mir, zwischen meinen Kontroll-Fixzahlen und den zufälligen Zahlen zu switchen. Dafür hat Lukas mir eine zusätzliche Void-Klasse definiert namens "RandomNumber"
+    //und eine zweite namens FixedNumber. Aufgerufen wird die Klasse jeweils dann, wenn sie nicht auskommentiert ist.
+
+    public static void randomNumber() {
         Random random = new Random();
         int zufallszahl = random.nextInt(-100, 101);
-        System.out.println(zufallszahl);
+        System.out.println("Die Zufallszahl ist: " + zufallszahl);
         System.out.println("\nAufgabe eins: Zahl gerade UND größer als 10");
+        //   System.out.println("Generierte Zufallszahl:" + zufallszahl);
+        System.out.println(geradeGroesserZehn(zufallszahl));
+        System.out.println(geradeGroesserZehn2(zufallszahl));
+        System.out.println("\nAufgabe zwei: Zahl kleiner als 5 UND größer als 100");
+        System.out.println(kleinerFuenfGroesserHundert(zufallszahl));
+        System.out.println(kleinerFuenfGroesserHundert2(zufallszahl));
+        System.out.println("\nAufgabe drei: Zahl positiv und ungerade");
+        System.out.println(positivUngerade(zufallszahl));
+        System.out.println(positivUngerade2(zufallszahl));
+        System.out.println("\nAufgabe vier: Zahl negativ, aber nicht -1");
+        System.out.println(negativNichtMinusEins(zufallszahl));
+        System.out.println(negativNichtMinusEins2(zufallszahl));
+        System.out.println("\nAufgabe fünf: Zahl größer oder gleich 5, und kleiner als 100");
+        System.out.println(mindestensFuenfUndUnterHundert(zufallszahl));
+        System.out.println(mindestensFuenfUndUnterHundert2(zufallszahl));
+        System.out.println("\nAufgabe sechs: Zahl ist ohne Rest durch 3 oder 16 teilbar, aber nicht durch 32");
+        System.out.println(teilbarDurchDreiSechszehnAberNichtZweiunddreissig(zufallszahl));
+        System.out.println(teilbarDurchDreiSechszehnAberNichtZweiunddreissig2(zufallszahl));
+        System.out.println("\nAufgabe sieben: Zahl ist ein Schaltjahr");
+        System.out.println(schaltjahr(zufallszahl));
+        System.out.println(schaltjahr2(zufallszahl));
+        System.out.println("\nAufgabe acht: Zahl größer gleich lowerLimit und kleiner gleich upperLimit");
+        System.out.println(lowerLimitUpperLimit(zufallszahl));
+        System.out.println(lowerLimitUpperLimit2(zufallszahl));
+        System.out.println("\nAufgabe neun: Zahl liegt exakt zwischen Obergrenze und Untergrenze");
+        System.out.println(middleNumber(zufallszahl));
+        System.out.println(middleNumber2(zufallszahl));
     }
-*/
+
+    public static void fixedNumbers() {
+        System.out.println("\nAufgabe eins: Zahl gerade UND größer als 10");
+        //   System.out.println("Generierte Zufallszahl:" + zufallszahl);
+        System.out.println(geradeGroesserZehn(16));
+        System.out.println(geradeGroesserZehn2(3));
+        System.out.println("\nAufgabe zwei: Zahl kleiner als 5 UND größer als 100");
+        System.out.println(kleinerFuenfGroesserHundert(3));
+        System.out.println(kleinerFuenfGroesserHundert2(7));
+        System.out.println("\nAufgabe drei: Zahl positiv und ungerade");
+        System.out.println(positivUngerade(-1));
+        System.out.println(positivUngerade2(13));
+        System.out.println("\nAufgabe vier: Zahl negativ, aber nicht -1");
+        System.out.println(negativNichtMinusEins(-1));
+        System.out.println(negativNichtMinusEins2(13));
+        System.out.println("\nAufgabe fünf: Zahl größer oder gleich 5, und kleiner als 100");
+        System.out.println(mindestensFuenfUndUnterHundert(5));
+        System.out.println(mindestensFuenfUndUnterHundert2(3));
+        System.out.println("\nAufgabe sechs: Zahl ist ohne Rest durch 3 oder 16 teilbar, aber nicht durch 32");
+        System.out.println(teilbarDurchDreiSechszehnAberNichtZweiunddreissig(5));
+        System.out.println(teilbarDurchDreiSechszehnAberNichtZweiunddreissig2(30));
+        System.out.println("\nAufgabe sieben: Zahl ist ein Schaltjahr");
+        System.out.println(schaltjahr(100));
+        System.out.println(schaltjahr2(8));
+        System.out.println("\nAufgabe acht: Zahl größer gleich lowerLimit und kleiner gleich upperLimit");
+        System.out.println(lowerLimitUpperLimit(100));
+        System.out.println(lowerLimitUpperLimit2(-102));
+        System.out.println("\nAufgabe neun: Zahl liegt exakt zwischen Obergrenze und Untergrenze");
+        System.out.println(middleNumber(0));
+        System.out.println(middleNumber2(-37));
+    }
 /*
 Random random = new Random();
 //Random number between 100 and 100
 int randomNumber = random.nextInt(-100, 101);
 
-Operator Präzedenz
 Folgende Auflistung zeigt in welcher Reihenfolge Ausdrücke ausgewertet werden:
 
 Klammern ()
@@ -31,25 +95,157 @@ Logisches "oder" (||)
 Zuweisungsoperatoren (z.B.:, =, +=, -=)
  */
 
-    /*
-
-    public static boolean geradeGroesserZehn(int zufallszahl) {
+    public static boolean geradeGroesserZehn(int wert) {
         try {
-            return zufallszahl > 10 && (zufallszahl % 2 == 0);
+            return wert > 10 && (wert % 2 == 0);
         } finally {
-            System.out.println(zufallszahl);
+            System.out.println(wert);
         }
     }
 
     public static boolean geradeGroesserZehn2(int zufallszahl) {
-        boolean b = zufallszahl < 10 && (zufallszahl % 2 != 0);
         if (zufallszahl > 10 && (zufallszahl % 2 == 0)) {
             return true;
-        } else (zufallszahl < 10 && (zufallszahl % 2 != 0)) {
+        } else {
             return false;
+        }
+    }
 
+    public static boolean kleinerFuenfGroesserHundert(int wert) {
+        try {
+            return wert < 5 || wert > 100;
+        } finally {
+            System.out.println(wert);
+        }
+    }
+
+    public static boolean kleinerFuenfGroesserHundert2(int wert) {
+        if (wert < 5 || wert > 100) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean positivUngerade(int wert) {
+        try {
+            return wert > 0 && (wert % 2 != 0);
+        } finally {
+            System.out.println(wert);
+        }
+    }
+
+    public static boolean positivUngerade2(int wert) {
+        if (wert > 0 && (wert % 2 != 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean negativNichtMinusEins(int wert) {
+        try {
+            return wert > 0 && (wert != -1);
+        } finally {
+            System.out.println(wert);
+        }
+    }
+
+    public static boolean negativNichtMinusEins2(int wert) {
+        if (wert > 0 && (wert != -1)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean mindestensFuenfUndUnterHundert(int wert) {
+        try {
+            return wert >= 5 && wert < 100;
+        } finally {
+            System.out.println(wert);
+        }
+    }
+
+    public static boolean mindestensFuenfUndUnterHundert2(int wert) {
+        if (wert >= 5 && wert < 100) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean teilbarDurchDreiSechszehnAberNichtZweiunddreissig(int wert) {
+        try {
+            return ((wert % 3 == 0) || (wert % 16 == 0)) && (wert % 32 != 0);
+        } finally {
+            System.out.println(wert);
+        }
+    }
+
+    public static boolean teilbarDurchDreiSechszehnAberNichtZweiunddreissig2(int wert) {
+        if (((wert % 3 == 0) || (wert % 16 == 0)) && (wert % 32 != 0)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean schaltjahr(int wert) {
+        try {
+            return ((wert % 4 == 0) && (wert % 100 != 0));
+        } finally {
+            System.out.println(wert);
+        }
+    }
+
+    public static boolean schaltjahr2(int wert) {
+        if (((wert % 4 == 0) && (wert % 100 != 0))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean lowerLimitUpperLimit(int wert) {
+        int untergrenze = -100;
+        int obergrenze = 101;
+        try {
+            return ((wert >= untergrenze) && (wert <= obergrenze));
+        } finally {
+            System.out.println(wert);
+        }
+    }
+
+    public static boolean lowerLimitUpperLimit2(int wert) {
+        int untergrenze = -100;
+        int obergrenze = 101;
+        if ((wert >= untergrenze) && (wert <= obergrenze)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean middleNumber(int wert) {
+        int untergrenze = -100;
+        int obergrenze = 101;
+        try {
+            return (wert == (untergrenze + obergrenze) / 2);
+        } finally {
+            System.out.println(wert);
+        }
+    }
+
+    public static boolean middleNumber2(int wert) {
+        int untergrenze = -100;
+        int obergrenze = 101;
+        if ((wert == (untergrenze + obergrenze) / 2)) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
-}
-*/
+
+
