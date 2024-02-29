@@ -1,6 +1,6 @@
-package lukas.week01.day01;
+package lukas.week01;
 
-public class UeMethodenSchleifenMatrix {
+public class Ue02MethodenSchleifenMatrix {
     public static void main(String[] args) {
 
         System.out.println("printSquare");
@@ -56,8 +56,13 @@ public class UeMethodenSchleifenMatrix {
         System.out.println();
 
         System.out.println("printChristmasTree");
-        printChristmasTree( 15);
+        printChristmasTree(15);
         System.out.println();
+
+        System.out.println("printCirclePythagoras");
+        printCirclePythagoras(10);
+        System.out.println();
+
 
     }
 
@@ -188,7 +193,7 @@ public class UeMethodenSchleifenMatrix {
     public static void printX(String txt, int size) {
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
-                if (row == col || row == -col + size - 1 ) {
+                if (row == col || row == -col + size - 1) {
                     System.out.print(txt);
                 } else {
                     System.out.print(" ");
@@ -198,14 +203,14 @@ public class UeMethodenSchleifenMatrix {
         }
     }
 
-    public static void printChristmasTree(int height){
-        int width = 2*height-1;
+    public static void printChristmasTree(int height) {
+        int width = 2 * height - 1;
         //Baum
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
-                if(col >= height-1-row && col <= row+height-1){
+                if (col >= height - 1 - row && col <= row + height - 1) {
                     System.out.print("x");
-                }else {
+                } else {
                     System.out.print(".");
                 }
             }
@@ -213,7 +218,7 @@ public class UeMethodenSchleifenMatrix {
         }
         //Kugeln
         for (int col = 0; col < width; col++) {
-            if(col%2!=0) {
+            if (col % 2 != 0) {
                 System.out.print(".");
             } else {
                 System.out.print("O");
@@ -221,14 +226,13 @@ public class UeMethodenSchleifenMatrix {
         }
         System.out.println();
         //Stamm soll sich proportional zu height ändern
-        int bStamm = width/2-1;
-        int hStamm = height/2;
+        int bStamm = width / 2 - 1;
+        int hStamm = height / 2;
         for (int row = 0; row < hStamm; row++) {
             for (int col = 0; col < width; col++) {
-                if(col >= width/2 - bStamm/2 && col <= width/2 + bStamm/2) {
+                if (col >= width / 2 - bStamm / 2 && col <= width / 2 + bStamm / 2) {
                     System.out.print("+");
-                }
-                else {
+                } else {
                     System.out.print(".");
                 }
             }
@@ -236,5 +240,18 @@ public class UeMethodenSchleifenMatrix {
         }
     }
 
+    //NOCH NICHT FERTIG
+    public static void printCirclePythagoras(int r) {
+        for (int row = 0; row < r * 2; row++) {
+            for (int col = 0; col < r * 2; col++) {
+                if (row*row+col*col == r*r) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
 
 }
