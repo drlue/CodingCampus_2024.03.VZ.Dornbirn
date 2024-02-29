@@ -89,12 +89,16 @@ public class AufgabeMethodenUndSchleifenTeil2 {
     //Ich habe hier so viel Spaß!
 
     public static void printTriangle(String text, int size) {
-        for (int reihe = 0; reihe < size; reihe++) {
-            for (int spalte = 0; spalte < 2*size-1; spalte++) {
-
+        for (int reihe = 0; size > reihe; reihe++) {
+            for (int spalte = 0; spalte < 2 * size - 1; spalte++) {
+                if (reihe + spalte == size - 1 || reihe == spalte - size + 1 || reihe == size - 1) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(". ");
+                }
             }
             System.out.println();
         }
     }
+    //Merke: Die Formel für die Matrix eines Dreieckes lautet: size (Höhe) x 2xsize -1 (Breite)
 }
-

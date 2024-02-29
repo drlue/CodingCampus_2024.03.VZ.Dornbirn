@@ -96,6 +96,10 @@ public class Aufgaben {
         System.out.println();
         printEmptySquare("A", 3);
 
+        System.out.println();
+        System.out.println("Aufgabe: Triangle");
+        printTriangle("A", 5);
+
 
     }
 
@@ -239,13 +243,14 @@ public class Aufgaben {
     //         x        x
     //         x        x
     //         xxxxxxxxxx
-    public static void printEmptySquare(String zeichen, int laenge){
+    public static void printEmptySquare(String zeichen, int laenge) {
         for (int row = 0; row < laenge; row++) {
             for (int col = 0; col < laenge; col++) {
-                if (row == 0 || row == (laenge-1) || col == 0 || col == (laenge-1)){
+                if (row == 0 || row == (laenge - 1) || col == 0 || col == (laenge - 1)) {
                     System.out.print(zeichen);
                 } else {
-                    System.out.print('.');}
+                    System.out.print('.');
+                }
             }
             System.out.println();
         }
@@ -266,7 +271,30 @@ public class Aufgaben {
     printSlash("y", 4, false);
      */
 
+    /* AUFGABE: Triangle
+    Erstelle eine Methode welche ein Dreieck von variabler Größe und mit angegebene Zeichen ausgibt.
+    Dabei sollen die angegebene Größe die Höhe des Dreiecks sein. Nimm an dass die Zahl immer Ungerade ist.
 
+    AUFRUF: printTriangle("x", 3);
+    */
+    public static void printTriangle(String zeichen, int hoehe) {
+        for (int row = 0; row < hoehe; row++) {
+            for (int col = 0; col < (2 * hoehe - 1); col++) {
+                if (row+4 == col) {
+                    System.out.print("A");
+                } else if (row == hoehe-1) {
+                    System.out.print("C");
+
+                } else if (row+col == hoehe-1) {
+                    System.out.print("B");
+
+                } else {
+                    System.out.print('.');
+                }
+            }
+            System.out.println();
+        }
+    }
 
 
 

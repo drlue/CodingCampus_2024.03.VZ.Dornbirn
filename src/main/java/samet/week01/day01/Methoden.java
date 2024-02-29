@@ -28,6 +28,8 @@ public class Methoden {
         printSlash(" J", 4, true);
         System.out.println("\nprintTriangle()");
         printTriangle("X ", 15);
+        System.out.println("\nprintTriangle2()");
+        printTriangle2("K ", 15);
 
 
     }
@@ -173,12 +175,28 @@ public class Methoden {
 
     }
 
+    public static void printTriangle2(String text, int size) {
 
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < 2 * size - 1; col++) {
+                if (row + col == size - 1) {
+                    System.out.print(text);
+                    if (col == row + size - 1) {
+
+                    } else {
+                        System.out.print(". ");
+
+
+                    }
+                    System.out.println();
+
+                }
+
+
+            }
+
+
+        }
+
+    }
 }
-
-
-
-
-
-
-
