@@ -19,6 +19,7 @@ public class MethodenUndSchleifen {
         printX("X", 5);
         printChristmasTree("*", 9);
         Test();
+        printCriclePythagoras(5);
 
     }
 
@@ -268,31 +269,49 @@ public class MethodenUndSchleifen {
     }
 
 
-    public static void Test(){
+    public static void Test() {
         int groesse = 9;
 
         char[][] koordinatenSystem = new char[groesse][groesse];
 
-        for(int i = 0; i < groesse; i++) {
-            for(int j = 0; j < groesse; j++) {
+        for (int i = 0; i < groesse; i++) {
+            for (int j = 0; j < groesse; j++) {
                 koordinatenSystem[i][j] = ' ';
             }
         }
 
-        for(int i = 0; i < groesse; i++) {
+        for (int i = 0; i < groesse; i++) {
             koordinatenSystem[i][i] = 'X';
             koordinatenSystem[i][groesse - 1 - i] = 'X';
         }
 
-        for(int i = 0; i < groesse; i++) {
-            for(int j = 0; j < groesse; j++) {
+        for (int i = 0; i < groesse; i++) {
+            for (int j = 0; j < groesse; j++) {
                 System.out.print(koordinatenSystem[i][j]);
             }
             System.out.println();
         }
+
     }
 
 
+    public static void printCriclePythagoras(int n) {
+        System.out.println("Print Circle");
+
+
+        for (int y = -n; y <= n; y++) {
+
+            for (int x = -n; x <= n; x++) {
+
+                if (y * y + x * x <= n * n) {
+                    System.out.print("X");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
 
 
 }
