@@ -57,8 +57,7 @@ public class PrimitiveDatentypen {
     //eigene Methode zum Runden, funktioniert mit Stellenwertverschiebung und dem normalen Math.round()
     public static double roundxdecimalpoints(double x, int decimalpoints) {
         double d = Math.pow(10, decimalpoints);
-        double solution = (Math.round(x * d)) / d;
-        return solution;
+        return  (Math.round(x * d)) / d;
 
     }
 
