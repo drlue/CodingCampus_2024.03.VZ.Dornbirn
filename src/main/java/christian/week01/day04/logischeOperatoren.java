@@ -43,7 +43,20 @@ public class logischeOperatoren {
     public static boolean moduloThreeAndSixteenButNotThirtytwo(int x) {
         return x % 3 == 0 || x % 16 == 0 && x % 32 != 0;
     }
-    public static boolean isLeapYear (int x){
-        return x%4==0;
+
+    // Aufgabe 7
+    public static boolean isLeapYear(int x) {
+
+        return x % 4 == 0;
+    }
+
+    //Aufgabe 8
+    public static boolean isBetweenLimits(int lowerLimit, int upperLimit, int x) {
+        return x >= lowerLimit && x <= upperLimit;
+    }
+
+    //Aufgabe 9
+    public static boolean isInTheMiddleBetweenLimits(int lowerLimit, int upperLimit, int x) {
+        return x == (lowerLimit + upperLimit) / 2;
     }
 }
