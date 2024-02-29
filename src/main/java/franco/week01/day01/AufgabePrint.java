@@ -29,6 +29,8 @@ public class AufgabePrint {
 
         printRhombus("x", 7);
 
+        printChristmasTree(9);
+
 
     }
 
@@ -185,7 +187,7 @@ public class AufgabePrint {
                         || column == row + (size / 2) ||
                         column == (3 * (size / 2)) - row) {
 
-                    System.out.print("A");
+                    System.out.print(text);
 
                 } else {
                     System.out.print("_");
@@ -193,6 +195,23 @@ public class AufgabePrint {
             }
             System.out.println("_");
         }
+    }
+
+    public static void printChristmasTree(int size){
+
+        for (int row = 1; row <= size; row++) {
+            for (int column = 1; column <= 2 * size - 1; column++) {
+                if (row == size || row + column == size + 1 || column == row + (size - 1)) {
+                    System.out.print("O");
+
+                } else {
+                    System.out.print(" ");
+                }
+            }
+
+            System.out.println();
+        }
+        
     }
 
 }
