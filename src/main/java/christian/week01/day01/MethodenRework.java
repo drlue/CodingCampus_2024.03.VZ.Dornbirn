@@ -161,6 +161,7 @@ public class MethodenRework {
     }
 
     public static void printScalableX(char xChar, int height) {
-
+String solution;
+java.lang.StringBuilder solutionB = new java.lang.StringBuilder();
     }
 }
