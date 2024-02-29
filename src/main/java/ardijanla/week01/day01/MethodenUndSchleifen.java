@@ -298,12 +298,13 @@ public class MethodenUndSchleifen {
     public static void printCriclePythagoras(int n) {
         System.out.println("Print Circle");
 
+        int durchmesser = n * n;
 
         for (int y = -n; y <= n; y++) {
 
             for (int x = -n; x <= n; x++) {
 
-                if (y * y + x * x <= n * n) {
+                if (y * y + x * x <= durchmesser) {
                     System.out.print("X");
                 } else {
                     System.out.print(".");
