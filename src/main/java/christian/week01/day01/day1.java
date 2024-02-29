@@ -55,5 +55,7 @@ public class day1 {
     public static int add(int a, int b) {
         int sum = a + b;
         return sum;
+
+
     }
 }
