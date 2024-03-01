@@ -87,7 +87,7 @@ public class Day1 {
         System.out.println("Die Summe von 10 und 20 ist: " + add(10, 20));
 
         int sum5 = add(10, 20);
-        System.out.println("Die Summ von 10 und 20 ist: " + sum5);
+        System.out.println("Die Summe von 10 und 20 ist: " + sum5);
 
         System.out.print("a");
         System.out.print("a");

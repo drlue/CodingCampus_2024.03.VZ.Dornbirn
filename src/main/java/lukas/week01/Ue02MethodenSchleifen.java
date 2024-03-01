@@ -1,7 +1,6 @@
-package lukas.week01.day01;
+package lukas.week01;
 
-public class UebungDay1 {
-
+public class Ue02MethodenSchleifen {
     public static void main(String[] args) {
         System.out.println("Hello World");
         System.out.println("Hallo12313föäasödlfkjasdfasdffasdkfj123");
