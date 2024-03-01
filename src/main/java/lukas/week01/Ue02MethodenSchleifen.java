@@ -2,6 +2,48 @@ package lukas.week01;
 
 public class Ue02MethodenSchleifen {
     public static void main(String[] args) {
+        System.out.println("Hello World");
+        System.out.println("Hallo12313föäasödlfkjasdfasdffasdkfj123");
+        System.out.println("     /--\\");
+        System.out.println("    / /\\ \\");
+        System.out.println("   / /  \\ \\");
+        System.out.println("  / /    \\ \\");
+        System.out.println(" /  ======  \\");
+        System.out.println("/ /        \\ \\");
+
+        //Zählen 1a
+        for (int i = 0; i <= 10; i++) {
+            System.out.println(i);
+        }
+
+        //Zählen 1b
+        int j = 0;
+        while (j <= 10) {
+            System.out.println(j);
+            j++;
+        }
+
+        //Zählen 2
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i);
+        }
+
+        //Zählen 3a
+        for (int i = 0; i <= 10; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i);
+            }
+        }
+
+        //Zählen 3b
+        for (int i = 0; i <= 10; i += 2) {
+            System.out.println(i);
+        }
+
+        //Zählen 4
+        for (int i = 10; i >= -10; i--) {
+            System.out.println(i);
+        }
 
         System.out.println("printChars");
         printChars("x", 10);
@@ -32,7 +74,7 @@ public class Ue02MethodenSchleifen {
         System.out.println();
 
         System.out.println("printTriangleTopRight2");
-        printTriangelTopRight2("x", 5);
+        printTriangelTopRigtht2("x", 5);
         System.out.println();
 
         System.out.println("printTriangleBottomRight");
@@ -69,14 +111,6 @@ public class Ue02MethodenSchleifen {
 
         System.out.println("printRhombus");
         printRhombus("x", 7);
-        System.out.println();
-
-        System.out.println("printX");
-        printX("x", 7);
-        System.out.println();
-
-        System.out.println("printChristmasTree");
-        printChristmasTree(5, 2, 5);
         System.out.println();
     }
 
@@ -133,7 +167,7 @@ public class Ue02MethodenSchleifen {
         }
     }
 
-    public static void printTriangelTopRight2(String txt, int length) {
+    public static void printTriangelTopRigtht2(String txt, int length) {
         for (int i = 0; i < length; i++) {
             for (int j = 0; j < i; j++) {
                 System.out.print(" ");
@@ -203,65 +237,28 @@ public class Ue02MethodenSchleifen {
     }
 
     public static void printRhombus(String txt, int height) {
-        int h2 = height / 2;
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < height; col++) {
-                if (row + col == h2 || row - col == h2 || col - row == h2 || col + row == h2 * 3) {
-                    System.out.print(txt);
-                } else {
-                    System.out.print(" ");
+        for (int i = 0; i < height; i++) {
+            //erste und letzte Zeile
+            if (i == 0 || i == height - 1) {
+                printChars(" ", height - i - 1);
+                System.out.println(txt);
+            }
+            //Regelfall
+            else {
+                //obere Hälfte
+                if (i < height * 0.5) {
+                    printChars(txt, 1);
+                    printChars(" ", i * 2 - 1);
+                    System.out.println(txt);
+                }
+                //untere Hälfte
+                else {
+                    System.out.println("b");
                 }
             }
-            System.out.println();
         }
 
-    }
-
-    public static void printX(String txt, int height) {
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < height; col++) {
-                if (row == col || row + col == height - 1) {
-                    System.out.print(txt);
-                } else {
-                    System.out.print(" ");
-                }
-            }
-            System.out.println();
-        }
-    }
-
-    public static void printChristmasTree(int size, int hStamm, int bStamm) {
-        //Baum
-        for (int row = 0; row < size; row++) {
-            for (int col = 0; col < size * 2; col++) {
-                if (col >= size - 1 - row && col <= size - 1 + row) {
-                    System.out.print("x");
-                } else {
-                    System.out.print(" ");
-                }
-            }
-            System.out.println();
-        }
-        //Kugeln
-        for (int col2 = 0; col2 < size * 2 - 1; col2++) {
-            if (col2 % 2 != 0) {
-                System.out.print(" ");
-            } else {
-                System.out.print("0");
-            }
-        }
-        System.out.println();
-        //Stamm
-        for (int row3 = 0; row3 < hStamm; row3++) {
-            for (int col3 = 0; col3 < size * 2; col3++) {
-                if (col3 >= size - 1 - bStamm / 2 && col3 <= size - 1 + bStamm / 2) {
-                    System.out.print("+");
-                } else {
-                    System.out.print(" ");
-                }
-            }
-            System.out.println();
-        }
     }
 
 }
+
