@@ -1,6 +1,6 @@
-package lukas.week01.day01;
+package lukas.week01;
 
-public class UeMethodenSchleifenMatrix {
+public class Ue02MethodenSchleifenMatrix {
     public static void main(String[] args) {
 
         System.out.println("printSquare");
@@ -56,8 +56,21 @@ public class UeMethodenSchleifenMatrix {
         System.out.println();
 
         System.out.println("printChristmasTree");
-        printChristmasTree( 15);
+        printChristmasTree(15);
         System.out.println();
+
+        System.out.println("printCirclePythagoras");
+        printCirclePythagoras(10);
+        System.out.println();
+
+        System.out.println("printCirclePythagoras2");
+        printCirclePythagoras2(10);
+        System.out.println();
+
+        System.out.println("printCircleSinCos");
+        printCircleSinCos(10);
+        System.out.println();
+
 
     }
 
@@ -188,7 +201,7 @@ public class UeMethodenSchleifenMatrix {
     public static void printX(String txt, int size) {
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
-                if (row == col || row == -col + size - 1 ) {
+                if (row == col || row == -col + size - 1) {
                     System.out.print(txt);
                 } else {
                     System.out.print(" ");
@@ -198,14 +211,14 @@ public class UeMethodenSchleifenMatrix {
         }
     }
 
-    public static void printChristmasTree(int height){
-        int width = 2*height-1;
+    public static void printChristmasTree(int height) {
+        int width = 2 * height - 1;
         //Baum
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
-                if(col >= height-1-row && col <= row+height-1){
+                if (col >= height - 1 - row && col <= row + height - 1) {
                     System.out.print("x");
-                }else {
+                } else {
                     System.out.print(".");
                 }
             }
@@ -213,7 +226,7 @@ public class UeMethodenSchleifenMatrix {
         }
         //Kugeln
         for (int col = 0; col < width; col++) {
-            if(col%2!=0) {
+            if (col % 2 != 0) {
                 System.out.print(".");
             } else {
                 System.out.print("O");
@@ -221,14 +234,13 @@ public class UeMethodenSchleifenMatrix {
         }
         System.out.println();
         //Stamm soll sich proportional zu height ändern
-        int bStamm = width/2-1;
-        int hStamm = height/2;
+        int bStamm = width / 2 - 1;
+        int hStamm = height / 2;
         for (int row = 0; row < hStamm; row++) {
             for (int col = 0; col < width; col++) {
-                if(col >= width/2 - bStamm/2 && col <= width/2 + bStamm/2) {
+                if (col >= width / 2 - bStamm / 2 && col <= width / 2 + bStamm / 2) {
                     System.out.print("+");
-                }
-                else {
+                } else {
                     System.out.print(".");
                 }
             }
@@ -236,5 +248,49 @@ public class UeMethodenSchleifenMatrix {
         }
     }
 
+    //Solution1 - mathematisch Mittelpunkt bei (r/r)
+    public static void printCirclePythagoras(int r) {
+        for (int row = 1; row < r * 2; row++) {
+            for (int col = 1; col < r * 2; col++) {
+                if (col < r + Math.sqrt(r * r - (row - r) * (row - r)) && col > r - Math.sqrt(r * r - (r - row) * (r - row))) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    //Solution2 - Mittelpunkt bei (0/0), Schleife von -r bis inkl r -> 21
+    //oder von -r+1 bis exkl. r -> 19 (wie oben)
+    public static void printCirclePythagoras2(int r) {
+        for (int row = -r + 1; row < r; row++) {
+            for (int col = -r + 1; col < r; col++) {
+                if (col * col <= r * r - row * row) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printCircleSinCos(int r) {
+        for (int y = -r + 1; y < r; y++) {
+            for (int x = -r + 1; x < r; x++) {
+                double alpha = Math.atan((double) y / x);
+                int a = (int)(r*Math.cos(alpha));
+                int b = (int)(r*Math.sin(alpha));
+                if (Math.abs(x) == Math.abs(a) && Math.abs(y) == Math.abs(b) ) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
 
 }

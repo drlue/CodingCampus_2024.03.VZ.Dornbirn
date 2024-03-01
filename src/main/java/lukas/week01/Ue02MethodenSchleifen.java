@@ -1,6 +1,6 @@
-package lukas.week01.day01;
+package lukas.week01;
 
-public class UeMethodenSchleifen {
+public class Ue02MethodenSchleifen {
     public static void main(String[] args) {
 
         System.out.println("printChars");
