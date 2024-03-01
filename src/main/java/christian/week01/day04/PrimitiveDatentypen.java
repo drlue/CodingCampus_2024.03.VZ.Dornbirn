@@ -3,40 +3,8 @@ package christian.week01.day04;
 public class PrimitiveDatentypen {
     public static void main(String[] args) {
 
-        zeroToHundredInZeroPointOneSteps();
-        zeroToHundredSecondVariant();
-        System.out.println(roundxdecimalpoints(0.19999699999999998, 2));
-        zeroToHundredFormated();
-        oneToTwenty();
-        System.out.println(calculatePiWithGregorySeries());
-        System.out.println(calculatePiWithNilakantha(2));
-        geheimeReihe(20);
     }
 
-    // Aufgabe Faktoriell1
-    public static long faktoriell1(long x) {
-        long solution = 1;
-        for (long i = x; i > 1; i--) {
-            solution *= i;
-        }
-        return solution;
-    }
-
-    // Aufgabe Faktoriell2
-    public static void faktoriell2() {
-        for (long i = 1; i <= 20; i++) {
-            System.out.println(faktoriell1(i));
-
-        }
-    }
-
-    // Aufgabe Faktoriell3
-    public static void faktoriell3() {
-        for (long i = 1; i <= 20; i++) {
-            System.out.printf("%19d%n", faktoriell1(i));
-
-        }
-    }
 
     //Aufgabe von 0 bis 100 Zählen in 0.1Schritten
     public static void zeroToHundredInZeroPointOneSteps() {
@@ -96,9 +64,9 @@ public class PrimitiveDatentypen {
         double pi = 3;
         double nenner1 = 2;
         for (int i = 0; i < length; i++) {
-            pi += 4 / (nenner1 * (nenner1+1 )* (nenner1+2));
+            pi += 4 / (nenner1 * (nenner1 + 1) * (nenner1 + 2));
             nenner1 += 2;
-            pi -= 4 / (nenner1 * (nenner1+1 )* (nenner1+2));
+            pi -= 4 / (nenner1 * (nenner1 + 1) * (nenner1 + 2));
             nenner1 += 2;
         }
         return pi;

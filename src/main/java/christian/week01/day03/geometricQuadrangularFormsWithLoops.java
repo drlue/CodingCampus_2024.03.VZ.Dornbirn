@@ -25,7 +25,7 @@ public class geometricQuadrangularFormsWithLoops {
         return solution;
     }
 
-    // ausgefülltes Viereck ausgeben ohne Rückgabewert
+    // Viereck ausgefüllt ausgeben ohne Rückgabewert
     public static void printSquare(char a, int count) {
 
         for (int row = 0; row < count; row++) {
@@ -36,7 +36,7 @@ public class geometricQuadrangularFormsWithLoops {
 
         }
     }
-// Viereck mit Seitelänge counthorizontal/countvertical
+// Viereck ausgefüllt mit Seitelänge counthorizontal/countvertical
     public static void printRectangle(char a, int counthorizontal, int countvertical) {
         for (int i = 0; i <= countvertical - 1; i++) {
             System.out.println();
@@ -45,4 +45,20 @@ public class geometricQuadrangularFormsWithLoops {
             }
         }
     }
+    // Quadrat leer ausgeben ohne Stringbuilder
+    public static String printEmptyXSquare(char xChar, int count) {
+        String solution = "";
+        for (int row = 0; row < count; row++) {
+            for (int col = 0; col < count; col++) {
+                if (row == 0 || col == 0 || row == count - 1 || col == count - 1) {
+                    solution += xChar;
+                } else {
+                    solution += " ";
+                }
+            }
+            solution += "\n";
+        }
+        return solution;
+    }
+
 }
