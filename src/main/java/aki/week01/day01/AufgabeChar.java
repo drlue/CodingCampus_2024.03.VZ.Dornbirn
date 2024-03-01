@@ -2,7 +2,7 @@ package aki.week01.day01;
 
 public class AufgabeChar {
     public static void main(String[] args) {
-        System.out.println("Hello WOrld");
+        printRhombus("x", " ", ".", 7);
     }
 
     public static void printChars(String zeichen, int number) {
@@ -79,6 +79,32 @@ public class AufgabeChar {
                     System.out.print(zeichen);
                 } else {
                     System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printTriangle(String zeichen, int size) {
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size * 2 - 1; col++) {
+                if (col == size - row - 1 || col == size + row - 1 || row == size - 1) {
+                    System.out.print(zeichen);
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printRhombus(String x, String leer, String dot, int size) {
+        for (int row = 0; row < size * 2; row++) {
+            for (int col = 0; col < size * 4; col++) {
+                if (col == size - row -1 || col == size + row -1) {
+                    System.out.print(x);
+                } else {
+                    System.out.print(dot);
                 }
             }
             System.out.println();
