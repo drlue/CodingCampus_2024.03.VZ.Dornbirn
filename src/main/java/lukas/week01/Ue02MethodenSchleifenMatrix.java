@@ -63,6 +63,14 @@ public class Ue02MethodenSchleifenMatrix {
         printCirclePythagoras(10);
         System.out.println();
 
+        System.out.println("printCirclePythagoras2");
+        printCirclePythagoras2(10);
+        System.out.println();
+
+        System.out.println("printCircleSinCos");
+        printCircleSinCos(10);
+        System.out.println();
+
 
     }
 
@@ -240,11 +248,42 @@ public class Ue02MethodenSchleifenMatrix {
         }
     }
 
-    //NOCH NICHT FERTIG
+    //Solution1 - mathematisch Mittelpunkt bei (r/r)
     public static void printCirclePythagoras(int r) {
-        for (int row = 0; row < r * 2; row++) {
-            for (int col = 0; col < r * 2; col++) {
-                if (row*row+col*col == r*r) {
+        for (int row = 1; row < r * 2; row++) {
+            for (int col = 1; col < r * 2; col++) {
+                if (col < r + Math.sqrt(r * r - (row - r) * (row - r)) && col > r - Math.sqrt(r * r - (r - row) * (r - row))) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    //Solution2 - Mittelpunkt bei (0/0), Schleife von -r bis inkl r -> 21
+    //oder von -r+1 bis exkl. r -> 19 (wie oben)
+    public static void printCirclePythagoras2(int r) {
+        for (int row = -r + 1; row < r; row++) {
+            for (int col = -r + 1; col < r; col++) {
+                if (col * col <= r * r - row * row) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printCircleSinCos(int r) {
+        for (int y = -r + 1; y < r; y++) {
+            for (int x = -r + 1; x < r; x++) {
+                double alpha = Math.atan((double) y / x);
+                int a = (int)(r*Math.cos(alpha));
+                int b = (int)(r*Math.sin(alpha));
+                if (Math.abs(x) == Math.abs(a) && Math.abs(y) == Math.abs(b) ) {
                     System.out.print("x");
                 } else {
                     System.out.print(".");
