@@ -2,7 +2,7 @@ package aki.week01.day01;
 
 public class AufgabeChar {
     public static void main(String[] args) {
-        printSlash("x", 3, true);
+        printRhombus("x", " ", ".", 7);
     }
 
     public static void printChars(String zeichen, int number) {
@@ -75,7 +75,7 @@ public class AufgabeChar {
     public static void printEmptySquare(String zeichen, int number) {
         for (int i = 0; i < number; i++) {
             for (int j = 0; j < number; j++) {
-                if (i == 0 || i == number - 1|| j == 0 || j == number -1) {
+                if (i == 0 || i == number - 1 || j == 0 || j == number - 1) {
                     System.out.print(zeichen);
                 } else {
                     System.out.print(" ");
@@ -85,12 +85,29 @@ public class AufgabeChar {
         }
     }
 
-    public static void printSlash(String zeichen, int number, boolean backslash) {
-        for (int i = 0; i < number; i++) {
-            for (int j = 0; j < i; j++) {
-                System.out.print(zeichen);
+    public static void printTriangle(String zeichen, int size) {
+        for (int row = 0; row < size; row++) {
+            for (int col = 0; col < size * 2 - 1; col++) {
+                if (col == size - row - 1 || col == size + row - 1 || row == size - 1) {
+                    System.out.print(zeichen);
+                } else {
+                    System.out.print(" ");
+                }
             }
-            System.out.print(" ");
+            System.out.println();
+        }
+    }
+
+    public static void printRhombus(String x, String leer, String dot, int size) {
+        for (int row = 0; row < size * 2; row++) {
+            for (int col = 0; col < size * 4; col++) {
+                if (col == size - row -1 || col == size + row -1) {
+                    System.out.print(x);
+                } else {
+                    System.out.print(dot);
+                }
+            }
+            System.out.println();
         }
     }
 }
