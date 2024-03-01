@@ -3,69 +3,69 @@ package lukas.week01;
 public class Ue02MethodenSchleifenMatrix {
     public static void main(String[] args) {
 
-        System.out.println("printSquare");
-        printSquare("x", 10);
-        System.out.println();
+//        System.out.println("printSquare");
+//        printSquare("x", 10);
+//        System.out.println();
+//
+//        System.out.println("printRectangle");
+//        printRectangle("x", 10, 3);
+//        System.out.println();
+//
+//        System.out.println("printTriangleBottomLeft");
+//        printTriangleBottomLeft("x", 4);
+//        System.out.println();
+//
+//        System.out.println("printTriangleTopLeft");
+//        printTriangleTopLeft("x", 5);
+//        System.out.println();
+//
+//        System.out.println("printTriangleTopRight");
+//        printTriangleTopRight("x", 5);
+//        System.out.println();
+//
+//        System.out.println("printTriangleBottomRight");
+//        printTriangleBottomRight("x", 5);
+//        System.out.println();
+//
+//        System.out.println("printEmptySquare");
+//        printEmptySquare("x", 10);
+//        System.out.println();
+//
+//        System.out.println("printEmptySquare 2");
+//        printEmptySquare("A", 3);
+//        System.out.println();
+//
+//        System.out.println("printBackslash");
+//        printSlash("x", 5, true);
+//        System.out.println();
+//
+//        System.out.println("printSlash");
+//        printSlash("y", 5, false);
+//        System.out.println();
+//
+//        System.out.println("printTriangle");
+//        printTriangle("x", 5);
+//        System.out.println();
+//
+//        System.out.println("printRhombus");
+//        printRhombus("x", 7);
+//        System.out.println();
+//
+//        System.out.println("printX");
+//        printX("x", 5);
+//        System.out.println();
+//
+//        System.out.println("printChristmasTree");
+//        printChristmasTree(15);
+//        System.out.println();
+//
+//        System.out.println("printCirclePythagoras");
+//        printCirclePythagoras(10);
+//        System.out.println();
 
-        System.out.println("printRectangle");
-        printRectangle("x", 10, 3);
-        System.out.println();
-
-        System.out.println("printTriangleBottomLeft");
-        printTriangleBottomLeft("x", 4);
-        System.out.println();
-
-        System.out.println("printTriangleTopLeft");
-        printTriangleTopLeft("x", 5);
-        System.out.println();
-
-        System.out.println("printTriangleTopRight");
-        printTriangleTopRight("x", 5);
-        System.out.println();
-
-        System.out.println("printTriangleBottomRight");
-        printTriangleBottomRight("x", 5);
-        System.out.println();
-
-        System.out.println("printEmptySquare");
-        printEmptySquare("x", 10);
-        System.out.println();
-
-        System.out.println("printEmptySquare 2");
-        printEmptySquare("A", 3);
-        System.out.println();
-
-        System.out.println("printBackslash");
-        printSlash("x", 5, true);
-        System.out.println();
-
-        System.out.println("printSlash");
-        printSlash("y", 5, false);
-        System.out.println();
-
-        System.out.println("printTriangle");
-        printTriangle("x", 5);
-        System.out.println();
-
-        System.out.println("printRhombus");
-        printRhombus("x", 7);
-        System.out.println();
-
-        System.out.println("printX");
-        printX("x", 5);
-        System.out.println();
-
-        System.out.println("printChristmasTree");
-        printChristmasTree(15);
-        System.out.println();
-
-        System.out.println("printCirclePythagoras");
-        printCirclePythagoras(10);
-        System.out.println();
-
-        System.out.println("printCirclePythagoras2");
-        printCirclePythagoras2(10);
-        System.out.println();
+//        System.out.println("printCirclePythagoras2");
+//        printCirclePythagoras2(10);
+//        System.out.println();
 
         System.out.println("printCircleSinCos");
         printCircleSinCos(10);

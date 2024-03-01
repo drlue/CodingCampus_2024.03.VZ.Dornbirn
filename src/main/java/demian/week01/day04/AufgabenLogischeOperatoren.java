@@ -91,6 +91,10 @@ public class AufgabenLogischeOperatoren {
 
         }
     }
+//
+//    public static boolean leapyear(int number){
+//        if ( number)
+//    }
 
 
 }
