@@ -6,8 +6,6 @@ public class PrimitiveDatentypen {
     }
 
 
-
-
     public static void oneToTwenty() {
         for (int i = 0; i <= 20; i++) {
             System.out.println(i);

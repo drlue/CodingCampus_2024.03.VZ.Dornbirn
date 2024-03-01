@@ -4,6 +4,7 @@ public class ZeroPointOneSteps {
     public static void main(String[] args) {
 
     }
+
     //Aufgabe von 0 bis 100 Zählen in 0.1Schritten
     public static void zeroToHundredInZeroPointOneSteps() {
         for (double i = 0; i <= 100; i += 0.1) {
