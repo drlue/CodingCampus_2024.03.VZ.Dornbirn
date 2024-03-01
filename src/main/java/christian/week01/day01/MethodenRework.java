@@ -65,37 +65,7 @@ public class MethodenRework {
         return solution;
     }
 
-    //  ausgefüllte Dreieck rechtsoben
-    public static String printXTriangleTopRight(char xChar, int count) {
-        String solution = "";
-        for (int row = 0; row < count; row++) {
-            for (int col = 0; col < count; col++) {
-                if (col == count - 1 || row == 0 || row == col || col > row) {
-                    solution += xChar;
-                } else {
-                    solution += ".";
-                }
-            }
-            solution += "\n";
-        }
-        return solution;
-    }
 
-    //  ausgefüllte Dreieck rechtsunten
-    public static String printXTriangleBottomRight(char xChar, int count) {
-        String solution = "";
-        for (int row = 0; row < count; row++) {
-            for (int col = 0; col < count; col++) {
-                if (row == count - 1 || col == count - 1 || row + col > count - 2) {
-                    solution += xChar;
-                } else {
-                    solution += ".";
-                }
-            }
-            solution += "\n";
-        }
-        return solution;
-    }
 
     // leeres Quadrat ausgeben
     public static String printEmptyXSquare(char xChar, int count) {
