@@ -1,6 +1,6 @@
 package christian.week01.day03;
 
-public class geometricFormsWithLoops {
+public class geometricQuadrangularFormsWithLoops {
     public static void main(String[] args) {
 
     }
