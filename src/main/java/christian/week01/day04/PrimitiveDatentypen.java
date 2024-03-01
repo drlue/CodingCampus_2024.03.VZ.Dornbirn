@@ -95,14 +95,11 @@ public class PrimitiveDatentypen {
     public static double calculatePiWithNilakantha(int length) {
         double pi = 3;
         double nenner1 = 2;
-        double nenner2 = 3;
-        double nenner3 = 4;
         for (int i = 0; i < length; i++) {
-            pi += (4 / (nenner1 * nenner2 * nenner3));
+            pi += 4 / (nenner1 * (nenner1+1 )* (nenner1+2));
             nenner1 += 2;
-            nenner2 += 2;
-            nenner3 += 2;
-            pi -= (4 / (nenner1 * nenner2 * nenner3));
+            pi -= 4 / (nenner1 * (nenner1+1 )* (nenner1+2));
+            nenner1 += 2;
         }
         return pi;
     }

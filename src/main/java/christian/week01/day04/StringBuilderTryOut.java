@@ -1,4 +1,4 @@
-package christian.week01.day01;
+package christian.week01.day04;
 
 public class StringBuilderTryOut {
 
