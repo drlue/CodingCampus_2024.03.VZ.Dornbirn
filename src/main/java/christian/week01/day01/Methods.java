@@ -6,59 +6,11 @@ public class Methods {
         System.out.println(printEmptySquare('x', 3));
     }
 
-    public static String charXCount(char a, int count) {
-        String solution = "";
-        for (int i = count; i > 0; i--) {
-            solution += a;
-        }
-        return solution;
-    }
 
-    public static void printSquare(char a, int count) {
 
-        for (int i = 0; i < count; i++) {
-            System.out.println();
-            for (int j = 0; j < count; j++) {
-                System.out.print(a);
-            }
 
-        }
-    }
 
-    public static String printSquareString(char a, int count) {
-        String solution = "";
-        boolean first = true;
-        int globalCount = 0;
-        while (globalCount <= count) {
-            if (first == true) {
-                for (int i = 0; i < count; i++) {
-                    solution += a;
-                    first = false;
-                    globalCount++;
-                }
 
-            } else {
-                for (int i = 0; i < count - 1; i++) {
-                    solution += "\n";
-                    globalCount++;
-                    for (int j = 0; j < count; j++) {
-                        solution += a;
-                    }
-                }
-            }
-
-        }
-        return solution;
-    }
-
-    public static void printRectangle(char a, int counthorizontal, int countvertical) {
-        for (int i = 0; i <= countvertical - 1; i++) {
-            System.out.println();
-            for (int j = 0; j <= counthorizontal; j++) {
-                System.out.print(a);
-            }
-        }
-    }
 
     public static String printTriangleBottomLeft(char a, int count) {
         String solution = "";

@@ -1,6 +1,6 @@
 package demian.week01.day01;
 
-public class Aufgaben {
+public class AufgabenMethodenUNDschleifen {
     public static void main(String[] args) {
 
         //Aufgabe Print A
@@ -99,6 +99,14 @@ public class Aufgaben {
         System.out.println();
         System.out.println("Aufgabe: Triangle");
         printTriangle("A", 5);
+
+        System.out.println();
+        System.out.println("Rhombus");
+        printrhombus("A", 10);
+
+        System.out.println();
+        System.out.println("Rhombus vereinfachtes Programm");
+        printrhombusEINFACH("X", 8);
 
 
     }
@@ -280,12 +288,12 @@ public class Aufgaben {
     public static void printTriangle(String zeichen, int hoehe) {
         for (int row = 0; row < hoehe; row++) {
             for (int col = 0; col < (2 * hoehe - 1); col++) {
-                if (row+4 == col) {
+                if (row + 4 == col) {
                     System.out.print("A");
-                } else if (row == hoehe-1) {
+                } else if (row == hoehe - 1) {
                     System.out.print("C");
 
-                } else if (row+col == hoehe-1) {
+                } else if (row + col == hoehe - 1) {
                     System.out.print("B");
 
                 } else {
@@ -296,6 +304,40 @@ public class Aufgaben {
         }
     }
 
+    public static void printrhombus(String text, int size) {
+        for (int row = 0; row < 2 * size - 1; row++) {
+            for (int col = 0; col < 2 * size - 1; col++) {
+                if (row + col == size - 1) {
+                    System.out.print('A');
+                } else if (col == row + size - 1) {
+                    System.out.print("B");
+                } else if (col + size - 1 == row) {
+                    System.out.print("C");
+                } else if (row + col == 3 * size - 3) {
+                    System.out.print("D");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printrhombusEINFACH(String text, int size) {
+        for (int row = 0; row < 2 * size - 1; row++) {
+            for (int col = 0; col < 2 * size - 1; col++) {
+                if (row + col == size - 1 ||
+                        col == row + size - 1 ||
+                        col + size - 1 == row ||
+                        row + col == 3 * size - 3) {
+                    System.out.print(text);
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
 
 
 }
