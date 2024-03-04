@@ -7,7 +7,7 @@ public class geometricCircularFormsWithLoops {
     public static void printCircle (int radius){
         for (int row = 0; row < 2*radius-1; row++) {
             for (int col = 0; col < 2*radius-1; col++) {
-                if(row+col <)
+
             }
         }
     }
