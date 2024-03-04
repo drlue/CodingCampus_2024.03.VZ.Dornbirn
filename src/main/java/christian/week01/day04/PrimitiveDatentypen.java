@@ -15,7 +15,7 @@ public class PrimitiveDatentypen {
     }
 
     //calculate Pi with Gregory-Leibniz series
-    public static double calculatePiWithGregorySeries() {
+    public static double calculatePiWithLeibnizSeries() {
         double zaehler = 4;
         double nenner = 1;
         double pi = 0;
@@ -27,6 +27,8 @@ public class PrimitiveDatentypen {
         }
         return pi;
     }
+    // Zaehlervariable weg, iterator als Nenner wählen
+    //präzision berechnen
 
     // calculate Pi with Nilakantha series
     public static double calculatePiWithNilakantha(int length) {
