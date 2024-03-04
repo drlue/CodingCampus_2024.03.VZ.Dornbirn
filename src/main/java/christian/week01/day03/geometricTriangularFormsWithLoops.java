@@ -2,7 +2,8 @@ package christian.week01.day03;
 
 public class geometricTriangularFormsWithLoops {
     public static void main(String[] args) {
-        System.out.println(printTriangleTopLeft('x',5));
+printRhombus('a',10);
+
 
     }
     //Dreieck Links unten ohne Stringbuilder
@@ -108,8 +109,8 @@ public class geometricTriangularFormsWithLoops {
 
     // Rhombus zeichnen
     public static void printRhombus(char xChar, int height) {
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < height; col++) {
+        for (int row = 0; row <= height; row++) {
+            for (int col = 0; col <= height; col++) {
                 if (col == -row + height / 2 || col == row + (height / 2) || col == row - (height / 2) || col == -row + 3 * (height / 2)) {
                     System.out.print(xChar);
                 } else {

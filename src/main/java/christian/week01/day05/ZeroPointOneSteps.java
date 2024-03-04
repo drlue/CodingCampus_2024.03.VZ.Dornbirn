@@ -21,7 +21,7 @@ public class ZeroPointOneSteps {
         }
     }
 
-    //eigene Methode zum Runden, funktioniert mit Stellenwertverschiebung und dem normalen Math.round()
+    // Methode aus dem Internet zum Runden, funktioniert mit Stellenwertverschiebung und dem normalen Math.round()
     public static double roundxdecimalpoints(double x, int decimalpoints) {
         double d = Math.pow(10, decimalpoints);
         return (Math.round(x * d)) / d;
