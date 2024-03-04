@@ -45,9 +45,7 @@ public class LogischeOperatoren {
         }
 
         task();
-            System.out.println(task8(1,10,2));
-
-
+            System.out.println(task8(1,7,5));
 
     }
 
@@ -61,6 +59,7 @@ public class LogischeOperatoren {
 
     public static boolean isBiggerThanThreeAndEvenOrEleven(int num) {
         return num > 3 && num % 2 == 0 || num == 11;
+
     }
 
     public static boolean task1(int num) {
@@ -109,27 +108,18 @@ public class LogischeOperatoren {
         boolean divideableBy3Or16 = num % 3 == 0 || num % 16 == 0;
         boolean divideableBy32 = num % 32 == 0;
 
-        if (num % 32 == 0) {
+        if (divideableBy3Or16 && !divideableBy32) {
+            return true;
+        } else {
             return false;
         }
-        if (num % 3 == 0) {
-            return true;
-        }
-        return num % 16 == 0;
-
-
-//        if (divideableBy3Or16 && !divideableBy32) {
-//            return true;
-//        } else {
-//            return false;
-//        }
     }
 
     public static boolean task7(int num) {
-        boolean exeption = (num % 100 == 0) && (num % 400 != 0);
+        boolean exeption = (num % 100 == 0) && (num % 400 == 0);
         boolean schaltjahr = (num % 4 == 0);
 
-        if (schaltjahr && !exeption) {
+        if (schaltjahr && exeption) {
             return true;
         } else{
             return false;
