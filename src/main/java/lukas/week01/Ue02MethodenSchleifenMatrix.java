@@ -220,32 +220,32 @@ public class Ue02MethodenSchleifenMatrix {
 
     public static void printChristmasTree(int height) {
         int width = 2 * height - 1;
-        //Baum
-        for (int row = 0; row < height; row++) {
-            for (int col = 0; col < width; col++) {
-                if (col >= height - 1 - row && col <= row + height - 1) {
-                    System.out.print("x");
-                } else {
-                    System.out.print(".");
+                //Baum
+                for (int row = 0; row < height; row++) {
+                    for (int col = 0; col < width; col++) {
+                        if (col >= height - 1 - row && col <= row + height - 1) {
+                            System.out.print("x");
+                        } else {
+                            System.out.print(".");
+                        }
+                    }
+                    System.out.println();
                 }
-            }
-            System.out.println();
-        }
-        //Kugeln
-        for (int col = 0; col < width; col++) {
-            if (col % 2 != 0) {
-                System.out.print(".");
-            } else {
-                System.out.print("O");
-            }
-        }
-        System.out.println();
-        //Stamm soll sich proportional zu height ändern
-        int bStamm = width / 2 - 1;
-        int hStamm = height / 2;
-        for (int row = 0; row < hStamm; row++) {
-            for (int col = 0; col < width; col++) {
-                if (col >= width / 2 - bStamm / 2 && col <= width / 2 + bStamm / 2) {
+                //Kugeln
+                for (int col = 0; col < width; col++) {
+                    if (col % 2 != 0) {
+                        System.out.print(".");
+                    } else {
+                        System.out.print("O");
+                    }
+                }
+                System.out.println();
+                //Stamm soll sich proportional zu height ändern
+                int bStamm = width / 2 - 1;
+                int hStamm = height / 2;
+                for (int row = 0; row < hStamm; row++) {
+                    for (int col = 0; col < width; col++) {
+                        if (col >= width / 2 - bStamm / 2 && col <= width / 2 + bStamm / 2) {
                     System.out.print("+");
                 } else {
                     System.out.print(".");
@@ -303,7 +303,7 @@ public class Ue02MethodenSchleifenMatrix {
     //Kreis - in y-Richtung so verzerrt, dass am Bildschirm wie Kreis
     public static void printCircleOnScreen(int r, double faktorX) {
         for (int y = -r; y <= r; y++) {
-            for (int x = (int) (-r * faktorX); x <= r * faktorX; x++) {
+            for (double x =-r * faktorX; x <= r * faktorX; x++) {
                 if (x * x / (r * faktorX * r * faktorX) + y * y / ((double) r * r) <=1) {
                     System.out.print("x");
                 } else {
@@ -327,7 +327,4 @@ public class Ue02MethodenSchleifenMatrix {
             System.out.println();
         }
     }
-
-
-
 }

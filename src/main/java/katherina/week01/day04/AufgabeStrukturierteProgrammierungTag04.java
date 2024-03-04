@@ -10,7 +10,8 @@ public class AufgabeStrukturierteProgrammierungTag04 {
     public static void printRhombus(String text, int size) {
         for (int reihe = 0; size > reihe; reihe++) {
             for (int spalte = 0; spalte < size; spalte++) {
-                if (((reihe + spalte) == size / 2) || ((reihe + spalte) == size+2)) {
+                if (((reihe + spalte) == size / 2) || ((reihe + spalte) == size+2) || (reihe == size -2  && spalte == size - reihe)||
+                        (spalte == size -2  && reihe == (size - spalte)) ){
                     System.out.print("A ");
                 } else {
                     System.out.print(". ");
@@ -32,11 +33,7 @@ public class AufgabeStrukturierteProgrammierungTag04 {
      |0|1|2|3|4|5|6
 
 Koordinaten, bei denen ein X geschrieben werden muss:
-6-3
-5-2; 5-4
-4-1; 4-5
-3-0;3-6
-2-1; 1-4
-0-3
-    * */
+4-1;
+1-4
+     */
 }
