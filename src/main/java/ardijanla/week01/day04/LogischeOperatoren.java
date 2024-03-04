@@ -108,15 +108,6 @@ public class LogischeOperatoren {
         boolean divideableBy3Or16 = num % 3 == 0 || num % 16 == 0;
         boolean divideableBy32 = num % 32 == 0;
 
-//        if (num % 32 == 0) {
-//            return false;
-//        }
-//        if (num % 3 == 0) {
-//            return true;
-//        }
-//        return num % 16 == 0;
-
-
         if (divideableBy3Or16 && !divideableBy32) {
             return true;
         } else {
