@@ -1,4 +1,4 @@
-package christian.week01.day01;
+package christian.week01.day02;
 
 public class Loops {
     public static void main(String[] args) {
@@ -22,11 +22,8 @@ public class Loops {
         //Aufgabe Rewind
         for (int i = 10; i >= -10; i--) {
             System.out.println(i);
-        }
-        System.out.println(zweitePotenz(5));
-    }
 
-    public static int zweitePotenz(int a) {
-        return a * a;
+        }
+
     }
 }
