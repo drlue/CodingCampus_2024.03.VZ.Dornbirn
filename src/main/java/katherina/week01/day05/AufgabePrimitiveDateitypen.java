@@ -9,7 +9,7 @@ public class AufgabePrimitiveDateitypen {
         System.out.println("\nFaktorialberechnung Nummer 3");
         faktorial3(20);
         System.out.println("\n0 bis 100 in 0.1er Schritten");
-   //     kleineSchrittchen(100);
+        kleineSchrittchen(100);
 
 
     }
@@ -44,17 +44,13 @@ public class AufgabePrimitiveDateitypen {
     //Das gleiche wie meine Lösung, aber weniger komplex. (Mehrere Lösungen für ein Problem sind IMMER gut vor Augen zu haben!)
     //Die Formatierungsnotation beachten: In Anführungszeichen und an einen String getackert.
 
-  /*  public static double kleineSchrittchen(float zahl) {
-        float teilErgebnis = 0.01;
-        for (float startwert = 0; startwert <= zahl; startwert++) {
-            teilErgebnis *=startwert;
-            {
-
-            }
+    public static void kleineSchrittchen(float zahl) {
+        for (float startwert = 0; startwert <= zahl; startwert += 0.100000f) {
+            System.out.println((startwert * 100) / 100);
         }
-        return teilErgebnis;
     }
-*/
-
+//Ich bin noch nicht zu 100% damit zufrieden, aber mache schon mal weiter, da ich gerade nicht fragen kann.
 }
+
+
 
