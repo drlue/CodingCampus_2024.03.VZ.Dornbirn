@@ -3,47 +3,46 @@ package franco.week01.day01;
 public class AufgabePrint {
     public static void main(String[] args) {
 
+//        //Calling the methods
+//        printChars("*", 10);
+//0
+//        printSquare("x", 10);
+//
+//        printTriangleBottomLeft("* ", 4);
+//
+//        printTriangleTopLeft("+ ", 5);
+//
+//        printTriangleTopRight("* ", 5);
+//
+//        printEmptySquare("+ ", 10);
+//
+//        printEmptySquare("A ", 3);
+//
+//        printSlash("X", 6, true);
+//
+//        printSlash2("Y", 5, true);
+//
+//        printTri("X", 5);
+//
+//        printX("X", 5);
+//
+//        printRhombus("x", 7);
+//
+          printChristmasTree(9);
+//
+//        printRect("X ", 10, 3);
 
-        //Calling the methods
-        printChars("*", 10);
-
-        printSquare("x", 10);
-
-        printTriangleBottomLeft("* ", 4);
-
-        printTriangleTopLeft("+ ", 5);
-
-        printTriangleTopRight("* ", 5);
-
-        printEmptySquare("+ ", 10);
-
-        printEmptySquare("A ", 3);
-
-        printSlash("X", 6, true);
-
-        printSlash2("Y", 5, true);
-
-        printTri("X", 5);
-
-        printX("X", 5);
-
-        printRhombus("x", 7);
-
-        printChristmasTree(9);
-
+        printCirclePythagoras(10);
 
     }
-
 
     //Print one character on single line(Method)
     public static void printChars(String text, int zahl) {
 
         for (int i = 0; i < zahl; i++) {
             System.out.print(text);
-
         }
         System.out.println();
-
     }
 
     //Print one character multiple time and on multiple row
@@ -56,12 +55,16 @@ public class AufgabePrint {
                 }
 
             }
-
         }
     }
 
     public static void printRect(String text, int length, int height) {
-        //for(int=)
+        for (int row = 0; row < height; row++) {
+            for (int column = 0; column < length; column++) {
+                System.out.print(text);
+            }
+            System.out.println();
+        }
     }
 
     //Print a triangle right to left
@@ -75,13 +78,11 @@ public class AufgabePrint {
     }
 
     public static void printTriangleTopLeft(String text, int number) {
-
         for (int i = 1; i <= number; i++) {
             for (int j = i; j <= number; j++) {
                 System.out.print(text);
             }
             System.out.println();
-
         }
     }
 
@@ -92,9 +93,7 @@ public class AufgabePrint {
             }
             for (int j = i; j < number; j++) {
                 System.out.print(text);
-
             }
-
             System.out.println();
         }
 
@@ -108,12 +107,9 @@ public class AufgabePrint {
                 } else {
                     System.out.print("  ");
                 }
-
             }
             System.out.println();
-
         }
-
     }
 
     public static void printSlash(String text, int number, boolean isSlashOrNot) {
@@ -125,11 +121,8 @@ public class AufgabePrint {
                     System.out.print(" ");
 
                 }
-
-
             }
             System.out.println();
-
         }
     }
 
@@ -145,8 +138,6 @@ public class AufgabePrint {
             System.out.println();
         }
     }
-
-
 
     public static void printTri(String text, int size) {
         for (int row = 1; row <= size; row++) {
@@ -177,7 +168,6 @@ public class AufgabePrint {
             }
             System.out.println();
         }
-
     }
 
     public static void printRhombus(String text, int size) {
@@ -197,21 +187,47 @@ public class AufgabePrint {
         }
     }
 
-    public static void printChristmasTree(int size){
+    public static void printChristmasTree(int size) {
 
         for (int row = 1; row <= size; row++) {
             for (int column = 1; column <= 2 * size - 1; column++) {
-                if (row == size || row + column == size + 1 || column == row + (size - 1)) {
-                    System.out.print("O");
+                if (row == size || row + column <= size + 1 || column >= row + (size - 1)) {
+                    System.out.print("X");
 
-                } else {
+                }
+                else {
                     System.out.print(" ");
                 }
+                //The stump of the tree
+                //proportional according to the height given
             }
+            System.out.println("");
+        }
+        for (int row = 0; row <(size/3)-1 ; row++) {
+            for (int column =0; column <=size; column++) {
 
+                if(column<size/3||column>=(2*size)/3){
+                System.out.print("  ");}
+                else{
+                    System.out.print("++");
+                }
+            }
             System.out.println();
         }
-        
+
     }
 
+    //need some modification
+    public static void printCirclePythagoras(int size) {
+        for (int row = 0; row < size * 2; row++) {
+            for (int col = 0; col < size * 2; col++) {
+                if (row*row+col*col == size*size) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
