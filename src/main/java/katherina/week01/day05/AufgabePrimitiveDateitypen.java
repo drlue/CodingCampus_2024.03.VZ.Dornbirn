@@ -46,10 +46,19 @@ public class AufgabePrimitiveDateitypen {
 
     public static void kleineSchrittchen(float zahl) {
         for (float startwert = 0; startwert <= zahl; startwert += 0.100000f) {
-            System.out.println((startwert * 100) / 100);
+            System.out.print(startwert);
+            System.out.printf(" %5.1f", startwert);
+            System.out.println();
+        }
+
+        for (int i = 900; i < 1000; i++) {
+            System.out.println(i / 10.0);
         }
     }
-//Ich bin noch nicht zu 100% damit zufrieden, aber mache schon mal weiter, da ich gerade nicht fragen kann.
+//Floating Point ist - eigentlich - nicht geeignet, um präzise (kaufmännische) Berechnungen durchzuführen.
+    //Zwei Lösungsmöglickeiten: Variante eins - ich formatiere mein Ergebnis als "Gewünscht ist ein Float-Wert mit genau einer Nachkommastelle."
+    //Variante zwei: Ich rechne mit einem Vielfachen der gewünschten Werte und wandle erst bei der Ausgabe um. Dann kann da auch nix minimal verrutschen.
+
 }
 
 
