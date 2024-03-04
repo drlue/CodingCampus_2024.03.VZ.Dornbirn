@@ -1,4 +1,4 @@
-package irem;
+package irem.week01.day01;
 
 public class LogischeOperatoren2 {
     public static void main(String[] args) {
