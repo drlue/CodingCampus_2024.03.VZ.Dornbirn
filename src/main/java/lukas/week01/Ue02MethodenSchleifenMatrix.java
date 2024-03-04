@@ -303,7 +303,7 @@ public class Ue02MethodenSchleifenMatrix {
     //Kreis - in y-Richtung so verzerrt, dass am Bildschirm wie Kreis
     public static void printCircleOnScreen(int r, double faktorX) {
         for (int y = -r; y <= r; y++) {
-            for (int x = (int) (-r * faktorX); x <= r * faktorX; x++) {
+            for (double x =-r * faktorX; x <= r * faktorX; x++) {
                 if (x * x / (r * faktorX * r * faktorX) + y * y / ((double) r * r) <=1) {
                     System.out.print("x");
                 } else {
@@ -327,7 +327,4 @@ public class Ue02MethodenSchleifenMatrix {
             System.out.println();
         }
     }
-
-
-
 }

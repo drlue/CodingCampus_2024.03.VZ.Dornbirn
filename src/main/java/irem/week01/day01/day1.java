@@ -1,4 +1,4 @@
-package irem;
+package irem.week01.day01;
 
 import java.util.Scanner;
 
