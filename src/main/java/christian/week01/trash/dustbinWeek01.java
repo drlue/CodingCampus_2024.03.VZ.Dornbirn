@@ -70,5 +70,36 @@ public class dustbinWeek01 {
         }
         return solution;
     }
+    //  ausgefüllte Dreieck linksunten
+    public static String printXTriangleBottomLeft(char xChar, int count) {
+        String solution = "";
+        for (int row = 0; row < count; row++) {
+            for (int col = 0; col < count; col++) {
+                if (col == 0 || row == count - 1 || row == col || col < row) {
+                    solution += xChar;
+                } else {
+                    solution += ".";
+                }
+            }
+            solution += "\n";
+        }
+        return solution;
+    }
 
+    //  ausgefüllte Dreieck linksoben
+    public static String printXTriangleTopLeft(char xChar, int count) {
+        String solution = "";
+        //
+        for (int row = 0; row < count; row++) {
+            for (int col = 0; col < count; col++) {
+                if (row + col < count) {
+                    solution += xChar;
+                } else {
+                    solution += ".";
+                }
+            }
+            solution += "\n";
+        }
+        return solution;
+    }
 }
