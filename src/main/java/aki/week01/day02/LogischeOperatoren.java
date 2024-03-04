@@ -62,7 +62,7 @@ public class LogischeOperatoren {
     public static boolean aufgabesix(int value) {
         if (value % 3 == 0 && value % 16 == 0) {
             return true;
-        } else if (value % 32 == 0) {
+        } else if (value % 32 == 1) {
             return false;
         }else {
             return false;
