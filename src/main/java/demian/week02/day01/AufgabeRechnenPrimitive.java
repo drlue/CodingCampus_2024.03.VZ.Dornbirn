@@ -27,6 +27,17 @@ public class AufgabeRechnenPrimitive {
         System.out.println("AUFGABE 4");
         printTenthSteps();
 
+        //AUFGABE 5:
+        // Erstelle eine Methode, die von 0 bis 20 zählt und die folgende Daten ausgibt:
+        //der Zähler x selbst
+        //x / 5
+        //x / 5.0
+        //Warum unterscheidet sich die Ausgabe?
+
+        System.out.println();
+        System.out.println("AUFGABE 5");
+        printDIVISON();
+
     }
 
     //AUFGABE 1,2,3
@@ -50,6 +61,15 @@ public class AufgabeRechnenPrimitive {
         }
     }
 
+    //Aufgabe 5:
+    public static void printDIVISON (){
+        for (int count = 0; count < 21; count++) {
+            System.out.println("X="+count);
+            System.out.println("x/5 =" + (count/5));
+            System.out.println("x/0.5 =" + (count/5.0f));
+            System.out.println();
 
+        }
+    }
 
 }
