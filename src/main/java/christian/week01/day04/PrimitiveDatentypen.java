@@ -28,7 +28,7 @@ public class PrimitiveDatentypen {
         return pi;
     }
     // Zaehlervariable weg, iterator als Nenner wählen
-    //präzision berechnen
+    //präzision berechnen siehe Week2
 
     // calculate Pi with Nilakantha series
     public static double calculatePiWithNilakantha(int length) {
@@ -44,6 +44,7 @@ public class PrimitiveDatentypen {
     }
 
     //Bonusaufgabe Geheime Reihe
+    // neu in Week2
     public static void geheimeReihe(int limit) {
         boolean first = true;
         int counter = 1;
