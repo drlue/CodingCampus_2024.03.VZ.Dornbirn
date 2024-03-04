@@ -24,10 +24,12 @@ public class AufgabeRechnenPrimitive {
         // Erstelle eine Methode, die von 0 bis 100 in 0.1er Schritten zählt, und alle Werte ausgibt
         // Löse das Problem mit mindestens zwei verschiedenen Varianten
 
-
+        System.out.println("AUFGABE 4");
+        printTenthSteps();
 
     }
 
+    //AUFGABE 1,2,3
     public static void factorial(int number) {
         long sum = 1;
         for (int count = 1; count <= number; count++) {
@@ -40,6 +42,14 @@ public class AufgabeRechnenPrimitive {
             }
         }
     }
+
+    //AUFGABE 4
+    public static void printTenthSteps() {
+        for (float count = 0; count <= 100; count = count+0.1f) {
+            System.out.printf("%6.2f\n",count);
+        }
+    }
+
 
 
 }
