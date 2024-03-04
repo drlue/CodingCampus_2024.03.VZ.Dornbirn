@@ -3,6 +3,7 @@ package katherina.week01.day04;
 import java.util.Random;
 
 public class AufgabeLogischeOperatoren {
+    static Random random = new Random();
 
     public static void main(String[] args) {
         //fixedNumbers();
@@ -13,7 +14,6 @@ public class AufgabeLogischeOperatoren {
     //und eine zweite namens FixedNumber. Aufgerufen wird die Klasse jeweils dann, wenn sie nicht auskommentiert ist.
 
     public static void randomNumber() {
-        Random random = new Random();
         int zufallszahl = random.nextInt(-100, 101);
         System.out.println("Die Zufallszahl ist: " + zufallszahl);
         System.out.println("\nAufgabe eins: Zahl gerade UND größer als 10");

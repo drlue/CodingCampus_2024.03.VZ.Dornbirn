@@ -63,13 +63,20 @@ public class Ue02MethodenSchleifenMatrix {
 //        printCirclePythagoras(10);
 //        System.out.println();
 
-//        System.out.println("printCirclePythagoras2");
-//        printCirclePythagoras2(10);
+//        System.out.println("printCircleSinCos");
+//        printCircleSinCos(10);
 //        System.out.println();
 
-        System.out.println("printCircleSinCos");
-        printCircleSinCos(10);
+        double faktorX = 2.814;
+        System.out.println("printCircleOnScreen");
+        printCircleOnScreen(10, faktorX);
         System.out.println();
+
+        System.out.println("printEmptyCircleOnScreen");
+        printEmptyCircleOnScreen(10, faktorX, 0.015);
+        System.out.println();
+
+
 
 
     }
@@ -281,9 +288,9 @@ public class Ue02MethodenSchleifenMatrix {
         for (int y = -r + 1; y < r; y++) {
             for (int x = -r + 1; x < r; x++) {
                 double alpha = Math.atan((double) y / x);
-                int a = (int)(r*Math.cos(alpha));
-                int b = (int)(r*Math.sin(alpha));
-                if (Math.abs(x) == Math.abs(a) && Math.abs(y) == Math.abs(b) ) {
+                int a = (int) (r * Math.cos(alpha));
+                int b = (int) (r * Math.sin(alpha));
+                if (Math.abs(x) == Math.abs(a) && Math.abs(y) == Math.abs(b)) {
                     System.out.print("x");
                 } else {
                     System.out.print(".");
@@ -292,5 +299,35 @@ public class Ue02MethodenSchleifenMatrix {
             System.out.println();
         }
     }
+
+    //Kreis - in y-Richtung so verzerrt, dass am Bildschirm wie Kreis
+    public static void printCircleOnScreen(int r, double faktorX) {
+        for (int y = -r; y <= r; y++) {
+            for (int x = (int) (-r * faktorX); x <= r * faktorX; x++) {
+                if (x * x / (r * faktorX * r * faktorX) + y * y / ((double) r * r) <=1) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printEmptyCircleOnScreen(int r, double faktorX, double width) {
+        for (int y = -r; y <= r; y++) {
+            for (int x = (int) (-r * faktorX); x <= r * faktorX; x++) {
+                double conditionPart1 = x * x / (r * faktorX * r * faktorX) + y * y / ((double) r * r);
+                if (conditionPart1 <= 1+width && conditionPart1 >=0.96-width) {
+                    System.out.print("x");
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
 
 }
