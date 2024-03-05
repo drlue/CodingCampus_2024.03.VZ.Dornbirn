@@ -32,7 +32,7 @@ public class AufgabePrint {
 //
 //        printRect("X ", 10, 3);
 
-        printCirclePythagoras(10);
+ //       printCirclePythagoras(10);
 
     }
 

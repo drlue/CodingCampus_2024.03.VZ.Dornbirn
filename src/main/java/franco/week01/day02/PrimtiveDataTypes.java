@@ -11,7 +11,7 @@ public class PrimtiveDataTypes {
 
 //        System.out.print(" 10! =");
 //        System.out.println(factorialNumber(10));
-//        printFactorial(1, 20);
+        printFactorial(1, 20);
 //        printIncrement(0,100);
         divideAndConquer(1,20);
     }
@@ -26,7 +26,7 @@ public class PrimtiveDataTypes {
 
     public static void printFactorial(int startNum, int endNum) {
         for (int i = startNum; i <= endNum; i++) {
-            System.out.printf("%19d%n", factorialNumber(i));
+            System.out.printf("%2d! = %19d%n", i, factorialNumber(i));
         }
     }
     public static void printIncrement(int start, int end) {
@@ -39,8 +39,9 @@ public class PrimtiveDataTypes {
     public static void divideAndConquer(int start,int end){
         for (int i = start; i <= end; i++) {
            // System.out.print(i);
-            System.out.print(i/5);
-            System.out.print(i/5.0);
+            System.out.println(i/5);
+            System.out.println(i/5.0);
+            System.out.println();
         }
     }
 
