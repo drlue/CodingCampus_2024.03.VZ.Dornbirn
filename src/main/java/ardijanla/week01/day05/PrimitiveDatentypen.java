@@ -2,12 +2,15 @@ package ardijanla.week01.day05;
 
 import ardijanla.ConsoleColors;
 
-import java.awt.*;
-import java.io.Console;
-import java.math.BigInteger;
+import java.util.Random;
 
 public class PrimitiveDatentypen {
+    static Random rnd = new Random();
+
+
     public static void main(String[] args) {
+
+
 
         System.out.println("Fakul");
         System.out.println(fakul(10));
@@ -29,6 +32,7 @@ public class PrimitiveDatentypen {
 
         System.out.println("Calc Leibniz");
         calculatePiLeibniz();
+
         System.out.println("Calc Leibniz von Christian");
         CalucalateChristian();
 
@@ -36,7 +40,13 @@ public class PrimitiveDatentypen {
         calculatePiNilakantha();
 
         System.out.println("Secret Row");
-        SecretRow();
+        secretRow();
+
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(rnd.nextInt(50,101));
+
+        }
     }
 
     //Erstelle eine Methode die die Fakultät einer beliebigen Zahl berechnet und zurückgibt.
@@ -112,14 +122,12 @@ public class PrimitiveDatentypen {
 
     public static void calculatePiLeibniz() {
         double pi = 0.000f;
-        double nenner = 4;
+        double zaehler = 4;
 
         for (long i = 1; i <= 100000000; i += 4) {
-            pi += (nenner / i) - (nenner / (i + 2));
+            pi += (zaehler / i) - (zaehler / (i + 2));
         }
         System.out.println(pi);
-
-
     }
 
 
@@ -130,7 +138,8 @@ public class PrimitiveDatentypen {
         double zaehler = 4;
         double nenner = 1;
 
-        for (int i = 0; i <= 250000000; i++) {
+        for (long i = 0; i <= 100000l ; i++) {
+
             pi += (zaehler / nenner);
             nenner += 2;
             pi -= (zaehler / nenner);
@@ -170,9 +179,8 @@ public class PrimitiveDatentypen {
     }
 
     //Bonusaufgabe: Geheime Reihe
-    public static void SecretRow() {
+    public static void secretRow() {
         double num = 1.0;
-
 
         for (int i = 0; i < 100; i++) {
             num = num / 2 + 1/  num;
