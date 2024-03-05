@@ -3,7 +3,7 @@ package franco.homework;
 public class ChritsmasTree {
     public static void main(String[] args) {
 
-        printChristmasTree(9);
+        printChristmasTree(20);
         //triangleBottomRight(5);
         //printChristmasTree2(9);
 
@@ -34,7 +34,10 @@ public class ChritsmasTree {
             }
             System.out.println("");
         }
-
+        for (int count = 0; count < size; count++) {
+            System.out.print("O ");
+        }
+        System.out.println();
         //print tree stump
         for (int row = 0; row <(size/3)-1 ; row++) {
             for (int column =0; column <=size; column++) {

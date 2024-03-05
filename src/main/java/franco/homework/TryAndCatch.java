@@ -1,8 +1,7 @@
 package franco.homework;
-
-
-import java.io.PrintStream;
 import java.util.Scanner;
+import franco.week01.day01.AufgabePrint;
+import static franco.week01.day01.AufgabePrint.*;
 
 
 public class TryAndCatch {
@@ -28,16 +27,24 @@ public class TryAndCatch {
 
         char op = operation.next().charAt(0);
 
-//        try {
-//            if (op =='A') {
-//                printTriangle
-//
-//            }
-//
-//
-//        } catch (Exception e) {
-//
-//        }
+        try {
+            if (op =='A') {
+
+                printSquare(" x",6);
+            }
+
+            if(op=='B')
+            {
+                printTriangleTopLeft("O",7);
+            }
+            if(op=='C'){
+                printChristmasTree(9);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong");
+
+        }
 
     }
 }
