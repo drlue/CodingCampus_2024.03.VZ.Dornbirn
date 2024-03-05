@@ -75,4 +75,28 @@ public class UserInputExample {
         }
         return result;
     }
+
+    public static int getIntFromConsoleV5(String message, int minValue, int maxValue) {
+        System.out.print(message);
+
+        int result = Integer.MIN_VALUE;
+        boolean resultReady = false;
+        while (!resultReady) {
+            while (!sc.hasNextInt()) {
+                System.out.println("Hello, es ist keine Zahl...");
+                sc.nextLine();
+                System.out.print(message);
+            }
+            result = sc.nextInt();
+            sc.nextLine();
+            if (result < minValue || result > maxValue) {
+                System.out.printf("Bitte geben Sie einen Wert zwischen %d und %d!\n", minValue, maxValue);
+                System.out.print(message);
+            } else {
+                resultReady = true;
+            }
+        }
+        return result;
+    }
+
 }
