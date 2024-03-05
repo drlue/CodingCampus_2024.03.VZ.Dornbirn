@@ -1,9 +1,8 @@
 package demian.week02.day02;
 
-
 import java.util.Scanner;
 
-public class NachbauScannerNameAlterSchuhgroeße {
+public class ScannerNachbau {
 
     public static Scanner sc = new Scanner(System.in);
 
