@@ -15,7 +15,7 @@ public class PrimitiveDatentypen {
     }
 
     //calculate Pi with Gregory-Leibniz series
-    public static double calculatePiWithGregorySeries() {
+    public static double calculatePiWithLeibnizSeries() {
         double zaehler = 4;
         double nenner = 1;
         double pi = 0;
@@ -27,6 +27,8 @@ public class PrimitiveDatentypen {
         }
         return pi;
     }
+    // Zaehlervariable weg, iterator als Nenner wählen
+    //präzision berechnen siehe Week2
 
     // calculate Pi with Nilakantha series
     public static double calculatePiWithNilakantha(int length) {
@@ -42,6 +44,7 @@ public class PrimitiveDatentypen {
     }
 
     //Bonusaufgabe Geheime Reihe
+    // neu in Week2
     public static void geheimeReihe(int limit) {
         boolean first = true;
         int counter = 1;
