@@ -56,7 +56,7 @@ public class UserInputExample {
         return result;
     }
 
-    public static int getIntFromConsole(String message, int minValue, int maxValue) {
+    public static int getIntFromConsoleV4(String message, int minValue, int maxValue) {
         System.out.print(message);
 
         int result = Integer.MIN_VALUE;
@@ -75,4 +75,47 @@ public class UserInputExample {
         }
         return result;
     }
+
+    public static int getIntFromConsoleV5(String message, int minValue, int maxValue) {
+        System.out.print(message);
+
+        int result = Integer.MIN_VALUE;
+        boolean resultReady = false;
+        while (!resultReady) {
+            while (!sc.hasNextInt()) {
+                System.out.println("Hello, es ist keine Zahl...");
+                sc.nextLine();
+                System.out.print(message);
+            }
+            result = sc.nextInt();
+            sc.nextLine();
+            if (result < minValue || result > maxValue) {
+                System.out.printf("Bitte geben Sie einen Wert zwischen %d und %d!\n", minValue, maxValue);
+                System.out.print(message);
+            } else {
+                resultReady = true;
+            }
+        }
+        return result;
+    }
+
+    public static int getIntFromConsole(String message, int minValue, int maxValue) {
+        int result = Integer.MIN_VALUE;
+        while (result == Integer.MIN_VALUE) {
+            System.out.print(message);
+            String text = sc.nextLine();
+
+            try {
+                result = Integer.parseInt(text);
+                if (result < minValue || result > maxValue){
+                    System.out.printf("Bitte geben Sie einen Wert zwischen %d und %d!\n", minValue, maxValue);
+                    result = Integer.MIN_VALUE;
+                }
+            } catch (NumberFormatException nfe) {
+                System.out.println("Hello, es ist keine Zahl...");
+            }
+        }
+        return result;
+    }
+
 }

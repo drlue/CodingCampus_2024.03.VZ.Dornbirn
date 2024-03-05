@@ -48,9 +48,9 @@ public class AufgabePrimitiveDateitypen2 {
 //Merke: Die Funktion in der for-Schleife erhöht die Wechselzahl zwar in den Multiplikationen, aber nicht zwischen den einzelnen Schritten!
 
     public static double geheimerKuchen() {
-        double ergebnis = 0;
+        double ergebnis = 1.0;
         for (double zahl = 1.0; zahl < 10; zahl++) {
-            ergebnis += zahl / 2 + 1 / zahl;
+            ergebnis = ergebnis / 2 + 1 / ergebnis;
             System.out.println(zahl);
             System.out.println(ergebnis);
             System.out.println(" ");
@@ -59,6 +59,6 @@ public class AufgabePrimitiveDateitypen2 {
         }
         return ergebnis;
     }
-
+//Tadaaa! Der geheime Kuchen emthält als Inhalt die Wurzel von zwei. (Da steckt irgendwo ein Witzskript drin. Noch was, das ich am Wochenende schreiben muss.)
 
 }

@@ -79,7 +79,7 @@ public class MethodenUndSchleifen {
         for (int i = 0; i < length; i++) {
 
             for (int j = 0; j < i; j++) {
-                System.out.print(" ");
+                System.out.print(".");
             }
             for (int j = 0; j < length - i; j++) {
                 System.out.print(character);
@@ -142,6 +142,7 @@ public class MethodenUndSchleifen {
         } else {
             // Diagonale von links oben nach rechts unten
             for (int i = 0; i < value; i++) {
+
                 for (int j = 0; j < value - i - 1; j++) {
                     System.out.print(" ");
                 }
@@ -270,7 +271,6 @@ public class MethodenUndSchleifen {
     public static void printCriclePythagoras(int n) {
         System.out.println("Print Circle");
 
-        // durchmesser
         int d = n * n;
 
         for (int y = -n; y <= n; y++) {
