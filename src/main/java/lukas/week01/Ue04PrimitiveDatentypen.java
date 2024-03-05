@@ -27,8 +27,8 @@ public class Ue04PrimitiveDatentypen {
 //        System.out.println("Von 0 bis 100 Zählen in 0.1er Schritten - Solution 3 (Formatiert)");
 //        countTo100inPointOneSteps3(5);
 //
-//        System.out.println("Divide et Impera");
-//        DivideEtImpera();
+        System.out.println("Divide et Impera");
+        DivideEtImpera();
 //
 //        System.out.println("Berechnung Pi mit Leibnitz Reihe");
 //        calculatePiLeibnitz(6);
@@ -45,10 +45,10 @@ public class Ue04PrimitiveDatentypen {
 //        double random = new Random().nextInt(10000) + 1;
 //        System.out.println("Wurzelnäherung für Wurzel aus " + random);
 //        approxSqrt(random, 0.0001);
-
-        double v = 1297419;
-        System.out.println("Wurzelnäherung für Wurzel aus " + v);
-        approxSqrt2(v, 0.001);
+//
+//        double v = 1297419;
+//        System.out.println("Wurzelnäherung für Wurzel aus " + v);
+//        approxSqrt2(v, 0.001);
     }
 
     public static long fakt(int value) {
@@ -93,10 +93,12 @@ public class Ue04PrimitiveDatentypen {
 
     public static void DivideEtImpera() {
         for (int x = 0; x < 20; x++) {
-            System.out.print(x / 5);
-            System.out.print("       ");
-            System.out.print(x / 5.0);
-            System.out.println();
+//            System.out.print(x / 5);
+//            System.out.print("       ");
+//            System.out.print(x / 5.0);
+//            System.out.println();
+
+            System.out.printf("%s %10.2f \n", x/5, x/5.0);
         }
     }
 
