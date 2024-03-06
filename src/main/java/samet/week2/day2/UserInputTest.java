@@ -36,7 +36,7 @@ public class UserInputTest {
             result = scanner.nextInt();
             scanner.nextLine();
             if (result < minValue || result > maxValue) {
-                System.out.println ("Bitte geben Sie einen Wert zwischen 0 und 100 ein");
+                System.out.println ("Bitte geben Sie einen Wert zwischen " + minValue + " und " + maxValue + " ein");
                 System.out.print(message);
             }
         }
