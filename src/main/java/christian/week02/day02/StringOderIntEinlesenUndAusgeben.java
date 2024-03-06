@@ -37,4 +37,5 @@ public class StringOderIntEinlesenUndAusgeben {
         integer = sc.nextInt();
         return integer;
     }
+
 }
