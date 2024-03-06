@@ -10,14 +10,20 @@ public class ForWifey {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Wie ist dein Name?");
         String name = scanner.nextLine();
+
         System.out.println("Wie alt bist du?");
         int age = scanner.nextInt();
+
         scanner.nextLine();
+
         System.out.println("Wie heißen deine Katzen?");
         String katzen = scanner.nextLine();
 
         System.out.println("Hallo " + name);
         System.out.println("Du bist " + age +"Jahre alt");
         System.out.println(katzen +" heißen deine Katzen");
+
+
+
     }
 }

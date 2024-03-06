@@ -11,8 +11,9 @@ public class ScannerNachbau {
     public static void main(String[] args) {
 
         String username = consoleTEXTinput("========================================\nHallo!\n\nBitte geben Sie hier ihren Namen ein ==> ");
-        int age = consoleINTEGERinput("Bitte geben Sie hier ihr Alter ein ==> ", 8, 120);
-        System.out.printf("Hallo %s (%d)", username, age);
+        int age = consoleINTEGERinputV1("Bitte geben Sie hier ihr Alter ein ==> ", 8, 120);
+        int weight = consoleINTEGERinput("Bitte geben Sie hier Gewicht in kg ein ==> ", 20, 300);
+        System.out.printf("Hallo %s (%d Jahre, %d kg)", username, age, weight);
 
 
     }
@@ -21,48 +22,46 @@ public class ScannerNachbau {
     //Texteingabe
     public static String consoleTEXTinput(String messageTOuser) {
         System.out.print(messageTOuser);
-        String username = sc.next();
+        String txt = sc.nextLine();
 
-        return username;
+        return txt;
     }
 
-    public static Integer consoleINTEGERinput(String messageTOuser, int minAGE, int maxAGE) {
+    public static int consoleINTEGERinputV1(String messageTOuser, int minVAL, int maxVAL) {
         System.out.print(messageTOuser);
-        int age = Integer.MIN_VALUE;
-        while (age < minAGE || age > maxAGE) {
+        int val = Integer.MIN_VALUE;
+        while (val < minVAL || val > maxVAL) {
             while (!sc.hasNextInt()) {
                 System.out.println("Bitte keine Buchstaben oder Sonderzeichen");
                 sc.nextLine();
                 System.out.print(messageTOuser);
             }
-            age = sc.nextInt();
+            val = sc.nextInt();
             sc.nextLine();
-            if(age<minAGE || age>maxAGE){
-                System.out.printf("Nur Werte zwischen %d und %d gültig", minAGE, maxAGE);
+            if (val < minVAL || val > maxVAL) {
+                System.out.printf("Nur Werte zwischen %d und %d gültig", minVAL, maxVAL);
                 System.out.print(messageTOuser);
 
             }
 
         }
-        return age;
+        return val;
     }
 
-
-    public static int getIntFromConsoleV4GYULA(String message, int minValue, int maxValue) {
-        System.out.print(message);
-
+    public static int consoleINTEGERinput(String messageTOuser, int minVAL, int maxVAL) {
         int result = Integer.MIN_VALUE;
-        while (result < minValue || result > maxValue) {
-            while (!sc.hasNextInt()) {
-                System.out.println("Hello, es ist keine Zahl...");
-                sc.nextLine();
-                System.out.print(message);
-            }
-            result = sc.nextInt();
-            sc.nextLine();
-            if (result < minValue || result > maxValue) {
-                System.out.printf("Bitte geben Sie einen Wert zwischen %d und %d!\n", minValue, maxValue);
-                System.out.print(message);
+        String txt = "";
+        while (result == Integer.MIN_VALUE) {
+            try {
+                System.out.print(messageTOuser);
+                txt = sc.nextLine();
+                result = Integer.parseInt(txt);
+                if (result < minVAL || result > maxVAL) {
+                    System.out.printf("Nur Werte zwischen %d und %d sind zulaessig \n", minVAL, maxVAL);
+                    result = Integer.MIN_VALUE;
+                }
+            } catch (NumberFormatException nfe) {
+                System.out.println("Eingegebener Wert ist keine Zahl");
             }
         }
         return result;
