@@ -8,7 +8,6 @@ import java.util.Random;
 public class Consoleinput2 {
     public static Random random = new Random();
 
-
     public static void main(String[] args) {
 
         System.out.println("Willkommen beim super coolen Zahlen Ratespiel\nErrate die Zahl zwischen 0 und 100!");
