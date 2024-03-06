@@ -48,11 +48,15 @@ public class Ue02MethodenSchleifenMatrix {
 //        System.out.println();
 //
 //        System.out.println("printRhombus");
-//        printRhombus("x", 7);
+//        printRhombus("x", 10);
+//        System.out.println();
+//
+//        System.out.println("printRhombusV2");
+//        printRhombusV2("x", 10);
 //        System.out.println();
 //
 //        System.out.println("printX");
-//        printX("x", 5);
+//        printX("x", 6);
 //        System.out.println();
 //
 //        System.out.println("printChristmasTree");
@@ -67,14 +71,14 @@ public class Ue02MethodenSchleifenMatrix {
 //        printCircleSinCos(10);
 //        System.out.println();
 
-        double faktorX = 2.814;
-        System.out.println("printCircleOnScreen");
-        printCircleOnScreen(10, faktorX);
-        System.out.println();
-
-        System.out.println("printEmptyCircleOnScreen");
-        printEmptyCircleOnScreen(10, faktorX, 0.015);
-        System.out.println();
+//        double faktorX = 2.814;
+//        System.out.println("printCircleOnScreen");
+//        printCircleOnScreen(10, faktorX);
+//        System.out.println();
+//
+//        System.out.println("printEmptyCircleOnScreen");
+//        printEmptyCircleOnScreen(10, faktorX, 0.015);
+//        System.out.println();
 
 
 
@@ -190,12 +194,13 @@ public class Ue02MethodenSchleifenMatrix {
         }
     }
 
+    //Funktioniert nur bei geraden Zahlen
     public static void printRhombus(String txt, int size) {
         int h2 = size / 2;
-        for (int col = 0; col < size; col++) {
-            for (int row = 0; row < size; row++) {
+        for (int row = 0; row < size+1; row++) {
+            for (int col = 0; col < size+1; col++) {
                 //if 4x Geradengleichung (1x je Seite) Abszisse (x) -> col, Ordinate (y) -> row
-                if (row == -col + h2 || row == col + h2 || row == col - h2 || row == -col + 3 * h2) {
+                if (col == -row + h2 || col == row + h2 || col == row - h2 || col == -row + 3 * h2) {
                     System.out.print(txt);
                 } else {
                     System.out.print(" ");
@@ -203,6 +208,21 @@ public class Ue02MethodenSchleifenMatrix {
             }
             System.out.println();
         }
+    }
+//Mit doppelter Size -> row und col immer Gerade -> Spitz immer in der Mitte
+    public static void printRhombusV2(String txt, int size) {
+        for (int row = 0; row < size*2+1; row++) {
+            for (int col = 0; col < size*2+1; col++) {
+                //if 4x Geradengleichung (1x je Seite) Abszisse (x) -> col, Ordinate (y) -> row
+                if (col == -row + size || col == row + size || col == row - size || col == -row + 3 * size) {
+                    System.out.print(txt);
+                } else {
+                    System.out.print(".");
+                }
+            }
+            System.out.println();
+
+            }
     }
 
     public static void printX(String txt, int size) {
