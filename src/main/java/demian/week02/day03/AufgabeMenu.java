@@ -39,7 +39,7 @@ public class AufgabeMenu {
         System.out.println();
         System.out.println("Wilkommen bei meinen Aufgaben!\nWas möchten Sie zeichnen?");
         System.out.println();
-        System.out.println("   1)Dreieck\n   2)Quader\n   3)Rhombus\n");
+        System.out.println("   1)Dreieck\n   2)Rechteck\n   3)Rhombus\n");
 
         //FORMAUSWAHL:
 
@@ -68,21 +68,21 @@ public class AufgabeMenu {
         if (userinputNUM == 1) {
             formname = "das Dreieck";
         } else if (userinputNUM == 2) {
-            formname = "der Quader";
+            formname = "das Rechteck";
         } else {
             formname = "der Rhombus";
         }
 
         System.out.println("Wie groß soll " + formname + " sein (0-30) ?");
         resultOK = false;
-        userinputNUM = 0;
+        int userinputNUM2 = 0;
 
         while (!resultOK) {
             System.out.print("HIER AUSWAHL TREFFEN ==>");
             try {
                 String userinput = sc.nextLine();
-                userinputNUM = Integer.parseInt(userinput);
-                if (userinputNUM >= 1 && userinputNUM <= 30) {
+                userinputNUM2 = Integer.parseInt(userinput);
+                if (userinputNUM2 >= 1 && userinputNUM2 <= 30) {
                     resultOK = true;
 
                 } else {
@@ -92,5 +92,22 @@ public class AufgabeMenu {
                 System.out.println("Es wurde keine Zahl eingeben");
             }
         }
+
+
+        //ZEICHENAUSWAHL
+
+        System.out.println(formname + " wird mit einem Buchstaben gezeichnet\nWas fuer ein Buchstabe soll zum zeichnen verwendet werden?");
+        System.out.print("HIER AUSWAHL TREFFEN ==>");
+        String userinput3 = sc.nextLine();
+
+        if (userinputNUM == 1) {
+            demian.week01.day01.AufgabenMethodenUNDschleifen.printTriangleBottomLeft(userinput3, userinputNUM2);
+        } else if (userinputNUM == 2) {
+            demian.week01.day01.AufgabenMethodenUNDschleifen.printEmptySquare(userinput3, userinputNUM2);
+        } else if (userinputNUM == 3) {
+            demian.week01.day01.AufgabenMethodenUNDschleifen.printrhombus(userinput3, userinputNUM2);
+        }
+
+
     }
 }
