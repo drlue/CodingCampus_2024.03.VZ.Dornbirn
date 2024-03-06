@@ -18,8 +18,7 @@ public class AufgabeRatespiel {
 
         Random random = new Random();
         //Random number between 0 and 100
-        int randomNumber = random.nextInt(0, 101);
-        System.out.println("PROGRAMMTEST ZUFALLSNUMMER =" + randomNumber);
+        int randomNumber = random.nextInt(0, 100);
 
         System.out.println("============================================= ");
         System.out.println("=================RATESPIEL=================== ");
