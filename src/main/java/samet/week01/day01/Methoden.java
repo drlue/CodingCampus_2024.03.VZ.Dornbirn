@@ -23,7 +23,7 @@ public class Methoden {
         System.out.println("\nprintEmptySquare()");
         printEmptySquare("H ", 10);
         System.out.println("\nprintEmptySquareKlein()");
-        printEmptySquare("I ", 3);
+        printEmptySquare("I ", 5);
         System.out.println("\nprintSlash()");
         printSlash(" J", 4, true);
         System.out.println("\nprintTriangle()");

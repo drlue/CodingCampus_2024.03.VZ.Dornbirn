@@ -12,7 +12,8 @@ public class PrintTriangleTopRight{
     public static void printTriangleTopRight(String text, int number) {
         for (int col = 1; col <= number; col++) {
             for (int raw = 1; raw <= col; raw++) {
-                System.out.print(" . ");
+                //System.out.print(" . ");
+                System.out.print(" ".repeat(text.length()));
             }
             for (int raw = col; raw <= number; raw++) {
                 System.out.print(text);

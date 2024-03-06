@@ -10,30 +10,35 @@ public class Ratespiel {
     public static void main(String[] args) {
         int goal = random.nextInt(0, 100);
         System.out.println("Willkommen beim super coolen Zahlen Ratespiel!\n Errate die Zahl zwischen 0 und 100!");
-        int zahl = ratezahl("Gib die Zahl nun ein:", 0, 100);
-        if (goal == zahl) {
-            System.out.printf("Du hast gewonnen!");
-        } else {
-            System.out.printf("Nicht gewonnen. HA-HA-HA-HA !!!!");
+        int zahl = Integer.MIN_VALUE;
+        while (goal != zahl) {
+            zahl = gerateneEingabe("Gib die Zahl nun ein:", 0, 100);
+            if (zahl < goal) {
+                System.out.printf("Die Zahl ist zu klein. Versuche es erneut.\n");
+            } else if (goal < zahl) {
+                System.out.printf("Die Zahl ist zu gross. Versuche es erneut!\n");
+            }
         }
+        System.out.printf("Du hast gewonnen!");
+
     }
 
-    public static int ratezahl(String message, int mindestwert, int maximalwert) {
+    public static int gerateneEingabe(String message, int mindestwert, int maximalwert) {
         System.out.print(message);
-        int result = Integer.MIN_VALUE;
-        while (result < mindestwert || result > maximalwert) {
+        int zahl = Integer.MIN_VALUE;
+        while (zahl < mindestwert || zahl > maximalwert) {
             while (!sc.hasNextInt()) {
                 System.out.println("Hi, dies ist keine gültige Eingabe. Hier sind nur ganze Zahlen erlaubt.");
                 sc.nextLine();
                 System.out.print(message);
             }
-            result = sc.nextInt();
+            zahl = sc.nextInt();
             sc.nextLine();
-            if (result < mindestwert || result > maximalwert) {
+            if (zahl < mindestwert || zahl > maximalwert) {
                 System.out.printf("Bitte gib einen gültigen Wert zwischen %d und %d ein.\n", mindestwert, maximalwert);
                 System.out.print(message);
             }
         }
-        return result;
+        return zahl;
     }
 }
