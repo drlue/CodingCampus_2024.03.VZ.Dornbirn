@@ -18,6 +18,7 @@ public class AufgabeErweiterungAlterAufgaben {
         String text = UserInput.getTextFromConsole("Gib mindestens ein Zeichen ein: ");
         int size = UserInput.getIntFromConsole("Wie groß soll der Rhombus werden?", 3, 50);
         AufgabeStrukturierteProgrammierungTag04.printRhombus(text, size);
+
     }
 
     public static int wertEinlesen(String message, int mindestwert, int maximalwert) {

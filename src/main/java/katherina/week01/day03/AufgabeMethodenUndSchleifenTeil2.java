@@ -31,7 +31,7 @@ public class AufgabeMethodenUndSchleifenTeil2 {
         }
     }
 
-    //Merke: Wenn in einer if-else-Kontrollschleife Bedingungen mittels oder definiert werden, darf ein = nie allein stehen. Sonst will die Software
+    //Merke: Wenn in einer if-else-Kontrollabfrage Bedingungen mittels oder definiert werden, darf ein = nie allein stehen. Sonst will die Software
     // eine boolean-Variable daraus machen und das ist meist nicht Sinn der Übung. Betonung liegt auf meist, weil vielleicht manchmal ja doch.
 
     public static void printemptySquare2(String text, int size) {
