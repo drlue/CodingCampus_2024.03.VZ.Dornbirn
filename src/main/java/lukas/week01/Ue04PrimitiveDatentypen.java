@@ -208,7 +208,7 @@ public class Ue04PrimitiveDatentypen {
     }
 
 
-    public static void approxSqrt(double value, double precision) {
+    public static double approxSqrt(double value, double precision) {
         double minVal = 0;
         double maxVal = value;
         while (maxVal - minVal > precision) {
@@ -220,10 +220,11 @@ public class Ue04PrimitiveDatentypen {
             }
             //System.out.println(tempVal);
         }
-        System.out.println("Fehler < " + precision);
-        System.out.println(maxVal);
-        System.out.println("Kontrolle:");
-        System.out.println(Math.sqrt(value));
+//        System.out.println("Fehler < " + precision);
+//        System.out.println(maxVal);
+//        System.out.println("Kontrolle:");
+//        System.out.println(Math.sqrt(value));
+        return minVal;
     }
 
     public static void approxSqrt2(double value, double precisionInPercent) {

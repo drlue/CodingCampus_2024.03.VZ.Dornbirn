@@ -33,9 +33,8 @@ public class InputUebung {
             number = scan.nextInt();
             scan.nextLine();
             if (number < minValue || number > maxValue) {
-                System.out.println("Please Write down a trustworthy Number! ");
+                System.out.println("Please Write down a trustworthy Number betweem " + minValue+ " and " + maxValue + "! ");
                 System.out.println(message);
-                scan.nextLine();
             } else {
                 return number;
             }

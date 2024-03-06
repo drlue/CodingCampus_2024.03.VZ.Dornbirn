@@ -46,7 +46,7 @@ public class geometricQuadrangularFormsWithLoops {
         }
     }
     // Quadrat leer ausgeben ohne Stringbuilder
-    public static String printEmptyXSquare(char xChar, int count) {
+    public static String printEmptyXSquare(String xChar, int count) {
         String solution = "";
         for (int row = 0; row < count; row++) {
             for (int col = 0; col < count; col++) {
