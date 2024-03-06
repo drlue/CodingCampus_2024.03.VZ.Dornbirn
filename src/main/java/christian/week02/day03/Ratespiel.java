@@ -37,6 +37,7 @@ public class Ratespiel {
         return result;
     }
 
+
     public static void rateSpiel() {
         System.out.println("Willkommen zum super coolen Zahlen Ratespiel");
         System.out.println("Errate die Zahl zwischen 0 und 100");
