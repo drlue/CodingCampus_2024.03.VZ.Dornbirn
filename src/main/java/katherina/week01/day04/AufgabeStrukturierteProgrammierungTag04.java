@@ -10,9 +10,12 @@ public class AufgabeStrukturierteProgrammierungTag04 {
     public static void printRhombus(String text, int size) {
         for (int reihe = 0; size > reihe; reihe++) {
             for (int spalte = 0; spalte < size; spalte++) {
-                if (((reihe + spalte) == size / 2) || ((reihe + spalte) == size+2) || (reihe == size -2  && spalte == size - reihe)||
-                        (spalte == size -2  && reihe == (size - spalte)) ){
-                    System.out.print("A ");
+                if (((reihe + spalte) == size / 2) ||
+                        ((reihe + spalte) == size + 2) ||
+                        (reihe == size - 2 && spalte == size - reihe) ||
+                        (spalte == size - 2 && reihe == (size - spalte)) ||
+                        ((reihe + spalte == size - 2) && reihe != 0 && spalte != 0 && reihe != size - 4 && spalte != size - 4)) {
+                    System.out.print(text);
                 } else {
                     System.out.print(". ");
                 }

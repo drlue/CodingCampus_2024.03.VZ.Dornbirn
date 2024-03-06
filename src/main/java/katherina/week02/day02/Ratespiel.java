@@ -10,21 +10,17 @@ public class Ratespiel {
     public static void main(String[] args) {
         int goal = random.nextInt(0, 100);
         System.out.println("Willkommen beim super coolen Zahlen Ratespiel!\n Errate die Zahl zwischen 0 und 100!");
-        int zahl = gerateneEingabe("Gib die Zahl nun ein:", 0, 100);
-        while (goal < zahl || goal > zahl) {
+        int zahl = Integer.MIN_VALUE;
+        while (goal != zahl) {
+            zahl = gerateneEingabe("Gib die Zahl nun ein:", 0, 100);
             if (zahl < goal) {
                 System.out.printf("Die Zahl ist zu klein. Versuche es erneut.\n");
-                sc.nextLine();
-                gerateneEingabe("Gib die Zahl nun ein:", 0, 100);
             } else if (goal < zahl) {
                 System.out.printf("Die Zahl ist zu gross. Versuche es erneut!\n");
-                sc.nextLine();
-                gerateneEingabe("Gib die Zahl nun ein:", 0, 100);
-            } /*else {
-                System.out.printf("Du hast gewonnen!");
-            }*/
+            }
         }
         System.out.printf("Du hast gewonnen!");
+
     }
 
     public static int gerateneEingabe(String message, int mindestwert, int maximalwert) {
