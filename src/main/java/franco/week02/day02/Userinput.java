@@ -8,8 +8,8 @@ public class Userinput {
 
     public static void main(String[] args) {
         String name = getTextFromUser("Welcome, please enter your name:");
-        int age = getIntFromConsole("Please enter your age",10, 45);
-        int shoeSize= getIntFromConsole("Please enter your europe shoe size",18,48);
+        int age = getIntFromConsole("Please enter your age: ", 10, 100);
+        int shoeSize = getIntFromConsole("Please enter your europe shoe size", 18, 48);
 
         System.out.printf("Hello %s (%d) with %d shoe size!\n", name, age, shoeSize);
 
@@ -21,17 +21,15 @@ public class Userinput {
         System.out.print(message);
 
         String name = scan.nextLine();
-        while (isNotString(name)) {
+        while (isNotString(name)|| name.isEmpty()) {
             System.out.print("Please enter a valid name: ");
+
             //reset String name for new input
-           name=  scan.nextLine();
+            name = scan.nextLine();
 
         }
-      if (!isNotString(name)) {
-            System.out.println("Thank you " + name.toUpperCase());
-//                scan.nextLine();
-//              System.out.println(message);
-        }
+        System.out.println("Thank you " + name.toUpperCase());
+
         return name;
     }
 
@@ -49,7 +47,7 @@ public class Userinput {
         int result = Integer.MIN_VALUE;
         while (result < minValue || result > maxValue) {
             while (!scan.hasNextInt()) {
-                System.out.println("Please enter a number...");
+                System.out.println("Please enter a real number...");
                 scan.nextLine();
                 System.out.print(message);
             }
