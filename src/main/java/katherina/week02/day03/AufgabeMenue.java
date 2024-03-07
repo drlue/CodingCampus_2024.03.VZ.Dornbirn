@@ -4,17 +4,18 @@ import irem.week02.UserInput;
 import katherina.week01.day02AndDay03.AufgabeMethodenUndSchleifen;
 import katherina.week01.day03.AufgabeMethodenUndSchleifenTeil2;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class AufgabeMenue {
     public static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {;
+    public static void main(String[] args) {
+        boolean antwort = false;
         System.out.println("Willkommen bei meinen Aufgaben!\n Was möchten Sie zeichnen?\n" +
                 "1) Quader,\n" +
                 "2) Mittiges Dreieck,\n" +
                 "3) Dreieck mit Spitze rechts oben");
-        boolean j = false;
         do {
             int wahl = wahlEinlesen("Bitte wählen Sie nun:", 1, 3);
             if (wahl == 1) {
@@ -34,14 +35,16 @@ public class AufgabeMenue {
                 AufgabeMethodenUndSchleifen.printTriangleTopRight(text, size);
             }
             System.out.println("Möchten Sie noch etwas zeichnen? (j/n) ");
-            String jaNein = UserInput.getTextFromConsole("Antworten Sie jetzt! ");
-
-        } while (j=true);
-        {
-
-        }
+            String reaktion = UserInput.getTextFromConsole("Antworten Sie jetzt! ");
+            if (reaktion.equals("j")) {
+                antwort = true;
+            } else if (reaktion.equals("n")) {
+                antwort = false;
+            } else {
+                System.out.println("Dies ist keine gültige Eingabe. Bitte tippe j oder n ein!");
+            }
+        } while (antwort == true);
         System.out.printf("Auf Wiedersehen!");
-
     }
 
     public static int wahlEinlesen(String message, int mindestwert, int maximalwert) {

@@ -57,4 +57,5 @@ public class Ratespiel {
         }
         System.out.println("Du hast gewonnen! Das Spiel wird beendet!");
     }
+
 }

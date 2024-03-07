@@ -28,6 +28,7 @@ public class MenuAufgabe {
             } else if (programmAuswahl == 3) {
                 geometricTriangularFormsWithLoops.printRhombus(zeichenAuswahl, groesseAuswahl);
             }
+
 //bitte nicht schimpfen XD
             String wiederholungStr = "";
             System.out.println("Möchtest du noch etwas zeichnen lassen? Wähle zwischen y/n");
