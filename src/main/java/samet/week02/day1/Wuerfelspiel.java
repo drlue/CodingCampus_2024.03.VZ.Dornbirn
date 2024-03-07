@@ -1,7 +1,6 @@
-package samet.week2.day1;
+package samet.week02.day1;
 
 import java.util.Random;
-import java.util.random.RandomGenerator;
 
 public class Wuerfelspiel {
 
