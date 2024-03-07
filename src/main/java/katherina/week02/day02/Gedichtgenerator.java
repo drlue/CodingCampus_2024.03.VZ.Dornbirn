@@ -13,14 +13,14 @@ public class Gedichtgenerator {
                         "Bitte vergiss nicht, dein Gedicht aus der Konsole zu kopieren, sobald es fertig ist. Sonst ist es hinterher weg! Auf nimmerwiedersehen! Futsch!");
         System.out.println();
         System.out.println();
-        String text = getTextFromConsole1("Bitte gib die erste Zeile der ersten Strophe ein:");
-        String text2 = getTextFromConsole2("Bitte gib die zweite Zeile der ersten Strophe ein:");
-        String text3 = getTextFromConsole3("Bitte gib die dritte Zeile der ersten Strophe ein, sie sollte sich auf Zeile 1 reimen:");
-        String text4 = getTextFromConsole4("Bitte gib die vierte Zeile der ersten Strophe ein, sie sollte sich auf Zeile 2 reimen:");
-        String text5 = getTextFromConsole5("Bitte gib die zweite Zeile der zweiten Strophe ein:");
-        String text6 = getTextFromConsole6("Bitte gib die zweite Zeile der zweiten Strophe ein, sie sollte sich auf Zeile 1 reimen:");
-        String text7 = getTextFromConsole7("Bitte gib die zweite Zeile der dritten Strophe ein:");
-        String text8 = getTextFromConsole8("Bitte gib die vierte Zeile der dritten Strophe ein, sie sollte sich auf Zeile 2 reimen:");
+        String text = getTextFromConsole("Bitte gib die erste Zeile der ersten Strophe ein:");
+        String text2 = getTextFromConsole("Bitte gib die zweite Zeile der ersten Strophe ein:");
+        String text3 = getTextFromConsole("Bitte gib die dritte Zeile der ersten Strophe ein, sie sollte sich auf Zeile 1 reimen:");
+        String text4 = getTextFromConsole("Bitte gib die vierte Zeile der ersten Strophe ein, sie sollte sich auf Zeile 2 reimen:");
+        String text5 = getTextFromConsole("Bitte gib die zweite Zeile der zweiten Strophe ein:");
+        String text6 = getTextFromConsole("Bitte gib die zweite Zeile der zweiten Strophe ein, sie sollte sich auf Zeile 1 reimen:");
+        String text7 = getTextFromConsole("Bitte gib die zweite Zeile der dritten Strophe ein:");
+        String text8 = getTextFromConsole("Bitte gib die vierte Zeile der dritten Strophe ein, sie sollte sich auf Zeile 2 reimen:");
 
 
         System.out.println(text); //a , 1
@@ -44,54 +44,10 @@ public class Gedichtgenerator {
         System.out.println(text); //a , 1
     }
 
-    public static String getTextFromConsole1(String message) {
+    public static String getTextFromConsole(String message) {
         System.out.print(message);
 
         String text = sc.nextLine();
         return text;
-    }
-    public static String getTextFromConsole2(String message) {
-        System.out.print(message);
-
-        String text2 = sc.nextLine();
-        return text2;
-    }
-    public static String getTextFromConsole3(String message) {
-        System.out.print(message);
-
-        String text3 = sc.nextLine();
-        return text3;
-    }
-
-    public static String getTextFromConsole4(String message) {
-        System.out.print(message);
-
-        String text4 = sc.nextLine();
-        return text4;
-    }
-
-    public static String getTextFromConsole5(String message) {
-        System.out.print(message);
-
-        String text5 = sc.nextLine();
-        return text5;
-    }
-    public static String getTextFromConsole6(String message) {
-        System.out.print(message);
-
-        String text6 = sc.nextLine();
-        return text6;
-    }
-    public static String getTextFromConsole7(String message) {
-        System.out.print(message);
-
-        String text7 = sc.nextLine();
-        return text7;
-    }
-    public static String getTextFromConsole8(String message) {
-        System.out.print(message);
-
-        String text8 = sc.nextLine();
-        return text8;
     }
 }

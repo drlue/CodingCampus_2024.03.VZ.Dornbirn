@@ -2,7 +2,7 @@ package franco.week02.day02;
 
 import java.util.Scanner;
 
-public class Userinput {
+public class UserInput {
 
     public static Scanner scan = new Scanner(System.in);
 

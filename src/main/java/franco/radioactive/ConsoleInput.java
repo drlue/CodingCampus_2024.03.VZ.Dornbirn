@@ -1,4 +1,4 @@
-package franco.week02.day01;
+package franco.radioactive;
 
 import java.util.Scanner;
 
