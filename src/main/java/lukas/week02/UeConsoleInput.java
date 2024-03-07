@@ -9,6 +9,7 @@ public class UeConsoleInput {
     public static Random rand = new Random();
 
     public static void main(String[] args) {
+
 //        System.out.println(rand.nextInt(5, 10));
 //        int origin = 5;
 //        int bound = 10;
@@ -55,7 +56,8 @@ public class UeConsoleInput {
         System.out.println("Aufgabe 6");
         lukas.week01.Ue02MethodenSchleifen.printChars("=", 20);
         System.out.println();
-        pocketCalc();
+        //pocketCalc();
+        pocketCalcOneRow();
 
 //        String txt = "^";
 //        if (txt.equals("^")) {
@@ -71,6 +73,25 @@ public class UeConsoleInput {
         return sc.nextLine();
     }
 
+
+    public static int readIntFromConsoleV2(String message, int minValue, int maxValue) {
+        while (true) {
+            if (sc.hasNextInt()) {
+                int result = sc.nextInt();
+                if (result < minValue || result > maxValue) {
+                    System.out.printf("Zahl zwischen %d und %d eingeben \n", minValue, maxValue);
+                } else {
+                    return sc.nextInt();
+                }
+            } else {
+                System.out.println("Bitte eine Zahl eingeben");
+            }
+        }
+    }
+
+    public static int readIntFromConsoleV2(String message) {
+        return readIntFromConsoleV2(message, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
 
     public static int readIntFromConsole(String message) {
         return readIntFromConsole(message, Integer.MIN_VALUE + 1, Integer.MAX_VALUE);
@@ -88,14 +109,15 @@ public class UeConsoleInput {
                 }
             } catch (NumberFormatException nfe) {
                 //System.out.println("Kennst du den Unterschied zwischen einer Zahl und einem String?");
-                System.out.printf("Bitte eine Zahl zwischen %d und %d eingeben \n", minValue, maxValue);
+                System.out.println("Bitte eine Zahl eingeben");
             }
         }
         return result;
     }
 
+
     public static double readDoubleFromConsole(String message) {
-        return readDoubleFromConsole(message, Double.MIN_VALUE, Double.MAX_VALUE);
+        return readDoubleFromConsole(message, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
     }
 
     public static double readDoubleFromConsole(String message, double minValue, double maxValue) {
@@ -104,15 +126,15 @@ public class UeConsoleInput {
             System.out.print(message);
             try {
                 String txtLine = sc.nextLine();
-                //txtLine = txtLine.replace(",", ".");
+                txtLine = txtLine.replace(",", ".");
                 result = Double.parseDouble(txtLine);
                 if (result < minValue || result > maxValue) {
-                    System.out.printf("Bitte eine Zahl zwischen %f und %f eingeben \n", minValue, maxValue);
+                    System.out.printf("Bitte eine Zahl zwischen %e und %e eingeben \n", minValue, maxValue);
                     result = Double.NEGATIVE_INFINITY;
                 }
             } catch (NumberFormatException nfe) {
                 //System.out.println("Kennst du den Unterschied zwischen einer Zahl und einem String?");
-                System.out.printf("Bitte eine Zahl zwischen %f und %f eingeben \n", minValue, maxValue);
+                System.out.println("Bitte eine Zahl eingeben");
             }
         }
         return result;
@@ -254,36 +276,67 @@ public class UeConsoleInput {
     public static void pocketCalc() {
         System.out.println("Taschenrechner:");
         System.out.println("Erlaubte Operatoren: +,-,*,/,^");
-        float value1 = (float) readDoubleFromConsole("Zahl 1 >>>");
+        boolean endProg = false;
+        while (!endProg) {
+            float value1 = (float) readDoubleFromConsole("Zahl 1 >>>");
 
-        String operator = "";
-        boolean operatorIsOk = false;
-        while (!operatorIsOk) {
-            operator = readStringFromConsole("Funktion >>>");
-            if (operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/") || operator.equals("^")) {
-                operatorIsOk = true;
-            } else {
-                System.out.println("Gültige Operatoren: +,-,*,/,^");
+            String operator = "";
+            boolean operatorIsOk = false;
+            while (!operatorIsOk) {
+                operator = readStringFromConsole("Funktion >>>");
+                if (operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/") || operator.equals("^")) {
+                    operatorIsOk = true;
+                } else {
+                    System.out.println("Gültige Operatoren: +,-,*,/,^");
+                }
+            }
+
+            float value2 = (float) readDoubleFromConsole("Zahl 2 >>>");
+
+            float result = switch (operator) {
+                case "+" -> value1 + value2;
+                case "-" -> value1 - value2;
+                case "*" -> value1 * value2;
+                case "/" -> value1 / value2;
+                default ->
+                    //wenn operator = "^"
+                        (float) Math.pow(value1, value2);
+            };
+
+            System.out.printf("%f %s %f = %f \n", value1, operator, value2, result);
+            String answer = readStringFromConsole("Nochmal rechnen? (y/n)");
+            if (!isYes(answer)) {
+                endProg = true;
             }
         }
+    }
 
-        float value2 = (float) readDoubleFromConsole("Zahl 2 >>>");
 
-        float result = 0;
-        if (operator.equals("+")) {
-            result = value1 + value2;
-        } else if (operator.equals("-")) {
-            result = value1 - value2;
-        } else if (operator.equals("*")) {
-            result = value1 * value2;
-        } else if (operator.equals("/")) {
-            result = value1 / value2;
-        } else if (operator.equals("^")) {
-            result = (float) Math.pow(value1, value2);
+    public static void pocketCalculatorContinue() {
+
+    }
+
+    public static void pocketCalcOneRow() {
+        System.out.println("Taschenrechner:");
+        System.out.println("Erlaubte Operatoren: +,-,*,/,^,(,)");
+
+        String calString = "5+5/5";
+        System.out.println(calString);
+        calString = calString.replaceAll(" ", "");
+        System.out.println(calString);
+//      Check ob nur Zahlen und Operatoren
+        boolean hasValidChars = calString.matches("[0-9]*([0-9]+[\\+\\-\\*\\/\\^])*[0-9]+");
+
+        int operatorCount = 1;
+        for(char c : calString.toCharArray()) {
+            if (c == '+' || c == '-' || c =='*' || c == '/' || c == '^') {
+                operatorCount++;
+            }
         }
-
-        System.out.printf("%f %s %f = %f", value1, operator, value2, result);
-
+        String[] calStrings = calString.splitWithDelimiters("[\\+\\-\\*\\/\\^]", operatorCount);
+        for (String s : calStrings) {
+            System.out.println(s);
+        }
 
     }
 
