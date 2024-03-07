@@ -11,7 +11,6 @@ public class UserInputNameAndNumber {
     public static void main(String[] args) {
         String name=getTextFromUser("Welcome please enter your name");
         int num = getIntFromUser("Now enter a number please");
-
         System.out.printf("Hello %s your lucky number is %d! \n",name,num);
 
     }
@@ -19,11 +18,9 @@ public class UserInputNameAndNumber {
     public static String getTextFromUser(String message) {
         System.out.println(message);
         String name= scan.nextLine();
-
+        
         //trim and length = 0 in documentation
         //https://www.baeldung.com/java-blank-empty-strings
-
-
         while (isNotString(name)||name.trim().isEmpty()){
 
             System.out.println("Please enter a valid name:");
@@ -49,7 +46,6 @@ public class UserInputNameAndNumber {
         scan.nextLine();
         return result;
     }
-
     //Check if string has got any number or sign
     public static boolean isNotString(String name) {
         return name.matches(".*\\d.*");
