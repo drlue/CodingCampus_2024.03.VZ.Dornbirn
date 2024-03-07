@@ -2,7 +2,7 @@ package christian.week01.day03;
 
 public class geometricTriangularFormsWithLoops {
     public static void main(String[] args) {
-printRhombus('a',10);
+printRhombus("a",10);
 
 
     }
@@ -75,7 +75,7 @@ printRhombus('a',10);
         return solution;
     }
     //Dreick symmetrisch aus der Mitte zeichnen
-    public static void printTriangleMiddle(char xChar, int height) {
+    public static void printTriangleMiddle(String xChar, int height) {
         for (int row = 0; row < height; row++) {
             for (int col = 0; col < height + height - 1; col++) {
                 if (col + row == height - 1 || row == height - 1 || (col > height - 1 && row + (height - 1) == col)) {
@@ -108,7 +108,7 @@ printRhombus('a',10);
 
 
     // Rhombus zeichnen
-    public static void printRhombus(char xChar, int height) {
+    public static void printRhombus(String xChar, int height) {
         for (int row = 0; row <= height; row++) {
             for (int col = 0; col <= height; col++) {
                 if (col == -row + height / 2 || col == row + (height / 2) || col == row - (height / 2) || col == -row + 3 * (height / 2)) {

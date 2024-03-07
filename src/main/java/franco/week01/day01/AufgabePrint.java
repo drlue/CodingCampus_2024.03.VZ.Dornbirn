@@ -103,7 +103,7 @@ public class AufgabePrint {
         for (int i = 1; i <= number; i++) {
             for (int j = 1; j <= number; j++) {
                 if (i == 1 || j == 1 || i == number || j == number) {
-                    System.out.print(text);
+                    System.out.print(text+" ");
                 } else {
                     System.out.print("  ");
                 }
