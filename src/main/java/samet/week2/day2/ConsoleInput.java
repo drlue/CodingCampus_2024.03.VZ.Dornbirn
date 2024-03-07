@@ -5,6 +5,7 @@ import java.util.Random;
 
 public class ConsoleInput {
 
+
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {    //Aufgabe1 String einlesen
