@@ -1,4 +1,4 @@
-package franco.homework;
+package franco.radioactive;
 import java.util.Scanner;
 import franco.week01.day01.AufgabePrint;
 import static franco.week01.day01.AufgabePrint.*;

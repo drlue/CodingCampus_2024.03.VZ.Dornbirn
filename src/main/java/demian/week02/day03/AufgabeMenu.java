@@ -38,76 +38,90 @@ public class AufgabeMenu {
         System.out.println("============================================= ");
         System.out.println();
         System.out.println("Wilkommen bei meinen Aufgaben!\nWas möchten Sie zeichnen?");
-        System.out.println();
-        System.out.println("   1)Dreieck\n   2)Rechteck\n   3)Rhombus\n");
+        String answer = null;
+        do {
+            System.out.println("Was möchten Sie zeichnen?");
+            System.out.println();
+            System.out.println("   1)Dreieck\n   2)Rechteck\n   3)Rhombus\n");
 
-        //FORMAUSWAHL:
+            //FORMAUSWAHL:
 
-        boolean resultOK = false;
-        int userinputNUM = 0;
+            boolean resultOK = false;
+            int userinputNUM = 0;
 
-        while (!resultOK) {
-            System.out.print("HIER AUSWAHL TREFFEN ==>");
-            try {
-                String userinput = sc.nextLine();
-                userinputNUM = Integer.parseInt(userinput);
-                if (userinputNUM >= 1 && userinputNUM <= 3) {
-                    resultOK = true;
+            while (!resultOK) {
+                System.out.print("HIER AUSWAHL TREFFEN ==>");
+                try {
+                    String userinput = sc.nextLine();
+                    userinputNUM = Integer.parseInt(userinput);
+                    if (userinputNUM >= 1 && userinputNUM <= 3) {
+                        resultOK = true;
 
-                } else {
-                    System.out.println("Es stehen nur 1,2 oder 3 zur Verfügung ");
+                    } else {
+                        System.out.println("Es stehen nur 1,2 oder 3 zur Verfügung ");
+                    }
+                } catch (NumberFormatException nfe) {
+                    System.out.println("Es wurde keine Zahl eingeben");
                 }
-            } catch (NumberFormatException nfe) {
-                System.out.println("Es wurde keine Zahl eingeben");
+            }
+
+            //GROESSENAUSWAHL:
+
+            String formname = "";
+            if (userinputNUM == 1) {
+                formname = "das Dreieck";
+            } else if (userinputNUM == 2) {
+                formname = "das Rechteck";
+            } else {
+                formname = "der Rhombus";
+            }
+
+            System.out.println("Wie groß soll " + formname + " sein (0-30) ?");
+            resultOK = false;
+            int userinputNUM2 = 0;
+
+            while (!resultOK) {
+                System.out.print("HIER AUSWAHL TREFFEN ==>");
+                try {
+                    String userinput = sc.nextLine();
+                    userinputNUM2 = Integer.parseInt(userinput);
+                    if (userinputNUM2 >= 1 && userinputNUM2 <= 30) {
+                        resultOK = true;
+
+                    } else {
+                        System.out.println("Nur Groesse von 0-30 moeglich");
+                    }
+                } catch (NumberFormatException nfe) {
+                    System.out.println("Es wurde keine Zahl eingeben");
+                }
+            }
+
+
+            //ZEICHENAUSWAHL
+
+            System.out.println(formname + " wird mit einem Buchstaben gezeichnet\nWas fuer ein Buchstabe soll zum zeichnen verwendet werden?");
+            System.out.print("HIER AUSWAHL TREFFEN ==>");
+            String userinput3 = sc.nextLine();
+
+            if (userinputNUM == 1) {
+                demian.week01.day01.AufgabenMethodenUNDschleifen.printTriangleBottomLeft(userinput3, userinputNUM2);
+            } else if (userinputNUM == 2) {
+                demian.week01.day01.AufgabenMethodenUNDschleifen.printEmptySquare(userinput3, userinputNUM2);
+            } else if (userinputNUM == 3) {
+                demian.week01.day01.AufgabenMethodenUNDschleifen.printrhombus(userinput3, userinputNUM2);
+            }
+
+            //ZURÜCK ZUM MENÜ
+            System.out.println("Möchten Sie noch etwas Zeichnen (J/N) ? ");
+            while (true) {
+                answer = sc.nextLine();
+                if (answer.equals("J") || answer.equals("j")) {
+                    break;
+                } else {
+                    System.out.println("Keine Gültige Eingabe. Möglichkeiten: J,j,N,n");
+                }
             }
         }
-
-        //GROESSENAUSWAHL:
-
-        String formname = "";
-        if (userinputNUM == 1) {
-            formname = "das Dreieck";
-        } else if (userinputNUM == 2) {
-            formname = "das Rechteck";
-        } else {
-            formname = "der Rhombus";
-        }
-
-        System.out.println("Wie groß soll " + formname + " sein (0-30) ?");
-        resultOK = false;
-        int userinputNUM2 = 0;
-
-        while (!resultOK) {
-            System.out.print("HIER AUSWAHL TREFFEN ==>");
-            try {
-                String userinput = sc.nextLine();
-                userinputNUM2 = Integer.parseInt(userinput);
-                if (userinputNUM2 >= 1 && userinputNUM2 <= 30) {
-                    resultOK = true;
-
-                } else {
-                    System.out.println("Nur Groesse von 0-30 moeglich");
-                }
-            } catch (NumberFormatException nfe) {
-                System.out.println("Es wurde keine Zahl eingeben");
-            }
-        }
-
-
-        //ZEICHENAUSWAHL
-
-        System.out.println(formname + " wird mit einem Buchstaben gezeichnet\nWas fuer ein Buchstabe soll zum zeichnen verwendet werden?");
-        System.out.print("HIER AUSWAHL TREFFEN ==>");
-        String userinput3 = sc.nextLine();
-
-        if (userinputNUM == 1) {
-            demian.week01.day01.AufgabenMethodenUNDschleifen.printTriangleBottomLeft(userinput3, userinputNUM2);
-        } else if (userinputNUM == 2) {
-            demian.week01.day01.AufgabenMethodenUNDschleifen.printEmptySquare(userinput3, userinputNUM2);
-        } else if (userinputNUM == 3) {
-            demian.week01.day01.AufgabenMethodenUNDschleifen.printrhombus(userinput3, userinputNUM2);
-        }
-
-
+        while (answer.equals("J") || answer.equals("j"));
     }
 }
