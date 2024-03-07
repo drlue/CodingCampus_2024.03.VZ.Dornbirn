@@ -9,9 +9,10 @@ public class RateSpiel {
 
     public static void main(String[] args) {
         System.out.println("Wilkommen im Spiel errate die Zahl! ");
-        int goal = rand.nextInt(0,100);
+        int goal = rand.nextInt(0, 100);
         int zahl = Integer.MIN_VALUE;
         while (zahl != goal) {
+
 
             zahl = UserInput.getIntFromConsole("Gib die Zahl nun ein: ", 0, 100);
 
@@ -19,11 +20,16 @@ public class RateSpiel {
                 System.out.println("Es ist zu klein.");
             } else if (zahl > goal)
                 System.out.println("Es ist zu GROSS.");
+
+
         }
         System.out.println("Gratulation:)!! Du hast genau getroffen.");
     }
 
-
 }
+
+
+
+
 
 

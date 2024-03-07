@@ -1,8 +1,7 @@
-package samet.week2.day3;
+package samet.week02.day3;
 
-import samet.week2.day2.UserInputTest;
+import samet.week02.day2.UserInputTest;
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class Consoleinput2 {

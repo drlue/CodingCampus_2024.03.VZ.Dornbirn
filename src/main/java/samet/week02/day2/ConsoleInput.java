@@ -1,7 +1,6 @@
-package samet.week2.day2;
+package samet.week02.day2;
 
 import java.util.Scanner;
-import java.util.Random;
 
 public class ConsoleInput {
 
