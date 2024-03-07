@@ -22,6 +22,7 @@ public class InputMenue {
             String zeichen = InputUebung.userName("What character should it have? Any Symbol!\n");
             AufgabeChar.printTriangle(zeichen, big);
         }
-
+        int frage2 = InputUebung.userNumbers("Do you wanna draw again?\n 1)Yes\n 2)No\n", 1, 2);
+        System.out.println("Nuh uh, have a nice day. One drawing per Customer!");
     }
 }

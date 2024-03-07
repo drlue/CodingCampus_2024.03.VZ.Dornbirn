@@ -26,14 +26,14 @@ public class InputUebung {
         boolean numberResult = false;
         while (!numberResult) {
             while (!scan.hasNextInt()) {
-                System.out.println("Please Write down a Number");
+                System.out.println("Please Write down one of the given Numbers!");
                 System.out.println(message);
                 scan.nextLine();
             }
             number = scan.nextInt();
             scan.nextLine();
             if (number < minValue || number > maxValue) {
-                System.out.println("Please Write down a trustworthy Number betweem " + minValue+ " and " + maxValue + "! ");
+                System.out.println("Please Write down a Number between " + minValue+ " and " + maxValue + "! ");
                 System.out.println(message);
             } else {
                 return number;
