@@ -21,32 +21,60 @@ public class TaschenrechnerWeiterrechnen {
                         "2) Etwas substrahieren(-),\n" +
                         "3) Etwas multiplizieren (*)\n" +
                         "4) Etwas dividieren (/)\n");
-                int wahl = wahlEinlesen("Bitte wählen Sie nun: ", 1, 4);
+                int wahl = wahlEinlesen("Bitte wähl nun: ", 1, 4);
                 if (wahl == 1) {
                     System.out.println("Addition! Gute Wahl.");
                     int operator = UserInput.getIntFromConsole("Wie viel möchtest du addieren?", -999999999, 999999999);
-                    System.out.print("Die Summe aus %n und %n beträgt: ");
+                    System.out.printf("Die Summe aus %f und %d beträgt: ",zahl,operator);
                     System.out.println(zahl + operator);
                 } else if (wahl == 2) {
                     System.out.println("Substraktion! Super Wahl.");
                     int operator = UserInput.getIntFromConsole("Wie viel möchtest du substrahieren?", -999999999, 999999999);
-                    System.out.print("Die Differenz aus %n und %n beträgt: ");
+                    System.out.printf("Die Differenz aus %f und %d beträgt: ",zahl,operator);
                     System.out.println(zahl - operator);
                 } else if (wahl == 3) {
                     System.out.println("Multiplikation! Super Wahl.");
                     int operator = UserInput.getIntFromConsole("Womit möchtest du multiplizieren?", -999999999, 999999999);
-                    System.out.print("Das Produkt aus %n und %n beträgt: ");
+                    System.out.printf("Das Produkt aus %f und %d beträgt: ",zahl,operator);
                     System.out.println(zahl * operator);
                 } else {
                     System.out.println("Division! Super Wahl.");
                     int operator = UserInput.getIntFromConsole("Durch was möchtest du dividieren?", -999999999, 999999999);
-                    System.out.print("Der Quotient aus %n und %n beträgt: ");
+                    System.out.printf("Der Quotient aus %f und %d beträgt: ",zahl,operator);
                     System.out.println(zahl / operator);
                 }
+                double zwischenErgebnis = zahl;
                 System.out.println("Möchtest du mit dieser Zahl weiterrechnen? (j/n) ");
                 String reaktion = UserInput.getTextFromConsole("Antworte jetzt! ");
                 if (reaktion.equals("j")) {
                     weiterrechnen = true;
+                    System.out.println("Was möchtest du mit dem Ergebnis tun?\n" +
+                            "1) Etwas addieren (+),\n" +
+                            "2) Etwas substrahieren(-),\n" +
+                            "3) Etwas multiplizieren (*)\n" +
+                            "4) Etwas dividieren (/)\n");
+                    int wahlRepeat = wahlEinlesen("Bitte wähle nun: ", 1, 4);
+                    if (wahlRepeat == 1) {
+                        System.out.println("Addition! Gute Wahl.");
+                        int operator = UserInput.getIntFromConsole("Wie viel möchtest du addieren?", -999999999, 999999999);
+                        System.out.printf("Die Summe aus %f und %d beträgt: ",zahl,operator);
+                        System.out.println(zwischenErgebnis + operator);
+                    } else if (wahlRepeat == 2) {
+                        System.out.println("Substraktion! Super Wahl.");
+                        int operator = UserInput.getIntFromConsole("Wie viel möchtest du substrahieren?", -999999999, 999999999);
+                        System.out.printf("Die Differenz aus %f und %d beträgt: ",zahl,operator);
+                        System.out.println(zwischenErgebnis - operator);
+                    } else if (wahlRepeat == 3) {
+                        System.out.println("Multiplikation! Super Wahl.");
+                        int operator = UserInput.getIntFromConsole("Womit möchtest du multiplizieren?", -999999999, 999999999);
+                        System.out.printf("Das Produkt aus %f und %d beträgt: ",zahl,operator);
+                        System.out.println(zwischenErgebnis * operator);
+                    } else {
+                        System.out.println("Division! Super Wahl.");
+                        int operator = UserInput.getIntFromConsole("Durch was möchtest du dividieren?", -999999999, 999999999);
+                        System.out.printf("Der Quotient aus %f und %d beträgt: ",zahl,operator);
+                        System.out.println(zwischenErgebnis / operator);
+                    }
                 } else if (reaktion.equals("n")) {
                     weiterrechnen = false;
                 } else {
@@ -57,7 +85,7 @@ public class TaschenrechnerWeiterrechnen {
             while (weiterrechnen == true);
 
 
-            System.out.println("Möchtest du mit dieser Zahl weiterrechnen? (j/n) ");
+            System.out.println("Möchtest du generell noch etwas ausrechen? (j/n) ");
             String reaktion = UserInput.getTextFromConsole("Antworte jetzt! ");
             if (reaktion.equals("j")) {
                 antwort = true;
@@ -69,7 +97,7 @@ public class TaschenrechnerWeiterrechnen {
 
         }
         while (antwort == true);
-        System.out.printf("Auf Wiedersehen!");
+        System.out.println("Auf Wiedersehen!");
     }
 
     public static float zahlEinlesen(String message, float mindestwert, float maximalwert) {
