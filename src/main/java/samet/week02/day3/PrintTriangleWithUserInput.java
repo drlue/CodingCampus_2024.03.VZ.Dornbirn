@@ -1,8 +1,8 @@
-package samet.week2.day3;
+package samet.week02.day3;
 
 
 import samet.week01.day01.Methoden;
-import samet.week2.day2.UserInputTest;
+import samet.week02.day2.UserInputTest;
 
 public class PrintTriangleWithUserInput {
     public static void main(String[] args) {

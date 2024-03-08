@@ -22,22 +22,22 @@ public class Taschenrechner {
             if (wahl == 1) {
                 System.out.println("Addition! Gute Wahl.");
                 int operator = UserInput.getIntFromConsole("Wie viel möchtest du addieren?", -999999999, 999999999);
-                System.out.print("Die Summe aus %n und %n beträgt: ");
+                System.out.printf("Die Summe aus %n und %d beträgt: ",zahl,operator);
                 System.out.println(zahl + operator);
             } else if (wahl == 2) {
                 System.out.println("Substraktion! Super Wahl.");
                 int operator = UserInput.getIntFromConsole("Wie viel möchtest du substrahieren?", -999999999, 999999999);
-                System.out.print("Die Differenz aus %n und %n beträgt: ");
+                System.out.printf("Die Differenz aus %n und %n beträgt: ",zahl,operator);
                 System.out.println(zahl - operator);
             } else if (wahl == 3) {
                 System.out.println("Multiplikation! Super Wahl.");
                 int operator = UserInput.getIntFromConsole("Womit möchtest du multiplizieren?", -999999999, 999999999);
-                System.out.print("Das Produkt aus %n und %n beträgt: ");
+                System.out.printf("Das Produkt aus %n und %n beträgt: ",zahl,operator);
                 System.out.println(zahl * operator);
             } else {
                 System.out.println("Division! Super Wahl.");
                 int operator = UserInput.getIntFromConsole("Durch was möchtest du dividieren?", -999999999, 999999999);
-                System.out.print("Der Quotient aus %n und %n beträgt: ");
+                System.out.printf("Der Quotient aus %n und %n beträgt: ",zahl,operator);
                 System.out.println(zahl / operator);
             }
             System.out.println("Möchtest du weiterrechnen? (j/n) ");
