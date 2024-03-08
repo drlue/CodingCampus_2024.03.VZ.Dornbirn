@@ -22,7 +22,7 @@ public class Taschenrechner {
 
             switch (operation) {
                 case "+":
-                    System.out.println("Ergebniss: \n, (zahl1 + zahl2) ");
+                    System.out.println("Ergebniss: \n, (" + zahl1 + " + " + zahl2 + ") ");
                     System.out.println(zahl1 + zahl2);
                     break;
                 case "-":
@@ -36,6 +36,8 @@ public class Taschenrechner {
                 case "/":
                     System.out.println("Ergebniss: \n, (zahl1 / zahl2) ");
                     System.out.println(zahl1 / zahl2);
+                default:
+                    System.out.println("Operator nicht gültig");
             }
 
             String wahl = UserInput.getTextFromConsole("Möchtesn sie noch etwas Rechnen \n Ja || Nein");
