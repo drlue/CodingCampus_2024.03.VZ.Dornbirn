@@ -30,5 +30,9 @@ public class AufgabeNumberArray {
         }
         System.out.println(Arrays.toString(userSIZEDarray2));
 
+        //
+
+
+
     }
 }
