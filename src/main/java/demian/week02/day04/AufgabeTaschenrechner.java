@@ -1,6 +1,5 @@
 package demian.week02.day04;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class AufgabeTaschenrechner {
@@ -28,17 +27,13 @@ public class AufgabeTaschenrechner {
                 float userInputFloat1 = scanner.nextFloat();
                 break;
             } catch (NumberFormatException nfe) {
-                System.out.println("Keine Buchstaben, nur zahlen");
-                scanner.nextLine();
-                System.out.print("Zahl eingeben===>");
-
-            } catch (InputMismatchException imm) {
-                System.out.println("Achte darauf ein Komma(,) zu verwenden und keinen Punkt(.)");
+                System.out.println("Bitte eine Zahl eingeben Bsp: 1,2 oder Bsp2: 5");
                 scanner.nextLine();
                 System.out.print("Zahl eingeben===>");
             }
+
+
         }
-
-
     }
 }
+
