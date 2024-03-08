@@ -9,7 +9,8 @@ public class GuessingGameEx {
 
     public static void main(String[] args) {
         System.out.printf("%4s%S|| %n||%S|| %n", "||", "*Welcome to*", "*guessing game*");
-        String name = getTextFromUser("Please enter your name:");
+      //  String name = getTextFromUser("Please enter your name:");
+
         getNumberFromUser();
 
         //Weekend job
@@ -47,6 +48,7 @@ public class GuessingGameEx {
             } else if (userNumber > randomNumber) {
                 System.out.println("Your number is too high! \nYou have " + (6 - userTry) + " time left! Try again ");
             }
+
         }
 
     }
