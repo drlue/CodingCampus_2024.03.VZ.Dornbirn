@@ -333,10 +333,10 @@ public class UeConsoleInput {
                 operatorCount++;
             }
         }
-        String[] calStrings = calString.splitWithDelimiters("[\\+\\-\\*\\/\\^]", operatorCount);
-        for (String s : calStrings) {
-            System.out.println(s);
-        }
+//        String[] calStrings = calString.splitWithDelimiters("[\\+\\-\\*\\/\\^]", operatorCount);
+//        for (String s : calStrings) {
+//            System.out.println(s);
+//        }
 
     }
 
