@@ -16,7 +16,7 @@ public class AufgabeRandomNumberArray {
 
         Random random = new Random();
 
-        int[] zufallszahlenARRAY = new int[5];
+        int[] zufallszahlenARRAY = new int[11];
         for (int element = 0; element < zufallszahlenARRAY.length; element++) {
             int randomnumber = random.nextInt(100);
             zufallszahlenARRAY[element] = randomnumber;
@@ -31,7 +31,32 @@ public class AufgabeRandomNumberArray {
         }
 
         // Unteraufgabe 2:
+        System.out.println("Unteraufgabe 2: Ausgabe mittels fori Schleife");
+        for (int element = 0; element < zufallszahlenARRAY.length; element++) {
+            int zahl = zufallszahlenARRAY[element];
+            System.out.println(zahl);
+        }
 
+        // Unteraufgabe 3:
+        System.out.println("Unteraufgabe 3: Gib den zweiten, fünften und zehnten Wert des Arrays aus. ");
+        for (int element = 0; element < zufallszahlenARRAY.length; element++) {
+            if (element == 1 || element == 4 || element == 9) {
+                int zahl = zufallszahlenARRAY[element];
+                System.out.println((element+1) + "er-Wert = " + zahl);
+            }
+        }
 
+        // Unteraufgabe 4:
+        System.out.println("Unteraufgabe 4: Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus");
+        for (int element = 0; element < zufallszahlenARRAY.length; element++) {
+            if (element % 2 != 0){
+                int zahl = 0;
+                zahl = zufallszahlenARRAY[element];
+                System.out.print((element+1) + "er-Wert:");
+                System.out.println(zahl);
+            }
+        }
     }
+
 }
+
