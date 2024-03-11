@@ -10,13 +10,13 @@ public class ArrayMethoden {
         int[] array = createRandomNumberArray(10, 0, 101);  //{1,2,3,6,7,8,2,0};
         System.out.println(Arrays.toString(array));
         printIntArray(array);
-        System.out.println("MaxValue: " +getMaxValue(array));
-        System.out.println("Index of Maxvalue: " +getIndexOfMax(array));
-        System.out.println("MinValue: "+getMinValue(array));
-        System.out.println("Index of Minvalue: "+getIndexOfMin(array));
+        System.out.println("MaxValue: " + getMaxValue(array));
+        System.out.println("Index of Maxvalue: " + getIndexOfMax(array));
+        System.out.println("MinValue: " + getMinValue(array));
+        System.out.println("Index of Minvalue: " + getIndexOfMin(array));
 
-//        int[] bubblesortArray = bubblesort(array);
-//        System.out.println(Arrays.toString(bubblesortArray));
+        int[] bubblesortArray = bubblesort(array);
+        System.out.println(Arrays.toString(bubblesortArray));
 
 //        System.out.println(returnMinIntValueOfIntArray(array));
     }
@@ -77,10 +77,10 @@ public class ArrayMethoden {
                 }
             }
         }
-      return valueCounter;
+        return valueCounter;
     }
 
-    public static int getValueCountGreaterThan (int[] arr, int value) {
+    public static int getValueCountGreaterThan(int[] arr, int value) {
         int valueCounter = 0;
         if (arr.length == 0) {
             return -1;
@@ -91,7 +91,7 @@ public class ArrayMethoden {
                 }
             }
         }
-       return valueCounter;
+        return valueCounter;
     }
 
     public static int getMinValue(int[] arr) {
@@ -103,55 +103,64 @@ public class ArrayMethoden {
         }
         return minInt;
     }
-    public static int getMaxValue(int[]arr){
+
+    public static int getMaxValue(int[] arr) {
         int maxInt = Integer.MIN_VALUE;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > maxInt){
+            if (arr[i] > maxInt) {
                 maxInt = arr[i];
             }
         }
         return maxInt;
     }
-    public static int getIndexOfMin(int[]arr){
+
+    public static int getIndexOfMin(int[] arr) {
         int minInt = Integer.MAX_VALUE;
         int index = -1;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < minInt) {
                 minInt = arr[i];
-                index=i;
+                index = i;
             }
         }
         return index;
     }
-    public static int getIndexOfMax (int[]arr){
+
+    public static int getIndexOfMax(int[] arr) {
         int maxInt = Integer.MIN_VALUE;
         int index = -1;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > maxInt){
+            if (arr[i] > maxInt) {
                 maxInt = arr[i];
                 index = i;
             }
         }
         return index;
     }
-//    public static int[] bubblesort (int[]arr) {
-//        boolean swapped = true;
-//        boolean first = true;
-//        int temp=Integer.MIN_VALUE;
-//        while (swapped){
-//            for (int i = 0; i < arr.length-1; i++) {
-//                if (first){
-//                    temp = arr[i];
-//                    first =false;
-//                }
-//                else {
-//                    if (temp > arr)
-//                    }
-//                }
-//
-//
-//            }
-//        }
-//        return arr;
-//    }
+
+    public static int[] bubblesort(int[] arr) {
+        boolean swapped = true;
+        boolean first = true;
+        int temp = Integer.MIN_VALUE;
+        while (swapped) {
+            for (int i = 0; i < arr.length; i++) {
+                if (first) {
+                    temp = arr[i];
+                    first = false;
+                    swapped = false;
+                } else {
+                    if (arr[i] < arr[i - 1]) {
+                        arr[i - 1] = arr[i];
+                        arr[i] = temp;
+                        swapped = true;
+                        temp = arr[i];
+                    } else {
+                        temp = arr[i];
+                    }
+                }
+            }
+            first = true;
+        }
+        return arr;
+    }
 }
