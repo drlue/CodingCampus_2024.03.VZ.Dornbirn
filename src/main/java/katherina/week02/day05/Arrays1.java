@@ -43,6 +43,7 @@ public class Arrays1 {
     //Das ist die Hilfsmethode, damit "kopieren" auch tatsächlich die oben genannte Funktion ausübt. (Mache "kopieren" mit dem Integer-Array namens original)
     //Für das neu angelegte Integer-Array "result" gilt: Es ist exakt genauso lang, wie das original-Array lang ist.
     //Die Elemente darin sollen so lange um eins weiterzählen, bis diese Länge erreicht ist und auch sonst identisch zu den Elementen in "original" sein.
+    //-> das ist etwas, das ICH tue! Ich nehme die Werte und setze sie woanders erneut ein. Das ist meine Entscheidung! (Ich könnte das auch anders festlegen.)
     //Nun, bis auf das eine Element in der einen Position, das ich oben händisch überschrieben habe!
 
 
