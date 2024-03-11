@@ -10,28 +10,26 @@ public class ArrayRandomGenerator {
 
     public static void main(String[] args) {
 
-        //int size = UserInputTest.getIntFromConsole("Bitte geben sie die Größe der zufällig generierten Arrays an", 0, 101);
+//        int size = UserInputTest.getIntFromConsole("Bitte geben sie die Größe der zufällig generierten Arrays an", 0, 101);
         int[] randomArray = createRandomArray(12);
         System.out.println("Random assigned value of Array are");
         System.out.println(Arrays.toString(randomArray));
         printWithForI(randomArray);
-//        printWithForEach(randomArray);
+        printWithForEach(randomArray);
 
-//        printArrayWithForEach(randomArray);
-//        System.out.println("Index 2: " + randomArray[1]);
-//        System.out.println("Index 5: " + randomArray[4]);
-//        System.out.println("Index 10: " + randomArray[9]);
-//        System.out.println(outPutAllEvenNumbers);
-//        printEverySecond(randomArray);
+        printArrayWithForEach(randomArray);
+       System.out.println("Index 2: " + randomArray[1]);
+       System.out.println("Index 5: " + randomArray[4]);
+       System.out.println("Index 10: " + randomArray[9]);
+ //     System.out.println(outPutAllEvenNumbers);
+       printEverySecond(randomArray);
     }
 
     public static void printWithForI(int[] arr){
         for (int i = 0; i < arr.length; i++) {
-            System.out.print("[" + arr[i]+",") ;
-            System.out.print("]");
+            System.out.print(arr[i]) ;
+            System.out.print(",");
         }
-
-
     }
 
     public static void printWithForEach(int[] arr){
@@ -59,9 +57,7 @@ public class ArrayRandomGenerator {
         for (int value : arr) {
             System.out.println(value + " ");
         }
-
     }
-
 
 
     }
