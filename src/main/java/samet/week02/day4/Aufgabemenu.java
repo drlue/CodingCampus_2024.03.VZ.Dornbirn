@@ -20,8 +20,8 @@ public class Aufgabemenu {
         if (auswahl == 1) {
             System.out.println("Der Quader, Super !");
             String ausgabe = UserInputTest.getTextFromConsole("Welches Zeichen soll verwendet werden?");
-            UserInputTest.getIntFromConsole("Wie groß soll der Quader werden?", 5, 10);
-            Methoden.printSquare(ausgabe, 10);
+           int size = UserInputTest.getIntFromConsole("Wie groß soll der Quader werden?",5,10);
+            Methoden.printSquare(ausgabe,size);
         } else if (auswahl == 2) {
             System.out.println("Das Dreieck, Toll !");
             String ausgabe = UserInputTest.getTextFromConsole("Welches Zeichen soll verwendet werden?");
