@@ -13,8 +13,6 @@ public class ArraysTeil2 {
 
         int[] zufallswerte = createRandomArray(10);
         //Ich habe meine Schublade mit "Zufallswerte" benannt, sind ja mehrere. Und ich bestimme, dass sie 100 Werte enthält.
-
-        //System.out.print("Kontrollsequenz:" );
         System.out.println(Arrays.toString(zufallswerte));
         printWithForEach(zufallswerte);
         System.out.println("======");
@@ -28,8 +26,7 @@ public class ArraysTeil2 {
 
     public static void printWithForEach(int[] arr) {
         for (int wert : arr) {
-            System.out.print("[" + wert + ", ");
-            System.out.print("]");
+            System.out.printf("[%d, ]", wert);
 
         }
     }
