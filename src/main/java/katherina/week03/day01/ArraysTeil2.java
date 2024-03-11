@@ -17,6 +17,9 @@ public class ArraysTeil2 {
         printWithForEach(zufallswerte);
         System.out.println("======");
         printWithForI(zufallswerte);
+        System.out.println("======");
+        printWithIfElse(zufallswerte);
+
 /*
         System.out.println("Zweiter Wert:" + zufallswerte[1]);
         System.out.println("Fünfter Wert:" + zufallswerte[4]);
@@ -32,11 +35,34 @@ public class ArraysTeil2 {
     }
 
     public static void printWithForI(int[] arr) {
-        for (int i = 0; i < arr.length; ++i) {
-            System.out.print("[" + arr[i] + ", ");
-            System.out.print("]");
+        System.out.print("[");
+        for (int i = 0; i < (arr.length - 1); ++i) {
+            System.out.print(arr[i] + ", ");
+            for (int j = 8; j == arr.length; j++) {
+                System.out.print(arr[j]);
+            }
         }
+        System.out.print("]");
     }
+
+    public static void printWithIfElse(int[] arr) {
+        System.out.print("[");
+        int i = 0;
+        while (i < arr.length) {
+
+            if (i < arr.length - 1) {
+                System.out.print(arr[i] + ", ");
+
+            } else {
+                System.out.print(arr[9]);
+                System.out.print("]");
+            }
+            i++;
+
+        }
+
+    }
+
 
     public static int[] createRandomArray(int size) {
         int[] result = new int[size];
@@ -46,3 +72,5 @@ public class ArraysTeil2 {
         return result;
     }
 }
+
+
