@@ -19,16 +19,22 @@ public class AufgabeRandomNumberArrayZählen {
 
         System.out.println("\nAUFGABE: Erstelle ein int[] und befülle es mit Zufallszahlen von 1 bis 100.");
         System.out.println("\nRandom Number Array: " + Arrays.toString(randomNumberArray));
-        System.out.println("\nUnteraufgabe: Erstelle eine Funktion, die die Werte größer als 30 zählt.");
+        System.out.println("\nUnteraufgabe: Erstelle eine Funktion, die die Werte größer als X zählt:");
+        printnumbersOVERnumberXCOUNTER(randomNumberArray,20);
+
+
+    }
+
+    public static void printnumbersOVERnumberXCOUNTER (int[] integerARRAY, int numberX){
         int count = 0;
         int num = 0;
-        for (int element = 0; element < randomNumberArray.length; element++) {
-            num = randomNumberArray[element];
-            if (num > 30) {
+        for (int element = 0; element < integerARRAY.length; element++) {
+            num = integerARRAY[element];
+            if (num > numberX) {
                 count++;
             }
         }
-        System.out.println("\nAnzahl Zahlen über 30: " + count);
-
+        System.out.println("\nAnzahl Zahlen über " + numberX + ": " + count);
     }
+
 }
