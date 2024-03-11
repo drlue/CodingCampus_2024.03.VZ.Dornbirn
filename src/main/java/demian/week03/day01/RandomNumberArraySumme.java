@@ -3,7 +3,7 @@ package demian.week03.day01;
 import java.util.Arrays;
 import java.util.Random;
 
-public class AufgabeRandomNumberArraySumme {
+public class RandomNumberArraySumme {
 
     public static void main(String[] args) {
 

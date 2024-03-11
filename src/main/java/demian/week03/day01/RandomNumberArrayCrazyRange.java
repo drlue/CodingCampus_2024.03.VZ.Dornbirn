@@ -3,7 +3,7 @@ package demian.week03.day01;
 import java.util.Arrays;
 import java.util.Random;
 
-public class AufgabeRandomNumberArrayCrazyRange {
+public class RandomNumberArrayCrazyRange {
     public static void main(String[] args) {
 
         //AUFGABE: Erstelle ein int[] und befülle es mit Zufallszahlen von -50 bis 50 und gib es mit Hilfe einer foreach-Schleife aus.

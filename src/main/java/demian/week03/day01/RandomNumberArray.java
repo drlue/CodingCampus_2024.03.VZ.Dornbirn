@@ -1,11 +1,9 @@
 package demian.week03.day01;
 
-import gyula.week02.ArrayExample;
-
 import java.util.Arrays;
 import java.util.Random;
 
-public class AufgabeRandomNumberArray {
+public class RandomNumberArray {
     public static void main(String[] args) {
 
         // Erstelle ein int[] und befülle es mit Zufallszahlen von 0 bis 100.
