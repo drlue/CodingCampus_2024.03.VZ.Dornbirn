@@ -8,40 +8,26 @@ public class ArraysTeil2 {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        int randomNumber = random.nextInt(101);
-        int randomPosition = random.nextInt(101);
+        int randomNumbers = random.nextInt(0,101);
 
 
         int[] zufallswerte = new int[101];
         //Ich habe meine Schublade mit "Zufallswerte" benannt, sind ja mehrere. Und ich bestimme, dass sie 100 Werte enthält.
-        int index = randomPosition;
-        zufallswerte[randomNumber] = index;
-        //Dieser Code-Teil sagt: An einer zufälligen Position steht eine zufällige Zahl. (Was ich möchte: An jeder einzelnen Position steht eine zufällige Zahl)
+        int index;
         System.out.println("Mit Fori-Schleife");
-        for (index = 0; index < zufallswerte.length; index++) {
-            int wert = zufallswerte[index];
-            System.out.println("Wert: " + wert);
+        for (index = 0; index < 101; index++) {
+            zufallswerte[index] = random.nextInt(0,100);
+            System.out.println("Wert: " + zufallswerte[index]);
         }
         System.out.println("Mit Foreach-Schleife");
         for (int wert : zufallswerte) {
             System.out.println("Wert: " + wert);
         }
+        System.out.print("Kontrollsequenz:" );
     System.out.println(Arrays.toString(zufallswerte));
 
-
-/*        int[] test = {6, 7, 3, -1, 9, 5};
-
-        for (int i = 0; i < test.length; i++) {
-            int value = test[i];
-
-            System.out.println("VALUE: " + value);
-        }
-
-
-        for (int value: test){
-            System.out.println("VALUE: " + value);
-
-
-    }*/
+        System.out.println("Zweiter Wert:" + zufallswerte[1]);
+        System.out.println("Fünfter Wert:" + zufallswerte[4]);
+        System.out.println("Zehnter Wert:" + zufallswerte[9]);
     }
 }
