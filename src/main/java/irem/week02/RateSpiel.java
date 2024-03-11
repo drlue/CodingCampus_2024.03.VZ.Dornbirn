@@ -8,24 +8,36 @@ public class RateSpiel {
     public static Random rand = new Random();
 
     public static void main(String[] args) {
-        System.out.println("Wilkommen im Spiel errate die Zahl! ");
-        int goal = rand.nextInt(0, 100);
-        int zahl = Integer.MIN_VALUE;
-        while (zahl != goal) {
+
+        boolean isRunning = true;
+        while (isRunning) {
+            System.out.println("Wilkommen im Spiel errate die Zahl! ");
+            int goal = rand.nextInt(0, 100);
+            int zahl = Integer.MIN_VALUE;
+            while (zahl != goal) {
 
 
-            zahl = UserInput.getIntFromConsole("Gib die Zahl nun ein: ", 0, 100);
+                zahl = UserInput.getIntFromConsole("Gib die Zahl nun ein: ", 0, 100);
 
-            if (zahl < goal) {
-                System.out.println("Es ist zu klein.");
-            } else if (zahl > goal)
-                System.out.println("Es ist zu GROSS.");
+                if (zahl < goal) {
+                    System.out.println("Es ist zu klein.");
+                } else if (zahl > goal)
+                    System.out.println("Es ist zu GROSS.");
 
+
+            }
+            System.out.println("Gratulation:)!! Du hast genau getroffen.");
+
+            String wahl = UserInput.getTextFromConsole("Möchtesn sie noch etwas Rechnen \n Ja || Nein");
+            if (wahl.equals("Ja")) {
+                System.out.println("Weiterrechnen");
+            } else {
+                isRunning = false;
+
+            }
 
         }
-        System.out.println("Gratulation:)!! Du hast genau getroffen.");
     }
-
 }
 
 
