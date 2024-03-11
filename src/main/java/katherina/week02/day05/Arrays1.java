@@ -23,8 +23,29 @@ public class Arrays1 {
         System.out.println(Arrays.toString(gedrehteSchublade));
 
 
-
+        int[] kopie = kopieren(schublade);
+        kopie[0] = 100;
+        System.out.println("test: " + Arrays.toString(schublade));
+        System.out.println("copy: " + Arrays.toString(kopie));
+        //Ich lege ein(en?) Integer-Array an. Diesem weise ich die Methode "kopieren" zu, und als Objekt der Methode mein Array "schublade".
+        //Dabei belege ich im Integer-Array namens "kopie" die Position 0 mit dem Wert "100" (darf beliebiger Wert sein, Hauptsache ersichtlich geändert!)
+        //-> damit überschreibe ich den originalen Wert, der von der Methode darunter eigentlich belegt wurde.
+        // Um zu testen, ob das funktioniert hat, gebe ich einmal die Werte des originalen Arrays aus, und einmal die veränderten.
     }
+
+    public static int[] kopieren(int[] original) {
+        int[] result = new int[original.length];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = original[i];
+        }
+        return result;
+    }
+    //Das ist die Hilfsmethode, damit "kopieren" auch tatsächlich die oben genannte Funktion ausübt. (Mache "kopieren" mit dem Integer-Array namens original)
+    //Für das neu angelegte Integer-Array "result" gilt: Es ist exakt genauso lang, wie das original-Array lang ist.
+    //Die Elemente darin sollen so lange um eins weiterzählen, bis diese Länge erreicht ist und auch sonst identisch zu den Elementen in "original" sein.
+    //-> das ist etwas, das ICH tue! Ich nehme die Werte und setze sie woanders erneut ein. Das ist meine Entscheidung! (Ich könnte das auch anders festlegen.)
+    //Nun, bis auf das eine Element in der einen Position, das ich oben händisch überschrieben habe!
+
 
     public static int zahlEinlesen(String message, int mindestwert, int maximalwert) {
         System.out.print(message);
