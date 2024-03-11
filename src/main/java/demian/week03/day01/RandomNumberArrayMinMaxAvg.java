@@ -22,9 +22,14 @@ public class RandomNumberArrayMinMaxAvg {
         }
         System.out.println("\nAUFGABE: Erstelle ein int[] und befülle es mit Zufallszahlen von 1 bis 100.");
         System.out.println("\nRandom Number Array: " + Arrays.toString(randomNumberArray));
+        // AUFGABE: MIN METHODE
         System.out.print("Minimum Wert im Array: ");
-        int min = returnMINelementOFarray(randomNumberArray);
-        System.out.println(min);
+        System.out.println(min(randomNumberArray));
+        // AUFGABE: MAX METHODE
+        System.out.print("Maximum Wert im Array: ");
+        System.out.println(max(randomNumberArray));
+        // AUFGABE: AVERAGE
+        System.out.print("Durschnittswert aus Array-Elementen-Summe:");
 
     }
 
@@ -32,16 +37,24 @@ public class RandomNumberArrayMinMaxAvg {
 
     //METHODE: MINIMUM DES ARRAYS ZURUECKGEBEN
 
-    public static int returnMINelementOFarray(int[] array) {
-        int zahl = 0;
-        int returnvalue = Integer.MAX_VALUE;
-        for (int element = 0; element < array.length; element++) {
-            zahl = array[element];
-            if (zahl < returnvalue) {
-                returnvalue = zahl;
+    public static int max(int[] array) {
+        int bestMax = Integer.MIN_VALUE;
+        for (int idx = 0; idx < array.length; idx++) {
+            if (array[idx] > bestMax) {
+                bestMax = array[idx];
             }
         }
-        return returnvalue;
+        return bestMax;
+    }
+
+    public static int min(int[] array) {
+        int bestMin = Integer.MAX_VALUE;
+        for (int idx = 0; idx < array.length; idx++) {
+            if (array[idx] < bestMin) {
+                bestMin = array[idx];
+            }
+        }
+        return bestMin;
     }
 
 }
