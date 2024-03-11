@@ -2,7 +2,7 @@ package demian.week03.day01;
 
 import java.util.Arrays;
 
-public class AufgabeKopie {
+public class KopieArray {
 
     public static void main(String[] args) {
 
