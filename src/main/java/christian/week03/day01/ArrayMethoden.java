@@ -15,8 +15,8 @@ public class ArrayMethoden {
         System.out.println("MinValue: "+getMinValue(array));
         System.out.println("Index of Minvalue: "+getIndexOfMin(array));
 
-        int[] bubblesortArray = bubblesort(array);
-        System.out.println(Arrays.toString(bubblesortArray));
+//        int[] bubblesortArray = bubblesort(array);
+//        System.out.println(Arrays.toString(bubblesortArray));
 
 //        System.out.println(returnMinIntValueOfIntArray(array));
     }
