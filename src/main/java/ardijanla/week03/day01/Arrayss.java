@@ -3,7 +3,11 @@ package ardijanla.week03.day01;
 import java.util.Arrays;
 import java.util.Random;
 
+
 public class Arrayss {
+
+    static Random rnd = new Random();
+
     public static void main(String[] args) {
         int[] arr = numberArray(5);
         System.out.println(Arrays.toString(arr));
@@ -23,17 +27,16 @@ public class Arrayss {
         //Gib es mit Hilfe einer fori-Schleife aus. Das Ziel ist eine identische Ausgabe, wie Arrays.toString()
         for (int i = 0; i < arr2.length; i++) {
 
-            if (i == 0) {
-                System.out.print("[");
-            }
+
+            System.out.print("[");
             if (i < arr2.length - 1) {
                 System.out.printf("%d, ", arr2[i]);
             } else {
                 System.out.printf("%d", arr2[i]);
             }
-            if (i == arr2.length - 1) {
-                System.out.print("]");
-            }
+
+            System.out.print("]");
+
 
         }
         System.out.println();
@@ -62,8 +65,20 @@ public class Arrayss {
         System.out.println(arrAvg(5));
 
 
-        // bubble sort
-        System.out.println(Arrays.toString(bubbleSort(arr2)));
+        // bubble sort asc
+        System.out.println(Arrays.toString(bubbleSortAsc(arr2)));
+
+        //bubble sort desc
+        System.out.println(Arrays.toString(bubbleSortDesc(arr2)));
+
+        //2d Array
+        int[][] ar = twoDArray(2, 4);
+        printTwoDArray(ar);
+        System.out.println(sumPerRow(ar, 0));
+        System.out.println(sumPerCol(ar, 0));
+
+        //Pascal Dreieck
+        printTwoDArray(pascalDreieck(10));
 
 
     }
@@ -94,9 +109,8 @@ public class Arrayss {
 
 
     public static int[] arrayCrazyRange(int size) {
-        Random rnd = new Random();
-        int[] crazyInt = new int[size];
 
+        int[] crazyInt = new int[size];
 
         for (int i = 0; i < crazyInt.length; i++) {
             crazyInt[i] = rnd.nextInt(-51, 51);
@@ -162,7 +176,7 @@ public class Arrayss {
     }
 
 
-    public static int[] bubbleSort(int[] numbers) {
+    public static int[] bubbleSortAsc(int[] numbers) {
         for (int i = numbers.length; i > 0; i--) {
             for (int j = 0; j < i - 1; j++) {
                 if (numbers[j] > numbers[j + 1]) {
@@ -174,4 +188,89 @@ public class Arrayss {
         }
         return numbers;
     }
+
+
+    public static int[] bubbleSortDesc(int[] arr) {
+        for (int i = arr.length; i > 0; i--) {
+
+            for (int j = 0; j < i - 1; j++) {
+
+                if (arr[j] < arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    public static int[][] twoDArray(int row, int col) {
+        int[][] arr = new int[row][col];
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] = rnd.nextInt(0, 100);
+            }
+        }
+        return arr;
+    }
+
+    public static void printTwoDArray(int[][] arr) {
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.printf("%2d ", arr[i][j]);
+
+            }
+            System.out.println();
+        }
+    }
+
+    public static int sumPerRow(int[][] matrix, int rowToCalc) {
+        int sum = 0;
+        for (int row = 0; row < matrix.length; row++) {
+
+            for (int col = 0; col < matrix[row].length; col++) {
+                if (row == rowToCalc) {
+                    sum += matrix[rowToCalc][col];
+                }
+            }
+        }
+        return sum;
+    }
+
+    public static int sumPerCol(int[][] matrix, int rowToCalc) {
+        int sum = 0;
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                if (col == rowToCalc) {
+                    sum += matrix[row][rowToCalc];
+                }
+            }
+        }
+        return sum;
+    }
+
+    public static int[][] pascalDreieck(int size) {
+        int[][] matrix = new int[size][size];
+
+        for (int row = 0; row < size; row++) {
+
+            for (int col = 0; col < size; col++) {
+                if (row < 1) {
+                    matrix[row][col] = 1;
+                } else if (col < 1) {
+                    matrix[row][col] = 1;
+                } else {
+                    matrix[row][col] = matrix[row][col - 1] + matrix[row - 1][col];
+                }
+
+            }
+        }
+        return matrix;
+    }
 }
+
+
+

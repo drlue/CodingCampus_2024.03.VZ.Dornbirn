@@ -15,17 +15,16 @@ public class BubbleSort {
     public static void bubbleSort(int[] arr) {
         //Sortierung muss über zwei Schleifen laufen!
         int a = 0;
-        int swap = 0;
-        for (int j = 0; j < arr.length - 1; j++) {
-            for (int i = 0; i < arr.length - 1 - j; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
                 a++;
-                if (arr[i + 1] < arr[i]) {
-                    swap = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = swap;
+                if (arr[j + 1] < arr[j]) {
+                    int swap = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = swap;
                 }
             }
-            System.out.printf("j = %-3d %s a =%4d\n", j, Arrays.toString(arr), a);
+            System.out.printf("i = %-3d %s a =%4d\n", i, Arrays.toString(arr), a);
         }
         System.out.println("Counter = " + a);
         int maxN = arr.length * (arr.length - 1) / 2;

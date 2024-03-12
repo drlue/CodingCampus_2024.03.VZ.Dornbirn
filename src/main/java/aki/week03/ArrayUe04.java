@@ -8,12 +8,12 @@ public class ArrayUe04 {
 
     public static void main(String[] args) {
 
-        arraysZsmRechnen(null);
+        arraysZsmRechnen(10);
     }
 
-    public static void arraysZsmRechnen(String[] args) {
+    public static void arraysZsmRechnen(int randomNumber) {
         int rando = random.nextInt(0, 100);
-        int[] numberArr = new int[10];
+        int[] numberArr = new int[randomNumber];
         for (int i = 0; i < numberArr.length; i++) {
             numberArr[i] = random.nextInt(-50, 100);
 
