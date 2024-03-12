@@ -19,31 +19,60 @@ public class ArraysTeil2 {
         printWithForI(zufallswerte);
         System.out.println("======");
         printWithIfElse(zufallswerte);
+        System.out.println("======");
 
-/*
+
         System.out.println("Zweiter Wert:" + zufallswerte[1]);
         System.out.println("Fünfter Wert:" + zufallswerte[4]);
         System.out.println("Zehnter Wert:" + zufallswerte[9]);
- */
+
     }
 
     public static void printWithForEach(int[] arr) {
+        System.out.print("[");
         for (int wert : arr) {
-            System.out.printf("[%d, ]", wert);
-
+            System.out.printf("%d, ", wert);
         }
+        System.out.print("]");
     }
 
     public static void printWithForI(int[] arr) {
         System.out.print("[");
-        for (int i = 0; i < (arr.length - 1); ++i) {
+        for (int i = 0; i-1 < (arr.length - 1); ++i) {
             System.out.print(arr[i] + ", ");
-            for (int j = 8; j == arr.length; j++) {
-                System.out.print(arr[j]);
+            for (int j = arr.length-1; j == arr.length; j++) {
+                System.out.printf("%d",arr[j]);
             }
         }
         System.out.print("]");
     }
+
+    /*Richtige Lösung nach Gyula:
+
+public static void printWithForI(int[] arr){
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            if (i > 0) {
+                System.out.print(", ");
+            }
+            System.out.print(arr[i]);
+        }
+        System.out.println("]");
+    }
+
+    public static void printWithForEach(int[] arr){
+        System.out.print("[");
+        boolean first = true;
+        for (int value : arr){
+            if (!first) {
+                System.out.print(", ");
+            }
+            System.out.print(value);
+            first = false;
+        }
+        System.out.println("]");
+    }
+     */
 
     public static void printWithIfElse(int[] arr) {
         System.out.print("[");
@@ -54,7 +83,7 @@ public class ArraysTeil2 {
                 System.out.print(arr[i] + ", ");
 
             } else {
-                System.out.print(arr[9]);
+                System.out.print(arr[i]);
                 System.out.print("]");
             }
             i++;
@@ -63,6 +92,16 @@ public class ArraysTeil2 {
 
     }
 
+    public static void printWithIfElseByGyula(int[] arr) {
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            if (i > 0) {
+                System.out.print(", ");
+            }
+            System.out.print(arr[i]);
+        }
+        System.out.print("]");
+    }
 
     public static int[] createRandomArray(int size) {
         int[] result = new int[size];
