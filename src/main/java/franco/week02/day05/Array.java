@@ -10,24 +10,23 @@ public class Array {
 
     public static void main(String[] args) {
 
-
         int size = UserInput.getIntFromConsole("Enter the number of element desire", 1, 100);
         int[] array = new int[size];
         ascendingOrder(size);
         System.out.println();
         descendingOrder(size);
+        System.out.println("Print method");
 
         // print random number array
         int[] randomNumber = generateRandomNumberArray(size);
         System.out.println("Random number generated");
-        //System.out.println("in ascending order");
-        // randomNumber = printArrayInAscendingOrder(size);
 
         //print element using a for each loop
         System.out.println("Print element using for each loop:");
         for (int number : randomNumber) {
             System.out.println("For each printed element:" + number);
         }
+
         //Print element using a for loop
         System.out.println("Print the element using a for loop:");
         for (int i = 0; i < randomNumber.length; i++) {
@@ -35,7 +34,7 @@ public class Array {
         }
         printCopy(randomNumber);
         //tostring
-        System.out.println("using tostring as method to print out " + Arrays.toString(randomNumber));
+        System.out.println("using to string as method to print out " + Arrays.toString(randomNumber));
 
     }
 
@@ -44,7 +43,7 @@ public class Array {
         int[] array = new int[x];
         for (int index = 0; index < array.length; index++) {
             array[index] = index + 1;
-            // System.out.println(index);
+
         }
         System.out.println("Array in ascending order along with indices:");
         for (int i = 0; i < array.length; i++) {
@@ -73,11 +72,15 @@ public class Array {
         }
         return randomNum;
     }
+
     public static void print(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i] + " ");
-
         }
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("print method array " + array[i]);
+        }
+
     }
 
     //arrange already given element in an array in ascending order
@@ -110,10 +113,10 @@ public class Array {
         }
         for (int i = 0; i < original.length; i++) {
             System.out.println("copied array" + copy[i]);
-
         }
         return copy;
     }
+
 
 }
 

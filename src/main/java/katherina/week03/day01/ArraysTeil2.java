@@ -3,34 +3,74 @@ package katherina.week03.day01;
 import java.util.Arrays;
 import java.util.Random;
 
-import static java.lang.System.in;
-
 public class ArraysTeil2 {
 
     static Random random = new Random();
 
     public static void main(String[] args) {
-        int randomNumber = random.nextInt(101);
+        int randomNumbers = random.nextInt(0, 101);
 
-        int[] zufallswerte = new int[15];
-        //Ich habe meine Schublade mit "Zufallswerte" benannt, sind ja mehrere. Und ich bestimme, dass sie 15 Werte enthält.
 
+        int[] zufallswerte = createRandomArray(10);
+        //Ich habe meine Schublade mit "Zufallswerte" benannt, sind ja mehrere. Und ich bestimme, dass sie 100 Werte enthält.
         System.out.println(Arrays.toString(zufallswerte));
+        printWithForEach(zufallswerte);
+        System.out.println("======");
+        printWithForI(zufallswerte);
+        System.out.println("======");
+        printWithIfElse(zufallswerte);
 
+/*
+        System.out.println("Zweiter Wert:" + zufallswerte[1]);
+        System.out.println("Fünfter Wert:" + zufallswerte[4]);
+        System.out.println("Zehnter Wert:" + zufallswerte[9]);
+ */
+    }
 
-/*        int[] test = {6, 7, 3, -1, 9, 5};
+    public static void printWithForEach(int[] arr) {
+        for (int wert : arr) {
+            System.out.printf("[%d, ]", wert);
 
-        for (int i = 0; i < test.length; i++) {
-            int value = test[i];
+        }
+    }
 
-            System.out.println("VALUE: " + value);
+    public static void printWithForI(int[] arr) {
+        System.out.print("[");
+        for (int i = 0; i < (arr.length - 1); ++i) {
+            System.out.print(arr[i] + ", ");
+            for (int j = 8; j == arr.length; j++) {
+                System.out.print(arr[j]);
+            }
+        }
+        System.out.print("]");
+    }
+
+    public static void printWithIfElse(int[] arr) {
+        System.out.print("[");
+        int i = 0;
+        while (i < arr.length) {
+
+            if (i < arr.length - 1) {
+                System.out.print(arr[i] + ", ");
+
+            } else {
+                System.out.print(arr[9]);
+                System.out.print("]");
+            }
+            i++;
+
         }
 
-
-        for (int value: test){
-            System.out.println("VALUE: " + value);
+    }
 
 
-    }*/
+    public static int[] createRandomArray(int size) {
+        int[] result = new int[size];
+        for (int index = 0; index < result.length; index++) {
+            result[index] = random.nextInt(0, 101);
+        }
+        return result;
     }
 }
+
+
