@@ -11,8 +11,8 @@ public class RandomNumberArrayCrazyRange {
         Random random = new Random();
 
         int[] zufallszahlenARRAY = new int[10];
-        for (int element = 0; element < zufallszahlenARRAY.length; element++) {
-            zufallszahlenARRAY[element] = random.nextInt(-51, 51);
+        for (int idx = 0; idx < zufallszahlenARRAY.length; idx++) {
+            zufallszahlenARRAY[idx] = random.nextInt(-51, 51);
         }
 
         System.out.println("\nAUFGABE: Erstelle ein int[] und befülle es mit Zufallszahlen von -50 bis 50 und gib es mit Hilfe einer foreach-Schleife aus:\n");

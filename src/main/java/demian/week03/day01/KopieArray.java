@@ -10,7 +10,7 @@ public class KopieArray {
         //Erstelle eine Funktion, die aus dem Parameter-Array eine Kopie erstellt.
 
         int[] originalArray = new int[10];
-        for (int arrayIndex = 0; arrayIndex < 10; arrayIndex++) {
+        for (int arrayIndex = 0; arrayIndex < originalArray.length; arrayIndex++) {
             originalArray[arrayIndex] = arrayIndex + 1;
         }
         System.out.println("Original Array = " + Arrays.toString(originalArray));
