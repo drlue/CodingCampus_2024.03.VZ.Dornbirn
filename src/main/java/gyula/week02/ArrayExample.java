@@ -35,13 +35,13 @@ public class ArrayExample {
 
     }
 
-    public static void doSomething(int[] x){
+    public static void doSomething(int[] x) {
         for (int i = 0; i < x.length; i++) {
             x[i] = 100;
         }
     }
 
-    public static void myFunction(int x){
+    public static void myFunction(int x) {
         x = x + 2;
     }
 

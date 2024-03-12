@@ -22,6 +22,10 @@ public class DieseKlasseEnthaeltHilfsrechnungen {
         int untergrenze = -100; int obergrenze = 101; int mittelwert = ((untergrenze+obergrenze))/2;
         System.out.println("Der Mittelwert beträgt:"+ mittelwert);
 
+        int g = 20; int m = 12;
+        System.out.println("Das jährliche Taschengeld beträgt"+ g*m);
+        //Im Bus haben drei Kinder miteinander darüber gestritten, wie viel Taschengeld ein anderes Kind am Ende des Jahres hat, wenn es 20€ im Monat kriegt und komplett spart.
+
     }
 
 }
