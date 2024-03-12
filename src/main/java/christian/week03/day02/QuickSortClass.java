@@ -26,12 +26,12 @@ public class QuickSortClass {
         if (l >= r) {
             return;
         }
-
+        System.out.println(Arrays.toString(arr));
         int q = random.nextInt(l, r + 1);
         int m = partition(arr, l, r, q);
         quickSort(arr, l, m - 1);
         quickSort(arr, m + 1, r);
-        System.out.println(Arrays.toString(arr));
+
 
     }
 
