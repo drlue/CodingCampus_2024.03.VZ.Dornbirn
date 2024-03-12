@@ -24,12 +24,20 @@ public class RandomNumberArrayMinMaxAvg {
         System.out.println("\nRandom Number Array: " + Arrays.toString(randomNumberArray));
         // AUFGABE: MIN METHODE
         System.out.print("Minimum Wert im Array: ");
-        System.out.println(min(randomNumberArray));
+        System.out.println(minVALUE(randomNumberArray));
         // AUFGABE: MAX METHODE
         System.out.print("Maximum Wert im Array: ");
-        System.out.println(max(randomNumberArray));
+        System.out.println(maxVALUE(randomNumberArray));
         // AUFGABE: AVERAGE
-        System.out.print("Durschnittswert aus Array-Elementen-Summe:");
+        System.out.print("Durschnittswert aus Array-Werten-Summe: ");
+        System.out.println(avg(randomNumberArray));
+        // AUFGABE: MIN Index METHODE
+        System.out.print("Index-Nr die den geringsten Wert hält: ");
+        System.out.println(minIDX(randomNumberArray));
+        // AUFGABE: MAX Index METHODE
+        System.out.print("Index-Nr die den maximalen Wert hält: ");
+        System.out.println(maxIDX(randomNumberArray));
+
 
     }
 
@@ -37,7 +45,7 @@ public class RandomNumberArrayMinMaxAvg {
 
     //METHODE: MINIMUM DES ARRAYS ZURUECKGEBEN
 
-    public static int max(int[] array) {
+    public static int maxVALUE(int[] array) {
         int bestMax = Integer.MIN_VALUE;
         for (int idx = 0; idx < array.length; idx++) {
             if (array[idx] > bestMax) {
@@ -47,7 +55,7 @@ public class RandomNumberArrayMinMaxAvg {
         return bestMax;
     }
 
-    public static int min(int[] array) {
+    public static int minVALUE(int[] array) {
         int bestMin = Integer.MAX_VALUE;
         for (int idx = 0; idx < array.length; idx++) {
             if (array[idx] < bestMin) {
@@ -55,6 +63,40 @@ public class RandomNumberArrayMinMaxAvg {
             }
         }
         return bestMin;
+    }
+
+    public static float avg(int[] array) {
+        int sum = 0;
+        float result = 0;
+        for (int idx = 0; idx < array.length; idx++) {
+            sum += array[idx];
+        }
+        result = (float) sum / array.length;
+        return result;
+    }
+
+    public static int minIDX(int[] array) {
+        int minIDXvalue = Integer.MAX_VALUE;
+        int result = -1;
+        for (int idx = 0; idx < array.length; idx++) {
+            if (array[idx] < minIDXvalue) {
+                result = idx;
+                minIDXvalue = array[idx];
+            }
+        }
+        return result;
+    }
+
+    public static int maxIDX(int[] array) {
+        int minIDXvalue = Integer.MIN_VALUE;
+        int result = -1;
+        for (int idx = 0; idx < array.length; idx++) {
+            if (array[idx] > minIDXvalue) {
+                result = idx;
+                minIDXvalue = array[idx];
+            }
+        }
+        return result;
     }
 
 }
