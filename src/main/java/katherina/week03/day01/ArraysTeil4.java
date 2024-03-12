@@ -1,6 +1,5 @@
 package katherina.week03.day01;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class ArraysTeil4 {
