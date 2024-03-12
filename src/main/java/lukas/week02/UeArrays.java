@@ -1,7 +1,6 @@
 package lukas.week02;
 
 
-import christian.week02.day05.Array;
 import lukas.Helper;
 
 import java.util.Arrays;
@@ -12,6 +11,7 @@ public class UeArrays {
     public static Random random = new Random();
 
     public static void main(String[] args) {
+        int[] arr = randomArray(10);
 
         //numberArray();
         //numberArray2();
@@ -24,7 +24,8 @@ public class UeArrays {
         //randomNumberArrayMinMaxAvgTest();
         //lzSortTest();
         //bubbleSortTest();
-       quickSortTest();
+        printArrayForI(arr);
+        printArrayForEach(arr);
 
 
     }
@@ -136,6 +137,31 @@ public class UeArrays {
         System.out.printf("[%d, %d, %d]\n", arr[1], arr[4], arr[9]);
         System.out.println("Ausgabe jedes zweiten Wertes:");
         System.out.println(output3);
+    }
+
+    public static void printArrayForI(int[] arr) {
+        System.out.print("[");
+        for (int i = 0; i < arr.length; i++) {
+            if (i > 0) {
+                System.out.print(", ");
+            }
+            System.out.print(arr[i]);
+        }
+        System.out.println("]");
+
+    }
+
+    public static void printArrayForEach(int[] arr) {
+        System.out.print("[");
+        boolean isFirst = true;
+        for (int value : arr) {
+            if (!isFirst) {
+                System.out.print(", ");
+            }
+            System.out.print(value);
+            isFirst = false;
+        }
+        System.out.println("]");
     }
 
     public static void randomNumberArrayCrazyArray() {
@@ -298,39 +324,6 @@ public class UeArrays {
         return indexMaxValue;
     }
 
-    public static void bubbleSort(int[] arr, boolean ascending) {
-        //Sortierung muss über zwei Schleifen laufen!
-        int a = 0;
-        int swap = 0;
-        for (int j = 0; j < arr.length - 1; j++) {
-            for (int i = 0; i < arr.length - 1 - j; i++) {
-                if (ascending) {
-                    a++;
-                    if (arr[i + 1] < arr[i]) {
-                        swap = arr[i];
-                        arr[i] = arr[i + 1];
-                        arr[i + 1] = swap;
-                    }
-                }
-            }
-            System.out.printf("j = %-3d %s a =%4d\n", j, Arrays.toString(arr), a);
-        }
-        System.out.println("Counter = " + a);
-        int maxN = arr.length * (arr.length - 1) / 2;
-        System.out.println("maxN = " + maxN);
-    }
-
-    public static void bubbleSortTest() {
-        int[] arr = randomArray(10, 10, 0, 100);
-        //int[] arr = {6,2,3,5,4,1,10,8,9,7};
-        System.out.println(Arrays.toString(arr));
-        bubbleSort(arr, true);
-        System.out.println(Arrays.toString(arr));
-//        bubbleSort(arr, false);
-//        System.out.println(Arrays.toString(arr));
-
-    }
-
     //Langsam da n^n durchgänge!
     public static void lzSort(int[] arr, boolean ascending) {
         if (arr != null && arr.length != 0) {
@@ -364,45 +357,5 @@ public class UeArrays {
         System.out.println(Arrays.toString(arr));
     }
 
-    public static int quickSortCounter = 0;
-    public static void quickSort(int[] arr, int l, int r) {
 
-        if (l >= r) {
-            return;
-        }
-        quickSortCounter++;
-        int q = random.nextInt(l,r+1);
-        int pivot = arr[q];
-        int m = partion(arr, l, r, q);
-        System.out.printf("%-3s %s\n", quickSortCounter+":", Arrays.toString(arr));
-        quickSort(arr, l, m - 1);
-        quickSort(arr, m + 1, r);
-    }
-
-    public static int partion(int[] arr, int l, int r, int q) {
-        int pivot = arr[q];
-        arr[q] = arr[r];
-        arr[r] = pivot;
-        int i = l;
-        for (int j = l; j < r; j++) {
-            if (arr[j] <= pivot) {
-                int swap = arr[i];
-                arr[i] = arr[j];
-                arr[j] = swap;
-                i++;
-            }
-        }
-        int swap2 = arr[i];
-        arr[i] = arr[r];
-        arr[r] = swap2;
-        return i;
-    }
-
-    public static void quickSortTest() {
-        //int[] arr = randomArray(20,20,1,100);
-        int[] arr = {5, 3, 7, 2, 8, 1, 6, 4};
-        System.out.println(Arrays.toString(arr));
-        quickSort(arr, 0,arr.length-1);
-        System.out.println(Arrays.toString(arr));
-    }
 }
