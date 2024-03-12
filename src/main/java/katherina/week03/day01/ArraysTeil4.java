@@ -16,6 +16,8 @@ public class ArraysTeil4 {
         int abzaehlBool = 0;
         for (index = 0; index < 100; index++) {
             zufallswerte[index] = random.nextInt(0, 100);
+
+            //Umarbeiten mit if, else!
             System.out.println("Ist der Wert höher als dreißig? " + (zufallswerte[index] > 30) + ", nämlich " + zufallswerte[index]);
         }
         if (zufallswerte[index] > 30) ;
