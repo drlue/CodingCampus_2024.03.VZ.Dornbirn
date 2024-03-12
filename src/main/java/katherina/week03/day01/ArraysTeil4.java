@@ -10,7 +10,7 @@ public class ArraysTeil4 {
         int[] zufallswerte = createRandomArray(10);
         //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
-
+        zaehlen(zufallswerte);
     }
 
     public static void printWithForI(int[] arr) {
@@ -23,11 +23,18 @@ public class ArraysTeil4 {
         System.out.println("Fertig!");
     }
 
-  /*  public static int[] countIf(int zaehlpixel) {
-        if (createRandomArray(random).length > 30) {
+    public static int zaehlen(int[] arrg) {
+        int dreissigplus = 0;
+        for (int index = 0; index < arrg.length; index++) {
+            if (arrg[index] > 30) {
+                dreissigplus++;
+            }
+
         }
-        return zaehlpixel.length;
-    }*/
+        System.out.println("So oft ist der Wert größer als dreißig: " + dreissigplus);
+
+        return dreissigplus;
+    }
 
     public static int[] createRandomArray(int size) {
         int[] result = new int[size];
