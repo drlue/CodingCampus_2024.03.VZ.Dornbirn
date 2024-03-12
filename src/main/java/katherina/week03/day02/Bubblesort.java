@@ -2,16 +2,16 @@ package katherina.week03.day02;
 
 import java.util.Random;
 
-public class ArrayRandomNumberMinMaxAvg {
+import static java.util.Arrays.sort;
+
+public class Bubblesort {
     static Random random = new Random();
 
     public static void main(String[] args) {
         int[] zufallswerte = createRandomArray(10);
-        //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
-        System.out.println("Maximalwert:  " + maximum(zufallswerte));
-        System.out.println("Minimalwert:  " + minimum(zufallswerte));
-        System.out.println("Durchschnitt: " + average(zufallswerte));
+     System.out.println("Aufsteigende Sortierung:  " + nachhoch(zufallswerte));
+  //      System.out.println("Absteigende Sortierung:  " + nachunten(zufallswerte));
 
     }
 
@@ -22,17 +22,21 @@ public class ArrayRandomNumberMinMaxAvg {
             }
             System.out.print(arr[arr.length - 1] + " ");
         }
-        System.out.println("Fertig!");
+        System.out.println(">>Dies ist unsortiert! Hiiiiilfe! Sortier das!<<");
     }
 
-    public static int maximum(int[] arrg) {
-        int maxi = Integer.MIN_VALUE;
-        for (int index = 0; index < arrg.length; index++) {
-            if (arrg[index] > maxi) {
-                maxi = arrg[index];
+    public static int nachhoch(int[] arrg) {
+        int value = 0;
+        for (int index = 0; index < arrg.length-1; index++) {
+            if (arrg[index] < arrg[index+1]) {
+                continue;
             }
+            value = arrg[index];
+            arrg[index] = arrg[index+1];
+            arrg[index+1] = value;
+            sort(new int[]{value});
         }
-        return maxi;
+        return value;
     }
 
     public static int minimum(int[] arrg) {
@@ -44,15 +48,6 @@ public class ArrayRandomNumberMinMaxAvg {
         }
         return mini;
     }
-
-    public static double average(int[] arrg) {
-        int avg = 0;
-        for (int index = 0; index != arrg.length; index++) {
-            avg += arrg[index];
-        }
-        return ((double) avg / arrg.length);
-    }
-
 
     public static int[] createRandomArray(int size) {
         int[] result = new int[size];
