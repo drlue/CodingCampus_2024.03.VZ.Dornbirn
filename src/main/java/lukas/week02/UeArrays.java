@@ -23,7 +23,7 @@ public class UeArrays {
         //randomNumberArraySum();
         //randomNumberArrayMinMaxAvgTest();
         //lzSortTest();
-        //bubbleSortTest();
+
         printArrayForI(arr);
         printArrayForEach(arr);
 
