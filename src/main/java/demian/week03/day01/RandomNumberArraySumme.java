@@ -26,10 +26,8 @@ public class RandomNumberArraySumme {
 
     public static void printSUMofArrayElements (int[] integerARRAY){
         int sum = 0;
-        int num = 0;
-        for (int element = 0; element < integerARRAY.length; element++) {
-            num = integerARRAY[element];
-            sum = sum + num;
+        for (int idx = 0; idx < integerARRAY.length; idx++) {
+            sum += integerARRAY[idx];
         }
         System.out.println("\nSumme aller Elemente des Arrays: " + sum);
     }
