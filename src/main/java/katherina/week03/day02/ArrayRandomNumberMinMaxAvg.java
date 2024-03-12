@@ -53,6 +53,8 @@ public class ArrayRandomNumberMinMaxAvg {
         return ((double) avg /arrg.length);
     }
 
+
+
     public static int[] createRandomArray(int size) {
         int[] result = new int[size];
         for (int index = 0; index < result.length; index++) {
