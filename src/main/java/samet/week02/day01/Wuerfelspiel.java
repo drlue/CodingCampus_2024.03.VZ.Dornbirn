@@ -1,4 +1,4 @@
-package samet.week02.day1;
+package samet.week02.day01;
 
 import java.util.Random;
 
