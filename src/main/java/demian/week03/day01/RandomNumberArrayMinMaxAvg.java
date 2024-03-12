@@ -29,7 +29,9 @@ public class RandomNumberArrayMinMaxAvg {
         System.out.print("Maximum Wert im Array: ");
         System.out.println(max(randomNumberArray));
         // AUFGABE: AVERAGE
-        System.out.print("Durschnittswert aus Array-Elementen-Summe:");
+        System.out.print("Durschnittswert aus Array-Werten-Summe: ");
+        System.out.println(avgARRAY(randomNumberArray));
+
 
     }
 
@@ -55,6 +57,16 @@ public class RandomNumberArrayMinMaxAvg {
             }
         }
         return bestMin;
+    }
+
+    public static int avgARRAY(int[] array) {
+        int sum = 0;
+        int result = 0;
+        for (int idx = 0; idx < array.length; idx++) {
+            sum += array[idx];
+        }
+        result = sum / array.length;
+        return result;
     }
 
 }

@@ -80,7 +80,6 @@ public class Array {
         for (int i = 0; i < array.length; i++) {
             System.out.println("print method array " + array[i]);
         }
-
     }
 
     //arrange already given element in an array in ascending order

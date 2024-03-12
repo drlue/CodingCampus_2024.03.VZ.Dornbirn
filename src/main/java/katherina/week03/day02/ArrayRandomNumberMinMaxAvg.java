@@ -1,16 +1,14 @@
-package katherina.week03.day01;
+package katherina.week03.day02;
 
 import java.util.Random;
 
-public class ArraysTeil5 {
-
-    static Random random = new Random();
+public class ArrayRandomNumberMinMaxAvg {    static Random random = new Random();
 
     public static void main(String[] args) {
         int[] zufallswerte = createRandomArray(10);
         //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
-        summe(zufallswerte);
+        minimum(zufallswerte);
     }
 
     public static void printWithForI(int[] arr) {
@@ -23,14 +21,17 @@ public class ArraysTeil5 {
         System.out.println("Fertig!");
     }
 
-    public static int summe(int[] arrg) {
-        int summant = 0;
-        for (int index = 0; index != arrg.length; index++) {
-            summant += arrg[index];
-        }
-        System.out.println("Dies ist die Summe der Zufallszahlen: " + summant);
+    public static int minimum(int[] arrg) {
+        int mini = 0;
+        for (int index = 0; index < arrg.length; index++) {
+            if (arrg[index]<(mini)) {
+                mini += arrg[index];
+            }
 
-        return summant;
+        }
+     //   System.out.println("Meist auskommentierter Kontrollwert - Minimalwert " + mini);
+
+        return mini;
     }
 
     public static int[] createRandomArray(int size) {
