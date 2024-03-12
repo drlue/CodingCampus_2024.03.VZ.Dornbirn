@@ -1,6 +1,5 @@
 package katherina.week03.day01;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class ArraysTeil4 {
@@ -8,25 +7,27 @@ public class ArraysTeil4 {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        int randomNumbers = random.nextInt(0, 101);
         int[] zufallswerte = createRandomArray(10);
+        //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
+
     }
 
-        public static void printWithForI(int[] arr) {
-        int zaehlpixel = 0;
-            for (int index = 0; index-1 < (arr.length - 1); ++index) {
+    public static void printWithForI(int[] arr) {
+        if (arr.length > 0) {
+            for (int index = 0; index < arr.length - 1; ++index) {
                 System.out.print(arr[index] + ", ");
-                for (int j = arr.length-1; j == arr.length; j++) {
-                    System.out.printf("%d",arr[j]);
-                }
-                if (index > 30) {
-                    zaehlpixel++;
-                    System.out.println(zaehlpixel);
-
-                }
             }
+            System.out.print(arr[arr.length - 1] + " ");
         }
+        System.out.println("Fertig!");
+    }
+
+  /*  public static int[] countIf(int zaehlpixel) {
+        if (createRandomArray(random).length > 30) {
+        }
+        return zaehlpixel.length;
+    }*/
 
     public static int[] createRandomArray(int size) {
         int[] result = new int[size];
@@ -36,3 +37,16 @@ public class ArraysTeil4 {
         return result;
     }
 }
+
+ /*   public static void printWithForIByGyula(int[] arr) {
+        if (arr.length > 0) {
+            for (int index = 0; index < arr.length - 1; ++index) {
+                System.out.print(arr[index] + ", ");
+            }
+            System.out.print(arr[arr.length - 1] + " ");
+        }
+        System.out.println("ENDE");
+    }
+
+*/
+
