@@ -1,4 +1,4 @@
-package samet.week02.day2;
+package samet.week02.day02;
 
 import java.util.Scanner;
 import java.util.regex.Pattern;

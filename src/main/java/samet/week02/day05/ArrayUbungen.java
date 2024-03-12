@@ -1,9 +1,8 @@
 package samet.week02.day05;
 
-import samet.week02.day2.UserInputTest;
+import samet.week02.day02.UserInputTest;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class ArrayUbungen {
 
