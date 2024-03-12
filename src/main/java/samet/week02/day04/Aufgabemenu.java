@@ -1,8 +1,8 @@
-package samet.week02.day4;
+package samet.week02.day04;
 
 
 import samet.week01.day01.Methoden;
-import samet.week02.day2.UserInputTest;
+import samet.week02.day02.UserInputTest;
 
 import java.util.Scanner;
 

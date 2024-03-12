@@ -1,7 +1,5 @@
 package samet.week03.day01;
 
-import samet.week02.day2.UserInputTest;
-
 import java.util.Arrays;
 import java.util.Random;
 
