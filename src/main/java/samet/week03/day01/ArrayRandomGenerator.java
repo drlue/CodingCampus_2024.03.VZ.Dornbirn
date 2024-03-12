@@ -15,6 +15,7 @@ public class ArrayRandomGenerator {
         System.out.println("Random assigned value of Array are");
         System.out.println(Arrays.toString(randomArray));
         printWithForI(randomArray);
+        System.out.println();
         printWithForEach(randomArray);
 
         printArrayWithForEach(randomArray);
