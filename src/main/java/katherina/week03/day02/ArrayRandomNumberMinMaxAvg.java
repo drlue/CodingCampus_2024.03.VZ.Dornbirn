@@ -2,13 +2,17 @@ package katherina.week03.day02;
 
 import java.util.Random;
 
-public class ArrayRandomNumberMinMaxAvg {    static Random random = new Random();
+public class ArrayRandomNumberMinMaxAvg {
+    static Random random = new Random();
 
     public static void main(String[] args) {
         int[] zufallswerte = createRandomArray(10);
         //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
-        minimum(zufallswerte);
+        System.out.println("Maximalwert:  " + maximum(zufallswerte));
+        System.out.println("Minimalwert:  " + minimum(zufallswerte));
+        System.out.println("Durchschnitt: " + average(zufallswerte));
+
     }
 
     public static void printWithForI(int[] arr) {
@@ -21,17 +25,32 @@ public class ArrayRandomNumberMinMaxAvg {    static Random random = new Random()
         System.out.println("Fertig!");
     }
 
-    public static int minimum(int[] arrg) {
-        int mini = 0;
+    public static int maximum(int[] arrg) {
+        int maxi = Integer.MIN_VALUE;
         for (int index = 0; index < arrg.length; index++) {
-            if (arrg[index]<(mini)) {
-                mini += arrg[index];
+            if (arrg[index] > maxi) {
+                maxi = arrg[index];
             }
-
         }
-     //   System.out.println("Meist auskommentierter Kontrollwert - Minimalwert " + mini);
+        return maxi;
+    }
 
+    public static int minimum(int[] arrg) {
+        int mini = Integer.MAX_VALUE;
+        for (int index = 0; index < arrg.length; index++) {
+            if (mini > arrg[index]) {
+                mini = arrg[index];
+            }
+        }
         return mini;
+    }
+
+    public static double average(int[] arrg) {
+        int avg = 0;
+        for (int index = 0; index != arrg.length; index++) {
+            avg += arrg[index];
+        }
+        return ((double) avg /arrg.length);
     }
 
     public static int[] createRandomArray(int size) {
