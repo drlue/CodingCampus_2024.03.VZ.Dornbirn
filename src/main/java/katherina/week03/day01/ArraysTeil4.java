@@ -1,6 +1,5 @@
 package katherina.week03.day01;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class ArraysTeil4 {
@@ -8,20 +7,46 @@ public class ArraysTeil4 {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        int randomNumbers = random.nextInt(0, 101);
+        int[] zufallswerte = createRandomArray(10);
+        //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
+        printWithForI(zufallswerte);
 
+    }
 
-        int[] zufallswerte = new int[101];
-        int index;
-        int abzaehlBool = 0;
-        for (index = 0; index < 100; index++) {
-            zufallswerte[index] = random.nextInt(0, 100);
-            System.out.println("Ist der Wert höher als dreißig? " + (zufallswerte[index] > 30) + ", nämlich " + zufallswerte[index]);
+    public static void printWithForI(int[] arr) {
+        if (arr.length > 0) {
+            for (int index = 0; index < arr.length - 1; ++index) {
+                System.out.print(arr[index] + ", ");
+            }
+            System.out.print(arr[arr.length - 1] + " ");
         }
-        if (zufallswerte[index] > 30) ;
-        {
-            abzaehlBool++;
-            System.out.println("So oft war der Wert höher als dreißig: " + abzaehlBool);
+        System.out.println("Fertig!");
+    }
+
+  /*  public static int[] countIf(int zaehlpixel) {
+        if (createRandomArray(random).length > 30) {
         }
+        return zaehlpixel.length;
+    }*/
+
+    public static int[] createRandomArray(int size) {
+        int[] result = new int[size];
+        for (int index = 0; index < result.length; index++) {
+            result[index] = random.nextInt(1, 100);
+        }
+        return result;
     }
 }
+
+ /*   public static void printWithForIByGyula(int[] arr) {
+        if (arr.length > 0) {
+            for (int index = 0; index < arr.length - 1; ++index) {
+                System.out.print(arr[index] + ", ");
+            }
+            System.out.print(arr[arr.length - 1] + " ");
+        }
+        System.out.println("ENDE");
+    }
+
+*/
+
