@@ -8,7 +8,8 @@ public class QuickSortClass {
     public static Random random = new Random();
 
     public static void main(String[] args) {
-        int[] array = createRandomNumberArray(9, 0, 101);
+//        int[] array = createRandomNumberArray(10, 0, 101);
+        int[] array = {44, 11, 83, 41, 2, 72, 7, 32, 22, 94};// mit diesem Array ist es zu 50 % fehlerhaft. Randommethode ruft wahrscheinlich fehler hervor.
         System.out.println(Arrays.toString(array));
         quickSort(array, 0, array.length - 1);
 
