@@ -26,7 +26,7 @@ public class ArrayRandomNumber {
 
         System.out.print("[");
         boolean first = true;
-        for (int value: arr){
+        for (int value : arr) {
             if (!first) {
                 System.out.print(", ");
             }
@@ -42,7 +42,7 @@ public class ArrayRandomNumber {
     //sout.print , <- damit vor jeder zahl ein kommer steht
     //und Ausgabe Jedes Elements wird angegeben
     //zumschluss sout.println ]<- damit die letzte zahl in der klammer steht
-    public static void printArrayWithForI(int[] arr){
+    public static void printArrayWithForI(int[] arr) {
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
             if (i > 0) {
@@ -53,11 +53,15 @@ public class ArrayRandomNumber {
         System.out.println("]");
     }
 
-    public static int[] createRandomArray(int size){
+    public static int[] createRandomArray(int size) {
         int[] arr = new int[size];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt(0, 101);
         }
         return arr;
+
     }
 }
+
+
+
