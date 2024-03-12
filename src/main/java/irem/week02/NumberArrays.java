@@ -13,8 +13,6 @@ public class NumberArrays {
             System.out.println(meinArray[i]);
         }
 
-
-
         int size = 20;
         int[] arr = new int[size];
         for (int i = 0; i < arr.length; i++) {
@@ -22,9 +20,6 @@ public class NumberArrays {
         }
         System.out.println(Arrays.toString(arr));
 
-
-
-
-        }
     }
+}
 
