@@ -1,6 +1,5 @@
 package katherina.week03.day01;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class ArraysTeil3 {
@@ -8,22 +7,29 @@ public class ArraysTeil3 {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        int randomNumbers = random.nextInt(-50, 50);
-        int randomPosition = random.nextInt(0,101);
         System.out.println("Random Number Array Crazy Range");
+        int[] zufallswerte = createRandomArray(10);
+        printWithForEach(zufallswerte);
+        System.out.println("");
+    }
 
-        int[] zufallswerte = new int[randomPosition];
-        System.out.println("Das ist mit for-Schleife - aber wie mache ich das mit 'Foreach'?");
-        for (int index = 0; index < randomPosition; index++) {
-            zufallswerte[index] = random.nextInt(-50,50);
-            System.out.println("Wert: " + zufallswerte[index]);
+    public static void printWithForEach(int[] arr) {
+        boolean first = true;
+        for (int wert : arr) {
+            if (!first) {
+                System.out.print(", ");
+            }
+            System.out.print(wert);
+            first = false;
         }
+    }
 
-     /*
-     Das funktioniert nicht, da auf diese Weise ein Array mit negativer Länge/negativen Positionen erstellt zu werden versucht und das ist unmöglich!
 
-     for (int randomPosition : zufallswerte) {
-            System.out.println("Wert: " + zufallswerte);
-        }*/
+    public static int[] createRandomArray(int size) {
+        int[] result = new int[size];
+        for (int index = 0; index < result.length; index++) {
+            result[index] = random.nextInt(-50, 50);
+        }
+        return result;
     }
 }

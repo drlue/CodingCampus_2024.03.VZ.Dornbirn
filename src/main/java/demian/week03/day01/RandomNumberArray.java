@@ -15,9 +15,8 @@ public class RandomNumberArray {
         Random random = new Random();
 
         int[] zufallszahlenARRAY = new int[11];
-        for (int element = 0; element < zufallszahlenARRAY.length; element++) {
-            int randomnumber = random.nextInt(100);
-            zufallszahlenARRAY[element] = randomnumber;
+        for (int idx = 0; idx < zufallszahlenARRAY.length; idx++) {
+            zufallszahlenARRAY[idx] = random.nextInt(100);
         }
         System.out.print("Zufallszahlenarray: ");
         System.out.println(Arrays.toString(zufallszahlenARRAY));
@@ -30,29 +29,26 @@ public class RandomNumberArray {
 
         // Unteraufgabe 2:
         System.out.println("Unteraufgabe 2: Ausgabe mittels fori Schleife");
-        for (int element = 0; element < zufallszahlenARRAY.length; element++) {
-            int zahl = zufallszahlenARRAY[element];
+        for (int idx = 0; idx < zufallszahlenARRAY.length; idx++) {
+            int zahl = zufallszahlenARRAY[idx];
             System.out.println(zahl);
         }
 
         // Unteraufgabe 3:
         System.out.println("Unteraufgabe 3: Gib den zweiten, fünften und zehnten Wert des Arrays aus. ");
-        for (int element = 0; element < zufallszahlenARRAY.length; element++) {
-            if (element == 1 || element == 4 || element == 9) {
-                int zahl = zufallszahlenARRAY[element];
-                System.out.println((element+1) + "er-Wert = " + zahl);
+        for (int idx = 0; idx < zufallszahlenARRAY.length; idx++) {
+            if (idx == 1 || idx == 4 || idx == 9) {
+                int zahl = zufallszahlenARRAY[idx];
+                System.out.println((idx + 1) + "er-Wert = " + zahl);
             }
         }
 
         // Unteraufgabe 4:
         System.out.println("Unteraufgabe 4: Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus");
-        for (int element = 0; element < zufallszahlenARRAY.length; element++) {
-            if (element % 2 != 0){
-                int zahl = 0;
-                zahl = zufallszahlenARRAY[element];
-                System.out.print((element+1) + "er-Wert:");
-                System.out.println(zahl);
-            }
+        for (int idx = 0; idx < zufallszahlenARRAY.length; idx += 2) {
+            System.out.print((idx) + "er-Wert:");
+            System.out.println(zufallszahlenARRAY[idx]);
+            
         }
     }
 

@@ -15,8 +15,12 @@ public class ArrayMethoden {
         System.out.println("MinValue: " + getMinValue(array));
         System.out.println("Index of Minvalue: " + getIndexOfMin(array));
 
-        int[] bubblesortArray = bubblesort(array);
-        System.out.println(Arrays.toString(bubblesortArray));
+        System.out.println(Arrays.toString(bubblesortWith2xForUp(array)));
+        System.out.println(Arrays.toString(bubblesortWith2xForDown(array)));
+        System.out.println(Arrays.toString(selectionSort(array)));
+        System.out.println(Arrays.toString(quickSort(array, 0, array.length - 1)));
+        System.out.println(Arrays.toString(mergeSort(array, 0, array.length)));
+
 
 //        System.out.println(returnMinIntValueOfIntArray(array));
     }
@@ -160,6 +164,128 @@ public class ArrayMethoden {
                 }
             }
             first = true;
+        }
+        return arr;
+    }
+
+    public static int[] bubblesortByGyula(int[] arr) {
+        boolean swapped = true;
+        int rounds = 0;
+        while (swapped) {
+            swapped = false;
+            for (int i = 1; i < arr.length - rounds; i++) {
+                if (arr[i] < arr[i - 1]) {
+                    int temp = arr[i - 1];
+                    arr[i - 1] = arr[i];
+                    arr[i] = temp;
+                    swapped = true;
+                }
+            }
+            ++rounds;
+        }
+        return arr;
+    }
+
+    public static int[] bubblesortWith2xForUp(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j < arr.length - i; j++) {
+                if (arr[j] < arr[j - 1]) {
+                    int temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    public static int[] bubblesortWith2xForDown(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j < arr.length - i; j++) {
+                if (arr[j] > arr[j - 1]) {
+                    int temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    public static int[] selectionSort(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[min]) {
+                    min = j;
+                }
+
+            }
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
+        }
+        return arr;
+    }
+
+    public static int[] quickSort(int[] arr, int l, int r) {
+
+        int q = random.nextInt(0, 10);
+        while (l >= r) {
+
+            int m = partition(arr, l, r, q);
+            quickSort(arr, l, m - 1);
+            quickSort(arr, m + 1, r);
+        }
+        return arr;
+    }
+
+    public static int partition(int[] arr, int l, int r, int q) {
+        int p = arr[q];
+        int temp1 = arr[q];
+        arr[q] = arr[r];
+        arr[r] = temp1;
+        int i = l;
+        for (int j = l; j < r - 1; j++) {
+            if (arr[j] <= p) {
+                p = arr[q];
+                int temp2 = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp2;
+                i++;
+            }
+            int temp3 = arr[i];
+            arr[i] = arr[r];
+            arr[r] = temp3;
+        }
+        return i;
+    }
+
+    public static int[] mergeSort(int[] arr, int lo, int hi) {
+        while (hi - lo <= 1) {
+            int mid = (lo + hi) / 2;
+            mergeSort(arr, lo, mid);
+            mergeSort(arr, mid, hi);
+            int[] arrB = new int[hi - lo];
+            int i = lo;
+            int j = mid;
+            int k = 1;
+            while (i < mid && j < hi) {
+                if (arr[i] < arr[j]) {
+                    arrB[k++] = arr[i++];
+                } else {
+                    arrB[k++] = arr[j++];
+                }
+                while (i < mid) {
+                    arrB[k++] = arr[i++];
+                }
+                while (j < hi) {
+                    arrB[k++] = arr[j++];
+                }
+                for (int l = 0; l < arr.length; l++) {
+                    arr[l] = arrB[l];
+                }
+            }
         }
         return arr;
     }

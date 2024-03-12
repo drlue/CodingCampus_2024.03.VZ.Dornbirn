@@ -1,6 +1,7 @@
 package lukas.week02;
 
-import java.sql.SQLOutput;
+import lukas.Helper;
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -68,79 +69,6 @@ public class UeConsoleInput {
 
     }
 
-    public static String readStringFromConsole(String message) {
-        System.out.print(message);
-        return sc.nextLine();
-    }
-
-
-    public static int readIntFromConsoleV2(String message, int minValue, int maxValue) {
-        while (true) {
-            if (sc.hasNextInt()) {
-                int result = sc.nextInt();
-                if (result < minValue || result > maxValue) {
-                    System.out.printf("Zahl zwischen %d und %d eingeben \n", minValue, maxValue);
-                } else {
-                    return sc.nextInt();
-                }
-            } else {
-                System.out.println("Bitte eine Zahl eingeben");
-            }
-        }
-    }
-
-    public static int readIntFromConsoleV2(String message) {
-        return readIntFromConsoleV2(message, Integer.MIN_VALUE, Integer.MAX_VALUE);
-    }
-
-    public static int readIntFromConsole(String message) {
-        return readIntFromConsole(message, Integer.MIN_VALUE + 1, Integer.MAX_VALUE);
-    }
-
-    public static int readIntFromConsole(String message, int minValue, int maxValue) {
-        int result = Integer.MIN_VALUE;
-        while (result == Integer.MIN_VALUE) {
-            System.out.print(message);
-            try {
-                result = Integer.parseInt(sc.nextLine());
-                if (result < minValue || result > maxValue) {
-                    System.out.printf("Bitte eine Zahl zwischen %d und %d eingeben \n", minValue, maxValue);
-                    result = Integer.MIN_VALUE;
-                }
-            } catch (NumberFormatException nfe) {
-                //System.out.println("Kennst du den Unterschied zwischen einer Zahl und einem String?");
-                System.out.println("Bitte eine Zahl eingeben");
-            }
-        }
-        return result;
-    }
-
-
-    public static double readDoubleFromConsole(String message) {
-        return readDoubleFromConsole(message, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
-    }
-
-    public static double readDoubleFromConsole(String message, double minValue, double maxValue) {
-        double result = Double.NEGATIVE_INFINITY;
-        while (result == Double.NEGATIVE_INFINITY) {
-            System.out.print(message);
-            try {
-                String txtLine = sc.nextLine();
-                txtLine = txtLine.replace(",", ".");
-                result = Double.parseDouble(txtLine);
-                if (result < minValue || result > maxValue) {
-                    System.out.printf("Bitte eine Zahl zwischen %e und %e eingeben \n", minValue, maxValue);
-                    result = Double.NEGATIVE_INFINITY;
-                }
-            } catch (NumberFormatException nfe) {
-                //System.out.println("Kennst du den Unterschied zwischen einer Zahl und einem String?");
-                System.out.println("Bitte eine Zahl eingeben");
-            }
-        }
-        return result;
-
-    }
-
     public static void guessNumber(int minVal, int maxVal) {
         int randomValue = rand.nextInt(minVal, maxVal + 1);
         int inputValue = Integer.MIN_VALUE;
@@ -150,7 +78,7 @@ public class UeConsoleInput {
         System.out.println("Gib die Zahl nun ein:");
         //LOGIK
         while (inputValue != randomValue) {
-            inputValue = readIntFromConsole(">>>", minVal, maxVal);
+            inputValue = Helper.readIntFromConsole(">>>", minVal, maxVal);
             if (inputValue < randomValue) {
                 System.out.println("Die Zahl ist zu niedrig!");
             } else if (inputValue > randomValue) {
@@ -171,7 +99,7 @@ public class UeConsoleInput {
             System.out.println("Gib die Zahl nun ein:");
             //LOGIK
             while (inputValue != randomValue) {
-                inputValue = readIntFromConsole(">>>", minVal, maxVal);
+                inputValue = Helper.readIntFromConsole(">>>", minVal, maxVal);
                 if (inputValue < randomValue) {
                     System.out.println("Die Zahl ist zu niedrig!");
                 } else if (inputValue > randomValue) {
@@ -180,8 +108,8 @@ public class UeConsoleInput {
             }
             System.out.println("RICHTIG! DU HAST GEWONNEN!");
 
-            String answer = readStringFromConsole("Noch einmal spielen? [y/n]");
-            if (!isYes(answer)) {
+            String answer = Helper.readStringFromConsole("Noch einmal spielen? [y/n]");
+            if (!Helper.isYes(answer)) {
                 endGame = true;
             }
         }
@@ -199,7 +127,7 @@ public class UeConsoleInput {
                 answerOk = true;
                 result = true;
             } else {
-                answer = readStringFromConsole("y oder n eingeben!");
+                answer =Helper.readStringFromConsole("y oder n eingeben!");
             }
         }
         return result;
@@ -208,7 +136,7 @@ public class UeConsoleInput {
     public static void calculateFakt() {
 
         System.out.println("Berechne Fakultät:");
-        int value = readIntFromConsole("Zahl eingeben\n>>>", 0, Integer.MAX_VALUE);
+        int value = Helper.readIntFromConsole("Zahl eingeben\n>>>", 0, Integer.MAX_VALUE);
         long result = lukas.week01.Ue04PrimitiveDatentypen.fakt(value);
         System.out.printf("%d! = %d", value, result);
     }
@@ -216,13 +144,13 @@ public class UeConsoleInput {
     public static void calculatePiNilakantha() {
         System.out.println("Berechne PI mit der Nilakantha - Reihe");
         System.out.println("Genauigkeit eingeben (zwischen 0 und 1)");
-        double precision = readDoubleFromConsole(">>>");
+        double precision = Helper.readDoubleFromConsole(">>>");
         lukas.week01.Ue04PrimitiveDatentypen.calculatePiNilakantha2(precision);
     }
 
     public static void calculateSqrt() {
         System.out.println("Berechne die Wurzel von");
-        double value = readDoubleFromConsole(">>>");
+        double value = Helper.readDoubleFromConsole(">>>");
         double result = lukas.week01.Ue04PrimitiveDatentypen.approxSqrt(value, 0.000001);
         System.out.printf("Sqrt(%f) = %f", value, result);
     }
@@ -239,7 +167,7 @@ public class UeConsoleInput {
             System.out.println("3) Rhombus");
             System.out.println("Bitte wählen Sie die gewünschte Ziffer:");
 
-            int selection = readIntFromConsole(">>>", 1, 3);
+            int selection = Helper.readIntFromConsole(">>>", 1, 3);
             String aufgabe;
             int size = 1;
             String txt;
@@ -247,29 +175,29 @@ public class UeConsoleInput {
             if (selection == 1) {
                 aufgabe = "Christbaum";
                 System.out.printf("Wie groß soll der %s sein \n?", aufgabe);
-                size = readIntFromConsole(">>>", 1, 50);
+                size = Helper.readIntFromConsole(">>>", 1, 50);
                 lukas.week01.Ue02MethodenSchleifenMatrix.printChristmasTree(size);
             } else if (selection == 2) {
                 aufgabe = "Quader";
                 System.out.printf("Wie groß soll der %s sein \n?", aufgabe);
-                size = readIntFromConsole(">>>", 1, 50);
+                size = Helper.readIntFromConsole(">>>", 1, 50);
                 System.out.println("Welches Zeichen soll verwendet werden?");
-                txt = readStringFromConsole(">>>");
+                txt = Helper.readStringFromConsole(">>>");
                 lukas.week01.Ue02MethodenSchleifenMatrix.printEmptySquare(txt, size);
             } else if (selection == 3) {
                 aufgabe = "Rhombus";
                 System.out.printf("Wie groß soll der %s sein \n?", aufgabe);
-                size = readIntFromConsole(">>>", 1, 50);
+                size = Helper.readIntFromConsole(">>>", 1, 50);
                 System.out.println("Welches Zeichen soll verwendet werden?");
-                txt = readStringFromConsole(">>>");
+                txt = Helper.readStringFromConsole(">>>");
                 lukas.week01.Ue02MethodenSchleifenMatrix.printRhombusV2(txt, size);
             } else {
                 System.out.println("Aufgabe konnte nicht gefunden werden");
             }
 
             System.out.println("Möchten Sie noch etwas zeichen? (y/n)");
-            String answerYesNo = readStringFromConsole(">>>");
-            runProg = isYes(answerYesNo);
+            String answerYesNo = Helper.readStringFromConsole(">>>");
+            runProg = Helper.isYes(answerYesNo);
         }
     }
 
@@ -278,12 +206,12 @@ public class UeConsoleInput {
         System.out.println("Erlaubte Operatoren: +,-,*,/,^");
         boolean endProg = false;
         while (!endProg) {
-            float value1 = (float) readDoubleFromConsole("Zahl 1 >>>");
+            float value1 = (float) Helper.readDoubleFromConsole("Zahl 1 >>>");
 
             String operator = "";
             boolean operatorIsOk = false;
             while (!operatorIsOk) {
-                operator = readStringFromConsole("Funktion >>>");
+                operator = Helper.readStringFromConsole("Funktion >>>");
                 if (operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/") || operator.equals("^")) {
                     operatorIsOk = true;
                 } else {
@@ -291,7 +219,7 @@ public class UeConsoleInput {
                 }
             }
 
-            float value2 = (float) readDoubleFromConsole("Zahl 2 >>>");
+            float value2 = (float) Helper.readDoubleFromConsole("Zahl 2 >>>");
 
             float result = switch (operator) {
                 case "+" -> value1 + value2;
@@ -304,8 +232,8 @@ public class UeConsoleInput {
             };
 
             System.out.printf("%f %s %f = %f \n", value1, operator, value2, result);
-            String answer = readStringFromConsole("Nochmal rechnen? (y/n)");
-            if (!isYes(answer)) {
+            String answer = Helper.readStringFromConsole("Nochmal rechnen? (y/n)");
+            if (!Helper.isYes(answer)) {
                 endProg = true;
             }
         }
@@ -320,25 +248,25 @@ public class UeConsoleInput {
         System.out.println("Taschenrechner:");
         System.out.println("Erlaubte Operatoren: +,-,*,/,^,(,)");
 
-        String calString = "5+5/5";
-        System.out.println(calString);
-        calString = calString.replaceAll(" ", "");
-        System.out.println(calString);
+        String userInput = "-5+5*((7-3.5)/2)^(-1/2)";
+        System.out.println(userInput);
+        userInput = userInput.replaceAll(" ", "");
+        System.out.println(userInput);
 //      Check ob nur Zahlen und Operatoren
-        boolean hasValidChars = calString.matches("[0-9]*([0-9]+[\\+\\-\\*\\/\\^])*[0-9]+");
+        String mathRegex = "(\\(*\\-?\\d+\\.?\\d*\\)*[\\+\\-\\*\\/\\^])*\\(*(\\d+\\.?\\d*)\\)*";
+        System.out.println(mathRegex);
+        boolean hasValidChars = userInput.matches(mathRegex);
 
-        int operatorCount = 1;
-        for(char c : calString.toCharArray()) {
+        int operatorCount = 0;
+        int openBraketCoount = 0;
+        for(char c : userInput.toCharArray()) {
             if (c == '+' || c == '-' || c =='*' || c == '/' || c == '^') {
                 operatorCount++;
             }
         }
-//        String[] calStrings = calString.splitWithDelimiters("[\\+\\-\\*\\/\\^]", operatorCount);
-//        for (String s : calStrings) {
-//            System.out.println(s);
-//        }
-
+        String[] calStrings = userInput.splitWithDelimiters("[\\+\\-\\*\\/\\^\\(\\)]", operatorCount);
+        for (String s : calStrings) {
+            System.out.println(s);
+        }
     }
-
-
 }

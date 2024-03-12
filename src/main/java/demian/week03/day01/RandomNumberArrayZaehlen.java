@@ -27,10 +27,8 @@ public class RandomNumberArrayZaehlen {
 
     public static void printnumbersOVERnumberXCOUNTER (int[] integerARRAY, int numberX){
         int count = 0;
-        int num = 0;
-        for (int element = 0; element < integerARRAY.length; element++) {
-            num = integerARRAY[element];
-            if (num > numberX) {
+        for (int idx = 0; idx < integerARRAY.length; idx++) {
+            if (integerARRAY[idx] > numberX) {
                 count++;
             }
         }
