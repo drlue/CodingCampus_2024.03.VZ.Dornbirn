@@ -2,7 +2,7 @@ package aki.week01.day01;
 
 public class AufgabeChar {
     public static void main(String[] args) {
-        printRhombus("x", " ", ".", 7);
+        printEmptySquare("x", 5);
     }
 
     public static void printChars(String zeichen, int number) {
