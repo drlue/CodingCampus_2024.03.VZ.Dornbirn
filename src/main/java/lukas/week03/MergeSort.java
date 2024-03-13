@@ -5,11 +5,14 @@ import java.util.Arrays;
 public class MergeSort {
 
     public static void main(String[] args) {
-        //int[] arr = lukas.week02.UeArrays.randomArray(10, 10, 1, 100);
-        int[] arr = {5, 2, 4, 8, 1, 9, 7, 3, 6};
-        System.out.println(Arrays.toString(arr));
-        mergeSort(arr, 0, arr.length);
-        System.out.println(Arrays.toString(arr));
+        int[] arr = lukas.week02.UeArrays.randomArray(1000000, 1000000, 1, 100000);
+        // int[] arr = {5, 2, 4, 8, 1, 9, 7, 3, 6};
+        //System.out.println(Arrays.toString(arr));
+        long start = System.currentTimeMillis();
+        int[] sortedArr = mergeSortByGyula(arr, 0, arr.length);
+        long end = System.currentTimeMillis();
+        System.out.println("Runtime: " + (end-start) + " ms");
+        //System.out.println(Arrays.toString(sortedArr));
 
     }
 
@@ -57,9 +60,43 @@ public class MergeSort {
 
         //merge arrB into arrA
         for (int l = 0; l < arrB.length; l++) {
-            arrA[lo+l] = arrB[l];
+            arrA[lo + l] = arrB[l];
         }
     }
+
+
+    public static int[] mergeSortByGyula(int[] arrA, int lo, int hi) {
+        if (hi - lo <= 1) {
+            return new int[]{arrA[lo]};
+        }
+        int mid = (lo + hi) / 2;
+        int[] left = mergeSortByGyula(arrA, lo, mid);
+        int[] right = mergeSortByGyula(arrA, mid, hi);
+        int[] result = new int[left.length + right.length];
+
+        int leftIdx = 0;
+        int rightIdx = 0;
+        while (leftIdx < left.length && rightIdx < right.length){
+            if (left[leftIdx] < right[rightIdx]){
+                result[leftIdx + rightIdx] = left[leftIdx];
+                ++leftIdx;
+            } else {
+                result[leftIdx + rightIdx] = right[rightIdx];
+                ++rightIdx;
+            }
+        }
+        while (leftIdx < left.length){
+            result[leftIdx + rightIdx] = left[leftIdx];
+            ++leftIdx;
+        }
+        while (rightIdx < right.length){
+            result[leftIdx + rightIdx] = right[rightIdx];
+            ++rightIdx;
+        }
+
+        return result;
+    }
+
 }
     
 
