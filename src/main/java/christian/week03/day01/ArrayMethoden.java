@@ -15,11 +15,9 @@ public class ArrayMethoden {
         System.out.println("MinValue: " + getMinValue(array));
         System.out.println("Index of Minvalue: " + getIndexOfMin(array));
 
-        System.out.println(Arrays.toString(bubblesortWith2xForUp(array)));
-        System.out.println(Arrays.toString(bubblesortWith2xForDown(array)));
+//        System.out.println(Arrays.toString(bubblesortWith2xForUp(array)));
+//        System.out.println(Arrays.toString(bubblesortWith2xForDown(array)));
         System.out.println(Arrays.toString(selectionSort(array)));
-        System.out.println(Arrays.toString(quickSort(array, 0, array.length - 1)));
-        System.out.println(Arrays.toString(mergeSort(array, 0, array.length)));
 
 
 //        System.out.println(returnMinIntValueOfIntArray(array));
@@ -231,7 +229,7 @@ public class ArrayMethoden {
     public static int[] quickSort(int[] arr, int l, int r) {
 
         int q = random.nextInt(0, 10);
-        while (l >= r) {
+        while (l < r) {
 
             int m = partition(arr, l, r, q);
             quickSort(arr, l, m - 1);
