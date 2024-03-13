@@ -80,6 +80,9 @@ public class Arrayss {
         //Pascal Dreieck
         printTwoDArray(pascalDreieck(10));
 
+        //Formula
+        formulaGen(pascalDreieck(10), 3);
+
 
     }
 
@@ -220,7 +223,7 @@ public class Arrayss {
 
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                System.out.printf("%2d ", arr[i][j]);
+                System.out.printf("%5d ", arr[i][j]);
 
             }
             System.out.println();
@@ -258,9 +261,7 @@ public class Arrayss {
         for (int row = 0; row < size; row++) {
 
             for (int col = 0; col < size; col++) {
-                if (row < 1) {
-                    matrix[row][col] = 1;
-                } else if (col < 1) {
+                if (row == 0 || col == 0) {
                     matrix[row][col] = 1;
                 } else {
                     matrix[row][col] = matrix[row][col - 1] + matrix[row - 1][col];
@@ -269,6 +270,19 @@ public class Arrayss {
             }
         }
         return matrix;
+    }
+
+
+    public static void formulaGen(int[][] pascalMatrix, int size) {
+//noch nicht fertig
+        for (int row = 0; row < pascalMatrix.length; row++) {
+            for (int col = 0; col < pascalMatrix[row].length; col++) {
+                if (size - 1 == size - row && size -1 == col -1) {
+                    System.out.println(pascalMatrix[row][col]);
+                }
+            }
+        }
+
     }
 }
 

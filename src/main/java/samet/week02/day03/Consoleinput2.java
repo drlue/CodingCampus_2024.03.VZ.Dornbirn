@@ -1,6 +1,6 @@
-package samet.week02.day3;
+package samet.week02.day03;
 
-import samet.week02.day2.UserInputTest;
+import samet.week02.day02.UserInputTest;
 
 import java.util.Random;
 
