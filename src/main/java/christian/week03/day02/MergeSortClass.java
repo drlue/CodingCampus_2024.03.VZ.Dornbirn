@@ -38,21 +38,27 @@ public class MergeSortClass {
 
         while (i < mid && j < hi) {
             if (arr[i] < arr[j]) {
-                arrB[k++] = arr[i++];
+                arrB[k] = arr[i];
+                i++;
+                k++;
             } else {
-                arrB[k++] = arr[j++];
+                arrB[k] = arr[j];
+                j++;
+                k++;
             }
         }
         while (i < mid) {
-            arrB[k++] = arr[i++];
+            arrB[k] = arr[i];
+            k++;
+            i++;
         }
         while (j < hi) {
-            arrB[k++] = arr[j++];
+            arrB[k] = arr[j];
+            k++;
+            j++;
         }
-        for (int l = lo; l < hi-1; l++) {
-            int h = 1;
-            arr[lo] = arrB[h];
-            h++;
+        for (int l = 0; l < arrB.length; l++) {
+            arr[lo + l] = arrB[l];
         }
     }
 }
