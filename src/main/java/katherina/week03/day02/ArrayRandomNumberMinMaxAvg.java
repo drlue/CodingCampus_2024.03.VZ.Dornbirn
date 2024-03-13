@@ -58,17 +58,17 @@ public class ArrayRandomNumberMinMaxAvg {
     public static int minidex(int[] array) {
         int result = -1;
         for (int index = 0; index < array.length; index++) {
-            if (array[index] > result) {
+            if (array[index] < ((array.length) - result) ){
                 result = index;
             }
         }
-        return result;
+        return result+1;
     }
 
     public static int maxidex(int[] array) {
         int result = array.length;
         for (int index = 0; index < array.length; index++) {
-            if (array[index] > result) {
+            if (array[index] > array.length) {
                 result = index;
             }
         }
