@@ -10,14 +10,17 @@ public class Bubblesort {
         printWithForI(zufallswerte);
         System.out.println(">>Dies ist unsortiert! Hiiiiilfe! Sortier das!<<");
         System.out.println();
+
         bubblesortNachHoch(zufallswerte);
         System.out.println(">>So?<<");
         printWithForI(zufallswerte);
         System.out.println();
+
         bubblesortNachUnten(zufallswerte);
         System.out.println(">>Oder lieber so?<<");
         printWithForI(zufallswerte);
         System.out.println();
+
         System.out.println("Super, passt! Danke schön!");
     }
 
