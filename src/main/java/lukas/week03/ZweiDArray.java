@@ -29,7 +29,7 @@ public class ZweiDArray {
 
                 //PRINT COL SUM
             } else if (userInput == 2) {
-                int selectedCol = lukas.Helper.readIntFromConsole("Wähle Spalte (0 bis " + (getMaxRowLength(arr)-1) +") oder alle Spalten (-1) >>>" , 0, (getMaxRowLength(arr)-1));
+                int selectedCol = lukas.Helper.readIntFromConsole("Wähle Spalte (0 bis " + (getMaxRowLength(arr) - 1) + ") oder alle Spalten (-1) >>>", 0, (getMaxRowLength(arr) - 1));
                 if (selectedCol == -1) {
                     printColSums(arr);
                 } else {
@@ -72,13 +72,17 @@ public class ZweiDArray {
         }
     }
 
-    public static void print2dArrayTxt(int[][] arr) {
+    public static void print2dArrayTxt(int[][] arr, int elementWidth) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
-                System.out.printf("%5d", arr[i][j]);
+                System.out.printf("%" + elementWidth + "d", arr[i][j]);
             }
             System.out.println();
         }
+    }
+
+    public static void print2dArrayTxt(int[][] arr) {
+        print2dArrayTxt(arr, 5);
     }
 
     public static int getMaxRowLength(int[][] arr) {
