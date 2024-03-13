@@ -17,8 +17,8 @@ public class RandomNumberArrayMinMaxAvg {
 
         int[] randomNumberArray = new int[3];
 
-        for (int element = 0; element < randomNumberArray.length; element++) {
-            randomNumberArray[element] = random.nextInt(0, 101);
+        for (int idx = 0; idx < randomNumberArray.length; idx++) {
+            randomNumberArray[idx] = random.nextInt(0, 101);
         }
         System.out.println("\nAUFGABE: Erstelle ein int[] und befülle es mit Zufallszahlen von 1 bis 100.");
         System.out.println("\nRandom Number Array: " + Arrays.toString(randomNumberArray));
@@ -67,12 +67,10 @@ public class RandomNumberArrayMinMaxAvg {
 
     public static float avg(int[] array) {
         int sum = 0;
-        float result = 0;
         for (int idx = 0; idx < array.length; idx++) {
             sum += array[idx];
         }
-        result = (float) sum / array.length;
-        return result;
+        return (float) sum / array.length;
     }
 
     public static int minIDX(int[] array) {
@@ -88,16 +86,27 @@ public class RandomNumberArrayMinMaxAvg {
     }
 
     public static int maxIDX(int[] array) {
-        int minIDXvalue = Integer.MIN_VALUE;
+        int maxIDXvalue = Integer.MIN_VALUE;
         int result = -1;
         for (int idx = 0; idx < array.length; idx++) {
-            if (array[idx] > minIDXvalue) {
+            if (array[idx] > maxIDXvalue) {
                 result = idx;
-                minIDXvalue = array[idx];
+                maxIDXvalue = array[idx];
             }
         }
         return result;
     }
+
+    public static int maxIDXByGyula(int[] array) {
+        int idxMax = -1;
+        for (int idx = 0; idx < array.length; idx++) {
+            if (idxMax < 0 || array[idx] > array[idxMax]) {
+                idxMax = idx;
+            }
+        }
+        return idxMax;
+    }
+
 
 }
 
