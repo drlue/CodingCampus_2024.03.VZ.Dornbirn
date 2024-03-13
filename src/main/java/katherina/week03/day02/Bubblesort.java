@@ -1,5 +1,6 @@
 package katherina.week03.day02;
 
+import java.util.Arrays;
 import java.util.Random;
 
 import static java.util.Arrays.sort;
@@ -10,8 +11,9 @@ public class Bubblesort {
     public static void main(String[] args) {
         int[] zufallswerte = createRandomArray(10);
         printWithForI(zufallswerte);
-     System.out.println("Aufsteigende Sortierung:  " + nachhoch(zufallswerte));
-  //      System.out.println("Absteigende Sortierung:  " + nachunten(zufallswerte));
+        bubblesortNachHoch(zufallswerte);
+        bubblesortNachUnten(zufallswerte);
+        System.out.println(Arrays.toString(zufallswerte));
 
     }
 
@@ -21,32 +23,33 @@ public class Bubblesort {
                 System.out.print(arr[index] + ", ");
             }
             System.out.print(arr[arr.length - 1] + " ");
+            System.out.println();
         }
         System.out.println(">>Dies ist unsortiert! Hiiiiilfe! Sortier das!<<");
     }
 
-    public static int nachhoch(int[] arrg) {
-        int value = 0;
-        for (int index = 0; index < arrg.length-1; index++) {
-            if (arrg[index] < arrg[index+1]) {
-                continue;
+    public static void bubblesortNachHoch(int[] array) {
+        for (int index = 0; index < array.length; index++) {
+            for (int jane = 0; jane < array.length - index - 1; jane++) {
+                if (array[jane] > array[jane + 1]) {
+                    int temp = array[jane];
+                    array[jane] = array[jane + 1];
+                    array[jane + 1] = temp;
+                }
             }
-            value = arrg[index];
-            arrg[index] = arrg[index+1];
-            arrg[index+1] = value;
-            sort(new int[]{value});
         }
-        return value;
     }
 
-    public static int minimum(int[] arrg) {
-        int mini = Integer.MAX_VALUE;
-        for (int index = 0; index < arrg.length; index++) {
-            if (mini > arrg[index]) {
-                mini = arrg[index];
+    public static void bubblesortNachUnten(int[] array) {
+        for (int index = 0; index < array.length; index++) {
+            for (int jane = 0; jane < array.length - index - 1; jane++) {
+                if (array[jane] > array[jane + 1]) {
+                    int temp = array[jane];
+                    array[jane] = array[jane + 1];
+                    array[jane + 1] = temp;
+                }
             }
         }
-        return mini;
     }
 
     public static int[] createRandomArray(int size) {
