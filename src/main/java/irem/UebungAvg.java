@@ -1,6 +1,6 @@
 package irem;
 
-public class ÜbungAvg {
+public class UebungAvg {
     public static void main(String[] args) {
         int[] test = {1, 2, 3, 4};
         double avgeResult = avarage(test);
