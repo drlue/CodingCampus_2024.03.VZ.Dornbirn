@@ -23,8 +23,9 @@ public class ArrayRandomNumberMinMaxAvg {
                 System.out.print(arr[index] + ", ");
             }
             System.out.print(arr[arr.length - 1] + " ");
+            System.out.println();
         }
-        System.out.println(" >> Fertig!");
+        System.out.println("Fertig! Und nun, zu den Statistiken (siehe unten).");
     }
 
     public static int maximum(int[] arrg) {
