@@ -10,9 +10,9 @@ public class ArrayRandomNumberMinMaxAvg {
         //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
         System.out.println("Maximalwert:  " + maximum(zufallswerte));
-        System.out.println("Dieser Wert steht an Stelle:  " + maxidex(zufallswerte));
+        System.out.println("Dieser Wert steht an Stelle:  " + (maxidex(zufallswerte) + 1));
         System.out.println("Minimalwert:  " + minimum(zufallswerte));
-        System.out.println("Dieser Wert steht an Stelle:  " + minidex(zufallswerte));
+        System.out.println("Dieser Wert steht an Stelle:  " + (minidex(zufallswerte) + 1));
         System.out.println("Durchschnitt: " + average(zufallswerte));
 
     }
@@ -24,7 +24,7 @@ public class ArrayRandomNumberMinMaxAvg {
             }
             System.out.print(arr[arr.length - 1] + " ");
         }
-        System.out.println("Fertig!");
+        System.out.println(" >> Fertig!");
     }
 
     public static int maximum(int[] arrg) {
@@ -55,26 +55,25 @@ public class ArrayRandomNumberMinMaxAvg {
         return ((double) avg / arrg.length);
     }
 
-    public static int minidex(int[] array) {
-        int result = -1;
-        for (int index = 0; index < array.length; index++) {
-            if (array[index] < ((array.length) - result) ){
-                result = index;
-            }
-        }
-        return result+1;
-    }
-
     public static int maxidex(int[] array) {
-        int result = array.length;
-        for (int index = 0; index < array.length; index++) {
-            if (array[index] > array.length) {
+        int result = -1;
+        for (int index = 0; array.length > index; index++) {
+            if (result < 0 || array[result] < array[index]) {
                 result = index;
             }
         }
         return result;
     }
 
+    public static int minidex(int[] array) {
+        int result = -1;
+        for (int index = 0; index < array.length; index++) {
+            if (result < 0 || array[index] < array[result]) {
+                result = index;
+            }
+        }
+        return result;
+    }
 
     public static int[] createRandomArray(int size) {
         int[] result = new int[size];
