@@ -7,29 +7,34 @@ public class RandomNumberArray {
     public static Random random = new Random();
 
     public static void main(String[] args) {
-        int[] crazyNum = generateRandomNumArray(10, -50, 50);
-        System.out.println(Arrays.toString(crazyNum));
-        int[] arr = {1, 2, 34, -24, 35, 2, 5, 32, 5, 6, 432, 7, 9};
-        printEveryOtherElement(arr);
-        returnSum(arr);
-        findMax(arr);
+//        int[] crazyNum = generateRandomNumArray(10, -50, 50);
+//        System.out.println(Arrays.toString(crazyNum));
+        int[] arr = {35, 34, 1, 366, 2, 12, 32, 7, 9};
+        System.out.println("Original array");
+        printWithForEach(arr);
+        System.out.println();
+//        printEveryOtherElement(arr);
+//        returnSum(arr);
+//        findMax(arr);
         findMin(arr);
-        findMinIndex(arr);
-        findMaxIndex(arr);
-        averageValue(arr);
+//        findMinIndex(arr);
+//        findMaxIndex(arr);
+        //averageValue(arr);
+
+
 
 
 //        System.out.println("number greater than 30: " + countNumGreaterThan30(crazyNum));
 //        System.out.println("divide by two: " + divideByTwo(crazyNum));
 
         //for loop
-        for (int i = 0; i < crazyNum.length; i++) {
-            System.out.println("For loop crazy num " + crazyNum[i]);
-        }
+        // for (int i = 0; i < crazyNum.length; i++) {
+        //  System.out.println("For loop crazy num " + crazyNum[i]);
+        // }
 //        //For each loop
-        for (int number : crazyNum) {
-            System.out.println("For each printed number " + number + " ");
-        }
+        // for (int number : crazyNum) {
+        //  System.out.println("For each printed number " + number + " ");
+        //}
     }
 
     public static int[] generateRandomNumArray(int size, int min, int max) {
@@ -77,6 +82,7 @@ public class RandomNumberArray {
     }
 
     public static int findMax(int[] array) {
+        //
         int max = array[0];
         for (int i = 1; i < array.length; i++) {
             if (array[i] > max) {
@@ -119,18 +125,20 @@ public class RandomNumberArray {
         System.out.println("Max index is " + maxIndex);
         return maxIndex;
     }
-     public static int averageValue(int []array){
-        int average= 0;
-         for (int i = 0; i <array.length ; i++) {
-             average=average+array[i];
-         }
-         average=average/array.length;
-         System.out.println("Average value of array is "+average);
-         return average;
 
-     }
+    public static double averageValue(int[] array) {
+        int average = 0;
 
-    public static void printWithForI(int[] arr){
+        for (int i = 0; i < array.length; i++) {
+            average = average + array[i];
+        }
+        average = average / array.length;
+        System.out.println("Average value of array is " + average);
+        return (double) average;
+
+    }
+
+    public static void printWithForI(int[] arr) {
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
             if (i > 0) {
@@ -141,10 +149,10 @@ public class RandomNumberArray {
         System.out.println("]");
     }
 
-    public static void printWithForEach(int[] arr){
+    public static void printWithForEach(int[] arr) {
         System.out.print("[");
         boolean first = true;
-        for (int value : arr){
+        for (int value : arr) {
             if (!first) {
                 System.out.print(", ");
             }
@@ -153,6 +161,7 @@ public class RandomNumberArray {
         }
         System.out.println("]");
     }
+
 
 
 }
