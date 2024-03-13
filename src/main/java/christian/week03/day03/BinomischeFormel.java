@@ -2,9 +2,16 @@ package christian.week03.day03;
 
 public class BinomischeFormel {
     public static StringBuilder formulaB = new StringBuilder();
+
     public static void main(String[] args) {
-pascalTriangleHalf(5);
+        long [][] result = pascalTriangleHalf(5);
+        System.out.println("/"+binomicalFormula(result, 4)+"/");
+        String str = binomicalFormula(result, 4);
+        String newstr = str.replace("1","");
+        System.out.println();
+        System.out.println(newstr);
     }
+
     public static long[][] pascalTriangleHalf(int size) {
         long[][] arr = new long[size][size];
         for (int row = 0; row < size; row++) {
@@ -26,18 +33,24 @@ pascalTriangleHalf(5);
         }
         return arr;
     }
-    public static String binomicalFormula (long[][] arr,int n){
+
+    public static String binomicalFormula(long[][] arr, int n) {
 
         String formula = "";
         int k = 0;
-        for (int i = n;i>=0;i--){
-            if (k==0){
-                formulaB.append(arr[i][k]+"a^"+i);
+        for (int i = n; i >= 0; i--) {
+            if (k == 0) {
+                formulaB.append(arr[i][k] + "a^" + i);
             }
-            if(n==0){
-                formulaB.append(arr[i][k]+"b^"+i);
+            if (i < n&& i!=0) {
+                formulaB.append("+"+ arr[i][k] + "a^" + k + "b^" + i);
             }
+            if (i == 0) {
+                formulaB.append("+"+arr[i][k] + "b^" + (i+1));
+            }
+            k++;
         }
+        formula = formulaB.toString();
         return formula;
     }
 }
