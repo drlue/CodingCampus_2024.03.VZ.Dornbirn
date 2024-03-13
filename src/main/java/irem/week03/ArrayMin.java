@@ -9,6 +9,16 @@ public class ArrayMin {
     public static void main(String[] args) {
         int[] arr = createRandomArrayMin(10);
         System.out.println(Arrays.toString(arr));
+        System.out.println("Min:" + minvalueFromArray(arr));
+    }
+    public static int minvalueFromArray(int[] size) {
+        int valueMinNumber = 0;
+        for (int i = 0; i < size.length; i++) {
+            if (size[i] > 50) {
+                valueMinNumber++;
+            }
+        }
+        return valueMinNumber;
     }
 
     public static int[] createRandomArrayMin(int size) {
