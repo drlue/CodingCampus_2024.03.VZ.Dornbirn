@@ -10,7 +10,9 @@ public class ArrayRandomNumberMinMaxAvg {
         //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
         System.out.println("Maximalwert:  " + maximum(zufallswerte));
+        System.out.println("Dieser Wert steht an Stelle:  " + maxidex(zufallswerte));
         System.out.println("Minimalwert:  " + minimum(zufallswerte));
+        System.out.println("Dieser Wert steht an Stelle:  " + minidex(zufallswerte));
         System.out.println("Durchschnitt: " + average(zufallswerte));
 
     }
@@ -53,6 +55,26 @@ public class ArrayRandomNumberMinMaxAvg {
         return ((double) avg / arrg.length);
     }
 
+    public static int minidex(int[] array) {
+        int result = -1;
+        for (int index = 0; index < array.length; index++) {
+            if (array[index] > result) {
+                result = index;
+            }
+        }
+        return result;
+    }
+
+    public static int maxidex(int[] array) {
+        int result = array.length;
+        for (int index = 0; index < array.length; index++) {
+            if (array[index] > result) {
+                result = index;
+            }
+        }
+        return result;
+    }
+
 
     public static int[] createRandomArray(int size) {
         int[] result = new int[size];
@@ -61,4 +83,6 @@ public class ArrayRandomNumberMinMaxAvg {
         }
         return result;
     }
+
+
 }
