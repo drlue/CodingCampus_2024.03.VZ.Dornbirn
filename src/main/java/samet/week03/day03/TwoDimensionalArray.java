@@ -6,45 +6,81 @@ import java.util.Scanner;
 
 public class TwoDimensionalArray {
     static Random random = new Random();
+    public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        int col = scanner.nextInt();
-        int row = scanner.nextInt();
-        int [][] ints = new int[row][col];
+        int row = getIntFromConsole("Gib bitte die Reihe an von der du die Infos haben willst?", 0, 4);
+        System.out.println("Alles klar also Reihe" + " " + row);
 
-        for (int i = 0; i < ints.length; i++) {
+        int col = getIntFromConsole("Bitte gib nun die Spalte an von der du die infos haben willst?", 0, 4);
+        System.out.println("Alles klar also Spalte" + " " + col);
 
-            for (int j = 0; j < ints[0].length; j++) {
+        int[][] arrayToCreate = createRandomArray(5, 5);
 
-                ints[i][j] =scanner.nextInt();
+        printWithForI(arrayToCreate);
+
+        int numberofInterest = findNumber(arrayToCreate, row, col);
+        System.out.println(numberofInterest);
+
+        System.out.println("Die Gewünschte Info lautet " + numberofInterest);
+    }
+    public static int getIntFromConsole(String message, int minValue, int maxValue) {
+        System.out.println(message);
+
+        int userInput = Integer.MIN_VALUE;
+        while (userInput < minValue || userInput > maxValue) {
+            while (!scanner.hasNextInt()) {
+                System.out.println("Halloooo, es ist keine Zahl...");
+                scanner.nextLine();
+                System.out.print(message);
+            }
+            userInput = scanner.nextInt();
+            scanner.nextLine();
+            if (userInput < minValue || userInput > maxValue) {
+                System.out.println("Bitte geben Sie einen Wert zwischen " + minValue + " und " + maxValue + " ein");
+                System.out.print(message);
             }
         }
-        for (int i = 0; i < ints.length; i++) {
+        return userInput;
+    }
+    public static int[][] createRandomArray(int row, int col) {
+        int[][] arrayToCreate = new int[row][col];
 
-            for (int j = 0; j < ints[0].length; j++) {
-                System.out.print(ints[i][j]+" ");
+        for (int i = 0; i < arrayToCreate.length; i++) {
+            for (int j = 0; j < arrayToCreate[i].length; j++) {
+                arrayToCreate[i][j] = random.nextInt(0, 101);
+            }
+        }
+        return arrayToCreate;
+    }
+    public static void printWithForI(int[][] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + " ");
             }
             System.out.println();
-
-
-
-
-
-    }
-
-//    public static int[][] createRandomInt(int row, int col) {
-
-        int[][] arr = new int[row][col];
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr.length; j++) {
-                arr[i][j] = random.nextInt(100);
-
-            }
         }
-//        return arr;
-
+        System.out.print("");
     }
+    public static int findNumber(int[][] arr, int inputRow, int inputCol) {
+        int number = 0;
 
+        number = arr[inputRow][inputCol];
+
+        return number;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
