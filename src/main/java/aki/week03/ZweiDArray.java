@@ -17,14 +17,13 @@ public class ZweiDArray {
     }
 
     public static int[][] create2Darr(int row, int col) {
-        int temp = 0;
         int[][] result = new int[row][col];
         for (int irow = 0; irow < result.length; irow++) {
             for (int icol = 0; icol < result[irow].length; icol++) {
-                if (result[0][icol] == 0 || result[irow][0] == 0) {
+                if (irow == 0 || icol == 0) {
                     result[irow][icol] = 1;
-                } else if (result[icol][0] == 0) {
-                    result[irow][icol] = temp++;
+                } else {
+                    result[irow][icol] = result[irow][icol - 1] + result[irow - 1][icol];
                 }
             }
         }
