@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class Bubblesort {
     static Random random = new Random();
+    //Unfertig! Rein zum Herumbasteln bei Leerlauf und Langeweile.
 
     public static void main(String[] args) {
         int[] zufallswerte = createRandomArray(10);
