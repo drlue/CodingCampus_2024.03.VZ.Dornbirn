@@ -9,9 +9,9 @@ public class QuickSortClass {
 
     public static void main(String[] args) {
         int[] array = createRandomNumberArray(9, 0, 101);
-        System.out.println(Arrays.toString(array));
-        quickSort(array, 0, array.length - 1);
 
+        quickSort(array, 0, array.length - 1);
+        System.out.println(Arrays.toString(array));
     }
 
     public static int[] createRandomNumberArray(int size, int origin, int bound) {
