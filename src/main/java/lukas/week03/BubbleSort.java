@@ -14,19 +14,19 @@ public class BubbleSort {
 
     public static void bubbleSort(int[] arr) {
         //Sortierung muss über zwei Schleifen laufen!
-        int a = 0;
+        int counter = 0;
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - 1 - i; j++) {
-                a++;
+                counter++;
                 if (arr[j + 1] < arr[j]) {
                     int swap = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = swap;
                 }
             }
-            System.out.printf("i = %-3d %s a =%4d\n", i, Arrays.toString(arr), a);
+            System.out.printf("i = %-3d %s counter =%4d\n", i, Arrays.toString(arr), counter);
         }
-        System.out.println("Counter = " + a);
+        System.out.println("Counter = " + counter);
         int maxN = arr.length * (arr.length - 1) / 2;
         System.out.println("maxN = " + maxN);
     }

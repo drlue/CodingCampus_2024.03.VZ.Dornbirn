@@ -1,18 +1,16 @@
 package demian.week02.day02;
 
-import java.util.Scanner;
+
+public class Scanner {
 
 
-public class ScannerNachbau {
-
-
-    public static Scanner sc = new Scanner(System.in);
+    public static java.util.Scanner sc = new java.util.Scanner(System.in);
 
     public static void main(String[] args) {
 
         String username = consoleTEXTinput("========================================\nHallo!\n\nBitte geben Sie hier ihren Namen ein ==> ");
         int age = consoleINTEGERinputV1("Bitte geben Sie hier ihr Alter ein ==> ", 8, 120);
-        int weight = consoleINTEGERinput("Bitte geben Sie hier Gewicht in kg ein ==> ", 20, 300);
+        int weight = getINT("Bitte geben Sie hier Gewicht in kg ein ==> ", 20, 300);
         System.out.printf("Hallo %s (%d Jahre, %d kg)", username, age, weight);
 
 
@@ -48,7 +46,7 @@ public class ScannerNachbau {
         return val;
     }
 
-    public static int consoleINTEGERinput(String messageTOuser, int minVAL, int maxVAL) {
+    public static int getINT(String messageTOuser, int minVAL, int maxVAL) {
         int result = Integer.MIN_VALUE;
         String txt = "";
         while (result == Integer.MIN_VALUE) {
