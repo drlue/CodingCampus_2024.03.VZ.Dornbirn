@@ -11,21 +11,35 @@ public class PascalDreieck {
         // Frage den Anwender nach der gewünschten Größe und erstelle ein Pascal-Dreieck mit der entsprechenden Dimension.
         // Regel: Jede Zahl in der Matrix ist gleich die Summe der Nachbarzahlen nach Links und nach Oben.
 
-        int[][] test = create2DArrayCanvas(10,10,8);
-        print2DArray(test);
-
 
         System.out.println("\nErstellung eines Pascal Dreiecks\n");
-        int size = getINT("Test",0,30);
-//        int size = demian.allmethods.AllMethods.getINT("Gewünschte Größe (0-30) hier angeben ==>", 0, 30);
+        int size = getINT("Gewünschte Größe (0-30) hier angeben ==>", 0, 30);
 
+        int[][] canvas = create2DArrayCanvas(size, size, 1);
+        System.out.println("Blanc Canvas: " + size + "x" + size);
+        print2DArray(canvas);
 
+        for (int row = 0; row < canvas.length; row++) {
+            for (int col = 0; col < canvas[0].length; col++) {
+                if (row == 0) {
+                    canvas[row][col] = 1;
+                } else if (col == 0) {
+                    canvas[row][col] = 1;
+
+                } else {
+                    int sum = canvas[row-1][col] + canvas[row][col-1];
+                    canvas[row][col] = sum;
+                }
+            }
+
+        }
+        System.out.println("Angepasst:");
+        printARRAYheader(canvas);
+        print2DArray(canvas);
 
     }
 
-    public static void printPascalTriangle(int size) {
 
-    }
 
 
 }

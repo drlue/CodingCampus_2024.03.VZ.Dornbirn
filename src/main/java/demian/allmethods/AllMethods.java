@@ -253,9 +253,11 @@ public class AllMethods {
     }
 
     public static void print2DArray(int[][] twoDimensionalarray) {
+
         for (int idxrow = 0; idxrow < twoDimensionalarray.length; idxrow++) {
+            System.out.print("R" + idxrow);
             for (int idxcol = 0; idxcol < twoDimensionalarray[0].length; idxcol++) {
-                System.out.printf("%3d", twoDimensionalarray[idxrow][idxcol]);
+                System.out.printf("%5d", twoDimensionalarray[idxrow][idxcol]);
                 System.out.print(" ");
             }
             System.out.println();
@@ -285,6 +287,15 @@ public class AllMethods {
             }
         }
         return array2D;
+    }
+
+    // PRINT COLUMN NAMES OVER ARRAY
+    public static void printARRAYheader(int[][] array){
+        System.out.print("    ");
+        for (int col = 0; col < array[0].length; col++) {
+            System.out.printf("|C" + col + "|  ");
+        }
+        System.out.println();
     }
 
 }
