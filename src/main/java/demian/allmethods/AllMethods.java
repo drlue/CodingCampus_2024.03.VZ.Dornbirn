@@ -1,151 +1,23 @@
-package demian.week01.day01;
+package demian.allmethods;
 
-public class AufgabenMethodenUNDschleifen {
+import demian.week02.day02.Scanner;
+
+import java.util.Random;
+
+
+public class AllMethods {
+
+    public static java.util.Scanner sc = new java.util.Scanner(System.in);
+
     public static void main(String[] args) {
 
-        //Aufgabe Print A
-
-        System.out.println("Hello World!");
-        System.out.println();
-        System.out.println("     /--\\ ");
-        System.out.println("    / /\\ \\ ");
-        System.out.println("   / /  \\ \\ ");
-        System.out.println("  / /    \\ \\ ");
-        System.out.println(" /  ======  \\ ");
-        System.out.println("/_/        \\_\\");
-
-        //Aufgabe Zählen
-        // Zähle in einer Schleife von 0 bis inklusive 10 und gib die Zahlen aus.
-        //
-        //1.Verwende dazu eine for-Schleife
-        //2.Verwende dazu eine while-Schleife und erstelle eine separate Zählvariable
-
-        // 1.FOR SCHLEIFE
-        System.out.println("Zählen mit for schleife");
-        for (int index = 0; index <= 10; index++) {
-            System.out.println(index);
-        }
-
-        // 2.WHILE SCHLEIFE
-        System.out.println("Zählen mit while schleife");
-        int index = 0;
-        do {
-            System.out.println(index);
-            index++;
-
-        } while (index < 11);
-        System.out.println(index);
-
-
-        // AUFGABE ZÄHLEN 2: Zähle in einer Schleife von 0 bis exklusive 10 und gib die Zählvariable aus.
-        System.out.println("Zählen 2");
-        for (int index2 = 0; index2 < 10; index2++) {
-            System.out.println(index2);
-        }
-
-        //Aufgabe: Zählen mit Trick
-        System.out.println("Zählen mit Trick");
-
-        for (int i = 2; i <= 10; i = i + 2) {
-            System.out.println(i);
-
-        }
-
-        //Aufgabe: Rewind
-        System.out.println("Aufgabe Rewind");
-        for (int i = -10; i <= 10; i++) {
-            System.out.println(i);
-
-        }
-
-        ////////////////////////////////////////
-        ///////////METHODEN AUFGABE/////////////
-        ////////////////////////////////////////
-
-        System.out.println();
-        System.out.println("Aufgabe: Zeichenkette Ausgeben");
-        printChars("x", 10);
-
-        System.out.println();
-        System.out.println("Aufgabe: Quadrat Ausgeben");
-        printSquare("x", 10);
-
-        System.out.println();
-        System.out.println("Aufgabe: Rechteck Ausgeben");
-        printReqt("A", 10, 5);
-
-        System.out.println();
-        System.out.println("Aufgabe: Dreieck mit Ecke links unten");
-        printTriangleBottomLeft("X", 5);
-
-        System.out.println();
-        System.out.println("Aufgabe: Dreieck mit Ecke links oben");
-        printTriangleTopLeft("x", 5);
-
-        System.out.println();
-        System.out.println("Aufgabe: Dreieck mit Ecke rechts oben");
-        printTriangleTopRight("X", 5);
-
-        System.out.println();
-        System.out.println("Aufgabe: Dreieck mit Ecke rechts unten");
-        printTriangleBottomRight("x", 5);
-
-        System.out.println();
-        System.out.println("Aufgabe: \nPrint Empty Square");
-        printEmptySquare("X", 10);
-        System.out.println();
-        printEmptySquare("A", 3);
-
-        System.out.println();
-        System.out.println("Aufgabe: Triangle");
-        printTriangle("A", 5);
-
-        System.out.println();
-        System.out.println("Rhombus");
-        printrhombus("A", 10);
-
-        System.out.println();
-        System.out.println("Rhombus vereinfachtes Programm");
-        printrhombusEINFACH("X", 8);
-
-
     }
 
-
-    //AUFGABE: Zeichenkette Ausgeben
-    //Erstelle eine Methode die eine bestimmte Anzahl parameterisierbarer Zeichen einer Zeile ausgibt.
-    //Aufruf: printChars("x", 10);
-    //Ausgabe: xxxxxxxxxx
-    public static void printChars(String Zeichen, int Zahl) {
-        for (int i = 0; i <= Zahl; i++) {
-            System.out.print(Zeichen);
-        }
-    }
-
-
-    //AUFGABE: Quadrat Ausgeben
-    //Erstelle eine Methode welche ein Quader mit variabler Größe und mit angegebenem Zeichen ausgibt.
-    //Aufruf: printSquare("x", 10);
-    //Ausgabe: xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    //         xxxxxxxxxx
-    public static void printSquare(String zeichen, int zahl) {
-        for (int a = 0; a < zahl; a++) {
-            for (int i = 0; i < zahl; i++) {
-                System.out.print(zeichen);
-            }
-            System.out.println();
-        }
-    }
-
+    /////////////////////////////////////////
+    ////////////////PRINT////////////////////
+    ////////////STRUCTURES///////////////////
+    /////////////////////////////////////////
+    /////////////////////////////////////////
 
     //AUFGABE: Rechteck Ausgeben
     //Erstelle eine Methode welche ein Viereck mit variabler Größe und mit angegebenem Zeichen ausgibt.
@@ -336,5 +208,83 @@ public class AufgabenMethodenUNDschleifen {
         }
     }
 
+    /////////////////////////////////////////
+    ////////////////CONSOLE//////////////////
+    ///////////////////INPUT/////////////////
+    /////////////////////////////////////////
+    /////////////////////////////////////////
+    /////////////////////////////////////////
+
+    public static int getINT(String messageTOuser, int minVAL, int maxVAL) {
+        int result = Integer.MIN_VALUE;
+        String txt = "";
+        while (result == Integer.MIN_VALUE) {
+            try {
+                System.out.print(messageTOuser);
+                txt = sc.nextLine();
+                result = Integer.parseInt(txt);
+                if (result < minVAL || result > maxVAL) {
+                    System.out.printf("Nur Werte zwischen %d und %d sind zulaessig \n", minVAL, maxVAL);
+                    result = Integer.MIN_VALUE;
+                }
+            } catch (NumberFormatException nfe) {
+                System.out.println("Eingegebener Wert ist keine Zahl");
+            }
+        }
+        return result;
+    }
+
+    /////////////////////////////////////////
+    ////////////////ARRAY////////////////////
+    /////////////////////////////////////////
+    /////////////////////////////////////////
+    /////////////////////////////////////////
+    /////////////////////////////////////////
+
+    public static int[][] random2DArray(int rows, int cols, int randomNUMbound) {
+        Random random = new Random();
+        int[][] array = new int[rows][cols];
+        for (int idxrow = 0; idxrow < rows; idxrow++) {
+            for (int idxcol = 0; idxcol < cols; idxcol++) {
+                array[idxrow][idxcol] = random.nextInt(randomNUMbound);
+            }
+        }
+        return array;
+    }
+
+    public static void print2DArray(int[][] twoDimensionalarray) {
+        for (int idxrow = 0; idxrow < twoDimensionalarray.length; idxrow++) {
+            for (int idxcol = 0; idxcol < twoDimensionalarray[0].length; idxcol++) {
+                System.out.printf("%3d", twoDimensionalarray[idxrow][idxcol]);
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static int sumOFrow(int[][] array, int row){
+        int sum = 0;
+        for (int idx = 0; idx < array[0].length; idx++) {
+            sum += array[row][idx];
+        }
+        return sum;
+    }
+    public static int sumOFcol(int[][] array, int col){
+        int sum = 0;
+        for (int idx = 0; idx < array.length; idx++) {
+            sum += array[idx][col];
+        }
+        return sum;
+    }
+
+    public static int[][] create2DArrayCanvas(int rows, int cols, int canvas) {
+        int[][] array2D = new int[rows][cols];
+        for (int row = 0; row < array2D.length; row++) {
+            for (int col = 0; col < array2D[0].length; col++) {
+                array2D[row][col] = canvas;
+            }
+        }
+        return array2D;
+    }
 
 }
