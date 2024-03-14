@@ -35,7 +35,6 @@ public class TicTacToeClass {
 
         }
 
-
     }
 
     public static int[][] createCanvas(int size) {
@@ -216,7 +215,7 @@ public class TicTacToeClass {
             for (int col = 0; col < arr[row].length; col++) {
                 if (row == 0) {
                     if (arr[row][col] == 0) {
-                        return false;
+                        sum=-4;
                     } else {
                         sum += arr[row][col];
                     }
@@ -239,7 +238,7 @@ public class TicTacToeClass {
             for (int col = 0; col < arr[row].length; col++) {
                 if (row == 1) {
                     if (arr[row][col] == 0) {
-                        return false;
+                        sum=-4;
                     } else {
                         sum += arr[row][col];
                     }
@@ -260,7 +259,7 @@ public class TicTacToeClass {
             for (int col = 0; col < arr[row].length; col++) {
                 if (row == 2) {
                     if (arr[row][col] == 0) {
-                        return false;
+                        sum=-4;
                     } else {
                         sum += arr[row][col];
                     }
@@ -282,7 +281,7 @@ public class TicTacToeClass {
             for (int col = 0; col < arr[row].length; col++) {
                 if (col == 0) {
                     if (arr[row][col] == 0) {
-                        return false;
+                        sum=-4;
                     } else {
                         sum += arr[row][col];
                     }
@@ -304,7 +303,7 @@ public class TicTacToeClass {
             for (int col = 0; col < arr[row].length; col++) {
                 if (col == 1) {
                     if (arr[row][col] == 0) {
-                        return false;
+                        sum=-4;
                     } else {
                         sum += arr[row][col];
                     }
@@ -326,7 +325,7 @@ public class TicTacToeClass {
             for (int col = 0; col < arr[row].length; col++) {
                 if (col == 2) {
                     if (arr[row][col] == 0) {
-                        return false;
+                        sum=-4;
                     } else {
                         sum += arr[row][col];
                     }
@@ -348,7 +347,7 @@ public class TicTacToeClass {
             for (int col = 0; col < arr[row].length; col++) {
                 if (row == col) {
                     if (arr[row][col] == 0) {
-                        return false;
+                        sum=-4;
                     } else {
                         sum += arr[row][col];
                     }
@@ -370,7 +369,7 @@ public class TicTacToeClass {
             for (int col = 0; col < arr[row].length; col++) {
                 if (row + col == 2) {
                     if (arr[row][col] == 0) {
-                        return false;
+                        sum=-4;
                     } else {
                         sum += arr[row][col];
                     }
