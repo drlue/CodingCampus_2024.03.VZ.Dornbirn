@@ -13,10 +13,11 @@ public class PascalDreieck {
 
 
         System.out.println("\nErstellung eines Pascal Dreiecks\n");
-        int size = getINT("Gewünschte Größe (0-30) hier angeben ==>", 0, 30);
+        int size = getINT("Gewünschte Größe (0-10) hier angeben ==>", 0, 10);
 
         int[][] canvas = create2DArrayCanvas(size, size, 1);
         System.out.println("Blanc Canvas: " + size + "x" + size);
+        printARRAYheader(canvas);
         print2DArray(canvas);
 
         for (int row = 0; row < canvas.length; row++) {
@@ -33,7 +34,7 @@ public class PascalDreieck {
             }
 
         }
-        System.out.println("Angepasst:");
+        System.out.println("Pascal Dreieck:");
         printARRAYheader(canvas);
         print2DArray(canvas);
 
