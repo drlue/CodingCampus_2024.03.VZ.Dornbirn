@@ -13,20 +13,25 @@ public class Array2D {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int[][] arr = createRandomArray(15, 20);
+        int[][] arr = createRandomArray(5, 5);
         printArray(arr);
         System.out.println();
 
-        int wahl = wahlEinlesen("Bitte wählen Sie nun: ", 1, 2);
+       int wahl = wahlEinlesen("Hola, möchtest du die Summe der Zahlen oder die Summe der Spalten rechnen.", 1, 2);
         if (wahl == 1) {
-            System.out.println("Hola, möchtest du die Summe der Zahlen oder die Summe der Spalten rechnen.");
-            int operator = UserInput.getIntFromConsole("Um die Zeilsumme zu berechnen drücke die 1 \n umd die summe der spalten zu berechnen drücke die 2", -999999999, 999999999);
-            System.out.printf("Die Zeilsumme gute wahl ");
+            System.out.println("Um die Zeilsumme zu berechnen drücke die 1 \n umd die summe der spalten zu berechnen drücke die 2");
+            System.out.println("Die Zeilsumme gute wahl ");
+            System.out.println("Dies ist die Summe der Zufallszahlen: ");
+            System.out.println(Arrays.toString(sum1(arr)));
             System.out.println();
 
-        } else if
-        (wahl == 2) {
-            System.out.printf("Die Spaltsumme gute wahl ");
+            //spalte wird nicht gerechnet zeile dfur schon?
+
+        } else if (wahl == 2) {
+            System.out.println("Die Spaltsumme gute wahl ");
+            System.out.println();
+            System.out.println("Dies ist die Summe der Zufallszahlen: ");
+            System.out.println(Arrays.toString(sum2(arr)));
             System.out.println();
         }
     }
@@ -63,7 +68,7 @@ public class Array2D {
             wahl = sc.nextInt();
             sc.nextLine();
             if (wahl < mindestwert || wahl > maximalwert) {
-                System.out.printf("ch kann nur zwei Optionen anbieten! Gib eine Zahl zwischen %d und %d ein.\n", mindestwert, maximalwert);
+                System.out.printf("Ich kann nur zwei Optionen anbieten! Gib eine Zahl zwischen %d und %d ein.\n", mindestwert, maximalwert);
                 System.out.print(message);
             }
         }
@@ -80,23 +85,29 @@ public class Array2D {
         }
         return arr;
     }
-
+    public static int[] sum2(int[][] arrg) {
+        int sum2[] = new int[arrg.length];
+        for (int i = 0; i < arrg[0].length; i++) {
+            sum2[i] = 0;
+            for (int value : arrg[i]) {
+                sum2[i] += value;
+            }
+        }
+        return sum2;
+    }
     public static int[] sum1(int[][] arrg) {
         int sum1[] = new int[arrg.length];
         for (int i = 0; i < arrg.length; i++) {
             sum1[i] = 0;
-            for (int j : arrg[i]) {
-                sum1[i] += j;
+            for (int value : arrg[i]) {
+                sum1[i] += value;
             }
         }
-        System.out.println("Dies ist die Summe der Zufallszahlen: " + sum1);
         return sum1;
     }
 }
 
-//noch nicht fertig ergebniss wird nicht gerechnet
-
-
+//wird nicht richtig gerechnet
 
 
 
