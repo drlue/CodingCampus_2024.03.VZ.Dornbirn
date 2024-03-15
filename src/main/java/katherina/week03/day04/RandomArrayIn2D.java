@@ -9,7 +9,7 @@ public class RandomArrayIn2D {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int[][] randomNumber = createRandomArray(10, 10);
+        int[][] randomNumber = createRandomArray(3, 3);
         printArray(randomNumber);
         System.out.println();
         System.out.println("Hi! Möchtest du die Summen pro Zeile oder die Summen pro Spalte wissen?");
@@ -30,7 +30,7 @@ public class RandomArrayIn2D {
         for (int row = 0; row < awoo.length; row++) {
             System.out.println(Arrays.toString(awoo[row]));
             for (int colum = 0; colum < awoo.length; colum++) {
-             //   System.out.printf("%3d", awoo[row][colum]);
+                //   System.out.printf("%3d", awoo[row][colum]);
             }
         }
     }
@@ -68,22 +68,23 @@ public class RandomArrayIn2D {
         int[] sumrow = new int[arrg.length];
         for (int index = 0; index < arrg.length; index++) {
             sumrow[index] = 0;
-            for (int jane : arrg[index]) {
-                sumrow[index] += jane;
+            for (int value : arrg[index]) {
+                sumrow[index] += value;
             }
         }
-        System.out.println("Dies ist die Summe der Zufallszahlen je Reihe: " );
+        System.out.println("Dies ist die Summe der Zufallszahlen je Reihe: ");
 
         return sumrow;
     }
 
     public static int[] columsum(int[][] arrg) {
         int[] sumcolum = new int[arrg.length];
-        int collect = 0;
         for (int index = 0; index < arrg.length; index++) {
             sumcolum[index] = 0;
             for (int jane = 0; jane < arrg[index].length; jane++) {
-                sumcolum[collect] += collect;
+                for (int value : arrg[jane]) {
+                    sumcolum[jane] += value;
+                }
             }
         }
         System.out.println("Dies ist die Summe der Zufallszahlen je Spalte: ");
