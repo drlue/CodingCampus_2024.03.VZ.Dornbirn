@@ -74,7 +74,7 @@ public class RandomArrayIn2D {
             }
             sumrow[index] = sum;
         }
-        System.out.println("Dies ist die Summe der Zufallszahlen: " + sum);
+        System.out.println("Dies ist die Summe der Zufallszahlen: " + sumrow);
 
         return sumrow;
         //Der Code rechnet korrekt die Summen der einzelnen Zahlen aus und legt sie in sumrow ab. Ausgegeben wird jedoch nur die letzte Zahl im Array.
