@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-//void für summ fehlt
+
 public class Array2D {
     static Random random = new Random();
     public static Scanner sc = new Scanner(System.in);
@@ -25,11 +25,11 @@ public class Array2D {
             System.out.printf("Die Zeilsumme gute wahl ");
             System.out.println();
 
-        } else if (wahl == 2) {
+        } else if
+        (wahl == 2) {
             System.out.printf("Die Spaltsumme gute wahl ");
             System.out.println();
         }
-
     }
 
     public static int[][] createArray2D(int row, int col) {
@@ -64,7 +64,7 @@ public class Array2D {
             wahl = sc.nextInt();
             sc.nextLine();
             if (wahl < mindestwert || wahl > maximalwert) {
-                System.out.printf("Ich kann nur vier Rechenarten ausführen! Gib eine Zahl zwischen %d und %d ein.\n", mindestwert, maximalwert);
+                System.out.printf("ch kann nur zwei Optionen anbieten! Gib eine Zahl zwischen %d und %d ein.\n", mindestwert, maximalwert);
                 System.out.print(message);
             }
         }
@@ -81,7 +81,26 @@ public class Array2D {
         }
         return arr;
     }
+
+    public static int[] sum1(int[][] arrg) {
+        int sum = 0;
+        int sum1[] = new int[arrg.length];
+        for (int index = 0; index < arrg.length; index++) {
+            sum = 0;
+            for (int jane : arrg[index]) {
+                sum += jane;
+            }
+            sum1[index] = sum;
+        }
+        System.out.println("Dies ist die Summe der Zufallszahlen: " + sum);
+
+        return sum1;
+    }
 }
+
+//noch nicht fertig ergebniss wird nicht gerechnet
+
+
 
 
 
