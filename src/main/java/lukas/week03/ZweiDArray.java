@@ -10,17 +10,20 @@ public class ZweiDArray {
 
     public static void main(String[] args) {
 
-        int[][] arr = random2dArray(3, 10);
-        //int[][] arr = {{3, 4, 5, 6, 7, 8, 9}, {0, 1, 2}, {10, 11, 12, 13}};
+        //int[][] arr = random2dArray(3, 10);
+        int[][] arr = {{3, 4, 5, 6, 7, 8, 9}, {0, 1, 2}, {10, 11, 12, 13}};
+        System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.deepToString(arr));
+
         //print2dArray(arr);
         print2dArrayTxt(arr);
+
         while (true) {
             int userInput = lukas.Helper.readIntFromConsole("Zeilensumme (1) oder Spaltensumme (2) berechnen >>>", 1, 2);
 
             //PRINT ROW SUM
             if (userInput == 1) {
-                int selectedRow = lukas.Helper.readIntFromConsole("Wähle Zeile (0 bis " + (arr.length - 1) + ") oder alle Zeile (-1) >>>", 0, arr.length - 1);
+                int selectedRow = lukas.Helper.readIntFromConsole("Wähle Zeile (0 bis " + (arr.length - 1) + ") oder alle Zeile (-1) >>>", -1, arr.length - 1);
                 if (selectedRow == -1) {
                     printRowSums(arr);
                 } else {
