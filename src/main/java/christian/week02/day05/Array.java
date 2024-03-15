@@ -1,6 +1,6 @@
 package christian.week02.day05;
 
-import christian.ScannerMethoden.InputZahlen;
+import christian.ScannerMethoden.InputZahlen2;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -9,7 +9,7 @@ public class Array {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int dimension = InputZahlen.getIntFromInputMessageMinMax("Gib eine Ganzzahl zwischen 1 und 100 ein", 1, 100);
+        int dimension = InputZahlen2.getIntFromInputMessageMinMax("Gib eine Ganzzahl zwischen 1 und 100 ein", 1, 100);
         int[] arr = new int[dimension];
         arr = neuesArrayerAufReihenfolge(dimension);
         int[] arr2 = new int[dimension];
