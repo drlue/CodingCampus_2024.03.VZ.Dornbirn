@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Sortieralgorithmen {
     static Random random = new Random();
-
+//die aufgabe ist nicht fertig, ein teil davon fehlt
     public static void main(String[] args) {
         int[] arr = {90, 30, 37, 80, 68, 23, 20, 56};
         System.out.println("orginal Array");

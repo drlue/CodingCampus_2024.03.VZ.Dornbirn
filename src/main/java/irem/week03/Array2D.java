@@ -8,7 +8,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-
 public class Array2D {
     static Random random = new Random();
     public static Scanner sc = new Scanner(System.in);
@@ -20,7 +19,7 @@ public class Array2D {
 
         int wahl = wahlEinlesen("Bitte wählen Sie nun: ", 1, 2);
         if (wahl == 1) {
-            System.out.println("Hola, möchtest du die Summe der Zahlen oder die Summe der Spalten.");
+            System.out.println("Hola, möchtest du die Summe der Zahlen oder die Summe der Spalten rechnen.");
             int operator = UserInput.getIntFromConsole("Um die Zeilsumme zu berechnen drücke die 1 \n umd die summe der spalten zu berechnen drücke die 2", -999999999, 999999999);
             System.out.printf("Die Zeilsumme gute wahl ");
             System.out.println();
@@ -83,17 +82,14 @@ public class Array2D {
     }
 
     public static int[] sum1(int[][] arrg) {
-        int sum = 0;
         int sum1[] = new int[arrg.length];
-        for (int index = 0; index < arrg.length; index++) {
-            sum = 0;
-            for (int jane : arrg[index]) {
-                sum += jane;
+        for (int i = 0; i < arrg.length; i++) {
+            sum1[i] = 0;
+            for (int j : arrg[i]) {
+                sum1[i] += j;
             }
-            sum1[index] = sum;
         }
-        System.out.println("Dies ist die Summe der Zufallszahlen: " + sum);
-
+        System.out.println("Dies ist die Summe der Zufallszahlen: " + sum1);
         return sum1;
     }
 }

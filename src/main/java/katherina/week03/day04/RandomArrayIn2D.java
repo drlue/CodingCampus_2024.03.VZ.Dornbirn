@@ -30,6 +30,7 @@ public class RandomArrayIn2D {
         for (int row = 0; row < awoo.length; row++) {
             System.out.println(Arrays.toString(awoo[row]));
             for (int collum = 0; collum < awoo.length; collum++) {
+             //   System.out.printf("%3d", awoo[row][collum]);
             }
         }
     }
@@ -38,8 +39,7 @@ public class RandomArrayIn2D {
         int[][] result = new int[size][size2];
         for (int index = 0; index < size; index++) {
             for (int jane = 0; jane < size2; jane++) {
-                result[index][jane] = random.nextInt(10, 100);
-                //Ja, Aufgabe sagt 0 bis 100. Aber ich will eine gleichmäßige Optik! So!
+                result[index][jane] = random.nextInt(0, 101);
             }
         }
         return result;
@@ -65,16 +65,14 @@ public class RandomArrayIn2D {
     }
 
     public static int[] sumrow(int[][] arrg) {
-        int sum = 0;
         int sumrow[] = new int[arrg.length];
         for (int index = 0; index < arrg.length; index++) {
-            sum = 0;
+            sumrow[index] = 0;
             for (int jane : arrg[index]) {
-                sum += jane;
+                sumrow[index] += jane;
             }
-            sumrow[index] = sum;
         }
-        System.out.println("Dies ist die Summe der Zufallszahlen: " + sum);
+        System.out.println("Dies ist die Summe der Zufallszahlen: " + sumrow);
 
         return sumrow;
         //Der Code rechnet korrekt die Summen der einzelnen Zahlen aus und legt sie in sumrow ab. Ausgegeben wird jedoch nur die letzte Zahl im Array.
