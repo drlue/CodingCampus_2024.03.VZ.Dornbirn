@@ -10,7 +10,7 @@ public class RandomNumberArrayCount {
     public static void main(String[] args) {
         int[] arr = createRandomNumberCount(10);
         System.out.println(Arrays.toString(arr));
-        System.out.println("number greater than 30: " + numberGreaterThan30(arr));
+        System.out.println("Number greater than 30: " + numberGreaterThan30(arr));
 
     }
 
@@ -23,10 +23,10 @@ public class RandomNumberArrayCount {
         return arr;
     }
 
-    public static int numberGreaterThan30(int[] array) {
+    public static int numberGreaterThan30(int[] arr) {
         int greaterThan30 = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > 30) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > 30) {
                 greaterThan30++;
 
             }
