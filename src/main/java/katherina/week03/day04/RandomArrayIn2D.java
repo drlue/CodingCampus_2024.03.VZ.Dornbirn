@@ -82,8 +82,9 @@ public class RandomArrayIn2D {
         for (int index = 0; index < arrg.length-1; index++) {
             sumcolum[index] = 0;
             for (int jane = 0; jane < arrg[index].length; jane++) {
-                    sumcolum[jane] = index+jane;
-
+                for (int value : arrg[index]) {
+                    sumcolum[jane] += value;
+                }
             }
         }
         System.out.println("Dies ist die Summe der Zufallszahlen je Spalte: ");
