@@ -2,86 +2,99 @@ package ardijanla.week03.day01;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class Arrayss {
 
     static Random rnd = new Random();
 
+    static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        int[] arr = numberArray(5);
-        System.out.println(Arrays.toString(arr));
 
-        int[] arr1 = makeACopy(arr);
+//        int[] arr = numberArray(5);
+//        System.out.println(Arrays.toString(arr));
+//
+//        int[] arr1 = makeACopy(arr);
+//
+//        //Random Number Array
+//        //Erstelle ein int[] und befülle es mit Zufallszahlen von 0 bis 100.
+//        int[] arr2 = randomNumberArray(10);
+//        System.out.println(Arrays.toString(arr2));
+//
+//        //Gib es mit Hilfe einer foreach-Schleife aus.
+//        for (int element : arr2) {
+//            System.out.println(element);
+//        }
+//
+//        //Gib es mit Hilfe einer fori-Schleife aus. Das Ziel ist eine identische Ausgabe, wie Arrays.toString()
+//        for (int i = 0; i < arr2.length; i++) {
+//
+//
+//            System.out.print("[");
+//            if (i < arr2.length - 1) {
+//                System.out.printf("%d, ", arr2[i]);
+//            } else {
+//                System.out.printf("%d", arr2[i]);
+//            }
+//
+//            System.out.print("]");
+//
+//
+//        }
+//        System.out.println();
+//
+//        //gib den zweiten,fünften und zehnten Wert des Arrays aus.
+//        System.out.println(arr2[1] + " " + arr2[4] + " " + arr2[9]);
+//
+//        //Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus.
+//        for (int i = 0; i < arr.length; i += 2) {
+//            System.out.println(arr2[i]);
+//        }
+//
+//        //Random Number Array Crazy Range
+//        int[] arr3 = arrayCrazyRange(5);
+//        System.out.println(Arrays.toString(arr3));
+//
+//        //Array Zählen
+//        arrayZeahlen(arr3);
+//
+//        //summe zählen
+//        System.out.println(arraySumme(randomNumberArray(100)));
+//
+//        // Number Array Min/Max/Avg
+//        System.out.println(arrMax(5));
+//        System.out.println(arrMin(arr3));
+//        System.out.println(arrAvg(5));
+//
+//
+//        // bubble sort asc
+//        System.out.println(Arrays.toString(bubbleSortAsc(arr2)));
+//
+//        //bubble sort desc
+//        System.out.println(Arrays.toString(bubbleSortDesc(arr2)));
 
-        //Random Number Array
-        //Erstelle ein int[] und befülle es mit Zufallszahlen von 0 bis 100.
-        int[] arr2 = randomNumberArray(10);
-        System.out.println(Arrays.toString(arr2));
-
-        //Gib es mit Hilfe einer foreach-Schleife aus.
-        for (int element : arr2) {
-            System.out.println(element);
-        }
-
-        //Gib es mit Hilfe einer fori-Schleife aus. Das Ziel ist eine identische Ausgabe, wie Arrays.toString()
-        for (int i = 0; i < arr2.length; i++) {
-
-
-            System.out.print("[");
-            if (i < arr2.length - 1) {
-                System.out.printf("%d, ", arr2[i]);
-            } else {
-                System.out.printf("%d", arr2[i]);
-            }
-
-            System.out.print("]");
-
-
-        }
-        System.out.println();
-
-        //gib den zweiten,fünften und zehnten Wert des Arrays aus.
-        System.out.println(arr2[1] + " " + arr2[4] + " " + arr2[9]);
-
-        //Gib jeden zweiten Wert des int[] mit Hilfe einer Schleife aus.
-        for (int i = 0; i < arr.length; i += 2) {
-            System.out.println(arr2[i]);
-        }
-
-        //Random Number Array Crazy Range
-        int[] arr3 = arrayCrazyRange(5);
-        System.out.println(Arrays.toString(arr3));
-
-        //Array Zählen
-        arrayZeahlen(arr3);
-
-        //summe zählen
-        System.out.println(arraySumme(randomNumberArray(100)));
-
-        // Number Array Min/Max/Avg
-        System.out.println(arrMax(5));
-        System.out.println(arrMin(5));
-        System.out.println(arrAvg(5));
-
-
-        // bubble sort asc
-        System.out.println(Arrays.toString(bubbleSortAsc(arr2)));
-
-        //bubble sort desc
-        System.out.println(Arrays.toString(bubbleSortDesc(arr2)));
-
-        //2d Array
-        int[][] ar = twoDArray(2, 4);
-        printTwoDArray(ar);
-        System.out.println(sumPerRow(ar, 0));
-        System.out.println(sumPerCol(ar, 0));
-
+//        //2d Array
+//        int[][] ar = twoDArray(2, 4);
+//        int[][] weirdarr = {{1, 2, 3, 4, 2, 2, 2, 2, 2, 2, 2, 2}, {2, 34, 2, 54, 2,}, {1, 5, 6, 7, 8, 5, 4, 33,}};
+//        printTwoDArray(ar);
+//        System.out.println(sumPerRow(ar, 0));
+//        System.out.println("sum per col");
+//        System.out.println(sumPerCol(weirdarr, 5));
+//
         //Pascal Dreieck
         printTwoDArray(pascalDreieck(10));
 
-        //Formula
-        formulaGen(pascalDreieck(10), 3);
+
+        int size = 5;
+        int[][] pascalDreieck = pascalDreieckGPT(size);
+        printTwoDArray(pascalDreieck);
+
+        System.out.println("Formel für (a+b)^" + (size - 1) + ":");
+        System.out.println(formulaGen(size - 1, pascalDreieck[size - 1]));
+
+        TicTacToe();
 
 
     }
@@ -122,8 +135,8 @@ public class Arrayss {
     }
 
     public static int arrayZeahlen(int[] arr) {
-        int[] numbers = numberArray(100);
-        for (int element : numbers) {
+        arr = numberArray(100);
+        for (int element : arr) {
             if (element > 30) {
                 return element;
             }
@@ -141,8 +154,8 @@ public class Arrayss {
     }
 
 
-    public static int arrMin(int size) {
-        int[] numbers = randomNumberArray(size);
+    public static int arrMin(int[] numbers) {
+
 
         int minNumber = numbers[0];
 
@@ -171,11 +184,11 @@ public class Arrayss {
 
     public static double arrAvg(int size) {
         int[] numbers = randomNumberArray(size);
-        double value = 0;
+        int value = 0;
         for (int i = 0; i < numbers.length; i++) {
             value += numbers[i];
         }
-        return value / size;
+        return (double) value / size;
     }
 
 
@@ -243,12 +256,12 @@ public class Arrayss {
         return sum;
     }
 
-    public static int sumPerCol(int[][] matrix, int rowToCalc) {
+    public static int sumPerCol(int[][] matrix, int colToCalc) {
         int sum = 0;
         for (int row = 0; row < matrix.length; row++) {
             for (int col = 0; col < matrix[row].length; col++) {
-                if (col == rowToCalc) {
-                    sum += matrix[row][rowToCalc];
+                if (col == colToCalc) {
+                    sum += matrix[row][colToCalc];
                 }
             }
         }
@@ -266,24 +279,147 @@ public class Arrayss {
                 } else {
                     matrix[row][col] = matrix[row][col - 1] + matrix[row - 1][col];
                 }
-
             }
         }
         return matrix;
     }
 
 
-    public static void formulaGen(int[][] pascalMatrix, int size) {
-//noch nicht fertig
-        for (int row = 0; row < pascalMatrix.length; row++) {
-            for (int col = 0; col < pascalMatrix[row].length; col++) {
-                if (size - 1 == size - row && size -1 == col -1) {
-                    System.out.println(pascalMatrix[row][col]);
+    public static int[][] pascalDreieckGPT(int size) {
+        int[][] matrix = new int[size][];
+
+        for (int row = 0; row < size; row++) {
+            matrix[row] = new int[row + 1];
+            matrix[row][0] = 1;
+            matrix[row][row] = 1;
+
+            for (int col = 1; col < row; col++) {
+                matrix[row][col] = matrix[row - 1][col - 1] + matrix[row - 1][col];
+            }
+        }
+        return matrix;
+    }
+
+    public static String formulaGenGPT(int n, int[] letzteZeile) {
+        StringBuilder formel = new StringBuilder();
+        for (int i = 0; i <= n; i++) {
+            if (i > 0) {
+                formel.append(" + ");
+            }
+            int koeffizient = letzteZeile[i];
+            if (koeffizient > 1) {
+                formel.append(koeffizient);
+            }
+            if (n - i > 0) {
+                formel.append("a");
+                if (n - i > 1) {
+                    formel.append("^").append(n - i);
+                }
+            }
+            if (i > 0) {
+                formel.append("b");
+                if (i > 1) {
+                    formel.append("^").append(i);
+                }
+            }
+        }
+        return formel.toString();
+    }
+
+
+    public static String formulaGen(int n, int[] letzteZeile) {
+        //noch nicht fertig
+        StringBuilder formel = new StringBuilder();
+
+        for (int i = 0; i <= n; i++) {
+            if (i > 0) {
+                formel.append(" + ");
+            }
+            int koeffizient = letzteZeile[i];
+            if (koeffizient > 1) {
+                formel.append(koeffizient);
+            }
+            if (n - i > 0) {
+                formel.append("a");
+                if (n - i > 1) {
+                    formel.append("^").append(n - i);
+                }
+            }
+            if (i > 0) {
+                formel.append("b");
+                if (i > 1) {
+                    formel.append("^").append(i);
                 }
             }
         }
 
+        return formel.toString();
     }
+
+    public static int[][] TicTacToe() {
+        int[][] canvas = new int[3][3];
+        int input;
+        int counter = 1;
+
+        System.out.println("\nWillkommen zu TicTacToe");
+        //Build canvas
+        for (int row = 0; row < canvas.length; row++) {
+            for (int col = 0; col < canvas.length; col++) {
+                canvas[row][col] = counter;
+                counter++;
+            }
+        }
+        boolean player = true;
+        boolean hasWon = true;
+
+        while (hasWon) {
+            showCanvas(canvas);
+            if (player) {
+                System.out.print("Spieler 1 am zug: ");
+            } else {
+                System.out.print("Spieler 2 am zug: ");
+            }
+            input = scanner.nextInt();
+            //set value
+            for (int row = 0; row < canvas.length; row++) {
+                for (int col = 0; col < canvas.length; col++) {
+                    if ((canvas[row][col] == input && player)) {
+                        canvas[row][col] = 1;
+
+                        player = false;
+
+                    } else if ((canvas[row][col] == input && !player)) {
+                        canvas[row][col] = 2;
+
+                        player = true;
+                    }
+
+                }
+            }
+
+        }
+
+
+        showCanvas(canvas);
+
+        return canvas;
+    }
+
+    public static void showCanvas(int[][] canvasToShow) {
+        //Build canvas
+        for (int row = 0; row < canvasToShow.length; row++) {
+            for (int col = 0; col < canvasToShow.length; col++) {
+                if (canvasToShow[row][col] != 0){
+                    System.out.print(canvasToShow[row][col]);
+                }else {
+                    System.out.print(canvasToShow[row][col]);
+                }
+
+            }
+            System.out.println();
+        }
+    }
+
 }
 
 
