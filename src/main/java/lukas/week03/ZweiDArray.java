@@ -10,8 +10,8 @@ public class ZweiDArray {
 
     public static void main(String[] args) {
 
-        //int[][] arr = random2dArray(3, 10);
-        int[][] arr = {{3, 4, 5, 6, 7, 8, 9}, {0, 1, 2}, {10, 11, 12, 13}};
+        int[][] arr = random2dArray(3, 10);
+        //int[][] arr = {{3, 4, 5, 6, 7, 8, 9}, {0, 1, 2}, {10, 11, 12, 13}};
         System.out.println(Arrays.toString(arr));
         System.out.println(Arrays.deepToString(arr));
 
@@ -25,16 +25,16 @@ public class ZweiDArray {
             if (userInput == 1) {
                 int selectedRow = lukas.Helper.readIntFromConsole("Wähle Zeile (0 bis " + (arr.length - 1) + ") oder alle Zeile (-1) >>>", -1, arr.length - 1);
                 if (selectedRow == -1) {
-                    printRowSums(arr);
+                    System.out.println(Arrays.toString(rowSums(arr)));
                 } else {
                     System.out.printf("Sum Row %d = %d\n", selectedRow, rowSum(arr, selectedRow));
                 }
 
                 //PRINT COL SUM
             } else if (userInput == 2) {
-                int selectedCol = lukas.Helper.readIntFromConsole("Wähle Spalte (0 bis " + (getMaxRowLength(arr) - 1) + ") oder alle Spalten (-1) >>>", 0, (getMaxRowLength(arr) - 1));
+                int selectedCol = lukas.Helper.readIntFromConsole("Wähle Spalte (0 bis " + (getMaxRowLength(arr) - 1) + ") oder alle Spalten (-1) >>>", -1, (getMaxRowLength(arr) - 1));
                 if (selectedCol == -1) {
-                    printColSums(arr);
+                    System.out.println(Arrays.toString(colSums(arr)));
                 } else {
                     System.out.printf("Sum Col %d = %d\n", selectedCol, colSum(arr, selectedCol));
                 }
@@ -64,7 +64,6 @@ public class ZweiDArray {
     public static void print2dArray(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print("[");
-
             for (int j = 0; j < arr[i].length; j++) {
                 if (j > 0) {
                     System.out.print(", ");
@@ -85,7 +84,8 @@ public class ZweiDArray {
     }
 
     public static void print2dArrayTxt(int[][] arr) {
-        print2dArrayTxt(arr, 5);
+        int maxWidth = String.valueOf(getMaxValue(arr)).length();
+        print2dArrayTxt(arr, maxWidth+1);
     }
 
     public static int getMaxRowLength(int[][] arr) {
@@ -97,6 +97,9 @@ public class ZweiDArray {
         }
         return maxRowLength;
     }
+
+    //ROW UND COL SUM
+    //////////////////////////////////////////////////////////////////
 
     public static int rowSum(int[][] arr, int selectedRow) {
         int rowSum = 0;
@@ -118,43 +121,117 @@ public class ZweiDArray {
         return colSum;
     }
 
-    public static void printRowSums(int[][] arr) {
-        //int[] arrRowSums = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            int rowSum = 0;
-            for (int j = 0; j < arr[i].length; j++) {
-                //arrRowSums[i]+= arr[i][j];
-                rowSum += arr[i][j];
+    public static int[] rowSums(int[][] arr) {
+        int[] arrRowSum = new int[arr.length];
+        for (int i = 0; i < arrRowSum.length; i++) {
+            arrRowSum[i] = rowSum(arr, i);
+        }
+        return arrRowSum;
+    }
+
+    public static int[] colSums(int[][] arr) {
+        int[] arrColSum = new int[getMaxRowLength(arr)];
+        for (int i = 0; i < arrColSum.length; i++) {
+            arrColSum[i] = colSum(arr, i);
+        }
+        return arrColSum;
+    }
+
+
+    //MIN MAX
+    //////////////////////////////////////////////////////
+    public static int getMinRowValue(int[][] arr, int row) {
+        int minVal = Integer.MAX_VALUE;
+        for (int i = 0; i < arr[row].length; i++) {
+            if (arr[row][i] < minVal) {
+                minVal = arr[row][i];
             }
-            System.out.printf("Sum Row %d = %d\n", i, rowSum);
         }
+        return minVal;
     }
 
-    public static void printRowSumsV1(int[][] arr) {
+    public static int getMaxRowValue(int[][] arr, int row) {
+        int maxVal = Integer.MIN_VALUE;
+        for (int i = 0; i < arr[row].length; i++) {
+            if (arr[row][i] > maxVal) {
+                maxVal = arr[row][i];
+            }
+        }
+        return maxVal;
+    }
+
+    public static int getMinColValue(int[][] arr, int col) {
+        int minVal = Integer.MAX_VALUE;
         for (int i = 0; i < arr.length; i++) {
-            System.out.printf("Sum Row %d = %d\n", i, rowSum(arr, i));
-        }
-    }
-
-
-    public static void printColSums(int[][] arr) {
-        for (int col = 0; col < getMaxRowLength(arr); col++) {
-            int colSum = 0;
-            for (int row = 0; row < arr.length; row++) {
-                if (col < arr[row].length) {
-                    colSum += arr[row][col];
+            for (int j = 0; j < arr[i].length; j++) {
+                if (j == col && arr[i][j] < minVal) {
+                    minVal = arr[i][j];
                 }
             }
-            System.out.printf("Sum Col %d = %d \n", col, colSum);
         }
+        return minVal;
     }
 
-    public static void printColSumsV1(int[][] arr) {
-        for (int col = 0; col < getMaxRowLength(arr); col++) {
-            System.out.printf("Sum Col %d = %d\n", col, colSum(arr, col));
+    public static int getMaxColValue(int[][] arr, int col) {
+        int maxVal = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (j == col && arr[i][j] > maxVal) {
+                    maxVal = arr[i][j];
+                }
+            }
         }
+        return maxVal;
     }
 
+
+    public static int getMaxValue(int[][] arr) {
+        int maxVal = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                if (arr[i][j] > maxVal) {
+                    maxVal = arr[i][j];
+                }
+            }
+        }
+        return maxVal;
+    }
+
+
+    //MIN MAX ARRAYS
+    //////////////////////////////////////////////////////////
+
+    public static int[] getMinRowValues(int[][] arr) {
+        int[] minRowValues = new int[arr.length];
+        for (int i = 0; i < minRowValues.length; i++) {
+            minRowValues[i] = getMinRowValue(arr, i);
+        }
+        return minRowValues;
+    }
+
+    public static int[] getMaxRowValues(int[][] arr) {
+        int[] maxRowValues = new int[arr.length];
+        for (int i = 0; i < maxRowValues.length; i++) {
+            maxRowValues[i] = getMaxRowValue(arr, i);
+        }
+        return maxRowValues;
+    }
+
+    public static int[] getMinColValues(int[][] arr) {
+        int[] minColValues = new int[getMaxRowLength(arr)];
+        for (int i = 0; i < minColValues.length; i++) {
+            minColValues[i] = getMinColValue(arr, i);
+        }
+        return minColValues;
+    }
+
+    public static int[] getMaxColValues(int[][] arr) {
+        int[] maxColValues = new int[getMaxRowLength(arr)];
+        for (int i = 0; i < maxColValues.length; i++) {
+            maxColValues[i] = getMaxColValue(arr, i);
+        }
+        return maxColValues;
+    }
 
 }
 

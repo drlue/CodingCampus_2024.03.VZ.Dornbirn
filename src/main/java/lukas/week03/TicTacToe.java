@@ -25,11 +25,11 @@ public class TicTacToe {
 
 
         //user input
-        userInputChars();
-        playGame();
+//        userInputChars();
+//        playGame();
 
 
-        //testCheckWinner();
+        testCheckWinner();
 
     }
 
@@ -48,7 +48,7 @@ public class TicTacToe {
                 if (j == 0 && i % 2 > 0) {
                     canvas[i][j] = "" + (int) ((i + 1) * 0.5);
                 }
-                //first column
+                //first row
                 if (i == 0 && j % 2 > 0) {
                     int k = (int) ((j + 1) * 0.5);
                     canvas[i][j] = String.valueOf((char) (k + 64));
@@ -77,20 +77,20 @@ public class TicTacToe {
     }
 
     public static char getMaxColumnChar() {
-        return (char) (gameField.length + 65);
+        return (char) (size + 65);
     }
 
     public static int getMaxColumnAscii() {
-        return gameField.length + 65;
+        return size + 65;
     }
 
     public static int getMaxSteps() {
-        return gameField.length * gameField.length;
+        return size * size;
     }
 
     public static void initGameField() {
         for (int i = 0; i < gameField.length; i++) {
-            for (int j = 0; j < gameField[0].length; j++) {
+            for (int j = 0; j < gameField[i].length; j++) {
                 gameField[i][j] = " ";
             }
         }
@@ -110,8 +110,7 @@ public class TicTacToe {
     public static void placeSymbol(int user) {
 
         boolean isPlaceEmpty = false;
-        boolean isInputStringOk = false;
-        while (!isPlaceEmpty || !isInputStringOk) {
+        while (!isPlaceEmpty) {
 
             //read user input
             String selectedPos = lukas.Helper.readStringFromConsole("Spieler " + (user + 1) + ", wähle Position (z.B. 'B3') ");
@@ -123,7 +122,6 @@ public class TicTacToe {
 
             //validate string
             if (validateSelectedPosArr(selectedPosArr)) {
-                isInputStringOk = true;
                 int i = Integer.parseInt(String.valueOf(selectedPosArr[1])) - 1;  //ROW 0 - 2
                 int j = selectedPosArr[0] - 65; //COL A-B    ASCII A = 65, B = 66, ...
 
@@ -146,7 +144,7 @@ public class TicTacToe {
         if (selectedPosArr.length == 2 && selectedPosArr[0] >= 65 && selectedPosArr[0] <= getMaxColumnAscii() && Integer.parseInt(String.valueOf(selectedPosArr[1])) <= gameField.length) {
             return true;
         }
-        ;
+
         System.out.println("Eingegebene Position entspricht keinem Feld auf dem Spielfeld");
         return false;
     }
@@ -196,9 +194,15 @@ public class TicTacToe {
                 check = false;
                 break;
             } else {
-                System.out.println("Diagonale 1");
-                return true;
+                checkPlace = "Diagonale 1";
+                check = true;
             }
+
+        }
+
+        if (check) {
+            System.out.println(checkPlace);
+            return true;
         }
 
         //Check Diagonal2
@@ -208,11 +212,17 @@ public class TicTacToe {
                 check = false;
                 break;
             } else {
-                System.out.println("Diagonale 2");
-                return true;
+                checkPlace = "Diagonale 2";
+                check = true;
             }
         }
-        return check;
+
+        if (check) {
+            System.out.println(checkPlace);
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -229,24 +239,36 @@ public class TicTacToe {
             for (int j = 0; j < gameField[0].length; j++) {
                 gameField[i][j] = String.valueOf(random.nextInt(2));
             }
-
         }
 
         updateCanvas();
         printCanvas();
 
-        if (checkWinner()) {
-            System.out.println("GEWONNEN");
-        } else {
-            System.out.println("NICHT GEWONNEN");
-        }
-    }
+        //checkWinner
+        //System.out.println(checkWinner()?"GEWONNEN":"UNENTSCHIEDEN");
 
+
+        // checkWinner v2
+
+        boolean unentschieden = true;
+        char[] testChars = {'0', '1'};
+        for (int i = 0; i < testChars.length; i++) {
+            if (checkWinnerV2(testChars[i])) {
+                System.out.println("SPIELER " + i + " HAT GEWONNEN");
+                unentschieden = false;
+                return;
+            }
+        }
+        System.out.println("UNENTSCHIEDEN");
+
+    }
 
     public static boolean checkWinnerV2(char userChar) {
         String userString = String.valueOf(userChar);
         boolean rowCheck = true;
         boolean colCheck = true;
+        boolean diag1Check = true;
+        boolean diag2Check = true;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (!gameField[i][j].equals(userString)) {
@@ -255,19 +277,20 @@ public class TicTacToe {
                 if (!gameField[j][i].equals(userString)) {
                     colCheck = false;
                 }
-
+                if (!gameField[i][i].equals(userString)) {
+                    diag1Check = false;
+                }
+                if (!gameField[i][size - 1 - i].equals(userString)) {
+                    diag2Check = false;
+                }
             }
-            if (rowCheck || colCheck) {
+            if (rowCheck || colCheck || diag1Check || diag2Check) {
                 return true;
             }
         }
-
-        //Diagonal Check fehlt noch
-
         return false;
-
-
     }
+
 
     public static void playGame() {
         boolean isRunning = true;
@@ -282,7 +305,7 @@ public class TicTacToe {
                 System.out.println("GRATULATION: SPIELER " + (user + 1) + " HAT GEWONNEN!");
                 isRunning = false;
             }
-            if (counter > getMaxSteps()) {
+            if (counter == getMaxSteps()) {
                 System.out.println("EINIGEN WIR UNS AUF UNENTSCHIEDEN!");
             }
             counter++;
