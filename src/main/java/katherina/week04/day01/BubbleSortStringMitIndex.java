@@ -3,34 +3,28 @@ package katherina.week04.day01;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class BubbleSortStringExtended {
+public class BubbleSortStringMitIndex{
 
     public static void main(String[] args) {
         String[] names = new String[]{"Joachim", "Mert", "Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
         printWithForI(names);
-        boolean b = false;
-
         System.out.println(">> Dies ist eine Liste unsortierter Namen. <<");
         System.out.println();
-
-        if (b == true){
-            bubblesortNachHoch(names);
-            System.out.println(">> Nach Länge sortiert, aufsteigend. <<");
-            printWithForI(names);
-            System.out.println();
-            System.out.println(">> Nach Alphabet sortiert, aufsteigend. <<");
-            Arrays.sort(names);
-            printWithForI(names);
-        } else {
-
+        bubblesortNachHoch(names);
+        System.out.println(">> Nach Länge sortiert, aufsteigend. <<");
+        printWithForI(names);
+        System.out.println();
         copy(names);
         System.out.println(">> Nach Länge sortiert, absteigend. <<");
         printWithForI(names);
         System.out.println();
-
+        System.out.println(">> Nach Alphabet sortiert, aufsteigend. <<");
+        Arrays.sort(names);
+        printWithForI(names);
+        System.out.println();
         System.out.println(">> Nach Alphabet sortiert, absteigend. <<");
         Arrays.sort(names, Collections.reverseOrder());
-        printWithForI(names);}
+        printWithForI(names);
         System.out.println();
         System.out.println("Danke!");
     }
@@ -44,18 +38,18 @@ public class BubbleSortStringExtended {
         }
     }
 
-    //Variable 'jane' heißt so aus Accessibility-Gründen. Ich kann sonst nicht gut sehen, ob etwas i oder j ist.
     public static void bubblesortNachHoch(String[] array) {
-        for (int index = 0; index < array.length; index++) {
-            for (int jane = 0; jane < array.length - index - 1; jane++) {
-                if (array[jane].length() > array[jane + 1].length()) {
-                    String temp = array[jane];
-                    array[jane] = array[jane + 1];
-                    array[jane + 1] = temp;
+            for (int index = 0; index < array.length; index++) {
+                for (int jane = 0; jane < array.length - index - 1; jane++) {
+                    if (array[jane].compareTo(array[index]) > array[jane + 1].length()) {
+                        String temp = array[jane];
+                        array[jane] = array[jane + 1];
+                        array[jane + 1] = temp;
+                    }
                 }
             }
         }
-    }
+
 
     public static String[] copy(String[] originArray) {
         String[] result = new String[originArray.length];
