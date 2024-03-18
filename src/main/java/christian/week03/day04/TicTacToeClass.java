@@ -14,6 +14,7 @@ public class TicTacToeClass {
 
         int[][] canvas = createCanvas(3);
         fillCanvasEmpty(canvas);
+        printCanvas(canvas);
 
         while (!win && roundCounter < 10) {
 
@@ -33,6 +34,9 @@ public class TicTacToeClass {
             roundCounter++;
             win = winConditions(canvas);
 
+            if(roundCounter==10){
+                System.out.println("Unentschieden!");
+            }
         }
 
     }

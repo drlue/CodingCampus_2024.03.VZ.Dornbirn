@@ -9,18 +9,18 @@ public class RandomArrayIn2D {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int[][] randomNumber = createRandomArray(10, 10);
+        int[][] randomNumber = createRandomArray(3, 3);
         printArray(randomNumber);
         System.out.println();
         System.out.println("Hi! Möchtest du die Summen pro Zeile oder die Summen pro Spalte wissen?");
         int choicemade = choice("Um die Zeilensumme zu berechnen, drücke bitte die 1.\n Um die Spaltensumme zu berechnen, drücke bitte die 2. ", 1, 2);
         if (choicemade == 1) {
             System.out.println("Die Zeilensummen! Gute Wahl.");
-            sumrow(randomNumber);
+            System.out.println(Arrays.toString(rowsum(randomNumber)));
             System.out.println();
         } else {
             System.out.println("Die Spaltensummen! Super Wahl.");
-            //Hier kommt die Methode dafür hin. (sumcollum)
+            System.out.println(Arrays.toString(columsum(randomNumber)));
             System.out.println();
         }
     }
@@ -29,7 +29,8 @@ public class RandomArrayIn2D {
 
         for (int row = 0; row < awoo.length; row++) {
             System.out.println(Arrays.toString(awoo[row]));
-            for (int collum = 0; collum < awoo.length; collum++) {
+            for (int colum = 0; colum < awoo.length; colum++) {
+                //   System.out.printf("%3d", awoo[row][colum]);
             }
         }
     }
@@ -38,8 +39,7 @@ public class RandomArrayIn2D {
         int[][] result = new int[size][size2];
         for (int index = 0; index < size; index++) {
             for (int jane = 0; jane < size2; jane++) {
-                result[index][jane] = random.nextInt(10, 100);
-                //Ja, Aufgabe sagt 0 bis 100. Aber ich will eine gleichmäßige Optik! So!
+                result[index][jane] = random.nextInt(0, 101);
             }
         }
         return result;
@@ -64,20 +64,32 @@ public class RandomArrayIn2D {
         return choice;
     }
 
-    public static int[] sumrow(int[][] arrg) {
-        int sum = 0;
-        int sumrow[] = new int[arrg.length];
+    public static int[] rowsum(int[][] arrg) {
+        int[] sumrow = new int[arrg.length];
         for (int index = 0; index < arrg.length; index++) {
-            sum = 0;
-            for (int jane : arrg[index]) {
-                sum += jane;
+            sumrow[index] = 0;
+            for (int value : arrg[index]) {
+                sumrow[index] += value;
             }
-            sumrow[index] = sum;
         }
-        System.out.println("Dies ist die Summe der Zufallszahlen: " + sum);
+        System.out.println("Dies ist die Summe der Zufallszahlen je Reihe: ");
 
         return sumrow;
-        //Der Code rechnet korrekt die Summen der einzelnen Zahlen aus und legt sie in sumrow ab. Ausgegeben wird jedoch nur die letzte Zahl im Array.
+    }
+
+    public static int[] columsum(int[][] arrg) {
+        int[] sumcolum = new int[arrg.length];
+        for (int index = 0; index < arrg.length-1; index++) {
+            sumcolum[index] = 0;
+            for (int jane = 0; jane < arrg[index].length; jane++) {
+                for (int value : arrg[index]) {
+                    sumcolum[jane] += value;
+                }
+            }
+        }
+        System.out.println("Dies ist die Summe der Zufallszahlen je Spalte: ");
+
+        return sumcolum;
     }
 
 }

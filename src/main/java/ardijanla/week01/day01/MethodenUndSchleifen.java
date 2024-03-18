@@ -144,7 +144,7 @@ public class MethodenUndSchleifen {
             for (int i = 0; i < value; i++) {
 
                 for (int j = 0; j < value - i - 1; j++) {
-                    System.out.print(" ");
+                    System.out.print(".");
                 }
                 System.out.println(x);
             }
