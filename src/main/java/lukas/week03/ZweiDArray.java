@@ -137,6 +137,28 @@ public class ZweiDArray {
         return arrColSum;
     }
 
+    //DIAG SUM
+    //////////////////////////////////////////////////////
+    public static int diagLRSum(int[][] arr){
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(i<arr[i].length){//check if row is long enough
+                sum += arr[i][i];
+            }
+        }
+        return sum;
+    }
+
+    public static int diagRLSum(int[][] arr){
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (i<arr[i].length){
+                sum += arr[i][getMaxRowLength(arr)-1-i];
+            }
+        }
+        return sum;
+    }
+
 
     //MIN MAX
     //////////////////////////////////////////////////////
