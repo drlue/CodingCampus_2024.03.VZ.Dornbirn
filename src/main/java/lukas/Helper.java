@@ -1,5 +1,6 @@
 package lukas;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Helper {
@@ -16,6 +17,20 @@ public class Helper {
     public static String readStringFromConsole(String message) {
         System.out.print(message);
         return sc.nextLine();
+    }
+
+    public static char readCharFromConsole(String message){
+
+        while(true) {
+            System.out.println(message);
+            String inputString = sc.nextLine();
+            if (inputString.length()==1) {
+                return inputString.charAt(0);
+            }
+            else {
+                System.out.println("Nur 1 Zeichen erlaubt");
+            }
+        }
     }
 
 

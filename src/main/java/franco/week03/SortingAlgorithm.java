@@ -7,17 +7,21 @@ public class SortingAlgorithm {
     public static void main(String[] args) {
         //create an array with random number for test
 
-        int[] numbers = new int[100000];
+        int[] numbers = new int[100000000];
         Random random = new Random();
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = random.nextInt(100000000);
+            numbers[i] = random.nextInt(100000);
         }
        // System.out.println("original array\n" + Arrays.toString(numbers));
         // selectionSort(numbers);
         //bubbleSort(numbers);
+
         //System.out.println(Arrays.toString(numbers));
         //  System.out.println("sort array");
+        long start= System.currentTimeMillis();
         quickSort(numbers,0, numbers.length-1);
+        long end =System.currentTimeMillis();
+        System.out.println("Runtime:  " + (end -start) + "ms");
         //System.out.println(Arrays.toString(numbers));
 
     }
@@ -106,5 +110,4 @@ public class SortingAlgorithm {
            // System.out.println(Arrays.toString(array) + "count " + count);
         }
     }
-
 }

@@ -4,7 +4,7 @@ public class BinomischeFormel {
     public static StringBuilder formulaB = new StringBuilder();
 
     public static void main(String[] args) {
-        String result = binomicalFormula(5);
+        String result = binomicalFormula(2);
         System.out.println(result);
     }
 
@@ -15,10 +15,10 @@ public class BinomischeFormel {
                 if (col + row == size - 1 || col + row < size - 1) {
                     if (col == 0 || row == 0) {
                         arr[row][col] = 1;
-                        System.out.print(arr[row][col]);
+                        System.out.printf(" %2d",arr[row][col]);
                     } else {
                         arr[row][col] = arr[row - 1][col] + arr[row][col - 1];
-                        System.out.print(arr[row][col]);
+                        System.out.printf(" %2d",arr[row][col]);
                     }
                 }
             }

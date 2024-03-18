@@ -10,20 +10,24 @@ public class QuckSort {
     public static int quickSortSwapCounter = 0;
 
     public static void main(String[] args) {
-        int[] arr = lukas.week02.UeArrays.randomArray(10);
+        int[] arr = lukas.week02.UeArrays.randomArray(100000000,100000000,0,100000);
         //int[] arr = {38, 20, 52, 38, 52, 0, 49, 77, 100};
-        System.out.println(Arrays.toString(arr));
+
+        //System.out.println(Arrays.toString(arr));
+        long start = System.currentTimeMillis();
         quickSort(arr, 0, arr.length - 1);
-        System.out.println(Arrays.toString(arr));
-        System.out.println("Quicksort wurde " + quickSortCounter + " mal aufgerufen.");
-        System.out.println("Es wurden " + quickSortSwapCounter + " swaps durchgeführt.");
+        long end = System.currentTimeMillis();
+        System.out.println("Runtime : " + (end-start) + " ms");
+        //System.out.println(Arrays.toString(arr));
+        //System.out.println("Quicksort wurde " + quickSortCounter + " mal aufgerufen.");
+        //System.out.println("Es wurden " + quickSortSwapCounter + " swaps durchgeführt.");
     }
 
     public static void quickSort(int[] arr, int l, int r) {
         if (l >= r) {
             return;
         }
-        quickSortCounter++;
+        //quickSortCounter++;
         int q = random.nextInt(l, r + 1); //zuf Index für Pivot-Element
         int m = partition(arr, l, r, q);
         //System.out.printf("%-3s %s  %3s\n", quickSortCounter + ":", Arrays.toString(arr), quickSortSwapCounter + " swaps");
@@ -42,7 +46,7 @@ public class QuckSort {
                 arr[i] = arr[j];
                 arr[j] = swap;
                 i++;
-                quickSortSwapCounter++;
+                //quickSortSwapCounter++;
             }
         }
         int swap2 = arr[i];
