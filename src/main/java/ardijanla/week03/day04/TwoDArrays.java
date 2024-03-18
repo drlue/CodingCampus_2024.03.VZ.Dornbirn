@@ -16,19 +16,25 @@ public class TwoDArrays {
         String[][] canvas = buildCanvas();
         boolean user = true;
         showCanvas(canvas);
+        int trys = 9;
 
         while (true) {
 
             System.out.println(user);
             int input = ReadLine.nextInt();
-            setMark(canvas, user, input);
+            boolean validation = setMarkAndValidate(canvas, user, input);
             showCanvas(canvas);
-            user = false;
-            System.out.println(user);
-            input = ReadLine.nextInt();
-            setMark(canvas, user, input);
-            showCanvas(canvas);
-            user = true;
+
+            boolean chechWinner = checkWinner(canvas,user);
+            if (trys < 7 && chechWinner) {
+                checkWinner(canvas, user);
+                System.out.println(user + " wins");
+            }
+            trys--;
+
+            if (validation) {
+                user = !user;
+            }
 
 
         }
@@ -44,16 +50,14 @@ public class TwoDArrays {
             }
         }
 
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 9; i++) {
             liste.add(i);
         }
-
-
         return canvasToBuild;
     }
 
     public static void showCanvas(String[][] canvasToShow) {
-
+        System.out.println();
         for (int row = 0; row < canvasToShow.length; row++) {
             for (int col = 0; col < canvasToShow.length; col++) {
                 System.out.printf("|%s", canvasToShow[row][col]);
@@ -64,41 +68,92 @@ public class TwoDArrays {
         }
         System.out.println();
     }
+
     static List<Integer> liste = new ArrayList<>();
 
-    public static void setMark(String[][] canvas, boolean user, int userInput) {
+    public static boolean setMarkAndValidate(String[][] canvas, boolean user, int userInput) {
         String mark = user ? "O" : "X";
 
         if (liste.contains(userInput)) {
             switch (userInput) {
-                case 0: canvas[0][0] = mark; break;
-                case 1: canvas[0][1] = mark; break;
-                case 2: canvas[0][2] = mark; break;
-                case 3: canvas[1][0] = mark; break;
-                case 4: canvas[1][1] = mark; break;
-                case 5: canvas[1][2] = mark; break;
-                case 6: canvas[2][0] = mark; break;
-                case 7: canvas[2][1] = mark; break;
-                case 8: canvas[2][2] = mark; break;
+                case 0:
+                    canvas[0][0] = mark;
+                    break;
+                case 1:
+                    canvas[0][1] = mark;
+                    break;
+                case 2:
+                    canvas[0][2] = mark;
+                    break;
+                case 3:
+                    canvas[1][0] = mark;
+                    break;
+                case 4:
+                    canvas[1][1] = mark;
+                    break;
+                case 5:
+                    canvas[1][2] = mark;
+                    break;
+                case 6:
+                    canvas[2][0] = mark;
+                    break;
+                case 7:
+                    canvas[2][1] = mark;
+                    break;
+                case 8:
+                    canvas[2][2] = mark;
+                    break;
             }
             liste.remove(Integer.valueOf(userInput));
+        } else if (userInput >= 9) {
+            System.out.println("Wo siehst du das feld " + userInput + " ???????");
+            System.out.print("Hier für Menschen mit Dyskalulie ");
+            for (int element : liste) {
+                System.out.print(" " + element);
+            }
+
+            return false;
         } else {
             System.out.println("Das Feld ist bereits belegt. Wähle ein anderes.");
+            return false;
 
+        }
+        return true;
+    }
+
+    static int[][] magicSquare = {{2, 7, 6}, {9, 5, 1}, {4, 3, 8}};
+
+    public static boolean checkWinner(String[][] canvas, boolean user) {
+        String mark = user ? "O" : "X";
+        int getTofifteen = 0;
+
+
+        for (int row = 0; row < canvas.length; row++) {
+            for (int col = 0; col < canvas.length; col++) {
+                if (canvas[row][col].contains(mark)) {
+                    getTofifteen += magicSquare[row][col];
+                }
+            }
+        }
+        if (getTofifteen == 15){
+            return true;
+        }
+        else{
+            return false;
         }
 
 
-
-    }
-    public static boolean validateUserInput(int[][] canvas,int userInput,boolean user){
-        boolean validate = true;
-
-
-
-
-        return  true;
     }
 
+
+
+//    public  static boolean hasWon(int[][] canvas, boolean playeer) {
+//
+//        return
+//                (canvas[][])
+//
+//
+//    }
 }
 
 
