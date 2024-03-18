@@ -3,7 +3,7 @@ package katherina.week04.day01;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class BubbleSortString {
+public class BubbleSortStringExtended {
 
     public static void main(String[] args) {
         String[] names = new String[]{"Joachim", "Mert", "Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
@@ -21,7 +21,6 @@ public class BubbleSortString {
         System.out.println(">> Nach Alphabet sortiert, aufsteigend. <<");
         Arrays.sort(names);
         printWithForI(names);
-        System.out.println();
         System.out.println(">> Nach Alphabet sortiert, absteigend. <<");
         Arrays.sort(names, Collections.reverseOrder());
         printWithForI(names);
