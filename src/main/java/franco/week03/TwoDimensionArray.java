@@ -1,6 +1,5 @@
 package franco.week03;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class TwoDimensionArray {
@@ -10,9 +9,9 @@ public class TwoDimensionArray {
     public static void main(String[] args) {
 
         int[][] array = generateRandom2D_Array(4, 5);
-        printArray(array);
+        print2D_Array(array);
         // sumOfRow(array,1)   ;
-        sumOfColumn(array, 4);
+        sumOfColumn(array, 3);
 
 
     }
@@ -29,7 +28,7 @@ public class TwoDimensionArray {
         return array;
     }
 
-    public static void printArray(int[][] array) {
+    public static void print2D_Array(int[][] array) {
         for (int[] row : array) {
             System.out.print("[ ");
             for (int value : row) {

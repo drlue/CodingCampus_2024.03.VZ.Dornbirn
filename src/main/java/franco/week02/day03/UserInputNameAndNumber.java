@@ -29,7 +29,7 @@ public class UserInputNameAndNumber {
 
         System.out.println("Thank you "+name.toUpperCase()+"!");
 
-        return name;
+        return name.toUpperCase();
     }
 
     public static int getIntFromUser(String message){
