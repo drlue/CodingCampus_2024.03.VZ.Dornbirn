@@ -1,7 +1,5 @@
 package demian.allmethods;
 
-import demian.week02.day02.Scanner;
-
 import java.util.Random;
 
 
@@ -217,7 +215,7 @@ public class AllMethods {
 
     public static int getINT(String messageTOuser, int minVAL, int maxVAL) {
         int result = Integer.MIN_VALUE;
-        String txt = "";
+        String txt;
         while (result == Integer.MIN_VALUE) {
             try {
                 System.out.print(messageTOuser);
