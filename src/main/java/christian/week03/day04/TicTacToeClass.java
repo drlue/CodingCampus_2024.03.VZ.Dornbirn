@@ -13,7 +13,6 @@ public class TicTacToeClass {
         int input = 0;
 
         int[][] canvas = createCanvas(3);
-        fillCanvasEmpty(canvas);
         printCanvas(canvas);
 
         while (!win && roundCounter < 10) {
@@ -24,18 +23,19 @@ public class TicTacToeClass {
             }
             isInputValid = false;
 
-            if (roundCounter % 2 != 0) {
-                updateCanvasP1(canvas, input);
-            } else {
-                updateCanvasP2(canvas, input);
-            }
+            updateCanvasP1(canvas, input, 1 + roundCounter % 2);
 
             printCanvas(canvas);
             roundCounter++;
-            win = winConditions(canvas);
+            win = winConditions2(canvas,1 + roundCounter % 2);
 
             if(roundCounter==10){
                 System.out.println("Unentschieden!");
+            } else if (roundCounter%2==0 &&win) {
+                System.out.println("Player 1 hat gewonnen!");
+            }
+            else if (roundCounter%2!=0 &&win){
+                System.out.println("Player 2 hat gewonnen!");
             }
         }
 
@@ -43,15 +43,12 @@ public class TicTacToeClass {
 
     public static int[][] createCanvas(int size) {
         int[][] arr = new int[size][size];
-        return arr;
-    }
-
-    public static void fillCanvasEmpty(int[][] arr) {
         for (int row = 0; row < arr.length; row++) {
             for (int col = 0; col < arr[row].length; col++) {
                 arr[row][col] = 0;
             }
         }
+        return arr;
     }
 
     public static void printCanvas(int[][] arr) {
@@ -71,8 +68,10 @@ public class TicTacToeClass {
         while (!valid) {
             if (sc.hasNextInt()) {
                 input = sc.nextInt();
-                if (input >= 1 || input <= 9) {
+                if (sc.nextLine().isBlank() && input >= 1 && input <= 9) {
                     valid = true;
+                } else {
+                    System.out.println(".. wurde3");
                 }
             } else {
                 System.out.println("Bitte gib eine Zahl zwischen 1 und 9 ein, die noch nicht verwendet wurde2");
@@ -84,314 +83,242 @@ public class TicTacToeClass {
     }
 
     public static boolean isInputNotUsed(int[][] arr, int input) {
-        switch (input) {
-            case 1:
-                if (arr[0][0] == 0) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            case 2:
-                if (arr[0][1] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            case 3:
-                if (arr[0][2] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            case 4:
-                if (arr[1][0] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            case 5:
-                if (arr[1][1] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            case 6:
-                if (arr[1][2] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            case 7:
-                if (arr[2][0] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            case 8:
-                if (arr[2][1] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            case 9:
-                if (arr[2][2] == 0) {
-                    return true;
-                } else {
-                    return false;
-                }
-            default:
+        return (arr[(input -1) / 3][(input - 1) % 3 ] == 0);
+    }
+
+    public static void updateCanvasP1(int[][] arr, int input, int player) {
+        arr[(input -1) / 3][(input - 1) % 3 ] = player;
+    }
+
+
+    public static boolean winConditionRow(int[][] arr, int row, int player){
+        for (int col = 0; col < arr[row].length; col++) {
+            if (arr[row][col] != player) {
                 return false;
+            }
         }
+        return true;
     }
 
-    public static void updateCanvasP1(int[][] arr, int input) {
-
-        switch (input) {
-            case 1:
-                arr[0][0] = 1;
-                break;
-            case 2:
-                arr[0][1] = 1;
-                break;
-            case 3:
-                arr[0][2] = 1;
-                break;
-            case 4:
-                arr[1][0] = 1;
-                break;
-            case 5:
-                arr[1][1] = 1;
-                break;
-            case 6:
-                arr[1][2] = 1;
-                break;
-            case 7:
-                arr[2][0] = 1;
-                break;
-            case 8:
-                arr[2][1] = 1;
-                break;
-            case 9:
-                arr[2][2] = 1;
-                break;
+    public static boolean winConditionCol(int[][] arr, int col, int player){
+        for (int row = 0; row < arr.length; row++) {
+            if (arr[row][col] != player) {
+                return false;
+            }
         }
-
+        return true;
     }
 
-    public static void updateCanvasP2(int[][] arr, int input) {
-
-        switch (input) {
-            case 1:
-                arr[0][0] = 2;
-                break;
-            case 2:
-                arr[0][1] = 2;
-                break;
-            case 3:
-                arr[0][2] = 2;
-                break;
-            case 4:
-                arr[1][0] = 2;
-                break;
-            case 5:
-                arr[1][1] = 2;
-                break;
-            case 6:
-                arr[1][2] = 2;
-                break;
-            case 7:
-                arr[2][0] = 2;
-                break;
-            case 8:
-                arr[2][1] = 2;
-                break;
-            case 9:
-                arr[2][2] = 2;
-                break;
+    public static boolean winConditionDiagBack(int[][] arr, int player){
+        for (int row = 0; row < arr.length; row++) {
+            if (arr[row][row] != player) {
+                return false;
+            }
         }
+        return true;
     }
 
-    public static boolean winConditions(int[][] arr) {
-        int sum = 0;
-        //reihe 1 Summe
+    public static boolean winConditionDiagSlasch(int[][] arr, int player){
         for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[row].length; col++) {
-                if (row == 0) {
-                    if (arr[row][col] == 0) {
-                        sum=-4;
-                    } else {
-                        sum += arr[row][col];
-                    }
-                }
-
+            if (arr[row][arr.length - 1 - row] != player) {
+                return false;
             }
         }
-
-        if (sum == 3) {
-            System.out.println("Player 1 has won!");
-            return true;
-        }
-        if (sum == 6) {
-            System.out.println("Player 2 has won!");
-            return true;
-        }
-        sum = 0;
-        //reihe 2 Summe
-        for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[row].length; col++) {
-                if (row == 1) {
-                    if (arr[row][col] == 0) {
-                        sum=-4;
-                    } else {
-                        sum += arr[row][col];
-                    }
-                }
-
-            }
-        }
-        if (sum == 3) {
-            System.out.println("Player 1 has won!");
-            return true;
-        }
-        if (sum == 6) {
-            System.out.println("Player 2 has won!");
-            return true;
-        }
-        //reihe 3 Summe
-        for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[row].length; col++) {
-                if (row == 2) {
-                    if (arr[row][col] == 0) {
-                        sum=-4;
-                    } else {
-                        sum += arr[row][col];
-                    }
-                }
-
-            }
-        }
-        if (sum == 3) {
-            System.out.println("Player 1 has won!");
-            return true;
-        }
-        if (sum == 6) {
-            System.out.println("Player 2 has won!");
-            return true;
-        }
-        sum = 0;
-        //spalte 1 Summe
-        for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[row].length; col++) {
-                if (col == 0) {
-                    if (arr[row][col] == 0) {
-                        sum=-4;
-                    } else {
-                        sum += arr[row][col];
-                    }
-                }
-
-            }
-        }
-        if (sum == 3) {
-            System.out.println("Player 1 has won!");
-            return true;
-        }
-        if (sum == 6) {
-            System.out.println("Player 2 has won!");
-            return true;
-        }
-        sum = 0;
-        //spalte 2 summe
-        for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[row].length; col++) {
-                if (col == 1) {
-                    if (arr[row][col] == 0) {
-                        sum=-4;
-                    } else {
-                        sum += arr[row][col];
-                    }
-                }
-
-            }
-        }
-        if (sum == 3) {
-            System.out.println("Player 1 has won!");
-            return true;
-        }
-        if (sum == 6) {
-            System.out.println("Player 2 has won!");
-            return true;
-        }
-        sum = 0;
-        //spalte 3 summe
-        for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[row].length; col++) {
-                if (col == 2) {
-                    if (arr[row][col] == 0) {
-                        sum=-4;
-                    } else {
-                        sum += arr[row][col];
-                    }
-                }
-
-            }
-        }
-        if (sum == 3) {
-            System.out.println("Player 1 has won!");
-            return true;
-        }
-        if (sum == 6) {
-            System.out.println("Player 2 has won!");
-            return true;
-        }
-        sum = 0;
-        //Diagonale \ Summe
-        for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[row].length; col++) {
-                if (row == col) {
-                    if (arr[row][col] == 0) {
-                        sum=-4;
-                    } else {
-                        sum += arr[row][col];
-                    }
-                }
-
-            }
-        }
-        if (sum == 3) {
-            System.out.println("Player 1 has won!");
-            return true;
-        }
-        if (sum == 6) {
-            System.out.println("Player 2 has won!");
-            return true;
-        }
-        sum = 0;
-        //Diagonale / Summe
-        for (int row = 0; row < arr.length; row++) {
-            for (int col = 0; col < arr[row].length; col++) {
-                if (row + col == 2) {
-                    if (arr[row][col] == 0) {
-                        sum=-4;
-                    } else {
-                        sum += arr[row][col];
-                    }
-
-                }
-            }
-
-        }
-        if (sum == 3) {
-            System.out.println("Player 1 has won!");
-            return true;
-        }
-        if (sum == 6) {
-            System.out.println("Player 2 has won!");
-            return true;
-        }
-        sum = 0;
-        return false;
+        return true;
     }
+
+    public static boolean winConditions2(int[][] arr, int player) {
+        return  winConditionRow(arr, 0, player) ||
+                winConditionRow(arr, 1, player) ||
+                winConditionRow(arr, 2, player) ||
+                winConditionCol(arr, 0, player) ||
+                winConditionCol(arr, 1, player) ||
+                winConditionCol(arr, 2, player) ||
+                winConditionDiagBack(arr, player)   ||
+                winConditionDiagSlasch(arr, player);
+    }
+
+
+//    public static boolean winConditions(int[][] arr) {
+//        int sum = 0;
+//        //reihe 1 Summe
+//        for (int row = 0; row < arr.length; row++) {
+//            for (int col = 0; col < arr[row].length; col++) {
+//                if (row == 0) {
+//                    if (arr[row][col] == 0) {
+//                        sum=-4;
+//                    } else {
+//                        sum += arr[row][col];
+//                    }
+//                }
+//
+//            }
+//        }
+//
+//        if (sum == 3) {
+//            System.out.println("Player 1 has won!");
+//            return true;
+//        }
+//        if (sum == 6) {
+//            System.out.println("Player 2 has won!");
+//            return true;
+//        }
+//        sum = 0;
+//        //reihe 2 Summe
+//        for (int row = 0; row < arr.length; row++) {
+//            for (int col = 0; col < arr[row].length; col++) {
+//                if (row == 1) {
+//                    if (arr[row][col] == 0) {
+//                        sum=-4;
+//                    } else {
+//                        sum += arr[row][col];
+//                    }
+//                }
+//
+//            }
+//        }
+//        if (sum == 3) {
+//            System.out.println("Player 1 has won!");
+//            return true;
+//        }
+//        if (sum == 6) {
+//            System.out.println("Player 2 has won!");
+//            return true;
+//        }
+//        //reihe 3 Summe
+//        for (int row = 0; row < arr.length; row++) {
+//            for (int col = 0; col < arr[row].length; col++) {
+//                if (row == 2) {
+//                    if (arr[row][col] == 0) {
+//                        sum=-4;
+//                    } else {
+//                        sum += arr[row][col];
+//                    }
+//                }
+//
+//            }
+//        }
+//        if (sum == 3) {
+//            System.out.println("Player 1 has won!");
+//            return true;
+//        }
+//        if (sum == 6) {
+//            System.out.println("Player 2 has won!");
+//            return true;
+//        }
+//        sum = 0;
+//        //spalte 1 Summe
+//        for (int row = 0; row < arr.length; row++) {
+//            for (int col = 0; col < arr[row].length; col++) {
+//                if (col == 0) {
+//                    if (arr[row][col] == 0) {
+//                        sum=-4;
+//                    } else {
+//                        sum += arr[row][col];
+//                    }
+//                }
+//
+//            }
+//        }
+//        if (sum == 3) {
+//            System.out.println("Player 1 has won!");
+//            return true;
+//        }
+//        if (sum == 6) {
+//            System.out.println("Player 2 has won!");
+//            return true;
+//        }
+//        sum = 0;
+//        //spalte 2 summe
+//        for (int row = 0; row < arr.length; row++) {
+//            for (int col = 0; col < arr[row].length; col++) {
+//                if (col == 1) {
+//                    if (arr[row][col] == 0) {
+//                        sum=-4;
+//                    } else {
+//                        sum += arr[row][col];
+//                    }
+//                }
+//
+//            }
+//        }
+//        if (sum == 3) {
+//            System.out.println("Player 1 has won!");
+//            return true;
+//        }
+//        if (sum == 6) {
+//            System.out.println("Player 2 has won!");
+//            return true;
+//        }
+//        sum = 0;
+//        //spalte 3 summe
+//        for (int row = 0; row < arr.length; row++) {
+//            for (int col = 0; col < arr[row].length; col++) {
+//                if (col == 2) {
+//                    if (arr[row][col] == 0) {
+//                        sum=-4;
+//                    } else {
+//                        sum += arr[row][col];
+//                    }
+//                }
+//
+//            }
+//        }
+//        if (sum == 3) {
+//            System.out.println("Player 1 has won!");
+//            return true;
+//        }
+//        if (sum == 6) {
+//            System.out.println("Player 2 has won!");
+//            return true;
+//        }
+//        sum = 0;
+//        //Diagonale \ Summe
+//        for (int row = 0; row < arr.length; row++) {
+//            for (int col = 0; col < arr[row].length; col++) {
+//                if (row == col) {
+//                    if (arr[row][col] == 0) {
+//                        sum=-4;
+//                    } else {
+//                        sum += arr[row][col];
+//                    }
+//                }
+//
+//            }
+//        }
+//        if (sum == 3) {
+//            System.out.println("Player 1 has won!");
+//            return true;
+//        }
+//        if (sum == 6) {
+//            System.out.println("Player 2 has won!");
+//            return true;
+//        }
+//        sum = 0;
+//        //Diagonale / Summe
+//        for (int row = 0; row < arr.length; row++) {
+//            for (int col = 0; col < arr[row].length; col++) {
+//                if (row + col == 2) {
+//                    if (arr[row][col] == 0) {
+//                        sum=-4;
+//                    } else {
+//                        sum += arr[row][col];
+//                    }
+//
+//                }
+//            }
+//
+//        }
+//        if (sum == 3) {
+//            System.out.println("Player 1 has won!");
+//            return true;
+//        }
+//        if (sum == 6) {
+//            System.out.println("Player 2 has won!");
+//            return true;
+//        }
+//        sum = 0;
+//        return false;
+//    }
 }
 

@@ -1,7 +1,7 @@
 package demian.week02.day02;
 
 
-public class Scanner {
+public class ScannerUebung {
 
 
     public static java.util.Scanner sc = new java.util.Scanner(System.in);
@@ -20,9 +20,8 @@ public class Scanner {
     //Texteingabe
     public static String consoleTEXTinput(String messageTOuser) {
         System.out.print(messageTOuser);
-        String txt = sc.nextLine();
 
-        return txt;
+        return sc.nextLine();
     }
 
     public static int consoleINTEGERinputV1(String messageTOuser, int minVAL, int maxVAL) {
@@ -48,7 +47,7 @@ public class Scanner {
 
     public static int getINT(String messageTOuser, int minVAL, int maxVAL) {
         int result = Integer.MIN_VALUE;
-        String txt = "";
+        String txt;
         while (result == Integer.MIN_VALUE) {
             try {
                 System.out.print(messageTOuser);
