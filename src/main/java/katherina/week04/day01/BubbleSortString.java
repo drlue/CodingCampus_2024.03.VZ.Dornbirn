@@ -1,29 +1,27 @@
 package katherina.week04.day01;
 
-import java.util.Arrays;
-import java.util.Collections;
 
 public class BubbleSortString {
 
     public static void main(String[] args) {
-        String[] names = new String[]{"Joachim", "Mert", "Eric", "Marie Christine", "Benjamin", "Sandro", "Aygün", "Hassan", "Svitlana", "Lukas", "Gyula"};
+        String[] names = new String[]{"Samet", "Franco", "Demian", "Lukas", "Katherina", "Irem", "Ardijanla", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
         printWithForI(names);
         System.out.println(">> Dies ist eine Liste unsortierter Namen. <<");
         System.out.println();
-        bubblesortNachHoch(names);
+        bubblesortNachLengthHoch(names);
         System.out.println(">> Nach Länge sortiert, aufsteigend. <<");
         printWithForI(names);
         System.out.println();
-        copy(names);
+        bubblesortNachLengthRunter(names);
         System.out.println(">> Nach Länge sortiert, absteigend. <<");
         printWithForI(names);
         System.out.println();
+        bubblesortNachAlphaHoch(names);
         System.out.println(">> Nach Alphabet sortiert, aufsteigend. <<");
-        Arrays.sort(names);
         printWithForI(names);
         System.out.println();
+        bubblesortNachAlphaRunter(names);
         System.out.println(">> Nach Alphabet sortiert, absteigend. <<");
-        Arrays.sort(names, Collections.reverseOrder());
         printWithForI(names);
         System.out.println();
         System.out.println("Danke!");
@@ -39,7 +37,7 @@ public class BubbleSortString {
     }
 
     //Variable 'jane' heißt so aus Accessibility-Gründen. Ich kann sonst nicht gut sehen, ob etwas i oder j ist.
-    public static void bubblesortNachHoch(String[] array) {
+    public static void bubblesortNachLengthHoch(String[] array) {
         for (int index = 0; index < array.length; index++) {
             for (int jane = 0; jane < array.length - index - 1; jane++) {
                 if (array[jane].length() > array[jane + 1].length()) {
@@ -51,22 +49,40 @@ public class BubbleSortString {
         }
     }
 
-    public static String[] copy(String[] originArray) {
-        String[] result = new String[originArray.length];
-        for (int index = 0; index < result.length; index++) {
-            result[index] = String.join(originArray[index]);
-            {
-                for (int jane = 0; jane < originArray.length - index - 1; jane++) {
-                    if (originArray[jane].length() < originArray[jane + 1].length()) {
-                        String temp = originArray[jane];
-                        originArray[jane] = originArray[jane + 1];
-                        originArray[jane + 1] = temp;
-                    }
+    public static void bubblesortNachLengthRunter(String[] array) {
+        for (int index = 0; index < array.length; index++) {
+            for (int jane = 0; jane < array.length - index - 1; jane++) {
+                if (array[jane].length() < array[jane + 1].length()) {
+                    String temp = array[jane];
+                    array[jane] = array[jane + 1];
+                    array[jane + 1] = temp;
                 }
             }
         }
+    }
 
-        return result;
+    public static void bubblesortNachAlphaHoch(String[] array) {
+        for (int index = 0; index < array.length; index++) {
+            for (int jane = 0; jane < array.length - index - 1; jane++) {
+                if (array[jane].compareTo(array[jane+1]) > 0) {
+                    String temp = array[jane];
+                    array[jane] = array[jane + 1];
+                    array[jane + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void bubblesortNachAlphaRunter(String[] array) {
+        for (int index = 0; index < array.length; index++) {
+            for (int jane = 0; jane < array.length - index - 1; jane++) {
+                if (array[jane].compareTo(array[jane+1]) < 0) {
+                    String temp = array[jane];
+                    array[jane] = array[jane + 1];
+                    array[jane + 1] = temp;
+                }
+            }
+        }
     }
 
 }
