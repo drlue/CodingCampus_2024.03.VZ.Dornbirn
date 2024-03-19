@@ -26,7 +26,7 @@ public class BubblesortMitStringsUndCharacterIndex {
         String[] names = new String[]{"Samet", "Franco", "Demian", "Lukas", "Katherina", "Irem", "Ardijanla", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
         System.out.println("Original: " + Arrays.toString(names));
         //Sortieren
-        int buchstabenposition = 2;
+        int buchstabenposition = 6;
         sortNamesLexDEC(names,buchstabenposition);
         System.out.println("Lexografisch sortiert nach dem " + (buchstabenposition +1) + "ten Buchstaben: " + Arrays.toString(names));
 
