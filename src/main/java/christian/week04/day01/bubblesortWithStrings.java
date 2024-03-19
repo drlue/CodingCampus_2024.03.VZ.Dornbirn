@@ -6,7 +6,7 @@ public class bubblesortWithStrings {
     public static void main(String[] args) {
         String[] names = new String[]{"Samet", "Franco", "Demian", "Lukas", "Katherina", "Irem", "Ardijanla", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
         System.out.println(Arrays.toString(names));
-//        System.out.println(Arrays.toString(sortStringArrayAlphabeticalAtIndex(names, 5)));
+        System.out.println(Arrays.toString(sortStringArrayAlphabeticalAtIndex(names, 5)));
         System.out.println(Arrays.toString(names));
     }
 
@@ -126,30 +126,22 @@ public class bubblesortWithStrings {
         return stringArray;
     }
 
-//    public static String[] sortStringArrayAlphabeticalAtIndex(String[] stringArray, int indexBegin) {
-//
-//        boolean swapped = true;
-//        while (swapped) {
-//            swapped = false;
-//            for (int index = 1; index < stringArray.length; index++) {
-//                if (indexBegin < stringArray[index].length() && indexBegin < stringArray[index - 1].length()) {
-//                    if (stringArray[index].charAt(indexBegin) < stringArray[index - 1].charAt(indexBegin)) {
-//                        String temp = stringArray[index - 1];
-//                        stringArray[index - 1] = stringArray[index];
-//                        stringArray[index] = temp;
-//                        swapped = true;
-//                    }
-//                } else {
-//                    String temp = stringArray[index - 1];
-//                    stringArray[index - 1] = stringArray[index];
-//                    stringArray[index] = temp;
-//                    swapped = true;
-//                }
-//            }
-//        }
-//        return stringArray;
-//
-//    }
+    public static String[] sortStringArrayAlphabeticalAtIndex(String[] stringArray, int indexBegin) {
+        boolean swapped = true;
+        while (swapped) {
+            swapped = false;
+            for (int index = 0; index < stringArray.length - 1; index++) {
+                if (stringArray[index + 1].length() > indexBegin && (stringArray[index].length() <= indexBegin || stringArray[index].charAt(indexBegin) < stringArray[index + 1].charAt(indexBegin))) {
+                    String temp = stringArray[index + 1];
+                    stringArray[index + 1] = stringArray[index];
+                    stringArray[index] = temp;
+                    swapped = true;
+                }
+            }
+        }
+        return stringArray;
+
+    }
 //
 //    public static String[] sortStringArrayAlphabeticalAtIndices(String[] stringArray, int indexBegin) {
 //
