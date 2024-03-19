@@ -7,9 +7,9 @@ public class BubbleMitStrings {
     public static void main(String[] args) {
         String[] names = new String[]{"Samet", "Franco", "Demian", "Lukas", "Katherina", "Irem", "Ardijanla", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
 
-        bubbleNamesSortByNumberAsc(names); //Ascending from 1 to x
+        bubbleNamesSortByNumber(names, true); //Ascending from 1 to x , true
         System.out.println(Arrays.toString(names));
-        bubbleNamesSortByNumberDesc(names); // Descending from x to 1
+        bubbleNamesSortByNumber(names, false); // Descending from x to 1, false
         System.out.println(Arrays.toString(names));
         bubbleNamesSortAsc(names);  //Ascending from A to Z
         System.out.println(Arrays.toString(names));
@@ -72,6 +72,15 @@ public class BubbleMitStrings {
 
                 }
             }
+        }
+    }
+
+
+    public static void bubbleNamesSortByNumber(String[] arr, boolean asc) {
+        if (asc) {
+            bubbleNamesSortAsc(arr);
+        }else {
+            bubbleNamesSortDesc(arr);
         }
     }
 }
