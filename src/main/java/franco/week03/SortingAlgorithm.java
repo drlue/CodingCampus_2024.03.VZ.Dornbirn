@@ -7,10 +7,10 @@ public class SortingAlgorithm {
     public static void main(String[] args) {
         //create an array with random number for test
 
-        int[] numbers = new int[100000000];
+        int[] numbers = new int[100];
         Random random = new Random();
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = random.nextInt(100000);
+            numbers[i] = random.nextInt(1000);
         }
        // System.out.println("original array\n" + Arrays.toString(numbers));
         // selectionSort(numbers);
@@ -18,6 +18,7 @@ public class SortingAlgorithm {
 
         //System.out.println(Arrays.toString(numbers));
         //  System.out.println("sort array");
+        //Check the time in ms.
         long start= System.currentTimeMillis();
         quickSort(numbers,0, numbers.length-1);
         long end =System.currentTimeMillis();
@@ -28,7 +29,6 @@ public class SortingAlgorithm {
 
     public static void selectionSort(int[] numbers) {
         int arrLength = numbers.length;
-
         //first loop no need to go to the last as swap will not be possible
         //arrLength-1
         for (int i = 0; i < arrLength - 1; i++) {
@@ -96,7 +96,7 @@ public class SortingAlgorithm {
 
     public static void bubbleSort(int[] array) {
         int count = 0;
-        int swapped = 0;
+       // int swapped = 0;
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
                 count++;
