@@ -19,19 +19,18 @@ public class TicTacToe {
 
         while (true) {
             printBoard(board);
-            playerTurn(player1, board);
-            if(isGameFinished(board)){
+            player1Turn(player1, board);
+            if (isGameFinished(board)) {
                 break;
             }
             printBoard(board);
-            playerTurn2(player2, board);
-            if(isGameFinished(board)){
+            player2Turn(player2, board);
+            if (isGameFinished(board)) {
                 break;
             }
             printBoard(board);
         }
     }
-
     private static Boolean moveChecker(char[][] board, String position) {
         //Check if the space is available
         switch (position) {
@@ -105,7 +104,7 @@ public class TicTacToe {
         }
     }
 
-    private static void playerTurn(String player1, char[][] board) {
+    private static void player1Turn(String player1, char[][] board) {
         System.out.println(player1 + " where would like to play(1-9)");
         String player1Move;
         while (true) {
@@ -118,7 +117,7 @@ public class TicTacToe {
         placeMove(board, player1Move, 'X');
     }
 
-    private static void playerTurn2(String player2, char[][] board) {
+    private static void player2Turn(String player2, char[][] board) {
         System.out.println(player2 + " where would like to play(1-9)");
         String player2Move;
         while (true) {
@@ -129,6 +128,7 @@ public class TicTacToe {
         }
         placeMove(board, player2Move, 'O');
     }
+
     private static void printBoard(char[][] board) {
         System.out.println(board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
         System.out.println("-+-+-");

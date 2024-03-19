@@ -54,7 +54,6 @@ public class Calculator {
                 isCalculating = false;
             }
 
-
         }
 
 

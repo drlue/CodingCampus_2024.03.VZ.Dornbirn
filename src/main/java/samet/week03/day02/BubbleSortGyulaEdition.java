@@ -8,7 +8,7 @@ public class BubbleSortGyulaEdition {
 
     public static void main(String[] args) {
 
-        int [] arr = PrintArray.createRandArray(20);
+        int [] arr = PrintArray.createRandArray(100);
         System.out.println(Arrays.toString(arr));
         sortBubbleAscending(arr);
         System.out.println(Arrays.toString(arr)+"Ascending");
