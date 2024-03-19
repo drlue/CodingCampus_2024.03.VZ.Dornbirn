@@ -28,15 +28,18 @@ public class StringRandomize {
     }
 
     public static void windy(char[] array) {
-        for (int index = 0; index < array.length; index++) {
-            char temp = array[index];
-            array[index] = array[random.nextInt(0, array.length - 1)];
-            array[random.nextInt(0, array.length - 1)] = temp;
+        for (int count = 0; count < 5 + 2* array.length; count++) {
+            int pos1 = random.nextInt(array.length);
+            int pos2 = random.nextInt(array.length);
+
+            char temp = array[pos1];
+            array[pos1] = array[pos2];
+            array[pos2] = temp;
             System.out.println(new String(array));
         }
 
     }
-
+//Korrektur sieht vor: Es wird die Position gewürfelt und auf diese Weise werden auch keine Zeichen überschrieben!
 
     public static String getTextFromConsole(String message) {
         System.out.print(message);
