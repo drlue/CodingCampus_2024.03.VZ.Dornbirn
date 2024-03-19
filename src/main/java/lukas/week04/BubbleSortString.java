@@ -1,25 +1,36 @@
 package lukas.week04;
 
+import java.text.Collator;
 import java.util.Arrays;
+import java.util.Locale;
 
 public class BubbleSortString {
 
     public static void main(String[] args) {
 
         //String[] names = new String[]{"Samet", "Franco", "Demian", "Lukas", "Katherina", "Irem", "Ardijanla", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
-        String[] names = new String[]{"Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botsuana", "Brasilien", "Brunei Darussalam", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "China", "Cookinseln", "Costa Rica", "Côte d'Ivoire", "Dänemark", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "Gabun", "Gambia", "Georgien", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo", "Kongo, Demokratische Republik", "Korea, Demokratische Volksrepublik", "Korea, Republik", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldau", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Niederlande", "Niger", "Nigeria", "Niue", "Norwegen", "Oman", "Österreich", "Pakistan", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russische Föderation", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südsudan", "Suriname", "Swasiland", "Syrien", "Tadschikistan", "Tansania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad und Tobago", "Tschad", "Tschechische Republik", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Zentralafrikanische Republik", "Zypern"};
+        //String[] names = new String[]{"Afghanistan", "Ägypten", "Albanien", "Algerien", "Andorra", "Angola", "Antigua und Barbuda", "Äquatorialguinea", "Argentinien", "Armenien", "Aserbaidschan", "Äthiopien", "Australien", "Bahamas", "Bahrain", "Bangladesch", "Barbados", "Belgien", "Belize", "Benin", "Bhutan", "Bolivien", "Bosnien und Herzegowina", "Botsuana", "Brasilien", "Brunei Darussalam", "Bulgarien", "Burkina Faso", "Burundi", "Chile", "China", "Cookinseln", "Costa Rica", "Côte d'Ivoire", "Dänemark", "Deutschland", "Dominica", "Dominikanische Republik", "Dschibuti", "Ecuador", "El Salvador", "Eritrea", "Estland", "Fidschi", "Finnland", "Frankreich", "Gabun", "Gambia", "Georgien", "Ghana", "Grenada", "Griechenland", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Indien", "Indonesien", "Irak", "Iran", "Irland", "Island", "Israel", "Italien", "Jamaika", "Japan", "Jemen", "Jordanien", "Kambodscha", "Kamerun", "Kanada", "Kap Verde", "Kasachstan", "Katar", "Kenia", "Kirgisistan", "Kiribati", "Kolumbien", "Komoren", "Kongo", "Kongo, Demokratische Republik", "Korea, Demokratische Volksrepublik", "Korea, Republik", "Kosovo", "Kroatien", "Kuba", "Kuwait", "Laos", "Lesotho", "Lettland", "Libanon", "Liberia", "Libyen", "Liechtenstein", "Litauen", "Luxemburg", "Madagaskar", "Malawi", "Malaysia", "Malediven", "Mali", "Malta", "Marokko", "Marshallinseln", "Mauretanien", "Mauritius", "Mazedonien", "Mexiko", "Mikronesien", "Moldau", "Monaco", "Mongolei", "Montenegro", "Mosambik", "Myanmar", "Namibia", "Nauru", "Nepal", "Neuseeland", "Nicaragua", "Niederlande", "Niger", "Nigeria", "Niue", "Norwegen", "Oman", "Österreich", "Pakistan", "Palau", "Panama", "Papua-Neuguinea", "Paraguay", "Peru", "Philippinen", "Polen", "Portugal", "Ruanda", "Rumänien", "Russische Föderation", "Salomonen", "Sambia", "Samoa", "San Marino", "São Tomé und Príncipe", "Saudi-Arabien", "Schweden", "Schweiz", "Senegal", "Serbien", "Seychellen", "Sierra Leone", "Simbabwe", "Singapur", "Slowakei", "Slowenien", "Somalia", "Spanien", "Sri Lanka", "St. Kitts und Nevis", "St. Lucia", "St. Vincent und die Grenadinen", "Südafrika", "Sudan", "Südsudan", "Suriname", "Swasiland", "Syrien", "Tadschikistan", "Tansania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad und Tobago", "Tschad", "Tschechische Republik", "Tunesien", "Türkei", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "Ungarn", "Uruguay", "Usbekistan", "Vanuatu", "Vatikanstadt", "Venezuela", "Vereinigte Arabische Emirate", "Vereinigte Staaten", "Vereinigtes Königreich", "Vietnam", "Weißrussland", "Zentralafrikanische Republik", "Zypern"};
+        String[] names = new String[]{"Afghanistan", "Ägypten", "Romänien", "z", "a", "be", "ce", "deh", "geh", "apfelsaftladen", "Serbien", "ßsterreich", "Ungarn", "Zyprus", "Albanien", "Algerien", "Andorra"};
         System.out.println(Arrays.toString(names));
+
+        /*
+
         //bubble sort length
         System.out.println(Arrays.toString(bubbleSortLengthAsc(names)));
         System.out.println(Arrays.toString(bubbleSortLengthDesc(names)));
         //bubble sort lexicoraphical
         System.out.println(Arrays.toString(bubbleSortLexiAsc(names)));
         System.out.println(Arrays.toString(bubbleSortLexiDesc(names)));
+        System.out.println(Arrays.toString(bubbleSortLexiAscByGyula(names)));
         //bubble sort extended
         System.out.println(Arrays.toString(bubbleSortLexiExtended(names, true)));
         System.out.println(Arrays.toString(bubbleSortLexiExtended(names, false)));
+
+         */
+
         //bubble sort with character index
-        System.out.println(Arrays.toString(bubbleSortCharIndex(names, 10)));
+        System.out.println(Arrays.toString(bubbleSortCharIndex(names, 3)));
+        System.out.println(Arrays.toString(bubbleSortCharIndexV2(names, 3)));
 
     }
 
@@ -56,6 +67,20 @@ public class BubbleSortString {
         return result;
     }
 
+    public static String[] bubbleSortLexiAscByGyula(String[] strings) {
+        Collator c = Collator.getInstance(Locale.GERMANY);
+        String[] result = copyArr(strings);
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result.length - i - 1; j++) {
+                if (c.compare(result[j], result[j + 1]) > 0) {
+                    swap(result, j, j + 1);
+                }
+            }
+        }
+        return result;
+    }
+
+
     public static String[] bubbleSortLexiDesc(String[] strings) {
         return reverseArr(bubbleSortLexiAsc(strings));
     }
@@ -72,11 +97,26 @@ public class BubbleSortString {
         } else {
             for (int i = 0; i < result.length; i++) {
                 for (int j = 0; j < result.length - 1 - i; j++) {
-                    String str1 = replaceSpecialChars(result[j]);
-                    String str2 = replaceSpecialChars(result[j + 1]);
-                    if (str1.charAt(pos) - str2.charAt(pos) > 0) {
+                    if (result[j].charAt(pos) - result[j+1].charAt(pos) > 0) {
                         swap(result, j, j + 1);
                     }
+                }
+            }
+        }
+        return result;
+    }
+
+    public static String[] bubbleSortCharIndexV2(String[] strings, int pos) {
+        String[] result = copyArr(strings);
+        for (int i = 0; i < result.length; i++) {
+            for (int j = 0; j < result.length - 1 - i; j++) {
+                if(pos < result[j].length() && pos < result[j+1].length()) {
+                    if (result[j].charAt(pos) - result[j+1].charAt(pos) > 0) {
+                        swap(result, j, j + 1);
+                    }
+                    //pos bigger than length
+                } else if (result[j].length() > result[j+1].length()) {
+                    swap(result, j, j+1);
                 }
             }
         }
@@ -151,7 +191,6 @@ public class BubbleSortString {
                 .replace("À", "A")
                 .replace("à", "a")
 
-                .replace("Á", "A")
                 .replace("á", "a")
 
                 .replace("Ç", "C")
