@@ -180,51 +180,50 @@ public class BubbleSortString {
 
                 .replace("ß", "ss")
 
-//                .replace("ã", "a")
-//
-//                .replace("Å", "A")
-//                .replace("å", "a")
-//
-//                .replace("Â", "A")
-//                .replace("â", "a")
-//
-//                .replace("À", "A")
-//                .replace("à", "a")
-//
-//                .replace("Á", "A")
-//                .replace("á", "a")
-//
-//                .replace("Ç", "C")
-//                .replace("ç", "c")
-//
-//                .replace("É", "E")
-//                .replace("é", "e")
-//
-//                .replace("È", "E")
-//                .replace("è", "e")
-//
-//                .replace("Ê", "E")
-//                .replace("ê", "e")
-//
-//                .replace("ë", "e")
-//
-//                .replace("ï", "i")
-//                .replace("î", "i")
-//                .replace("ì", "i")
-//                .replace("í", "i")
-//
-//                .replace("ô", "o")
-//                .replace("ò", "o")
-//                .replace("ó", "o")
-//
-//                .replace("û", "u")
-//                .replace("ù", "u")
-//                .replace("ú", "u")
-//
-//                .replace("ÿ", "y")
-//
-//                .replace("Ñ", "N")
-//                .replace("ñ", "n")
+                .replace("ã", "a")
+
+                .replace("Å", "A")
+                .replace("å", "a")
+
+                .replace("Â", "A")
+                .replace("â", "a")
+
+                .replace("À", "A")
+                .replace("à", "a")
+
+                .replace("á", "a")
+
+                .replace("Ç", "C")
+                .replace("ç", "c")
+
+                .replace("É", "E")
+                .replace("é", "e")
+
+                .replace("È", "E")
+                .replace("è", "e")
+
+                .replace("Ê", "E")
+                .replace("ê", "e")
+
+                .replace("ë", "e")
+
+                .replace("ï", "i")
+                .replace("î", "i")
+                .replace("ì", "i")
+                .replace("í", "i")
+
+                .replace("ô", "o")
+                .replace("ò", "o")
+                .replace("ó", "o")
+
+                .replace("û", "u")
+                .replace("ù", "u")
+                .replace("ú", "u")
+
+                .replace("ÿ", "y")
+
+                .replace("Ñ", "N")
+                .replace("ñ", "n")
         ;
         return txt;
     }
