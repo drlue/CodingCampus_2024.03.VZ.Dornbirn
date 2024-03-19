@@ -1,4 +1,4 @@
-package demian.week04.day01;
+package demian.week04.day02;
 
 import java.util.Arrays;
 import java.util.Scanner;
