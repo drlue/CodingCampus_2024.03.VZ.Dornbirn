@@ -8,7 +8,6 @@ public class ArraysTeil5 {
 
     public static void main(String[] args) {
         int[] zufallswerte = createRandomArray(10);
-        //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
         summe(zufallswerte);
     }

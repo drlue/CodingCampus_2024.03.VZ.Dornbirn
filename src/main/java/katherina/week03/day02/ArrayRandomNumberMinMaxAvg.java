@@ -7,7 +7,6 @@ public class ArrayRandomNumberMinMaxAvg {
 
     public static void main(String[] args) {
         int[] zufallswerte = createRandomArray(10);
-        //Kontrollsequenz    System.out.println(Arrays.toString(zufallswerte));
         printWithForI(zufallswerte);
         System.out.println("Maximalwert:  " + maximum(zufallswerte));
         System.out.println("Dieser Wert steht an Stelle:  " + (maxidex(zufallswerte) + 1));
