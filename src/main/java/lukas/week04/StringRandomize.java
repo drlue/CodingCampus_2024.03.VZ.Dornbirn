@@ -9,16 +9,14 @@ public class StringRandomize {
     public static Random random = new Random();
 
     public static void main(String[] args) {
-
         String txt = Helper.readStringFromConsole("Randomize String\nBitte Text eingeben: >>>");
         System.out.println(randomizeString(txt));
-
-
+        System.out.println(randomizeStringInspiredByGyula(txt));
     }
 
     public static String randomizeString(String txt) {
         char[] randChars = txt.toCharArray();
-        for (int i = 0; i < randChars.length; i++) {
+        for (int i = 0; i < randChars.length - 1; i++) {
             int randNumber = random.nextInt(i, randChars.length);
             swapChar(randChars, i, randNumber);
         }
@@ -31,11 +29,15 @@ public class StringRandomize {
         arr[pos2] = tmp;
     }
 
-//    public static int[] numbersToChooseFrom(String txt) {
-//        int[] result = new int[txt.length()];
-//        for (int i = 0; i < result.length; i++) {
-//            result[i]
-//        }
+    public static String randomizeStringInspiredByGyula(String txt) {
+        char[] randChars = txt.toCharArray();
+        for (int i = 0; i < randChars.length * 5; i++) {
+            for (int j = 0; j < randChars.length - 1; j++) {
+                swapChar(randChars, random.nextInt(randChars.length - 1), random.nextInt(randChars.length - 1));
+            }
+        }
+        return new String(randChars);
+    }
 
 }
 
