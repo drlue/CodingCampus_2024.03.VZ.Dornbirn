@@ -1,5 +1,5 @@
 package christian.ScannerMethoden;
-public class InputZahlen {
+public class InputZahlen2 {
 
     public static int getIntFromInputMessageMinMax(String message, int min, int max) {
 

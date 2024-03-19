@@ -4,8 +4,11 @@ public class SandboxString {
 
     public static void main(String[] args) {
 
-        String name = "Demi";
-        String name2 = "Lukas";
-        System.out.println(name2.compareTo(name2));
+    String text = "Teattext";
+    // string.charAt(i)
+        System.out.println(text.charAt(2));
+        //string.toCharArray()[i]
+        System.out.println(text.toCharArray()[2]);
+
     }
 }
