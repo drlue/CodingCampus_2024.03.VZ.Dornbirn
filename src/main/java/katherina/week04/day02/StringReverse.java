@@ -1,6 +1,7 @@
 package katherina.week04.day02;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class StringReverse {
