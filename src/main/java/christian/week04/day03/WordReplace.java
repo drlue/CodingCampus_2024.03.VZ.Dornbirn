@@ -64,6 +64,7 @@ public class WordReplace {
         String sentenceInput = sc.nextLine();
         return sentenceInput;
     }
+    //Gyulas tipp String.split
     public static String getLongestMutualSubstring (){
 
         System.out.println("Gib einen Satz ein: ");
