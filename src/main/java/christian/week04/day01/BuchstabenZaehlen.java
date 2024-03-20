@@ -1,9 +1,6 @@
 package christian.week04.day01;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class TextEinlesen {
+public class BuchstabenZaehlen {
 
     //Mit Gyulas Hilfe kompletiert und cleanup!
     public static void main(String[] args) {
