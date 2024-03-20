@@ -13,7 +13,6 @@ public class StringReverse {
         String text = UserInputTest.getTextFromConsole("Willkommen beim Reverseprogramm!!!!!\nBitte geben Sie den Text ein?");
 //        String text = "ABCDEF";
         System.out.println(reverseProgramm(text));
-        randomizedString(text);
         System.out.println(randomizedString(text));
 
 
@@ -35,7 +34,7 @@ public class StringReverse {
     public static String randomizedString(String text){
 
         char[] randomizedArr = text.toCharArray();
-        for (int i = 0; i < 5 + 2 *randomizedArr.length; i++) {
+        for (int i = 0; i < 3 *randomizedArr.length; i++) {
             int pos1 = rand.nextInt(randomizedArr.length);
             int pos2 = rand.nextInt(randomizedArr.length);
             swap(randomizedArr, pos1, pos2);
