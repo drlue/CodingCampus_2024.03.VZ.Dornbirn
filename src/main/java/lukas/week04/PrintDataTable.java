@@ -4,9 +4,9 @@ public class PrintDataTable {
     public static void main(String[] args) {
 
         //data
-        String[] firstName = {"Alfonso Alfonso Alfonso Alfonso Alfonso Klein", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
-        String[] lastName = {"", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
-        int[] age = {40, 78, 5, 18, -985481};
+        String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
+        String[] lastName = {"Klein", "Kinderdorfer", "Al Elmenar", "Schmidt", "Simma"};
+        int[] age = {40, 78, 5, 18, 30};
         String[] place = {"Wien", "Schwarzach", "Wiener Neudorf", "Sankt Pölten", "Sankt Pölten"};
         float[] distanceFromCapital = {0f, 654.4f, 12.457634366f, 120.0f, 119.9999f};
 
