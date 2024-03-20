@@ -9,6 +9,7 @@ public class FomratExample {
         System.out.printf("%d\n", 10);
         System.out.printf("%d Stk. Apfel\n", 10);
         System.out.printf("| %6d |\n", 10);
+        System.out.printf("| %6x |\n", 10);
         System.out.printf("| %6X |\n", 10);
         System.out.printf("| %06X |\n", 10);
 
