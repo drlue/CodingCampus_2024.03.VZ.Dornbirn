@@ -5,7 +5,7 @@ public class ReverseString {
     public static Random random= new Random();
     public static void main(String[] args) {
 
-      String greeting="halloWorld";
+      String greeting="world";
         System.out.println(greeting);
         System.out.println(reverseWord(greeting));
         System.out.println(randomize(greeting));
