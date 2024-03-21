@@ -11,8 +11,8 @@ import java.util.Arrays;
 public class DieErsteTabelle {
     public static void main(String[] args) {
         System.out.printf("Vorname %-6s ", "");
-        String[] firstName = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
-        String message = joins(firstName);
+        String[] firstNames = {"Alfonso", "Beatrix-Eleonor", "Cecil", "Daniel", "Elmar"};
+        String message = joins(firstNames);
         System.out.println(message);
         System.out.printf("Nachname %-5s ", "");
         String[] lastName = {"Klein", "Kinderdorfer ", "Al Elmenar", "Schmidt", "Simma"};
@@ -37,10 +37,11 @@ public class DieErsteTabelle {
     }
 
     public static String joins(String[] arr) {
+        String message = "|";
         for (int index = 0; index < arr.length; index++) {
-            arr[index] = String.format("%25.25s", arr[index]);
+            message += String.format("%25.25s", arr[index]+"|");
         }
-        return  String.join("|",Arrays.toString(arr));
+        return message;
     }
 
     public static String[] intToStringArray(int[] intArr) {
@@ -53,9 +54,9 @@ public class DieErsteTabelle {
 
     public static String[] floatToStringArray(float[] floatArr) {
         String[] array = new String[floatArr.length];
-            for (int index = 0; index < array.length; index++) {
-                array[index] = String.valueOf(floatArr[index]);
-            }
+        for (int index = 0; index < array.length; index++) {
+            array[index] = String.valueOf(floatArr[index]);
+        }
         return array;
     }
 
