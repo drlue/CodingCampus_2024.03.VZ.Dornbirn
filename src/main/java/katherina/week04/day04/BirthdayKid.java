@@ -1,38 +1,40 @@
 package katherina.week04.day04;
 
-//Aufgabe: Mein Geburtstag
-//Erstelle ein Programm, das den Anwender nach seinem Geburtstag fragt und mit Hilfe von SimpleDateFormat.parse() verarbeitet.
-// Als Ergebnis soll das Programm zurückgeben, an was für einem Wochentag der Geburtstag des Anwenders war.
-// Hierbei kann Calendar verwendet werden.
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-import java.util.Scanner;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
+import java.util.*;
 
 public class BirthdayKid {
 
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        String[] errorMessages = new String[]{
+                "Hasi, dein Geburtstag ist doch wohl hoffenlich eine Ganzzahl. Also gib gefälligst auch eine ein.",
+                "Mausi, willst du mich ärgern? Glaub mir, das klappt nicht. Schreib eine Ganzzahl hin!",
+                "Also. Ich erkläre das jetzt ganz leicht verständlich: Du schreibst die Antwort mit Zahlen. Die Dingsis auf deinem Nummernblock. Deal? Deal.",
+                "Ich will ja wirklich keine Capslock nutzen müssen, aber WEIẞT DU SCHON, was eine Ganzzahl ist?!?!?!"
+        };
         Calendar calendar = Calendar.getInstance();
 
         System.out.println("Bitte gib dein Geburtsdatum im Format 'Tag'.'Monat'.'Jahr' ein! Beispielsweise: 09.01.2011");
         String input = sc.nextLine();
         DateFormat dataformat = new SimpleDateFormat("dd.MM.yyyy");
-       System.out.println("Deine Eingabe war: " + input);
+        DateFormat dataformat2 = new SimpleDateFormat("EEEEEEEEE");
         try {
             Date parsedDate = dataformat.parse(input);
-            System.out.println("Das eingegebene Datum ist: " + dataformat.format(parsedDate));
+            System.out.println("Du hast das Datum " + dataformat.format(parsedDate) + " eingegeben.");
+            System.out.println("Dieses Datum war an einem " + dataformat2.format(parsedDate));
+
+            //getDayString(input);
         } catch (ParseException e) {
-            System.err.println("Hasi, dein Geburtstag besteht doch wohl hoffenlich aus Ganzzahlen. Also gib gefälligst auch welche ein."+e.getMessage());
+            int errorMessageIndex = new Random().nextInt(errorMessages.length);
+            System.out.println(errorMessages[errorMessageIndex]);
+          //  System.err.println("Hasi, dein Geburtstag besteht doch wohl hoffenlich aus Ganzzahlen. Also gib gefälligst auch welche ein." + e.getMessage());
         }
-        DateFormat dataformat2 = new SimpleDateFormat("EEEEEEEEEEE",new Locale("de-AT"));
-
-        System.out.println("Dein Geburtstag war an einem "+dataformat2);
-
     }
 }
