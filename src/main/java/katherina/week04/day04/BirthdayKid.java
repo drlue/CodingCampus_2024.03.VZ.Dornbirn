@@ -5,6 +5,12 @@ package katherina.week04.day04;
 // Als Ergebnis soll das Programm zurückgeben, an was für einem Wochentag der Geburtstag des Anwenders war.
 // Hierbei kann Calendar verwendet werden.
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class BirthdayKid {
@@ -12,27 +18,21 @@ public class BirthdayKid {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Calendar calendar = Calendar.getInstance();
 
-    }
-
-
-
-    public static int getNumberFromConsole(String message, int mindestwert, int maximalwert) {
-        System.out.print(message);
-        int date = Integer.MIN_VALUE;
-        while (date < mindestwert || date > maximalwert) {
-            while (!sc.hasNextInt()) {
-                System.out.println("Hasi, dein Geburtstag ist doch wohl hoffenlich eine Ganzzahl. Also gib gefälligst auch eine ein.");
-                sc.nextLine();
-                System.out.print(message);
-            }
-            date = sc.nextInt();
-            sc.nextLine();
-            if (date < mindestwert || date > maximalwert) {
-                System.out.printf("Ich bin weder ein Incel noch Excel, not everything is a date! Gib eine Zahl zwischen %d und %d ein.\n", mindestwert, maximalwert);
-                System.out.print(message);
-            }
+        System.out.println("Bitte gib dein Geburtsdatum im Format 'Tag'.'Monat'.'Jahr' ein! Beispielsweise: 09.01.2011");
+        String input = sc.nextLine();
+        DateFormat dataformat = new SimpleDateFormat("dd.MM.yyyy");
+       System.out.println("Deine Eingabe war: " + input);
+        try {
+            Date parsedDate = dataformat.parse(input);
+            System.out.println("Das eingegebene Datum ist: " + dataformat.format(parsedDate));
+        } catch (ParseException e) {
+            System.err.println("Hasi, dein Geburtstag besteht doch wohl hoffenlich aus Ganzzahlen. Also gib gefälligst auch welche ein."+e.getMessage());
         }
-        return date;
+        DateFormat dataformat2 = new SimpleDateFormat("EEEEEEEEEEE",new Locale("de-AT"));
+
+        System.out.println("Dein Geburtstag war an einem "+dataformat2);
+
     }
 }
