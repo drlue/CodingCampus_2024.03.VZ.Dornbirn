@@ -30,11 +30,9 @@ public class BirthdayKid {
             System.out.println("Du hast das Datum " + dataformat.format(parsedDate) + " eingegeben.");
             System.out.println("Dieses Datum war an einem " + dataformat2.format(parsedDate));
 
-            //getDayString(input);
         } catch (ParseException e) {
             int errorMessageIndex = new Random().nextInt(errorMessages.length);
             System.out.println(errorMessages[errorMessageIndex]);
-          //  System.err.println("Hasi, dein Geburtstag besteht doch wohl hoffenlich aus Ganzzahlen. Also gib gefälligst auch welche ein." + e.getMessage());
         }
     }
 }
