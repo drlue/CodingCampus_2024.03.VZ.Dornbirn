@@ -15,8 +15,10 @@ public class NextSunday {
 
         DateFormat dataformat = new SimpleDateFormat("EEEEEEEEE");
         DateFormat dataformat2 = new SimpleDateFormat("dd.MM.yyyy");
-        System.out.println("Der heutige Wochentag ist ein: "+dataformat.format(calendar.get(Calendar.DAY_OF_WEEK))+ " am " +dataformat2.format(today)+".");
+        System.out.println("Der heutige Wochentag ist ein: " + dataformat.format(calendar.get(Calendar.DAY_OF_WEEK)) + " am " + dataformat2.format(today) + ".");
         System.out.println("Wann ist der nächste Sonntag?");
+        calendar.add(Calendar.DAY_OF_WEEK, 1);
+
 
     }
 }
