@@ -17,9 +17,9 @@ public class BuchstabenZeahlen {
         for (int i = 0; i < lettercount.length(); i++) {
             count[lettercount.charAt(i)] += 1;
         }
-        for (int i = 0; i < count.length; i++) {
+        for (char i = 0; i < count.length; i++) {
             if (count[i] > 0) {
-                System.out.println("Zeichen: " + i + "Vorkommen:" + count[i]);
+                System.out.println("Zeichen: " + i + "  Vorkommen:" + count[i]);
             }
 
         }
