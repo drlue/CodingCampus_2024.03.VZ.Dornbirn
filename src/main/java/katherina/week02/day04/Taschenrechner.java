@@ -51,8 +51,8 @@ public class Taschenrechner {
             }
 
         }
-        while (antwort == true);
-        System.out.printf("Auf Wiedersehen!");
+        while (antwort);
+        System.out.print("Auf Wiedersehen!");
     }
 
     public static float zahlEinlesen(String message, float mindestwert, float maximalwert) {
