@@ -1,10 +1,17 @@
 package demian.week04.day02;
 
-import data.Texts;
+public class BuchstabeZaehlen {
 
-import java.util.Arrays;
+    //AUFGABE: In der folgenden Aufgabe sollen alle Buchstaben und Zeichen eines Texts gezählt werden.
+    // Den Text erhältst du über lukas.data.Texts.getSimpleText().
+    // Um die einzelnen Buchstaben und Zeichen zu zählen soll ein int[] verwendet werden.
+    // Der entsprechende char kann für das Array als Index verwendet werden.
+    // Gib am Schluss die Anzahl der einzelnen Zeichen (zb. A,a,ä,.) aus.
 
-public class BuchstabenZaehlen1 {
+    // Konsolenausgabe:
+    // A: 10
+    // B: 20
+    // C: 1
 
     public static void main(String[] args) {
 
