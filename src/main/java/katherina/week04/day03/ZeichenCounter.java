@@ -1,11 +1,5 @@
 package katherina.week04.day03;
 
-//Um die einzelnen Buchstaben und Zeichen zu zählen soll ein int[] verwendet werden.
-// Der entsprechende char kann für das Array als Index verwendet werden.
-// Gib am Schluss die Anzahl der einzelnen Zeichen (zb. A,a,ä,.) aus.
-
-import java.util.Arrays;
-
 import static data.Texts.getSimpleText;
 
 public class ZeichenCounter {
