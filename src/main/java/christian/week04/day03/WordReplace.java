@@ -87,8 +87,8 @@ public class WordReplace {
         for (int index = 0; index < count2; index++) {
             sentence2Array[index]=token2.nextToken();
         }
-        bubblesortWithStrings.sortStringArrayAlphabeticalUp(sentence1Array);
-        bubblesortWithStrings.sortStringArrayAlphabeticalUp(sentence2Array);
+        bubblesortWithStrings.sortStringArrayLengthDown(sentence1Array);
+        bubblesortWithStrings.sortStringArrayLengthDown(sentence2Array);
 
         for (int index1 = 0; index1 < sentence1Array.length; index1++) {
             for (int index2 = 0; index2 < sentence2Array.length; index2++) {
