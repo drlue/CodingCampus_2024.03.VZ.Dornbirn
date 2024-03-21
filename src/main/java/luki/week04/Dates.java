@@ -20,6 +20,7 @@ public class Dates {
         DateFormat format = new SimpleDateFormat("HH");
         System.out.println(format.format(inOneHourFromNow));
 
+        System.exit(0);
         //Stunde 0-23 : Minuten
         DateFormat format2 = new SimpleDateFormat("HH:mm");
         System.out.println(format2.format(inOneHourFromNow));
