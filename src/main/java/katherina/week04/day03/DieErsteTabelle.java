@@ -37,11 +37,11 @@ public class DieErsteTabelle {
     }
 
     public static String joins(String[] arr) {
-        String message = "|";
+        StringBuilder message = new StringBuilder("|");
         for (int index = 0; index < arr.length; index++) {
-            message += String.format("%25.25s", arr[index]+"|");
+            message.append(String.format("%25.25s", arr[index] + "|"));
         }
-        return message;
+        return message.toString();
     }
 
     public static String[] intToStringArray(int[] intArr) {
