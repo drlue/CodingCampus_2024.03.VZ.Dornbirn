@@ -8,12 +8,6 @@ public class StringRandomize {
     public static Scanner sc = new Scanner(System.in);
     static Random random = new Random();
 
-
-    //Es soll ein Wort über die Kommandozeile eingelesen werden, dieses die Buchstaben des Wortes sollen zufällig
-    // vertauscht werden und anschließend ausgegeben werden. Verwende hierfür text.toCharArray() für das Aufsplitten,
-    // erstelle ein neues char[], befülle es zufällig mit den Buchstaben des Wortes,
-    // füge es mittels new String(charArray) zusammen und gib es aus.
-
     public static void main(String[] args) {
         System.out.println("Willkommen zum Programm, das dir die Worte auf der Tastatur durcheinanderweht!");
         String text = getTextFromConsole("Bitte gib den Text ein, der vom Winde verweht werden soll:  ");
