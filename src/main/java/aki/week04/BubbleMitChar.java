@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class BubbleMitChar {
     public static void main(String[] args) {
-        String[] names = new String[]{"Samet", "Franco", "Demian", "Lukas", "Katherina", "Irem", "Ardijanla", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
+        String[] names = new String[]{"Samet", "Franco", "Demian", "Lukas", "Katherina", " Irem", "Ardijanla", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
 
         bubbleNamesSortByCharArray(names, 4);
         System.out.println(Arrays.toString(names));

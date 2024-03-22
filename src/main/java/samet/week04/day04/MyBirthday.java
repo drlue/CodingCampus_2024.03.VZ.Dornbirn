@@ -23,9 +23,9 @@ public class MyBirthday {
             Date parsedDate = format.parse(input);
             System.out.println("Your Birthday is: " + input + parsedDate);
 
-            System.out.println("Der Wochentag ist"+ weekday.format(parsedDate));
+            System.out.println("Der Wochentag ist " + weekday.format(parsedDate));
         } catch (ParseException e){
-            System.err.println("Die eingabe war ungültig!" +e.getMessage());
+            System.err.println("Die eingabe war ungültig! " +e.getMessage());
 
         }
 
