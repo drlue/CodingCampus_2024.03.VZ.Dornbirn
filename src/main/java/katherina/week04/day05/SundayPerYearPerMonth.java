@@ -1,4 +1,4 @@
-package katherina.week04;
+package katherina.week04.day05;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
