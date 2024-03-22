@@ -1,6 +1,6 @@
 package irem.week04;
 
-//NICHT FERTIG
+
 public class BuchstabenZeahlen {
 
 

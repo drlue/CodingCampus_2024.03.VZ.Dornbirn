@@ -9,7 +9,7 @@ public class HowManySunndaysPerMonth {
     public static void main(String[] args) {
 
         int year = 2024;
-        Month month = Month.APRIL;
+        Month month = Month.JUNE;
         int sundays = countSundays(year, month);
         System.out.println("Number of Sundays in " + year + " " + month + " " + sundays);
 

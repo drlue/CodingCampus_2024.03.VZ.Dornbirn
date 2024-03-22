@@ -33,7 +33,7 @@ public class ClassTesting {
         String normalizedString = weirdEmail.toLowerCase();
         printTesting(weirdEmail,normalizedString);
 
-
+        System.out.println("A".compareTo("C"));
 
     }
 
