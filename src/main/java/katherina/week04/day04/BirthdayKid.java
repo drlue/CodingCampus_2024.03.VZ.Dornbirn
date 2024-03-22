@@ -18,7 +18,8 @@ public class BirthdayKid {
                 "Mausi, willst du mich ärgern? Glaub mir, das klappt nicht. Schreib eine Ganzzahl hin!",
                 "Also. Ich erkläre das jetzt ganz leicht verständlich: Du schreibst die Antwort mit Zahlen. Die Dingsis auf deinem Nummernblock. Deal? Deal.",
                 "Ich will ja wirklich keine Capslock nutzen müssen, aber WEIẞT DU SCHON, was eine Ganzzahl ist?!?!?!",
-                "Du kämpfst wie eine schwangere Kuh! Äh, Moment, falsches Skript. Du sollst ein Datum eingeben! Siehe Beispiel!"
+                "Du kämpfst wie eine schwangere Kuh! Äh, Moment, falsches Skript. Du sollst ein Datum eingeben! Siehe Beispiel!",
+                "Tja, das hast du nun davon. Du musst das komplett neu starten wegen dieser Fehleingabe. Selber schuld."
         };
         Calendar calendar = Calendar.getInstance();
 
