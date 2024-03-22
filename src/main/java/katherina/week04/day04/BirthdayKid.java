@@ -3,9 +3,6 @@ package katherina.week04.day04;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.TextStyle;
 import java.util.*;
 
 public class BirthdayKid {
@@ -26,7 +23,7 @@ public class BirthdayKid {
         System.out.println("Bitte gib dein Geburtsdatum im Format 'Tag'.'Monat'.'Jahr' ein! Beispielsweise: 09.01.2011");
         String input = sc.nextLine();
         DateFormat dataformat = new SimpleDateFormat("dd.MM.yyyy");
-        DateFormat dataformat2 = new SimpleDateFormat("EEEEEEEEE");
+        DateFormat dataformat2 = new SimpleDateFormat("EEEE");
         try {
             Date parsedDate = dataformat.parse(input);
             System.out.println("Du hast das Datum " + dataformat.format(parsedDate) + " eingegeben.");
