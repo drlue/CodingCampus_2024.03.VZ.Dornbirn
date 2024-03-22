@@ -9,6 +9,7 @@ public class TicTacToeV2 {
         //Vorbereitung
         int[][] canvas;
         int[][] gameBoard = new int[size][size];
+        String[][] gameBoardUI = new String[size][size];
         int[] userArr = {0, 1, 2};
         String[] userStrings = {"x", "o"};
 
@@ -17,12 +18,12 @@ public class TicTacToeV2 {
         boolean isWinner = false;
         while (true) {
             //printArr(gameBoard);
-            printCanvas(gameBoardUI(gameBoard, userStrings));
+            printCanvas(updateGameBoardUI(gameBoard, userStrings));
             while (!isWinner && moveCounter < size * size) {
                 int user = moveCounter % 2 == 0 ? 1 : 2;
                 int[] lastPos = makeMove(user, gameBoard);
                 //printArr(gameBoard);
-                printCanvas(gameBoardUI(gameBoard, userStrings));
+                printCanvas(updateGameBoardUI(gameBoard, userStrings));
                 isWinner = checkWinnerV3(user, lastPos, gameBoard);
                 if (isWinner) {
                     System.out.println("Spieler " + user + " gewinnt");
@@ -70,7 +71,6 @@ public class TicTacToeV2 {
             } else {
                 System.out.println("Feld bereits belegt!");
             }
-
         }
     }
 
@@ -135,11 +135,10 @@ public class TicTacToeV2 {
             for (int j = 0; j < gameBoard[0].length; j++) {
                 gameBoard[i][j] = 0;
             }
-
         }
     }
 
-    public static String[][] gameBoardUI(int[][] gameBoard, String[] userStrings) {
+    public static String[][] updateGameBoardUI(int[][] gameBoard, String[] userStrings) {
         String[][] gameBoardUI = new String[size][size];
         for (int i = 0; i < gameBoard.length; i++) {
             for (int j = 0; j < gameBoard[i].length; j++) {

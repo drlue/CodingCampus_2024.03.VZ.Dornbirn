@@ -1,6 +1,6 @@
 package demian.week03.day02;
 
-import demian.week02.day02.Scanner;
+import demian.week02.day02.ScannerUebung;
 
 import java.util.Random;
 
@@ -17,12 +17,12 @@ public class Array2D {
 
 
         System.out.println("Summe einer Spalte oder Reihe bilden:");
-        int rowORcol = Scanner.getINT("Wählen Sie ob sie die Summe einer Spalte oder Reihe möchten.\n1 für Reihe\n2 für Spalte\nAuswahl==>", 1, 2);
+        int rowORcol = ScannerUebung.getINT("Wählen Sie ob sie die Summe einer Spalte oder Reihe möchten.\n1 für Reihe\n2 für Spalte\nAuswahl==>", 1, 2);
         if (rowORcol == 1) {
-            int choosenRow = Scanner.getINT("Wählen sie welche Reihe summiert werden soll:", 0, array.length-1);
+            int choosenRow = ScannerUebung.getINT("Wählen sie welche Reihe summiert werden soll:", 0, array.length-1);
             System.out.println("Die Summe der Reihe " + choosenRow + " = " + sumOFrow(array, choosenRow));
         } else {
-            int choosenCol = Scanner.getINT("Wählen sie welche Spalte summiert werden soll:", 0, array[0].length-1);
+            int choosenCol = ScannerUebung.getINT("Wählen sie welche Spalte summiert werden soll:", 0, array[0].length-1);
             System.out.println("Die Summe der Spalte " + choosenCol + " = " + sumOFcol(array, choosenCol));
         }
 

@@ -1,0 +1,31 @@
+package franco.week04;
+import java.util.Scanner;
+
+
+public class StringClass {
+    public static Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+
+        System.out.println("abc");
+        String cde = "cde";
+        System.out.println("abc" + cde);
+        //substring is a method
+        String c = "abc".substring(2, 3);
+        String d = cde.substring(1, 2);
+        System.out.println(c);
+        System.out.println(d);
+
+        //Aufgabe string class
+        System.out.println("Enter String 1:");
+        String word = scan.next();
+        System.out.println("Enter String 2:");
+        String word2 = scan.nextLine();
+        System.out.println("== " + (word == word2));
+        System.out.println("equals " + (word.equals(word2)));
+
+
+    }
+
+}

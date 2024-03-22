@@ -1,4 +1,4 @@
-package katherina.week03.day04;
+package katherina.week03.day04.day01;
 
 import java.util.Random;
 

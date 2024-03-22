@@ -1,6 +1,10 @@
 package lukas;
 
 import java.sql.SQLOutput;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Helper {
@@ -19,15 +23,14 @@ public class Helper {
         return sc.nextLine();
     }
 
-    public static char readCharFromConsole(String message){
+    public static char readCharFromConsole(String message) {
 
-        while(true) {
+        while (true) {
             System.out.println(message);
             String inputString = sc.nextLine();
-            if (inputString.length()==1) {
+            if (inputString.length() == 1) {
                 return inputString.charAt(0);
-            }
-            else {
+            } else {
                 System.out.println("Nur 1 Zeichen erlaubt");
             }
         }
@@ -101,6 +104,23 @@ public class Helper {
 
     }
 
+    public static Date readDateFromConsole(String message) {
+        Date date = new Date();
+        boolean isValidDate = false;
+        while (!isValidDate) {
+            System.out.println(message);
+            String input = sc.nextLine();
+            DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+            try {
+                date = (!input.equals("")) ? df.parse(input) : date;
+                isValidDate = true;
+            } catch (ParseException e) {
+                System.out.println("Eingegebenes Datum nicht gültig!");
+            }
+        }
+        return date;
+    }
+
     public static boolean isYes(String answer) {
         boolean result = false;
         boolean answerOk = false;
@@ -119,18 +139,18 @@ public class Helper {
     }
 
     public static String regexDoubleString =
-            "^"+ // accept only if it matches the beginning of the string
-            "(-?)"+ // accept a single optional negation
-            "(0|([1-9][0-9]*))"+ // number is either zero or some integer that does not start with zero
-            "("+ // begin optional decimals
-            "\\."+ // require a dot
-            "[0-9]+"+ // any digit is fine, but at least one (std::atof does not require but chrome requires digits after dot)
-            ")?"+ // end optional decimals
-            "("+ // begin optional scientific exponent
-            "[eE]"+ // require an e or E
-            "[-+]?"+ // accept optional plus or minus
-            "[0-9]+"+ // any digit is fine (tested in chrome JSON.parse(1E000003) works)
-            ")?"+ // end optional scientific exponent
-            "$" // accept only if it matches up to the end of the string
-    ;
+            "^" + // accept only if it matches the beginning of the string
+                    "(-?)" + // accept a single optional negation
+                    "(0|([1-9][0-9]*))" + // number is either zero or some integer that does not start with zero
+                    "(" + // begin optional decimals
+                    "\\." + // require a dot
+                    "[0-9]+" + // any digit is fine, but at least one (std::atof does not require but chrome requires digits after dot)
+                    ")?" + // end optional decimals
+                    "(" + // begin optional scientific exponent
+                    "[eE]" + // require an e or E
+                    "[-+]?" + // accept optional plus or minus
+                    "[0-9]+" + // any digit is fine (tested in chrome JSON.parse(1E000003) works)
+                    ")?" + // end optional scientific exponent
+                    "$" // accept only if it matches up to the end of the string
+            ;
 }

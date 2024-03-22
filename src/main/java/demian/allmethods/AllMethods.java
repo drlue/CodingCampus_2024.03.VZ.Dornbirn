@@ -1,7 +1,5 @@
 package demian.allmethods;
 
-import demian.week02.day02.Scanner;
-
 import java.util.Random;
 
 
@@ -217,7 +215,7 @@ public class AllMethods {
 
     public static int getINT(String messageTOuser, int minVAL, int maxVAL) {
         int result = Integer.MIN_VALUE;
-        String txt = "";
+        String txt;
         while (result == Integer.MIN_VALUE) {
             try {
                 System.out.print(messageTOuser);
@@ -240,6 +238,19 @@ public class AllMethods {
     /////////////////////////////////////////
     /////////////////////////////////////////
     /////////////////////////////////////////
+
+
+    // Durchsucht den String Array und gibt die kürzeste String Länge als integer zurück
+    public static int minLength (String[] arr){
+        int minLength = Integer.MAX_VALUE;
+        for (int idx = 0; idx < arr.length - 1; idx++) {
+            if (arr[idx].length() < minLength ){
+                minLength = arr[idx].length();
+            }
+        }
+        return minLength;
+    }
+
 
     public static int[][] random2DArray(int rows, int cols, int randomNUMbound) {
         Random random = new Random();
@@ -297,5 +308,7 @@ public class AllMethods {
         }
         System.out.println();
     }
+
+
 
 }
