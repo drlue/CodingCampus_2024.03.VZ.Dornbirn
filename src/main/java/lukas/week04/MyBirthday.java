@@ -75,10 +75,11 @@ public class MyBirthday {
 //        }
 
         int dayIndex = (dayNr+7-firstDayNr) % 7;
-        //firstDay = 2 -> (dayNr + 5) % 7
+        // dayNr = 1:  (7+1-2) = 6 % 7 = 6  DayOfWeek.values()[6] = SUNDAY
+        // dayNr = 2:  (7+2-2) = 7 % 7 = 0  DayOfWeek.values()[0] = MONDAY
+
         System.out.println(dayIndex);
         return DayOfWeek.values()[dayIndex].getDisplayName(TextStyle.FULL, Locale.GERMAN);
-
     }
 
 
