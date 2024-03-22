@@ -22,7 +22,7 @@ public class WhenIsSunday {
 
         System.out.println("Das Datum des nächsten Sonntags ist: " +
                 calendar.get(Calendar.DAY_OF_MONTH) + "." +
-                (calendar.get(Calendar.MONTH) + 1) + "." + // Monat ist 0-basiert
+                (calendar.get(Calendar.MONTH) + 1) + "." +
                 calendar.get(Calendar.YEAR));
     }
 }
