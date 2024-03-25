@@ -14,13 +14,13 @@ public class ArrayZaehlenMitGeradenZahlen {
     }
 
     public static int countEven(int[] arr){
-        int result = 0;
+        int count = 0;
         for (int i = 0; i < arr.length ; i++) {
             if (arr[i] % 2 == 0){
-                ++result;
+                ++count;
             }
         }
-        return result;
+        return count;
     }
     public static int[] createRandomArrayZaehlen(int size) {
         int[] arr = new int[size];
