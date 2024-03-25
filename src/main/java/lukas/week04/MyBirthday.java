@@ -3,7 +3,11 @@ package lukas.week04;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
 import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Date;
@@ -16,13 +20,27 @@ public class MyBirthday {
     public static void main(String[] args) {
 
         Date myDate = getInputDate();
-        String prefix = "Der " + (new SimpleDateFormat("dd.MM.yyyy").format(myDate)) + " war ein";
+        String myDateString = new SimpleDateFormat("dd.MM.yyyy").format(myDate);
+        String prefix = "Der " + myDateString + " war ein";
         //Version 1
         System.out.println(prefix + " " + getDayOfWeek(myDate) + ".");
         //Version 2
         System.out.println(prefix + " " + getDayOfWeekCalendar(myDate) + ".");
         //Version 3
         System.out.println(prefix + " " + getDayOfWeekWithTimeClass(myDate) + ".");
+
+        //*******************************************************
+        //
+        //          variants mit LocalDate
+        //
+        //*******************************************************
+
+        LocalDate myLocalDate = getLocalDate(myDateString);
+        System.out.println("=".repeat(30) + "  Ausgabe mit LocalDate  " + "=".repeat(30));
+        System.out.println(prefix + " " + getDayOfWeekLd(myLocalDate));
+        System.out.println(prefix + " " + getDayOfWeekLdV2(myLocalDate));
+
+
 
     }
 
@@ -64,23 +82,57 @@ public class MyBirthday {
         cal.setTime(date);
         int dayNr = cal.get(Calendar.DAY_OF_WEEK);
         int firstDayNr = cal.getFirstDayOfWeek();
-        System.out.println(dayNr + " und erster Tag = " + firstDayNr);
+        //System.out.println(dayNr + " und erster Tag = " + firstDayNr);
 
-        //Problem: DayOfWeekEnum beginnt mit Montag, aber DAY_OF_WEEK (Sunday = 1)
-//        int dayIndex = 0;
-//        if (dayNr > firstDayNr) {
-//            dayIndex = dayNr - firstDayNr;
-//        } else {
-//            dayIndex = 7 - firstDayNr + dayNr;
-//        }
 
-        int dayIndex = (dayNr+7-firstDayNr) % 7;
+        int dayIndex = (dayNr + 7 - firstDayNr) % 7;
         // dayNr = 1:  (7+1-2) = 6 % 7 = 6  DayOfWeek.values()[6] = SUNDAY
         // dayNr = 2:  (7+2-2) = 7 % 7 = 0  DayOfWeek.values()[0] = MONDAY
 
-        System.out.println(dayIndex);
+        //System.out.println(dayIndex);
         return DayOfWeek.values()[dayIndex].getDisplayName(TextStyle.FULL, Locale.GERMAN);
     }
 
 
+    //********************************************************************
+    //
+    // LocalDate - LocalTime - LocalDateTime
+    //
+    //********************************************************************
+
+
+
+    public static LocalDate getLocalDate(String input) {
+        LocalDate ld = null;
+        boolean isValidDate = false;
+
+        while (!isValidDate) {
+            if(input == null) {
+                System.out.println("LocalDateParser: Gib dein Geburtsdatum ein (zB: 10.04.1977) >>>");
+                input = sc.nextLine();
+            }
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            try {
+                ld = LocalDate.parse(input, dtf);
+                isValidDate = true;
+            } catch (DateTimeException e) {
+                System.out.println("Eingegebenes Datum nicht gültig!");
+                input = null;
+            }
+        }
+        return ld;
+    }
+
+    public static String getDayOfWeekLd(LocalDate localDate) {
+        return localDate.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.GERMAN);
+    }
+
+    public static String getDayOfWeekLdV2(LocalDate localdDate){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("EEEE");
+        return dtf.format(localdDate);
+    }
+
 }
+
+
+
