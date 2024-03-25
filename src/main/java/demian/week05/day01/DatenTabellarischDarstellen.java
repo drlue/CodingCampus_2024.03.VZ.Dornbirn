@@ -31,7 +31,7 @@ public class DatenTabellarischDarstellen {
 
     public static void printTABLE(String[] vornamenARRAY, String[] nachnamenARRAY, int[] alterARRAY, String[] ortARRAY, float[] abstandZUcapitalARRAY) {
         for (int row = 0; row < 5; row++) {
-            System.out.printf("| %-15s | %-15s | %-9d | %-15s | %28f |\n" , vornamenARRAY[row], nachnamenARRAY[row], alterARRAY[row], ortARRAY[row], abstandZUcapitalARRAY[row]);
+            System.out.printf("| %-15s | %-15s | %4d J.   | %15s | %17f km         |\n" , vornamenARRAY[row], nachnamenARRAY[row], alterARRAY[row], ortARRAY[row], abstandZUcapitalARRAY[row]);
         }
     }
 
