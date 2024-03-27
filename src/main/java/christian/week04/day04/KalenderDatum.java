@@ -3,7 +3,10 @@ package christian.week04.day04;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalUnit;
 import java.util.Calendar;
@@ -21,8 +24,9 @@ public class KalenderDatum {
 //        System.out.println(Tag);
 //        geburtstagsTagAusgebenWithCalendarClass();
 //        System.out.println(wannIstSontag());
-//        System.out.println(wievieleSonntageInMonatX(2021, 10));
-        Example();
+        System.out.println(wievieleSonntageInMonatX(2021, 9));
+        System.out.println(wievieleArbeitsTageInJahrUndMonatX(2024, 3));
+
     }
 
     public static void wannUndWo() {
@@ -142,61 +146,63 @@ public class KalenderDatum {
         int sum = 0;
 
         Calendar kalender = Calendar.getInstance();
-        kalender.set(jahr, monat, 1);
 
-        while (kalender.get(Calendar.DAY_OF_MONTH) < kalender.getMaximum(Calendar.DAY_OF_MONTH)) {
-            kalender.add(Calendar.DAY_OF_MONTH, 1);
-            if (kalender.get(Calendar.DAY_OF_MONTH) == Calendar.SUNDAY) {
+        kalender.set(jahr, monat - 1, 1);
+
+        while (kalender.get(Calendar.MONTH) == monat - 1) {
+
+            if (kalender.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
                 sum += 1;
             }
+            kalender.add(Calendar.DAY_OF_MONTH, 1);
         }
 
         return sum;
     }
-    public static void Example() {
-        // creating Calendar object
-        Calendar calendar = Calendar.getInstance();
 
-        // Program to demonstrate get() method
-        // of Calendar class
-        System.out.println("Current Calendar's Year: " + calendar.get(Calendar.YEAR));
-        System.out.println("Current Calendar's Day: " + calendar.get(Calendar.DATE));
-        System.out.println("Current MINUTE: " + calendar.get(Calendar.MINUTE));
-        System.out.println("Current SECOND: " + calendar.get(Calendar.SECOND));
+    public static int wievieleArbeitsTageInJahrUndMonatX(int jahr, int monat) {
+        int sumOfWorkdays = 0;
+        LocalDate datum = LocalDate.of(jahr, monat, 1);
+        while (datum.getMonthValue() == monat) {
+            if (datum.getDayOfWeek().getValue() < 6) {
+                sumOfWorkdays += 1;
+            }
+            datum = datum.plusDays(1);
 
-
-        // Program to demonstrate getMaximum() method
-        // of Calendar class
-        System.out.println();
-        int max = calendar.getMaximum(Calendar.DAY_OF_WEEK);
-        System.out.println("Maximum number of days in a week: " + max);
-
-        max = calendar.getMaximum(Calendar.WEEK_OF_YEAR);
-        System.out.println("Maximum number of weeks in a year: " + max);
-
-
-        // Program to demonstrate getMinimum() method
-        // of Calendar class
-        System.out.println();
-        int min = calendar.getMinimum(Calendar.DAY_OF_WEEK);
-        System.out.println("Minimum number of days in week: " + min);
-
-        min = calendar.getMinimum(Calendar.WEEK_OF_YEAR);
-        System.out.println("Minimum number of weeks in year: " + min);
-
-
-        // Program to demonstrate add() method
-        // of Calendar class
-        System.out.println();
-        calendar.add(Calendar.DATE, -15);
-        System.out.println("15 days ago: " + calendar.getTime());
-        calendar.add(Calendar.MONTH, 4);
-        System.out.println("4 months later: " + calendar.getTime());
-        calendar.add(Calendar.YEAR, 2);
-        System.out.println("2 years later: " + calendar.getTime());
-
+        }
+        return sumOfWorkdays;
     }
+
+
+    public static LocalDate datumEingabe() {
+
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        System.out.println("Gib dein Geburtsdatum in folgendem Format ein: 31.12.2020");
+        Scanner sc = new Scanner(System.in);
+        boolean valid = false;
+        LocalDate geburtsDatum = null;
+
+        while (!valid) {
+
+            try {
+                String userInput = sc.nextLine();
+                geburtsDatum = LocalDate.parse(userInput, dateFormat);
+            }
+            catch(DateTimeParseException dtpe)
+            {
+                System.out.println("Bitte gib das Datum im korrekten Format ein!");
+            }
+        }
+        return geburtsDatum;
+    }
+
+//    public static int alterInTagen(Date datum) {
+//
+//    }
+
+
 }
+
 //Date t = new Date();
 ////t.getYear()
 //

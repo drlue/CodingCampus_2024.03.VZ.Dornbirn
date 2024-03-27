@@ -4,6 +4,10 @@ import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -108,7 +112,7 @@ public class Helper {
         Date date = new Date();
         boolean isValidDate = false;
         while (!isValidDate) {
-            System.out.println(message);
+            System.out.print(message);
             String input = sc.nextLine();
             DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
             try {
@@ -120,6 +124,24 @@ public class Helper {
         }
         return date;
     }
+
+    public static LocalDate readLocaleDateFromConsole(String message) {
+        LocalDate ld = null;
+        boolean isValidDate = false;
+        while (!isValidDate) {
+            System.out.print(message);
+            String input = sc.nextLine();
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+            try {
+                ld = LocalDate.parse(input, dtf);
+                isValidDate = true;
+            } catch (DateTimeException e) {
+                System.out.println("Eingegebenes Datum nicht gültig!");
+            }
+        }
+        return ld;
+    }
+
 
     public static boolean isYes(String answer) {
         boolean result = false;

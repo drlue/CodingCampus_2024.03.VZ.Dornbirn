@@ -8,7 +8,7 @@ public class BubbleSortWithStringExtended {
 
     public static void main(String[] args) {
 
-        String names[] = {"Samet", "Franco", "Demian", "Lukas", "Katherina", "Irem", "Ardijan", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
+        String names[] = {"Samet", "Franco", "Demian", "Lukas", "Katherina", " Irem", "Ardijan", "Aki", "Luki", "Sandro", "Berna", "Gyula"};
         System.out.println(Arrays.toString(names));
         System.out.println(Arrays.toString(bubblesortStringExtended(names, true)));
         System.out.println(Arrays.toString(bubblesortStringExtended(names, false)));

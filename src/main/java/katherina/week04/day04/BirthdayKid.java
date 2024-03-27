@@ -3,9 +3,6 @@ package katherina.week04.day04;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.TextStyle;
 import java.util.*;
 
 public class BirthdayKid {
@@ -18,14 +15,15 @@ public class BirthdayKid {
                 "Mausi, willst du mich ärgern? Glaub mir, das klappt nicht. Schreib eine Ganzzahl hin!",
                 "Also. Ich erkläre das jetzt ganz leicht verständlich: Du schreibst die Antwort mit Zahlen. Die Dingsis auf deinem Nummernblock. Deal? Deal.",
                 "Ich will ja wirklich keine Capslock nutzen müssen, aber WEIẞT DU SCHON, was eine Ganzzahl ist?!?!?!",
-                "Du kämpfst wie eine schwangere Kuh! Äh, Moment, falsches Skript. Du sollst ein Datum eingeben! Siehe Beispiel!"
+                "Du kämpfst wie eine schwangere Kuh! Äh, Moment, falsches Skript. Du sollst ein Datum eingeben! Siehe Beispiel!",
+                "Tja, das hast du nun davon. Du musst das komplett neu starten wegen dieser Fehleingabe. Selber schuld."
         };
         Calendar calendar = Calendar.getInstance();
 
         System.out.println("Bitte gib dein Geburtsdatum im Format 'Tag'.'Monat'.'Jahr' ein! Beispielsweise: 09.01.2011");
         String input = sc.nextLine();
         DateFormat dataformat = new SimpleDateFormat("dd.MM.yyyy");
-        DateFormat dataformat2 = new SimpleDateFormat("EEEEEEEEE");
+        DateFormat dataformat2 = new SimpleDateFormat("EEEE");
         try {
             Date parsedDate = dataformat.parse(input);
             System.out.println("Du hast das Datum " + dataformat.format(parsedDate) + " eingegeben.");

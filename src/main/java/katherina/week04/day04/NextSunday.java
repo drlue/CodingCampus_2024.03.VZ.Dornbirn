@@ -1,14 +1,11 @@
 package katherina.week04.day04;
 
-//Aufgabe: Wann ist Sonntag?
-//Erstelle eine neue Calendar Instanz und gib das Datum des nächsten Sonntags aus.
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import static java.util.Calendar.DAY_OF_MONTH;
 import static java.util.Calendar.DAY_OF_WEEK;
 
 public class NextSunday {

@@ -2,13 +2,14 @@ package lukas.week04;
 
 import java.time.format.TextStyle;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class CountSundaysOfMonth {
     public static void main(String[] args) {
         int year = 2024;
         int month = 3;
-        String monthName = java.time.Month.values()[month].getDisplayName(TextStyle.FULL, Locale.GERMAN);
+        String monthName = java.time.Month.values()[month-1].getDisplayName(TextStyle.FULL, Locale.GERMAN);
         System.out.println("Anzahl Sonntage im Monat " + monthName + " " + year+":");
         System.out.println(getSundays(year, month));
     }
