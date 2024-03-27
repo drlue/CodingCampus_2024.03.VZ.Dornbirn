@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -21,22 +22,28 @@ public class WanndUNDwo {
         // Datum und Uhrzeit mit Zeitzone
         // Die aktuelle Sekunde mit Millisekunde
 
-
+        //Oldschool:
 //        Date now = new Date();
 //        System.out.println(now);
 //        DateFormat onlydate = new SimpleDateFormat("dd.MM.yyyy");
 //        System.out.println(onlydate.format(now));
 
-        LocalDateTime now = LocalDateTime.now();
+        ZonedDateTime now = ZonedDateTime.now();
         System.out.println("Standard Ausgabeformat: " + now);
+        //Nur das Datum
         DateTimeFormatter formatONLYdate = DateTimeFormatter.ofPattern("dd.\nMM.\nyyyy");
         System.out.println("Datum:\n" + formatONLYdate.format(now));
-
+        // Nur die Uhrzeit
         DateTimeFormatter formatONLYtime = DateTimeFormatter.ofPattern("HH:\nmm:\nss");
         System.out.println("\nUhrzeit:\n" + formatONLYtime.format(now));
-
+        // Datum und Uhrzeit
         DateTimeFormatter formatDATEandTIME = DateTimeFormatter.ofPattern("dd.MM.yyyy\nHH:mm:ss");
         System.out.println("\nDatum und Uhrzeit:\n" + formatDATEandTIME.format(now));
+        // Datum und Uhrzeit mit Zeitzone
+        DateTimeFormatter formatDATEandTIMEandTZ = DateTimeFormatter.ofPattern("dd.MM.yyyy\nHH:mm:ss\n");
+        System.out.println("\nDatum, Zeit und Zeitzone:\n" + formatDATEandTIMEandTZ.format(now));
+
+
 
         //MULTITHREAD BEISPIEL VON LUKAS:
 //        Calendar c = Calendar.getInstance();
