@@ -241,10 +241,10 @@ public class AllMethods {
 
 
     // Durchsucht den String Array und gibt die kürzeste String Länge als integer zurück
-    public static int minLength (String[] arr){
+    public static int minLength(String[] arr) {
         int minLength = Integer.MAX_VALUE;
         for (int idx = 0; idx < arr.length - 1; idx++) {
-            if (arr[idx].length() < minLength ){
+            if (arr[idx].length() < minLength) {
                 minLength = arr[idx].length();
             }
         }
@@ -275,14 +275,15 @@ public class AllMethods {
         }
     }
 
-    public static int sumOFrow(int[][] array, int row){
+    public static int sumOFrow(int[][] array, int row) {
         int sum = 0;
         for (int idx = 0; idx < array[0].length; idx++) {
             sum += array[row][idx];
         }
         return sum;
     }
-    public static int sumOFcol(int[][] array, int col){
+
+    public static int sumOFcol(int[][] array, int col) {
         int sum = 0;
         for (int idx = 0; idx < array.length; idx++) {
             sum += array[idx][col];
@@ -301,7 +302,7 @@ public class AllMethods {
     }
 
     // PRINT COLUMN NAMES OVER ARRAY
-    public static void printARRAYheader(int[][] array){
+    public static void printARRAYheader(int[][] array) {
         System.out.print("    ");
         for (int col = 0; col < array[0].length; col++) {
             System.out.printf("|C" + col + "|  ");
@@ -309,6 +310,15 @@ public class AllMethods {
         System.out.println();
     }
 
+    public static int giveBackLongestLength(String[] stringarray) {
+        int longest = 0;
+        for (String element : stringarray) {
+            if (element.length() > longest) {
+                longest = element.length();
+            }
+        }
+        return longest;
+    }
 
 
 }
