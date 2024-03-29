@@ -112,7 +112,7 @@ public class Helper {
         Date date = new Date();
         boolean isValidDate = false;
         while (!isValidDate) {
-            System.out.println(message);
+            System.out.print(message);
             String input = sc.nextLine();
             DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
             try {
@@ -129,7 +129,7 @@ public class Helper {
         LocalDate ld = null;
         boolean isValidDate = false;
         while (!isValidDate) {
-            System.out.println(message);
+            System.out.print(message);
             String input = sc.nextLine();
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy");
             try {

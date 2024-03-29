@@ -1,17 +1,31 @@
 package lukas.week04;
 
+import java.time.DateTimeException;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.util.Locale;
 
 public class CountWorkdaysLdt {
 
     public static void main(String[] args) {
 
-        int year = 2024;
-        int month = 3;
-        System.out.println("");
+        int year = 2021;
+        int month = 2;
+
+        //Validate month
+        //month = (month % 12 == 0) ? 12 : month % 12;
+
+        if (month < 1 || month > 12 || year > Math.abs(999999999)) {
+            System.out.println("Jahr oder Monat groesser als erlaubt");
+        }
+
+        else {
+            String monthString = LocalDate.of(year, month, 1).getMonth().getDisplayName(TextStyle.FULL, Locale.GERMAN);
+            System.out.printf("Anzahl Werktage %s %s: %3d\n", monthString, year, getWorkdays(year, month));
+        }
+
 
     }
 
