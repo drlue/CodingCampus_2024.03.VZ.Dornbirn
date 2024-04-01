@@ -42,7 +42,9 @@ public class WanndUNDwo {
         // Datum und Uhrzeit mit Zeitzone
         DateTimeFormatter formatDATEandTIMEandTZ = DateTimeFormatter.ofPattern("dd.MM.yyyy\nHH:mm:ss\n");
         System.out.println("\nDatum, Zeit und Zeitzone:\n" + formatDATEandTIMEandTZ.format(now));
-
+        // Die aktuelle Sekunde mit Millisekunden
+        DateTimeFormatter formatSecondsandMillisconds = DateTimeFormatter.ofPattern(("ss:SSS"));
+        System.out.println("Atuelle Sekunde und Millisekunden: " + formatSecondsandMillisconds.format(now));
 
 
         //MULTITHREAD BEISPIEL VON LUKAS:
