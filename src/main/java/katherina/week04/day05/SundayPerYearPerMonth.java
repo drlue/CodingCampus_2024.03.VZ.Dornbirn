@@ -28,8 +28,19 @@ public class SundayPerYearPerMonth {
         int y = month;
         LocalDate start = LocalDate.now().withMonth(y).withYear(x);{
             System.out.println("Du willst also wissen, wie viele Sonntage es im "+start.format(DateTimeFormatter.ofPattern("MMMM yyyy G"))+" gibt. Interessant!");
-        }
 
+            int daysPerMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+            int sundayCount = 0;
+
+            for (int day = 1; day <=daysPerMonth ; day++) {
+                calendar.set(year, month, day);
+                if (calendar.get(Calendar.DAY_OF_MONTH) == Calendar.SUNDAY) {
+                    sundayCount++;
+                }
+            }
+            System.out.println("Es gibt "+sundayCount + "Sonntage im "+start.format(DateTimeFormatter.ofPattern("MMMM yyyy G"))+" !");
+
+        }
 
 
     }
