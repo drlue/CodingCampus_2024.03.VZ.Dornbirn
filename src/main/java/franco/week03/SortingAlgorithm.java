@@ -7,22 +7,24 @@ public class SortingAlgorithm {
     public static void main(String[] args) {
         //create an array with random number for test
 
-        int[] numbers = new int[100];
+        int[] numbers = new int[10];
         Random random = new Random();
         for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = random.nextInt(1000);
+            numbers[i] = random.nextInt(100);
         }
-       // System.out.println("original array\n" + Arrays.toString(numbers));
+        System.out.println("original array\n" + Arrays.toString(numbers));
         // selectionSort(numbers);
         //bubbleSort(numbers);
 
-        //System.out.println(Arrays.toString(numbers));
+        mergeSort(numbers);
+
+        System.out.println(Arrays.toString(numbers));
         //  System.out.println("sort array");
         //Check the time in ms.
-        long start= System.currentTimeMillis();
-        quickSort(numbers,0, numbers.length-1);
-        long end =System.currentTimeMillis();
-        System.out.println("Runtime:  " + (end -start) + "ms");
+        long start = System.currentTimeMillis();
+        quickSort(numbers, 0, numbers.length - 1);
+        long end = System.currentTimeMillis();
+        System.out.println("Runtime:  " + (end - start) + "ms");
         //System.out.println(Arrays.toString(numbers));
 
     }
@@ -96,7 +98,7 @@ public class SortingAlgorithm {
 
     public static void bubbleSort(int[] array) {
         int count = 0;
-       // int swapped = 0;
+        // int swapped = 0;
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - i - 1; j++) {
                 count++;
@@ -107,7 +109,62 @@ public class SortingAlgorithm {
                     swap(array, j, j + 1);
                 }
             }
-           // System.out.println(Arrays.toString(array) + "count " + count);
+            // System.out.println(Arrays.toString(array) + "count " + count);
         }
     }
+
+    public static void mergeSort(int[] inputArray) {
+        int lengthOfArray = inputArray.length;
+        //when 1 one element left
+        if (lengthOfArray < 2) {
+            return;
+        }
+        int midIndex = lengthOfArray / 2;
+        int[] leftHalf = new int[midIndex];
+        int[] rightHalf = new int[lengthOfArray - midIndex];//to get accurate half with odd elements array
+        for (int i = 0; i < midIndex; i++) {
+            leftHalf[i] = inputArray[i];
+        }
+        for (int i = midIndex; i < lengthOfArray; i++) {
+            //in oder to restart at index zero
+            rightHalf[i - midIndex] = inputArray[i];
+        }
+        mergeSort(leftHalf);
+        mergeSort(rightHalf);
+        merge(inputArray,leftHalf,rightHalf);
+    }
+
+    public static void merge(int[] inputArray, int[] leftHalf, int[] rightHalf) {
+        int leftSize = leftHalf.length;
+        int rightSize = rightHalf.length;
+        //Iterator
+        //i will run through the leftArray
+        //j will run through the rightArray
+        //k will run through the final merge array
+        int i = 0, j = 0, k = 0;
+        //looping until we run out of element in both left and right array
+        while (i < leftSize && j < rightSize) {
+
+            if(leftHalf[i]<=rightHalf[j]){
+                inputArray[k]=leftHalf[i];
+                i++;
+            }
+            else{
+                inputArray[k]=rightHalf[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<leftSize){
+            inputArray[k]=leftHalf[i];
+            i++;
+            k++;
+        }
+        while(j<rightSize){
+            inputArray[k]=rightHalf[j];
+            j++;
+            k++;
+        }
+    }
+
 }

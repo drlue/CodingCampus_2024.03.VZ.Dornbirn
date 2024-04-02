@@ -19,11 +19,23 @@ public class StringClass {
 
         //Aufgabe string class
         System.out.println("Enter String 1:");
-        String word = scan.next();
+        String word = scan.nextLine();
         System.out.println("Enter String 2:");
         String word2 = scan.nextLine();
         System.out.println("== " + (word == word2));
         System.out.println("equals " + (word.equals(word2)));
+        Integer number= 2;
+        int number2=2;
+        System.out.println(number.equals(number2));
+
+
+
+        String newText= "unconditionally";
+        int codePoint = newText.codePointAt(2);
+        System.out.println(codePoint);
+
+
+
 
 
     }

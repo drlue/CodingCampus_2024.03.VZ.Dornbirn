@@ -39,6 +39,16 @@ public class TwoDimensionArray {
 
     }
 
+    public static void print2DStringArray(String [][]array){
+        for(String[]row:array){
+            System.out.print("[ ");
+            for(String value:row){
+                System.out.print(value+" ");
+            }
+            System.out.println("]");
+        }
+    }
+
     public static int sumOfRow(int[][] array, int selectedRow) {
         //declare and initialize a sum integer
         int sumRow = 0;

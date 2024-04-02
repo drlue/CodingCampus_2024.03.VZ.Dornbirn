@@ -9,9 +9,9 @@ public class WorkDays {
 
 
         int year = 2024;
-        Month month = Month.JANUARY;
+        Month month = Month.FEBRUARY;
         int workDays = countWorkdays(year, month);
-        System.out.println("Number of Workdays in:" + year +" "+ month);
+        System.out.println("Number of Workdays in:" + year +" "+ month + " = " + workDays);
 
     }
 
@@ -20,8 +20,15 @@ public class WorkDays {
         int workdays = 0;
         LocalDate date = LocalDate.of(year, month,1);
 
-        while (date.getMonth() == month){
-
+        while (date.getMonth() == month) {
+            switch (date.getDayOfWeek()) {
+                case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY:
+                    workdays++;
+                    break;
+                default:
+                    break;
+            }
+            date = date.plusDays(1);
         }
         return workdays;
     }
