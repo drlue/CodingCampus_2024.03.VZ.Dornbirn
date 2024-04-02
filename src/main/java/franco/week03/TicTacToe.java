@@ -31,7 +31,7 @@ public class TicTacToe {
             printBoard(board);
         }
     }
-    private static Boolean moveChecker(char[][] board, String position) {
+    private static Boolean isPlaceFree(char[][] board, String position) {
         //Check if the space is available
         switch (position) {
             case "1":
@@ -110,7 +110,7 @@ public class TicTacToe {
         while (true) {
             player1Move = scan.nextLine();
             if
-            (moveChecker(board, player1Move)) {
+            (isPlaceFree(board, player1Move)) {
                 break;
             }
         }
@@ -122,7 +122,7 @@ public class TicTacToe {
         String player2Move;
         while (true) {
             player2Move = scan.nextLine();
-            if (moveChecker(board, player2Move)) {
+            if (isPlaceFree(board, player2Move)) {
                 break;
             }
         }
@@ -172,12 +172,12 @@ public class TicTacToe {
     }
 
     public static boolean isGameFinished(char[][] board) {
-        if (whoWin(board, 'X')) {
+        if (hasSomebodyWon(board, 'X')) {
             printBoard(board);
             System.out.println(player1 + " won the game!");
             return true;
         }
-        if (whoWin(board, 'O')) {
+        if (hasSomebodyWon(board, 'O')) {
             printBoard(board);
             System.out.println(player2 + " won the game!");
             return true;
@@ -194,7 +194,7 @@ public class TicTacToe {
         return true;
     }
 
-    private static boolean whoWin(char[][] board, char symbol) {
+    private static boolean hasSomebodyWon(char[][] board, char symbol) {
         if ((board[0][0] == symbol && board[0][1] == symbol && board[0][2] == symbol) ||
                 (board[1][0] == symbol && board[1][1] == symbol && board[1][2] == symbol) ||
                 (board[2][0] == symbol && board[2][1] == symbol && board[2][2] == symbol) ||
@@ -204,7 +204,8 @@ public class TicTacToe {
                 (board[2][0] == symbol && board[1][1] == symbol && board[0][2] == symbol) ||
                 (board[0][0] == symbol && board[1][1] == symbol && board[2][2] == symbol)) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 }
