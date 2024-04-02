@@ -6,6 +6,7 @@ public class CountLettersString {
         String text = "unconstitutionally";
         System.out.println(countLetterInSingleText(text));
 
+
         String longText =data.Texts.getSimpleText();
         System.out.println(longText);
 

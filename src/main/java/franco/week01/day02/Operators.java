@@ -107,15 +107,12 @@ public class Operators {
     }
 
     public static boolean middleBetweenTwoPoint(int lower, int upper, int value) {
-
         if (value==(lower + upper) / 2) {
             return true;
 
         } else {
             return false;
         }
-
-
     }
 }
 

@@ -10,8 +10,8 @@ public class AufgabePrint {
 //
 //        printTriangleBottomLeft("* ", 4);
 //
-//        printTriangleTopLeft("+ ", 5);
-//
+        printTriangleTopLeft("+ ", 5);
+
 //        printTriangleTopRight("* ", 5);
 //
 //        printEmptySquare("+ ", 10);
@@ -28,7 +28,7 @@ public class AufgabePrint {
 //
 //        printRhombus("x", 7);
 //
-          printChristmasTree(9);
+  //        printChristmasTree(9);
 //
 //        printRect("X ", 10, 3);
 
@@ -85,6 +85,7 @@ public class AufgabePrint {
             System.out.println();
         }
     }
+
 
     public static void printTriangleTopRight(String text, int number) {
         for (int i = 0; i < number; i++) {
