@@ -13,7 +13,7 @@ public class DateienZaehlenSummeGroessen {
 
     public static void summeVonDateienUndGroessen(File ordner) {
         File[] ordnerArray = ordner.listFiles();
-        int sum = 0;
+        long sum = 0;
         int sumOfFiles = 0;
         if (ordner.isDirectory()) {
 
