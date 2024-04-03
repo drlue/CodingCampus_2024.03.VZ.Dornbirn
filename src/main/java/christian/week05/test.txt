@@ -1,9 +1,10 @@
-firstname       | lastname        | age | place           |   distance
-______________________________________________________________________
-Alfonso         | Klein           |  40 | Wien            |       0,00
-Beatrix-Eleonor | Kinderdorfer    |  78 | Schwarzach      |     654,40
-Cecil           | Al Elmenar      |   5 | Wiener Neudorf  |      12,46
-Daniel          | Schmidt         |  18 | Sankt Poelten   |     120,00
-Elmar           | Simma           |  81 | Sankt Poelten   |     120,00
-sadfpojgn sadfjkg
-sadfpokgsakdfksadfg
+
+2024.04.03. 17:39:22 | Error: Achtung
+2024.04.03. 17:39:22 | Warning: Achtung
+2024.04.03. 17:39:22 | Info: Achtung
+2024.04.03. 17:48:31 | Error: Achtung
+2024.04.03. 17:48:31 | Warning: Achtung
+2024.04.03. 17:48:31 | Info: Achtung
+2024.04.03. 18:27:24 | Error: Achtung
+2024.04.03. 18:27:24 | Warning: Achtung
+2024.04.03. 18:27:24 | Info: Achtung
