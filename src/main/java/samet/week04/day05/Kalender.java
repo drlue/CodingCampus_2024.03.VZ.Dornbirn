@@ -37,9 +37,9 @@ public class Kalender {
         // Ausgabe der Tage im Monat mit Markierung des heutigen Tages
         for (int i = 1; i <= daysInMonth; i++) {
             if (i == currentDay && currentMonth == calendar.get(Calendar.MONTH)) {
-                System.out.printf("   %2d*", i); // Markiere den heutigen Tag
+                System.out.printf("  %2d*", i); // Markiere den heutigen Tag
             } else {
-                System.out.printf("   %2d", i);
+                System.out.printf("  %3d", i);
             }
 
             // Neue Zeile für den Beginn einer neuen Woche

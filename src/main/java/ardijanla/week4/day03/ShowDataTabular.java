@@ -1,5 +1,4 @@
 package ardijanla.week4.day03;
-
 public class ShowDataTabular {
     public static void main(String[] args) {
         String[] firstName = {"Alfonso", "Beatrix-asdsadEleonor", "Cecsadsadil", "Daniel", "Elmar"};
