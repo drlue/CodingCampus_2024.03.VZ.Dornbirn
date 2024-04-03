@@ -228,6 +228,7 @@ public class MethodenUndSchleifen {
             }
             System.out.println();
         }
+
     }
 
 
@@ -280,7 +281,7 @@ public class MethodenUndSchleifen {
                 if (y * y + x * x <= d) {
                     System.out.print("X");
                 } else {
-                    System.out.print(".");
+                    System.out.print(" ");
                 }
             }
             System.out.println();

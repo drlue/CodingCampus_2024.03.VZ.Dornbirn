@@ -1,4 +1,4 @@
-package samet.week04;
+package samet.week04.day04;
 
 public class Tabelle {
 

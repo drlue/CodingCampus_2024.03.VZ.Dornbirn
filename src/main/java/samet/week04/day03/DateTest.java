@@ -10,10 +10,10 @@ public class DateTest {
 
     public static void main(String[] args) {
 
-        Date now= new Date();
+        Date now = new Date();
         System.out.println(now);
 
-        Date inOneHoureFromNow = new Date(System.currentTimeMillis() + 60 * 60 *1000);
+        Date inOneHoureFromNow = new Date(System.currentTimeMillis() + 60 * 60 * 1000);
         System.out.println(inOneHoureFromNow);
 
         DateFormat format = new SimpleDateFormat("HH");
@@ -25,10 +25,6 @@ public class DateTest {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bitte geben Sie ein Datum in Format Tag.Monat.Jahr Stunde:Minute ein!");
         String input = scanner.next();
-
-
-
-
 
 
     }

@@ -1,4 +1,4 @@
-package samet.week01;
+package samet.week01.day05;
 
 public class LogischeOperatoren {
     public static void main(String[] args) {

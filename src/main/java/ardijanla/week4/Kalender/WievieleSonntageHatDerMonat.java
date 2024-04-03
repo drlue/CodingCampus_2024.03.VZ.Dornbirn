@@ -1,36 +1,32 @@
 package ardijanla.week4.Kalender;
 
 
+import java.time.DateTimeException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.TemporalAdjusters;
 
 public class WievieleSonntageHatDerMonat {
     public static void main(String[] args) {
-
-
-        getSundays(2024, 8);
-
-
+        getSundays(2020, 8);
     }
 
-    public static int getSundays(int year, int month) {
-        String ParseTest = "2024-08-01";
+    public static void getSundays(int year, int month) {
 
+        try{
+            LocalDate date = LocalDate.of(year, month, 1);
+            LocalDate firstSunday = date.with(TemporalAdjusters.firstInMonth(DayOfWeek.SUNDAY));
 
-//        LocalDate date = LocalDate.now();
-//        String pattern = "uuuu-MMM-dd";
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-//        String text = date.format(formatter);
-//        formatter.parse(ParseTest);
-//
-//        LocalDate parsedDate = LocalDate.parse(text, formatter);
-//
-//        System.out.println(parsedDate);
-
-
-        return 1;
+            while(firstSunday.getMonthValue() == month){
+                System.out.println(firstSunday);
+                firstSunday = firstSunday.plusWeeks(1);
+            }
+        }catch(DateTimeException e){
+            System.out.println("Gib das datum wie ein mensch ein");
+        }
 
     }
 }

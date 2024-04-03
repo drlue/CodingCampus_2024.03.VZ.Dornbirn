@@ -13,7 +13,7 @@ public class WhenIsSunday {
 
         int toDay = calendar.get(Calendar.DAY_OF_WEEK);
         int daysTillSunday = Calendar.SUNDAY - toDay;
-        if (daysTillSunday < 0){
+        if (daysTillSunday < 0) {
             daysTillSunday += 7;
 
         }
@@ -26,7 +26,7 @@ public class WhenIsSunday {
         Date nextSundayAsDate = calendar.getTime();
         //bringe dieses Datum ins gewünschte Format
         String parsedDate = myFormat.format(nextSundayAsDate);
-        System.out.println(parsedDate +" Datum des nächsten Sonntags!");
+        System.out.println(parsedDate + " Datum des nächsten Sonntags!");
 
 
     }
