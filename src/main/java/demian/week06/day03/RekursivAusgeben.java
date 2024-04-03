@@ -1,4 +1,4 @@
-package demian.week06.day02;
+package demian.week06.day03;
 
 import ardijanla.ConsoleColors;
 
