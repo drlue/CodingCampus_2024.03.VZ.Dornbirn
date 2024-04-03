@@ -5,6 +5,8 @@ import java.io.File;
 public class DateienZaehlenundSummen {
     public static void main(String[] args) {
 
+
+
         System.out.println("\nTeilaufgabe 1:");
         printFilesCount("/Users/demian/IdeaProjects/CodingCampus_2024.03.VZ.Dornbirn/src/main/java/demian");
         System.out.println("\nTeilaufgabe 2:");

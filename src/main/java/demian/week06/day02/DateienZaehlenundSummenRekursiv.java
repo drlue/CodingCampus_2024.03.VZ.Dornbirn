@@ -4,7 +4,7 @@ import java.io.File;
 
 public class DateienZaehlenundSummenRekursiv {
     public static void main(String[] args) {
-        int filescounter = filesCountRecursive("/Users/demian/IdeaProjects/CodingCampus_2024.03.VZ.Dornbirn/src/main/java");
+        int filescounter = filesCountRecursive("/Users/demian/IdeaProjects/CodingCampus_2024.03.VZ.Dornbirn/src/main/java/aki");
         System.out.println(filescounter);
     }
     public static int filesCountRecursive (String dir){
