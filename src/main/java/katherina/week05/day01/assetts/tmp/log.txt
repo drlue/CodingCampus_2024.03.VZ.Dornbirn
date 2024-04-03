@@ -1,0 +1,10 @@
+2024.04.03. 15:15:00 2
+2024.04.03. 15:18:48 
+2024.04.03. 15:23:54 2024.04.03. 15:25:06 ERROR
+2024.04.03. 15:25:39 INFO
+2024.04.03. 15:28:13 ERROREs ist ein unerwarteter Fehler aufgetreten.
+
+2024.04.03. 15:29:06 ERROR: Es ist ein spontaner Fehler aufgetreten /o\
+
+2024.04.03. 15:30:29 WARNING: Vorsicht! Rutschige Straße!
+
