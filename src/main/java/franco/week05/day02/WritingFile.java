@@ -11,6 +11,7 @@ public class WritingFile {
         System.out.println("Enter a text");
         Scanner scan= new Scanner(System.in);
         String text= scan.nextLine();
+
         try {
             FileOutputStream fos = new FileOutputStream("C:\\Users\\vince\\IdeaProjects\\CodingCampus_2024.03.VZ.Dornbirn\\src\\" +
                     "main\\java\\franco\\week05\\TestFile\\userInput.txt",true);
