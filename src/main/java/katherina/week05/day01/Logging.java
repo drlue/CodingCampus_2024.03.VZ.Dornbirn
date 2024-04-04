@@ -1,5 +1,7 @@
 package katherina.week05.day01;
 
+import katherina.week05.day01.BiggestData;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -12,16 +14,6 @@ public class Logging {
     public static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        /*
-   severity=1  --> ERROR
-   severity=2  --> WARNING
-   severity=3  --> INFO
-
-   Ergebnis:
-   2022.04.26. 09:30:34 INFO: Guten Morgen!
-   2022.04.26. 09:31:01 WARNING: Kein passende Aufgabe gefunden
-   ...
-*/
 
 
         try {
@@ -32,13 +24,11 @@ public class Logging {
             printedStream.print(format.format(today));
             printedStream.print(log());
             String text = BiggestData.getTextFromConsole("Ergänze deine Eingabe!");
-            printedStream.println(": "+text);
+            printedStream.println(": " + text);
             printedStream.println();
 
 
-
-        }
-        catch (FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             System.out.println("Dein Text konnte nicht gespeichert werden. Die Datei wurde nicht erstellt.");
         }
     }
@@ -48,7 +38,7 @@ public class Logging {
         int severityInput = chooseSeverity("Was soll geloggt werden? ", 1, 3);
         String message;
         if (severityInput == 1) {
-           message = "ERROR";
+            message = "ERROR";
             System.out.println("Alles klar, du möchtest einen Fehler loggen.");
         } else if (severityInput == 2) {
             message = "WARNING";

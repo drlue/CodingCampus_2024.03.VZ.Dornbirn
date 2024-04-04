@@ -1,10 +1,8 @@
 package christian.week05;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
 
 public class Logging {
     public static void main(String[] args) {
@@ -12,6 +10,7 @@ public class Logging {
             log(1, "Achtung");
             log(2, "Achtung");
             log(3, "Achtung");
+            log(4, "Achtung");
         }
 
     }
@@ -22,26 +21,28 @@ public class Logging {
 
         try {
             if (file.length() > 1000000) {
-                Scanner sc = new Scanner(file);
+
                 File fileOld = new File("C:\\Users\\schmi\\Desktop\\test\\log.old.txt");
-                FileOutputStream fos2 = new FileOutputStream(fileOld);
-                PrintStream ps2 = new PrintStream(fos2);
-
-                while (sc.hasNextLine()) {
-                    ps2.print(sc.nextLine()+"\n");
-                } ps2.close();
-
+                fileOld.delete();
+                file.renameTo(fileOld);
 
             } else {
 
                 FileOutputStream fos = new FileOutputStream(file, true);
                 PrintStream ps = new PrintStream(fos);
-                if (severity == 1) {
-                    ps.println(df.format(LocalDateTime.now()) + " | Error: " + message);
-                } else if (severity == 2) {
-                    ps.println(df.format(LocalDateTime.now()) + " | Warning: " + message);
-                } else {
-                    ps.println(df.format(LocalDateTime.now()) + " | Info: " + message);
+                switch (severity) {
+                    case 1:
+                        ps.println(df.format(LocalDateTime.now()) + " | Error: " + message);
+                        break;
+                    case 2:
+                        ps.println(df.format(LocalDateTime.now()) + " | Warning: " + message);
+                        break;
+                    case 3:
+                        ps.println(df.format(LocalDateTime.now()) + " | Info: " + message);
+                        break;
+                    default:
+                        ps.println(df.format(LocalDateTime.now()) + " | Ungültige Severity: " + message);
+                        break;
                 }
                 ps.close();
             }
