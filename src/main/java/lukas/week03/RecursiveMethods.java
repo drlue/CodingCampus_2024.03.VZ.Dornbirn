@@ -6,12 +6,12 @@ public class RecursiveMethods {
     public static int counter2 = 0;
 
     public static void main(String[] args) {
-        int n = 2;
+        int n = 63;
         System.out.println("Methode test");
         System.out.println("============");
         System.out.printf("2 ^ %d = %d\n", n, test(n));
-        System.out.println("Counter = " + counter);
-        System.out.println("Counter2 = " + counter2);
+//        System.out.println("Counter = " + counter);
+//        System.out.println("Counter2 = " + counter2);
         System.out.println();
 
         //Counter zurückstellen
@@ -26,13 +26,13 @@ public class RecursiveMethods {
 //        System.out.println("Counter2 = " + counter2);
     }
 
-    public static int test(int n) {
-        counter++;
+    public static long test(int n) {
+
         if (n <= 0) {
-            counter2++;
+
             return 1;
         } else {
-            return test(n - 1) + test(n - 1);
+            return 2*test(n - 1);
         }
     }
 
