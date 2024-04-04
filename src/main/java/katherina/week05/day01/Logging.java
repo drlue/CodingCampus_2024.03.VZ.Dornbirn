@@ -1,7 +1,5 @@
 package katherina.week05.day01;
 
-import katherina.week05.day01.BiggestData;
-
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
