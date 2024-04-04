@@ -23,7 +23,7 @@ public class BubbleSortStringExtended {
                     if (result[j].compareTo(result[j + 1]) > 0) {
                         BubbleSortString.swap(result, j, j + 1);
                     }
-                } else {//descinding
+                } else {//descending
                     if (result[j].compareTo(result[j + 1]) < 0) {
                         BubbleSortString.swap(result, j, j + 1);
                     }
