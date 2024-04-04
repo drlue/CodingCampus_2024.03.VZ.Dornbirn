@@ -13,7 +13,7 @@ public class RekursivAusgeben {
         printDirectoryRecursiv(directory, "");
         System.out.println("Anzahl Dateien im Directory: " + directory + " ist: " + filecount(directory));
         System.out.println("Die Summe der Dateigroessen im Verzeichnis : " + directory + " ist: " + sumofFileSizes(directory));
-
+        System.out.println(maxDepth(directory));
     }
 
     public static void printDirectoryRecursiv(File directory, String prefix) {

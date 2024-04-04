@@ -26,10 +26,10 @@ public class FileSchreiben1 {
         return result;
     }
 
-    public static void writeToFile(String Userinput, File path) {
+    public static void writeToFile(String userinput, File path) {
         try (FileOutputStream fos = new FileOutputStream(path);
              OutputStreamWriter osw = new OutputStreamWriter(fos)) {
-            osw.write(Userinput);
+            osw.write(userinput);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
