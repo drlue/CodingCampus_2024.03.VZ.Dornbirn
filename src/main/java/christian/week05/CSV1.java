@@ -14,10 +14,10 @@ public class CSV1 {
         String [] rowArray = csv.split("\n");
         System.out.println(Arrays.toString(rowArray));
         for (int i = 0; i < rowArray.length; i++) {
-            String [] colArray+ = rowArray[i].split(",");
-            System.out.println( rowArray[i]);
+            String [] colArray = rowArray[i].split(",");
+            System.out.println( colArray[i]);
         }
-        System.out.println(Arrays.toString());
+
 
     }
 }
