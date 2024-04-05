@@ -45,17 +45,17 @@ public class Tabelle {
             maxColumns = Math.max(array[i].length, maxColumns);
         }
 
-        int[] lengthCol = new int[maxColumns];
+        int[] length = new int[maxColumns];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                lengthCol[j] = Math.max(array[i][j].length(), lengthCol[j]);
+                length[j] = Math.max(array[i][j].length(), length[j]);
             }
         }
 
-        String[] format = new String[lengthCol.length];
-        for (int i = 0; i < lengthCol.length; i++) {
-            format[i] = "%1$" + lengthCol[i] + "S" +
-                    (i + 1 == lengthCol.length ? "\n" : " || ".repeat(1));
+        String[] format = new String[length.length];
+        for (int i = 0; i < length.length; i++) {
+            format[i] = "%1$" + length[i] + "S" +
+                    (i + 1 == length.length ? "\n" : " || ".repeat(1));
 
         }
 

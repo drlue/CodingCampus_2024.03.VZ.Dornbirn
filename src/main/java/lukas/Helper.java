@@ -1,5 +1,6 @@
 package lukas;
 
+import java.nio.file.Path;
 import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -175,4 +176,11 @@ public class Helper {
                     ")?" + // end optional scientific exponent
                     "$" // accept only if it matches up to the end of the string
             ;
+
+
+    public static Path getUserDirectory(String user) {
+        String projDir = System.getProperty("user.dir");
+        Path path = Path.of(projDir, "src", "main", "java", user);
+        return path;
+    }
 }
