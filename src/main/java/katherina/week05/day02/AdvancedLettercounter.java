@@ -22,6 +22,9 @@ public class AdvancedLettercounter {
         System.out.println("Die Textlänge beträgt " + input.length()+" Zeichen.");
         System.out.println("So oft kommt das gesuchte Zeichen im Text vor: "+countChar('v',
                text)+ " mal!");
+        System.out.println();
+//        char[] charsToCount = new char[]{'a', 'z', 'e'};
+//System.out.println(countChars(text, charsToCount));
     }
 
     private static String readFile(File fileinput) {
@@ -60,4 +63,15 @@ public class AdvancedLettercounter {
         return count;
     }
 
+//    public static int countChars(char[] charsToCount, String sourcetext) {
+//        int count = 0;
+//        char[] chars = sourcetext.toCharArray();
+//        for (int index = 0; index < sourcetext.length(); index++) {
+//            if (charsToCount == chars[index]) {
+//                count++;
+//            }
+//        }
+//        return count;
+//    }
+//
 }
