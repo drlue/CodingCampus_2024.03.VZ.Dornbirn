@@ -1,8 +1,11 @@
 package aki.week03;
 
+import aki.week06.CheckIfNumber;
+
 public class PascalDreieck {
     public static void main(String[] args) {
-        int[][] array2D = pascalDreieck(10, 10);
+        int size = CheckIfNumber.readNumberFromConsole("Geben Sie eine Größe ein", 3, 12);
+        int[][] array2D = pascalDreieck(size, size);
 
         printArray(array2D);
     }
@@ -14,7 +17,6 @@ public class PascalDreieck {
             }
             System.out.println();
         }
-
     }
 
     public static int[][] pascalDreieck(int row, int col) {
