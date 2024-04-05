@@ -55,6 +55,7 @@ public class Gedichtgenerator {
         try {
             FileOutputStream file = new FileOutputStream("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2024.03.VZ.Dornbirn\\src\\main\\java\\katherina\\week02\\day02\\GenerierteGedichte\\pantunfile.txt", true);
             PrintStream printedStream = new PrintStream(file);
+            printedStream.println();
             printedStream.println(text9);
             printedStream.println();
             printedStream.println(text);
