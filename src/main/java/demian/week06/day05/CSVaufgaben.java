@@ -15,9 +15,9 @@ public class CSVaufgaben {
 
         String array = readCSV(file);
         String[][] csv = stringTo2Darray(array);
-        String [][] sortedCSV = sortArray(csv);
+        int userinput = demian.allmethods.AllMethods.getINT("Bitte angeben nach welcher Spalte sortiert werden soll(0-" + (csv[0].length - 1) + ")\n==>", 0, csv[0].length - 1);
+        String [][] sortedCSV = sortSTRINGArray(csv, userinput);
         print2DstringArray(sortedCSV);
-
 
 
     }
@@ -80,11 +80,10 @@ public class CSVaufgaben {
         return result;
     }
 
-    public static String[][] sortArray(String[][] input) {
+    public static String[][] sortSTRINGArray(String[][] input, int userinput) {
         String[][] resultArray = input.clone();
-        int userinput = demian.allmethods.AllMethods.getINT("Bitte angeben nach welcher Spalte sortiert werden soll(0-" + (resultArray[0].length - 1) + ")\n==>", 0, resultArray[0].length - 1);
-        for (int i = 1; i < resultArray[userinput].length; i++) {
-            for (int j = 1; j < resultArray[userinput].length - i - 1; j++) {
+        for (int i = 1; i < resultArray.length; i++) {
+            for (int j = 1; j < resultArray.length - i ; j++) {
                 if (resultArray[j][userinput].compareToIgnoreCase(resultArray[j+1][userinput]) > 0){
                     String[] temp = resultArray[j];
                     resultArray[j] = resultArray[j+1];
