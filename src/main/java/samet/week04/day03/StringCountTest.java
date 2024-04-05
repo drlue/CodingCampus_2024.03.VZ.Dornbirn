@@ -9,13 +9,13 @@ public class StringCountTest {
 
         String str = Texts.HESSE;
         // counter array to store frequency of each character.
-        int frequency[] = new int[380];
+        int[] frequency = new int[str.length()];
 
         // iterate through the string
         for (int i = 0; i < str.length(); i++) {
             // increase count by 1 in the array
             // at index based on the character
-            frequency[(int) str.charAt(i)]++;
+            frequency[str.charAt(i)]++;
         }
 
         // traverse through the counter array
