@@ -80,6 +80,14 @@ public class CSVaufgaben {
         return result;
     }
 
+    public static String[][] sortAnyArray(String[][] input, int userinput){
+        //Check if colum is date, int or string
+        //if String --> sortStringArray Methode
+        //else if int --> sortINTArray Methode
+        //else if date --> sortDateArray Methode
+        //return result
+        return null;
+    }
     public static String[][] sortSTRINGArray(String[][] input, int userinput) {
         String[][] resultArray = input.clone();
         for (int i = 1; i < resultArray.length; i++) {
