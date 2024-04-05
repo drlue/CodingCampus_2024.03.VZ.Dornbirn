@@ -5,6 +5,7 @@ import ardijanla.ConsoleColors;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public class CSVaufgaben {
     public static void main(String[] args) {
@@ -13,8 +14,9 @@ public class CSVaufgaben {
         File file = new File("/Users/demian/IdeaProjects/CodingCampus_2024.03.VZ.Dornbirn/src/main/resources/csv/sales_100.csv");
 
         String array = readCSV(file);
-        String[][] csv = stringTo2Darray(readCSV(file));
-        print2DstringArray(csv);
+        String[][] csv = stringTo2Darray(array);
+        String [][] sortedCSV = sortArray(csv);
+        print2DstringArray(sortedCSV);
 
 
 
@@ -52,9 +54,9 @@ public class CSVaufgaben {
                     System.out.printf("%" + getColumnWidth(arr)[col] + "s | ", arr[row][col]);
                 } else if (arr[row][col].matches("[0-9]+/[0-9]+/[0-9]+")) {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
-                    LocalDate date = LocalDate.parse(arr[row][col],formatter);
-                    DateTimeFormatter formatteGERMAN = DateTimeFormatter.ofPattern("dd.MM.yyyy");
-                    System.out.printf("%" + getColumnWidth(arr)[col] + "s | ", date.format(formatteGERMAN));
+                    LocalDate date = LocalDate.parse(arr[row][col], formatter);
+                    DateTimeFormatter formatterGERMAN = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+                    System.out.printf("%" + getColumnWidth(arr)[col] + "s | ", date.format(formatterGERMAN));
                 } else {
                     System.out.printf("%-" + getColumnWidth(arr)[col] + "s | ", arr[row][col]);
                 }
@@ -78,5 +80,19 @@ public class CSVaufgaben {
         return result;
     }
 
+    public static String[][] sortArray(String[][] input) {
+        String[][] resultArray = input.clone();
+        int userinput = demian.allmethods.AllMethods.getINT("Bitte angeben nach welcher Spalte sortiert werden soll(0-" + (resultArray[0].length - 1) + ")\n==>", 0, resultArray[0].length - 1);
+        for (int i = 1; i < resultArray[userinput].length; i++) {
+            for (int j = 1; j < resultArray[userinput].length - i - 1; j++) {
+                if (resultArray[j][userinput].compareToIgnoreCase(resultArray[j+1][userinput]) > 0){
+                    String[] temp = resultArray[j];
+                    resultArray[j] = resultArray[j+1];
+                    resultArray[j+1] = temp;
+                }
+            }
+        }
+        return resultArray;
+    }
 
 }
