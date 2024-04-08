@@ -94,6 +94,8 @@ public class UeArrays {
         return randomArray(1, maxDimension + 1, 1, 100);
     }
 
+
+
     public static void printArray() {
         int[] arr = randomArray(10, 11, 1, 100);
 
