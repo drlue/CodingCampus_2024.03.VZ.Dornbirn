@@ -2,6 +2,7 @@ package data;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Objects;
 
@@ -78,7 +79,7 @@ public class Texts {
     public static String getSimpleText() {
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Texts.class.getClassLoader().getResourceAsStream("txt/simpleText.txt"))));
+            reader = new BufferedReader(new InputStreamReader(getResourceAsStream("txt/simpleText.txt")));
             StringBuilder builder = new StringBuilder();
             String input;
             while ((input = reader.readLine()) != null) {
@@ -97,5 +98,9 @@ public class Texts {
                 }
             }
         }
+    }
+
+    public static InputStream getResourceAsStream(String resource) {
+        return Objects.requireNonNull(Texts.class.getClassLoader().getResourceAsStream(resource));
     }
 }

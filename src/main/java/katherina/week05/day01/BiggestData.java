@@ -58,9 +58,9 @@ public class BiggestData {
     }
 
     public static String getTextFromConsole(String message) {
-        System.out.print(message);
+    System.out.print(message);
 
-        String text = sc.nextLine();
-        return text;
-    }
+    String text = sc.nextLine();
+    return text;
+}
 }
