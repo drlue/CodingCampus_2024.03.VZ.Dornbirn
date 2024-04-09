@@ -3,14 +3,21 @@ package samet.week06.FotoApparat;
 public class Picture {
     public static void main(String[] args) {
 
-        Camera camera = new Camera("L5690","Sony",18.5,799,55,40);
 
-        System.out.println(camera.getModell());
-        System.out.println(camera.getHersteller());
-        System.out.println(camera.getMegapixel());
-        System.out.println(camera.getPreis());
-        System.out.println(camera.getBrennWeiteMax());
-        System.out.println(camera.getBrennWeiteMin());
+        Memory mc = new Memory("Kingston", "4GB", 14);
+        Objektiv obj = new Objektiv("Sony", "RLE-100", 18, 100);
+        Camera sony = new Camera("Sony", "A-300", 12);
+        sony.setObjektiv(obj);
+        sony.setSpeicherkarte(mc);
+        System.out.println(sony);
+
+        System.out.println(sony);
+        for (int i = 0; i < 20; i++) {
+            sony.takePicture();
+        }
+
+        sony.setObjektiv(null);
+        sony.takePicture();
 
     }
 }
