@@ -24,6 +24,8 @@ public class Fotoapparat {
         this.scanner = sc;
     }
 
+    // =================Get und Set =======================
+
     public String getModell() {
         return "Modell: " + this.modell;
     }
@@ -39,6 +41,9 @@ public class Fotoapparat {
     public int getAkkuKapazitaet() {
         return this.akkuKapazitaet;
     }
+
+
+    // ============================"Zusammenbauen"==================================
 
     public void setObjektiv(Objektiv objektiv) {
         if (this.objektiv == null) {
@@ -74,27 +79,54 @@ public class Fotoapparat {
         }
     }
 
+    //========================================Methoden==========================================
     public String toString() {
         return "Angaben zum Produkt: \nModell: " + this.modell + "\nHersteller: " + this.hersteller + " \nMegapixel: " + this.megapixel + " pixel\nAkkukapazitaet: " + this.akkuKapazitaet + " mAh";
     }
 
     public void takePhoto() {
-        if (this.speicherkarte.safePhotoPossible(this.megapixel) && this.objektiv != null) {
-            this.speicherkarte.safePhoto(this.megapixel, scanner.nextLine());
-            System.out.println("Klick!! Foto gespeichert");
+        if (this.objektiv != null && this.speicherkarte != null){
+            if (this.speicherkarte.safePhotoPossible(this.megapixel)  ) {
+                this.speicherkarte.safePhoto(this.megapixel, scanner.nextLine());
+                System.out.println("Klick!! Foto gespeichert");
         } else {
-            System.out.println("Speicher voll!");
+                System.out.println("Speicher voll!");
+            }
+
+        } else {
+            if (this.objektiv == null){
+                System.out.println("Kein Objektiv vorhanden!");
+            } else if (this.speicherkarte == null){
+                System.out.println("Keine Speicherkarte vorhanden!");
+            }
         }
     }
 
     public int showPhotoCount() {
-
-        return speicherkarte.showPhotoCount();
-
+        if (this.speicherkarte != null) {
+            return this.speicherkarte.showPhotoCount();
+        } else {
+            System.out.println("Keine Speicherkarte vorhanden!");
+        }
+        return 0;
     }
 
     public String showPhotos() {
-        return speicherkarte.showPhotos();
+        if (this.speicherkarte != null) {
+            return this.speicherkarte.showPhotos();
+        } else {
+            System.out.println("Keine Speicherkarte vorhanden!");
+        }
+        return null;
+    }
+
+    public void deletePhotos() {
+        if (this.speicherkarte != null) {
+            this.speicherkarte.deletePhotos();
+        } else {
+            System.out.println("Keine Speicherkarte vorhanden!");
+        }
+
     }
 }
 
