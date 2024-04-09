@@ -48,7 +48,7 @@ public class FourInRows {
         }
         System.out.println("\033[H\033[2J");
         //grid top
-        System.out.println("┌" + "───┬".repeat(board[0].length - 1) + "───┐");
+        System.out.println("┌" + "───┬".repeat(board[0].length - 1) + "───");
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[i].length; j++) {
                 //check stone is part of winning

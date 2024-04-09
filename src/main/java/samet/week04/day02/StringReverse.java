@@ -47,7 +47,7 @@ public class StringReverse {
             char temp = arr[pos1];
             arr[pos1] = arr[pos2];
             arr[pos2] = temp;
-//            System.out.println(Arrays.toString(arr));
+            System.out.println(Arrays.toString(arr));
         } else {
             System.out.println("Ungültige Index für die SWAP");
         }
