@@ -18,22 +18,6 @@ public class Camera {
         this.speicherkarte = null;
     }
 
-    public String getModell() {
-        return modell;
-    }
-
-    public String getHersteller() {
-        return hersteller;
-    }
-
-    public float getMegapixel() {
-        return megapixel;
-    }
-
-    public Memory getSpeicherkarte() {
-        return speicherkarte;
-    }
-
     public void takePicture() {
         if (objektiv == null){
             System.out.println(" Photo without objective is not possible");
@@ -50,7 +34,7 @@ public class Camera {
         this.objektiv = objektiv;
     }
     public void setSpeicherkarte(Memory memory){
-        this.speicherkarte = speicherkarte;
+        this.speicherkarte = memory;
     }
 
     public String toString() {

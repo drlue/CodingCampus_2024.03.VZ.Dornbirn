@@ -10,8 +10,6 @@ public class Picture {
         sony.setObjektiv(obj);
         sony.setSpeicherkarte(mc);
         System.out.println(sony);
-
-        System.out.println(sony);
         for (int i = 0; i < 20; i++) {
             sony.takePicture();
         }

@@ -18,7 +18,7 @@ public class Memory {
             System.out.println("Memory is full!!");
             return false;
         } else {
-            usedMb -= (0.3 *megaPixel);
+            usedMb -= (0.3 * megaPixel);
             System.out.println("Success");
             return true;
         }
