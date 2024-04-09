@@ -1,5 +1,7 @@
 package christian.week06.fotoapparatPackage;
 
+import java.util.Scanner;
+
 public class Fotoapparat {
 
     private String modell;
@@ -8,63 +10,67 @@ public class Fotoapparat {
     private int akkuKapazitaet;
     private Objektiv objektiv;
     private Speicherkarte speicherkarte;
+    private Scanner scanner;
 
 
-    public Fotoapparat(String modell, String hersteller, int megapixel, int akkuKapazitaet) {
+    public Fotoapparat(String modell, String hersteller, int megapixel, int akkuKapazitaet, Scanner sc) {
 
         this.modell = modell;
         this.hersteller = hersteller;
         this.megapixel = megapixel;
         this.akkuKapazitaet = akkuKapazitaet;
+        this.objektiv = null;
+        this.speicherkarte = null;
+        this.scanner = sc;
     }
 
     public String getModell() {
         return "Modell: " + this.modell;
     }
 
-    public void setModell(String newModell) {
-        if (newModell.length() > 0) {
-            this.modell = newModell;
-        } else {
-            System.out.println(newModell + " ist keine gültige Eingabe!");
-        }
-
-    }
-
     public String getHersteller() {
         return "Hersteller: " + this.hersteller;
-    }
-
-    public void setHersteller(String newHersteller) {
-        if (newHersteller.length() > 0) {
-            this.hersteller = newHersteller;
-        } else {
-            System.out.println(newHersteller + " ist keine gültige Eingabe!");
-        }
-
     }
 
     public int getMegapixel() {
         return this.megapixel;
     }
 
-    public void setMegapixel(int newMegapixel) {
-        if (newMegapixel > 0) {
-            this.megapixel = newMegapixel;
-        } else {
-            System.out.println(newMegapixel + " ist keine gültige Eingabe!");
-        }
-    }
-
     public int getAkkuKapazitaet() {
         return this.akkuKapazitaet;
     }
 
-    public void setAkkuKapazitaet(int newAkkukapazitaet) {
-        if (akkuKapazitaet > 0) {
-            this.akkuKapazitaet = newAkkukapazitaet;
+    public void setObjektiv(Objektiv objektiv) {
+        if (this.objektiv == null) {
+            this.objektiv = objektiv;
         } else {
-            System.out.println(newAkkukapazitaet + "ist keine gültige Eingabe!");
+            System.out.println("Es ist bereits ein Objektiv montiert!");
+        }
+    }
+
+    public void resetObjektiv() {
+        if (this.objektiv != null) {
+            this.objektiv = null;
+            System.out.println("Objektiv wurde ausgebaut!");
+        } else {
+            System.out.println("Es ist kein Objektiv verbaut!");
+        }
+    }
+
+    public void setSpeicherkarte(Speicherkarte newSpeicherkarte) {
+        if (speicherkarte == null) {
+            speicherkarte = newSpeicherkarte;
+        } else {
+            System.out.println("Es ist bereits eine Speicherkarte eingebaut!");
+        }
+    }
+
+    public void resetSpeicherkarte() {
+        if (this.speicherkarte != null) {
+            this.speicherkarte = null;
+            System.out.println("Speicherkarte wurde ausgebaut!");
+        } else {
+            System.out.println();
         }
     }
 
@@ -73,12 +79,22 @@ public class Fotoapparat {
     }
 
     public void takePhoto() {
-        if (speicherkarte.safePhoto(this.megapixel) == true) {
-            speicherkarte.safePhoto(this.megapixel);
+        if (this.speicherkarte.safePhotoPossible(this.megapixel) && this.objektiv != null) {
+            this.speicherkarte.safePhoto(this.megapixel, scanner.nextLine());
             System.out.println("Klick!! Foto gespeichert");
         } else {
             System.out.println("Speicher voll!");
         }
+    }
+
+    public int showPhotoCount() {
+
+        return speicherkarte.showPhotoCount();
+
+    }
+
+    public String showPhotos() {
+        return speicherkarte.showPhotos();
     }
 }
 
