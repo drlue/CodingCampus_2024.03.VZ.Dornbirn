@@ -9,10 +9,6 @@ public class ShowDataTabular {
 
         PrintTabular(firstName, lastName, age, place, distanceFromCapital);
 
-
-        String tmp = "Österreich";
-        System.out.println(tmp.length());
-
     }
 
 
