@@ -8,34 +8,61 @@ public class ZufallsVektor {
         Vector<Integer> zufallsZahl = new Vector<Integer>();
         Random random = new Random();
 
-        for (int index = 0; index <= 20; index++)
-
-            zufallsZahl.add(random.nextInt(0,101));
+        for (int index = 0; index < 20; index++) {
+            zufallsZahl.add(random.nextInt(0, 101));
+        }
 
         System.out.println("Zufallszahlen:");
         System.out.println(zufallsZahl);
-        System.out.println("Gerade Zahlen:");
-        geradeZahlen(zufallsZahl);
+        int countEven = geradeZahlen(zufallsZahl);
+        System.out.println("Es gibt " + countEven + " gerade Zahlen hier.");
         System.out.println();
-        System.out.println("Ungerade Zahlen:");
-        ungeradeZahlen(zufallsZahl);
+        int countUneven = ungeradeZahlen(zufallsZahl);
+        System.out.println("Es gibt " + countUneven + " ungerade Zahlen hier.");
+        kleinsteZahl(zufallsZahl);
+
     }
 
-    public static void geradeZahlen(Vector<Integer> zufallsZahl) {
-        for (int index = 0; index <= 20; index++) {
+    public static int geradeZahlen(Vector<Integer> zufallsZahl) {
+        int count = 0;
+        for (int index = 0; index < zufallsZahl.size(); index++) {
             if (zufallsZahl.get(index) % 2 == 0) {
-
-                System.out.print(zufallsZahl.get(index) + " ");
+                count++;
             }
         }
+        return count;
     }
 
-    public static void ungeradeZahlen(Vector<Integer> zufallsZahl) {
-        for (int index = 0; index <= 20; index++) {
+    public static int ungeradeZahlen(Vector<Integer> zufallsZahl) {
+        int count = 0;
+        for (int index = 0; index < zufallsZahl.size(); index++) {
             if (zufallsZahl.get(index) % 2 != 0) {
-
-                System.out.print(zufallsZahl.get(index) + " ");
+                count++;
             }
         }
+        return count;
     }
+
+    public static int ungeradeZahlenByGyula(Vector<Integer> zufallsZahl) {
+        int count = 0;
+        for (Integer value : zufallsZahl) {
+            if (value % 2 != 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int kleinsteZahl(Vector<Integer> zufallsZahl) {
+        int minNumber = 0;
+        for (int index = 0; index < zufallsZahl.size(); index++) {
+
+        }
+        return minNumber;
+    }
+
+    //Suche nach der kleinsten Zahl
+    //Suche nach der größten Zahl
+    //Sortiere die Elementen absteigend
+    //Lösche alle Ungerade Zahlen
 }
