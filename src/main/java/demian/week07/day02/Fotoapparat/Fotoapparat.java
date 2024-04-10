@@ -52,18 +52,7 @@ public class Fotoapparat {
 
     public void takePhotoOfShep() {
         if (this.MemoryCardInserted) {
-            System.out.println("▕▔▔╲╱▔▔▔╲╱▔▔▏\n" +
-                    "┈╲＿╱╰╮┈╭╯╲＿╱\n" +
-                    "┈┈┈▏▉╮┈╭▉▕\n" +
-                    "┈┈╱╲╰╰┊╯╯╱╲\n" +
-                    "┈╱╰▕╰╰┳╯╯▏╯╲\n" +
-                    "▕╰╰╰╲╰┻╯╱╯╯╯▏\n" +
-                    "▕╰╰╰╰▔▔▔╯╯╯╯▏\n" +
-                    "▕╰╰╰╰╰╮╭╯╯╯╯▏\n" +
-                    "┈╲╭╮┈╰╮╭╯╭╮╱\n" +
-                    "┈┈┫┣╭━━━╮┫┃\n" +
-                    "┈┈┃┃┃┈┈┈┃┃┃\n" +
-                    "┈┈┗┛┛┈┈┈┗┗┛");
+            System.out.println("sheeeeeep");
         } else {
             System.out.println("No memory card inserted");
         }
