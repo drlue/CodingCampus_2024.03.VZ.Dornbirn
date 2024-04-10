@@ -1,0 +1,11 @@
+package lukas.week06.Example3;
+
+public class Example3 {
+
+    public static void main(String[] args) {
+
+        Person p = new Person("Lukas", 186, 89, 47);
+        System.out.println(p);
+    }
+
+}
