@@ -1,4 +1,4 @@
-package lukas.week06.Example3;
+package lukas.week06.Example3_Person;
 
 public class Example3 {
 

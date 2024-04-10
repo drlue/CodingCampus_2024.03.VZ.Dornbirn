@@ -1,4 +1,4 @@
-package lukas.week06.Example1;
+package lukas.week06.Example1_ArrayInfo;
 
 public class CalcArrayInfo {
 
