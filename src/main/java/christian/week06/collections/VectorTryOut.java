@@ -1,25 +1,40 @@
 package christian.week06.collections;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Vector;
 
 public class VectorTryOut {
+
     static Random rnd = new Random();
 
     public static void main(String[] args) {
-        Vector<Integer> intVector = new Vector<Integer>();
-        for (int i = 0; i < 20; i++) {
-            intVector.add(rnd.nextInt(0, 100));
-        }
-        System.out.println(intVector);
-        System.out.println(allEvenNumbers(intVector));
-        System.out.println(sortDescending(intVector));
-        System.out.println(getMaximum(intVector));
-        System.out.println(getMinimum(intVector));
-        System.out.println(deleteAllUnevenNumbers(intVector));
+
+        int[] failureArray = {69, 64, 85, 61, 57, 13, 27, 43, 73, 51, 3, 5, 47, 46, 46, 19, 4, 49, 99, 50};
+
+
     }
 
-    public static Vector allEvenNumbers(Vector<Integer> inputVector) {
+    // ===================================create Vector Methods ====================================
+    public static Vector<Integer> createRndNumberVector(int rndOrigin, int rndBound) {
+        Vector<Integer> intVector = new Vector<Integer>();
+        for (int i = 0; i < 20; i++) {
+            intVector.add(rnd.nextInt(rndOrigin, rndBound));
+        }
+        return intVector;
+    }
+
+    public static Vector<Integer> createVectorFromArray(int[] arr) {
+        Vector<Integer> intVectorfailure = new Vector<Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            intVectorfailure.add(arr[i]);
+        }
+        return intVectorfailure;
+    }
+
+    // ========================================alter Vector Methods ====================================================
+
+    public static Vector<Integer> allEvenNumbers(Vector<Integer> inputVector) {
         Vector<Integer> outputVector = new Vector<Integer>();
 
         for (int i = 0; i < inputVector.size(); i++) {
@@ -32,7 +47,7 @@ public class VectorTryOut {
         return outputVector;
     }
 
-    public static int getMinimum(Vector<Integer> inputVector) {
+    public static Integer getMinimum(Vector<Integer> inputVector) {
         int minimum = Integer.MAX_VALUE;
 
         for (int i = 0; i < inputVector.size(); i++) {
@@ -44,7 +59,7 @@ public class VectorTryOut {
         return minimum;
     }
 
-    public static int getMaximum(Vector<Integer> inputVector) {
+    public static Integer getMaximum(Vector<Integer> inputVector) {
         int maximum = Integer.MIN_VALUE;
 
         for (int i = 0; i < inputVector.size(); i++) {
@@ -56,7 +71,7 @@ public class VectorTryOut {
         return maximum;
     }
 
-    public static Vector sortDescending(Vector<Integer> inputVector) {
+    public static Vector<Integer> sortDescending(Vector<Integer> inputVector) {
         boolean swapped = true;
         while (swapped) {
             swapped = false;
@@ -71,12 +86,32 @@ public class VectorTryOut {
         return inputVector;
     }
 
-    public static Vector deleteAllUnevenNumbers(Vector<Integer> inputVector) {
+    public static Vector<Integer> deleteAllUnevenNumbers(Vector<Integer> inputVector) {
         for (int i = 0; i < inputVector.size(); i++) {
-            if ((float) inputVector.get(i) % 2 != 0.00f) {
+            while (i < inputVector.size() && inputVector.get(i) % 2 != 0) {
                 inputVector.remove(i);
             }
         }
         return inputVector;
+    }
+
+
+    public static Vector<Integer> insertVectorInVectorAndSort1(Vector<Integer> inputVector1, Vector<Integer> inputVector2) {
+
+        sortDescending(inputVector1);
+        sortDescending(inputVector2);
+        Vector<Integer> outputVector = new Vector<Integer>();
+
+        while (!inputVector1.isEmpty() && !inputVector2.isEmpty()) {
+            if (inputVector1.getFirst() < inputVector2.getFirst()) {
+                outputVector.add(inputVector2.getFirst());
+                inputVector2.removeFirst();
+            } else {
+                outputVector.add(inputVector1.getFirst());
+                inputVector1.removeFirst();
+            }
+        }
+
+        return mergeVector;
     }
 }

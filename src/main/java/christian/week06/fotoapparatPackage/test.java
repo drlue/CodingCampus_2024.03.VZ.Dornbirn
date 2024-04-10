@@ -16,10 +16,6 @@ public class test {
         epson.setObjektiv(linse);
         epson.takePhoto();
         System.out.println(epson.showPhotos());
-        epson.takePhoto();
-        System.out.println(epson.showPhotos());
-        epson.takePhoto();
-        System.out.println(epson.showPhotos());
 
         System.out.println(epson.showPhotoCount());
 
