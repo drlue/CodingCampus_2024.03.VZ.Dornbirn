@@ -1,74 +1,40 @@
 package irem.Fotoapparat;
 
 public class Fotoapparat {
-    private int brennweiteMin;
-    private int brennweiteMax;
     private String modell;
     private String hersteller;
     private int megapixel;
+    private Objektiv objektiv;
+    private Speicherkarte speicherkarte;
 
     // Konstruktor
-    public Fotoapparat(int brennweiteMin, int brennweiteMax, String modell, String hersteller, int megapixel) {
-        this.brennweiteMin = brennweiteMin;
-        this.brennweiteMax = brennweiteMax;
+    public Fotoapparat(String hersteller, String modell, int megapixel, Objektiv objektiv, Speicherkarte speicherkarte) {
         this.modell = modell;
         this.hersteller = hersteller;
         this.megapixel = megapixel;
-    }
-    public int getBrennweiteMin() {
-        return brennweiteMin;
-    }
-
-    public void setBrennweiteMin(int brennweiteMin) {
-        this.brennweiteMin = brennweiteMin;
+        this.objektiv = objektiv;
+        this.speicherkarte = speicherkarte;
     }
 
-    public int getBrennweiteMax() {
-        return brennweiteMax;
-    }
-
-    public void setBrennweiteMax(int brennweiteMax) {
-        this.brennweiteMax = brennweiteMax;
-    }
-
-    public String getModell() {
-        return modell;
-    }
-
-    public void setModell(String modell) {
-        this.modell = modell;
-    }
-
-    public String getHersteller() {
-        return hersteller;
-    }
-
-    public void setHersteller(String hersteller) {
-        this.hersteller = hersteller;
-    }
-
-    public int getMegapixel() {
-        return megapixel;
-    }
-
-    public void setMegapixel(int megapixel) {
-        this.megapixel = megapixel;
-    }
 
     // Methode zum Fotografieren
     public void takePhoto() {
-        System.out.println("Klick! Ein Foto wurde mit " + modell + " von " + hersteller + " aufgenommen.");
+        boolean ok = speicherkarte.saveImage(0.3 * megapixel);
+        if (ok) {
+            System.out.println("Ein Foto wurde aufgenommen!");
+        } else {
+            System.out.println("Nicht genug Speicherplatz vorhanden!");
+        }
     }
 
     // Überschriebene toString() Methode
     @Override
     public String toString() {
         return "Fotoapparat{" +
-                "brennweiteMin=" + brennweiteMin +
-                ", brennweiteMax=" + brennweiteMax +
+                "hersteller='" + hersteller + '\'' +
                 ", modell='" + modell + '\'' +
-                ", hersteller='" + hersteller + '\'' +
                 ", megapixel=" + megapixel +
                 '}';
     }
 }
+
