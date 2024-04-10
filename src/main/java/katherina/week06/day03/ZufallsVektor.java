@@ -22,12 +22,15 @@ public class ZufallsVektor {
     }
 
     public static void geradeZahlen(Vector<Integer> zufallsZahl) {
+        int count = 0;
         for (int index = 0; index <= 20; index++) {
             if (zufallsZahl.get(index) % 2 == 0) {
-
+                count++;
                 System.out.print(zufallsZahl.get(index) + " ");
             }
         }
+        System.out.println();
+        System.out.println("Es gibt "+count+" gerade Zahlen hier.");
     }
 
     public static void ungeradeZahlen(Vector<Integer> zufallsZahl) {
