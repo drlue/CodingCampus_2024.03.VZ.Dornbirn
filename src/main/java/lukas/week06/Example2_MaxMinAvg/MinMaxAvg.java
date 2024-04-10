@@ -1,4 +1,4 @@
-package lukas.week06.Example2;
+package lukas.week06.Example2_MaxMinAvg;
 
 public class MinMaxAvg {
 

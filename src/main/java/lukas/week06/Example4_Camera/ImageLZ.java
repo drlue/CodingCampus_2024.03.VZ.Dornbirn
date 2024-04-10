@@ -1,4 +1,4 @@
-package lukas.week06.Example4;
+package lukas.week06.Example4_Camera;
 
 import java.util.Date;
 
