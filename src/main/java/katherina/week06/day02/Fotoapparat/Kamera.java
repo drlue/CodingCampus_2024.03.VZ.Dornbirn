@@ -24,14 +24,6 @@ public class Kamera {
         return this.model;
     }
 
-    public void setHersteller(String hersteller) {
-        this.hersteller = hersteller;
-    }
-
-    public String getHersteller() {
-        return this.hersteller;
-    }
-
     public void setMegapixel(float megapixel){
         this.megapixel = megapixel;
     }
@@ -70,7 +62,12 @@ public class Kamera {
     }
 
     public void takePhoto(){
-        System.out.println(model + " von " + hersteller+": cliiiiick!");
+        boolean platzVorhanden = speicherkarte.saveImage((int) (0.3 * megapixel));
+        if (platzVorhanden) {
+            System.out.println(model + " von " + hersteller+": cliiiiick!");
+        } else {
+            System.out.println("Nicht genug Speicherplatz vorhanden! Bitte lege eine andere Karte ein");
+        }
     }
 
     @Override

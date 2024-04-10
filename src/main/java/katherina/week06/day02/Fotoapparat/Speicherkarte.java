@@ -2,21 +2,14 @@ package katherina.week06.day02.Fotoapparat;
 
 public class Speicherkarte {
 
-    private int speicherkarte;
+    private int speicherplatzMB;
+    private int verbrauch = 0;
     private Kamera kamera;
 
 
-    public Speicherkarte(int speicherkarte) {
-        this.speicherkarte = speicherkarte;
+    public Speicherkarte(int speicherplatzMB) {
+        this.speicherplatzMB = speicherplatzMB;
         this.kamera = null;
-    }
-
-    public void setSpeicherkarte(int speicherkarte) {
-        this.speicherkarte = speicherkarte;
-    }
-
-    public int getSpeicherkarte() {
-        return speicherkarte;
     }
 
 
@@ -28,18 +21,18 @@ public class Speicherkarte {
         this.kamera = kamera;
     }
 
-    public void setKamera(Kamera kamera) {
-        if ((kamera != null) && (kamera.getSpeicherkarte() == null)) {
-            kamera.setSpeicherkarte(this);
-        } else if (kamera == null && this.kamera != null) {
-            this.kamera.setSpeicherkarte(null);
-        }
-    }
 
+    public boolean saveImage(int imageSize) {
+        if (speicherplatzMB >= verbrauch+imageSize) {
+            verbrauch = verbrauch + imageSize;
+            return true;
+        }
+        return false;
+    }
 
 
     @Override
     public String toString() {
-        return "Der Speicherplatz auf der eingelegten Karte beträgt "+ speicherkarte +" Megabyte.";
+        return "Der Speicherplatz auf der eingelegten Karte beträgt "+ speicherplatzMB +" Megabyte.";
     }
 }
