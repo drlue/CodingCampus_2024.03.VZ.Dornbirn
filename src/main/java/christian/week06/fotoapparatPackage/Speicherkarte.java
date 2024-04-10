@@ -9,14 +9,14 @@ import java.time.LocalDateTime;
 public class Speicherkarte {
     private String name;
     private int size;
-    private float safedMB;
+    private float savedMB;
     private String photos;
     private int photoCount;
     private File cloud;
 
     public Speicherkarte(int Size,String name) {
         this.size = Size;
-        this.safedMB = 0;
+        this.savedMB = 0;
         this.photoCount = 0;
         this.photos = "";
         this.cloud = null;
@@ -28,8 +28,8 @@ public class Speicherkarte {
         return this.size;
     }
 
-    public boolean safePhotoPossible(int megapixel) {
-        if ((this.safedMB + 0.3 * megapixel) < this.size) {
+    public boolean savePhotoPossible(int megapixel) {
+        if ((this.savedMB + 0.3 * megapixel) < this.size) {
             return true;
         } else {
             System.out.println("Speicherkarte ist voll!");
@@ -37,9 +37,9 @@ public class Speicherkarte {
         }
     }
 
-    public void safePhoto(int megapixel, String photo) {
-        if ((this.safedMB + 0.3 * megapixel) < this.size) {
-            this.safedMB += (float)(0.3 * megapixel);
+    public void savePhoto(int megapixel, String photo) {
+        if ((this.savedMB + 0.3 * megapixel) < this.size) {
+            this.savedMB += (float)(0.3 * megapixel);
             this.photoCount++;
 
             this.photos += photo + ", ";
@@ -59,7 +59,7 @@ public class Speicherkarte {
 
     public void deletePhotos() {
 
-        this.safedMB = 0;
+        this.savedMB = 0;
         this.photos = "";
     }
 
