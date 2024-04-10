@@ -1,4 +1,4 @@
-package katherina.week01.day04;
+package katherina;
 
 import java.util.Scanner;
 

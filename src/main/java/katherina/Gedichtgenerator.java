@@ -1,4 +1,4 @@
-package katherina.week02.day02;
+package katherina;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
