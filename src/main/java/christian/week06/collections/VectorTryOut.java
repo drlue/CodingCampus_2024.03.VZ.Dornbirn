@@ -11,8 +11,8 @@ public class VectorTryOut {
     public static void main(String[] args) {
 
         int[] failureArray = {69, 64, 85, 61, 57, 13, 27, 43, 73, 51, 3, 5, 47, 46, 46, 19, 4, 49, 99, 50};
-        Vector<Integer> rndVector1 = createRndNumberVector(0, 100,10);
-        Vector<Integer> rndVector2 = createRndNumberVector(0, 100, 15);
+        Vector<Integer> rndVector1 = createRndNumberVector(0, 100,1);
+        Vector<Integer> rndVector2 = createRndNumberVector(0, 100, 4);
         System.out.println(insertVectorInVectorAndSort1(rndVector1,rndVector2));
     }
 
