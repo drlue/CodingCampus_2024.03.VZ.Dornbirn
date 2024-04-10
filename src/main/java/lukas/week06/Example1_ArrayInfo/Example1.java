@@ -1,8 +1,7 @@
-package lukas.week06.Example1;
+package lukas.week06.Example1_ArrayInfo;
 
 import lukas.Helper;
 
-import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Example1 {

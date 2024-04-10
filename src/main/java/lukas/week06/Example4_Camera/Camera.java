@@ -1,4 +1,4 @@
-package lukas.week06.Example4;
+package lukas.week06.Example4_Camera;
 
 public class Camera {
 

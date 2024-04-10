@@ -1,6 +1,4 @@
-package lukas.week06.Example4;
-
-import java.sql.SQLOutput;
+package lukas.week06.Example4_Camera;
 
 public class Example4 {
 

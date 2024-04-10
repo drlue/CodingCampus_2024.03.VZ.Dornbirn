@@ -1,4 +1,10 @@
-package lukas.week06.Example3;
+package lukas.week06.Example3_Person;
+
+import christian.week04.day03.SearchForWordInText;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 public class Person {
 
@@ -63,6 +69,26 @@ public class Person {
     public String toString() {
         return String.format("%s %s\n%-10s%3d\n%-10s%3d\n%-10s%3d\n","Name:", this.name, "Alter:", this.age, "Größe:", this.height,"Gewicht:", this.weight);
     }
+
+
+    public static void calcPersonsStats(Vector<Person> persons){
+        int maxHeight = Integer.MIN_VALUE;
+        int minValue = Integer.MAX_VALUE;
+
+
+
+        for (Person p : persons) {
+            if(p.getHeight() > maxHeight) {
+                maxHeight = p.getHeight();
+            }
+
+        }
+
+
+    }
+
+
+
 }
 
 

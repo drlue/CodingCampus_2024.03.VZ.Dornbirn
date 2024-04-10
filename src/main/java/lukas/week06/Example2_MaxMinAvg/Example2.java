@@ -1,10 +1,8 @@
-package lukas.week06.Example2;
+package lukas.week06.Example2_MaxMinAvg;
 
 import lukas.Helper;
-import lukas.week06.Example1.CalcArrayInfo;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class Example2 {
 
