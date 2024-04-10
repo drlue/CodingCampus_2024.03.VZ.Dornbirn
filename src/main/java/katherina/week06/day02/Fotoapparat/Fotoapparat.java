@@ -22,6 +22,8 @@ public class Fotoapparat {
         kamera1.setSpeicherkarte(microSD);
         kamera1.setObjektiv(weitwinkel);
         System.out.println(kamera1);
+        kamera1.setObjektiv(starresObjektiv);
+        System.out.println(kamera1);
         System.out.println("========================");
         kamera1.takePhoto();
 

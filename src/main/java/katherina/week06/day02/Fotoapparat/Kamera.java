@@ -3,9 +3,9 @@ package katherina.week06.day02.Fotoapparat;
 public class Kamera {
 
 
-    private String model = "";
-    private String hersteller = "";
-    private float megapixel = 0.8f;
+    private String model;
+    private String hersteller;
+    private float megapixel;
     private Objektiv objektiv;
     private Speicherkarte speicherkarte;
 
@@ -43,7 +43,7 @@ public class Kamera {
     public void setSpeicherkarte(Speicherkarte speicherkarte){
         if (speicherkarte != null) {
             if (speicherkarte.getKamera() != null) {
-                speicherkarte.getKamera().objektiv = null;
+                speicherkarte.getKamera().speicherkarte = null;
             }
             speicherkarte.setKameraIntern(this);
         }
@@ -54,11 +54,6 @@ public class Kamera {
         return speicherkarte;
     }
 
-    public void takePhoto(){
-        System.out.println(model + " von " + hersteller+": cliiiiick!");
-    }
-
-
     public void setObjektiv(Objektiv objektiv) {
         if (objektiv != null) {
             if (objektiv.getKamera() != null) {
@@ -68,9 +63,14 @@ public class Kamera {
         }
         this.objektiv = objektiv;
     }
+    //Testen und angucken, was passiert, wenn ich ein zugewiesenes Objektiv "tausche"!!!!!!
 
     public Objektiv getObjektiv() {
         return objektiv;
+    }
+
+    public void takePhoto(){
+        System.out.println(model + " von " + hersteller+": cliiiiick!");
     }
 
     @Override
