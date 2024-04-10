@@ -29,4 +29,7 @@ public class Person {
         return weight;
     }
 
+    public String toString() {
+        return "Name: " + getName() + "\nSize: " + getSize() + "\nAge: " + getAge() + "\nWeight: " + getWeight();
+    }
 }
