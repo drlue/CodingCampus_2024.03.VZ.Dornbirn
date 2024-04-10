@@ -6,9 +6,9 @@ public class Example4 {
 
     public static void main(String[] args) {
         //Define Cameras
-        Camera camera1 = new Camera("Nikon", "D850", 42f, 1.0f);
-        Camera camera2 = new Camera("Canon", "EOS-1DX", 20.2f, 0.5f);
-        Camera camera3 = new Camera("Olympus", "OM-D-EM1", 25f, 0.6f);
+        Camera camera1 = new Camera("Nikon", "D850", 42f);
+        Camera camera2 = new Camera("Canon", "EOS-1DX", 20.2f);
+        Camera camera3 = new Camera("Olympus", "OM-D-EM1", 25f);
 
         //Define MemoryCards
         MemoryCard sd1 = new MemoryCard("Samsung", 128);

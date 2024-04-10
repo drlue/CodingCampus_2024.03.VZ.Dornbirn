@@ -12,7 +12,7 @@ public class Camera {
 
 
     //-----------------CONSTRUCTOR-------------------------
-    public Camera(String manufacturer, String model, float megapixel, float fileSize) {
+    public Camera(String manufacturer, String model, float megapixel) {
         this.manufacturer = manufacturer;
         this.model = model;
         if (megapixel > 0) {
@@ -24,12 +24,7 @@ public class Camera {
         this.shutterCount = 0;
         this.lens = null;
         this.memoryCard = null;
-        if (fileSize > 0) {
-            this.fileSize = fileSize;
-        } else {
-            this.fileSize = 0.3f;
-            System.out.println("Filesize must be bigger than 0! Wert wird auf 0.3 gesetzt!");
-        }
+        this.fileSize = 0.3f*this.megapixel;
 
     }
 
