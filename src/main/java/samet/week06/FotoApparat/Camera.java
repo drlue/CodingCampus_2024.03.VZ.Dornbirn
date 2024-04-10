@@ -4,48 +4,46 @@ public class Camera {
 
     private String modell;
     private String hersteller;
-    private double megapixel;
-    private double preis;
+    private int megapixel;
+    private Memory speicherkarte;
+    private Objektiv objektiv;
 
-    private int brennWeiteMax;
-    private int brennWeiteMin;
 
-    public Camera(String modell, String hersteller, double megapixel, double preis, int brennWeiteMax, int brennWeiteMin){
+    public Camera(String modell, String hersteller, int megapixel) {
 
         this.modell = modell;
         this.hersteller = hersteller;
         this.megapixel = megapixel;
-        this.preis = preis;
-        this.brennWeiteMax = brennWeiteMax;
-        this.brennWeiteMin = brennWeiteMin;
-    }
-    public String getModell(){
-        return modell;
-    }
-    public String getHersteller(){
-        return hersteller;
-    }
-    public double getMegapixel(){
-        return megapixel;
-    }
-    public double getPreis(){
-        return preis;
-    }
-    public int getBrennWeiteMax(){
-        return brennWeiteMax;
-    }
-    public int getBrennWeiteMin(){
-        return brennWeiteMin;
+        this.objektiv = null;
+        this.speicherkarte = null;
     }
 
-    public String toString(){
+    public void takePicture() {
+        if (objektiv == null){
+            System.out.println(" Photo without objective is not possible");
+        } else if (speicherkarte == null) {
+            System.out.println("Photo without memory card is not possible");
+        }else {
+            boolean saved = speicherkarte.savePhoto(megapixel);
+            if (saved){
+                System.out.println("CLICK!!!");
+            }
+        }
+    }
+    public void setObjektiv(Objektiv objektiv){
+        this.objektiv = objektiv;
+    }
+    public void setSpeicherkarte(Memory memory){
+        this.speicherkarte = memory;
+    }
+
+    public String toString() {
         return
-                "Modell: " + modell + "\n" +
-                        "Hersteller: " + hersteller + "\n" +
-                        "MegaPixel: " + megapixel + "\n" +
-                        "Preis: " + preis + "\n" +
-                        "Maximale Brennweite: " + brennWeiteMax + "\n" +
-                        "Minimale Brennweite: " + brennWeiteMin + "\n";
-
+                hersteller + " " + modell + (objektiv != null ? " with " + objektiv + " objektiv" : " without objektiv");
     }
+
+
+
 }
+
+

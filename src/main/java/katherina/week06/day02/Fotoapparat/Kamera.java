@@ -2,29 +2,82 @@ package katherina.week06.day02.Fotoapparat;
 
 public class Kamera {
 
-    private final int brennweiteMin;
-    private final int brennweiteMax;
-    private final String model;
-    private final String hersteller;
-    private final float megapixel;
 
-    public Kamera(int brennweiteMin, int brennweiteMax, String model, String hersteller, float megapixel) {
-        this.brennweiteMin = brennweiteMin;
-        this.brennweiteMax = brennweiteMax;
+    private String model = "";
+    private String hersteller = "";
+    private float megapixel = 0.8f;
+    private Objektiv objektiv;
+    private Speicherkarte speicherkarte;
+
+
+    public Kamera(String model, String hersteller, float megapixel) {
         this.model = model;
         this.hersteller = hersteller;
         this.megapixel = megapixel;
     }
 
+    public void setModel(String model) {
+        this.model = model;
+    }
 
+    public String getModel() {
+        return this.model;
+    }
+
+    public void setHersteller(String hersteller) {
+        this.hersteller = hersteller;
+    }
+
+    public String getHersteller() {
+        return this.hersteller;
+    }
+
+    public void setMegapixel(float megapixel){
+        this.megapixel = megapixel;
+    }
+
+    public float getMegapixel(){
+        return megapixel;
+    }
+
+    public void setSpeicherkarte(Speicherkarte speicherkarte){
+        if (speicherkarte != null) {
+            if (speicherkarte.getKamera() != null) {
+                speicherkarte.getKamera().objektiv = null;
+            }
+            speicherkarte.setKameraIntern(this);
+        }
+        this.speicherkarte = speicherkarte;
+    }
+
+    public Speicherkarte getSpeicherkarte(){
+        return speicherkarte;
+    }
+
+    public void takePhoto(){
+        System.out.println(model + " von " + hersteller+": cliiiiick!");
+    }
+
+
+    public void setObjektiv(Objektiv objektiv) {
+        if (objektiv != null) {
+            if (objektiv.getKamera() != null) {
+                objektiv.getKamera().objektiv = null;
+            }
+            objektiv.setKameraIntern(this);
+        }
+        this.objektiv = objektiv;
+    }
+
+    public Objektiv getObjektiv() {
+        return objektiv;
+    }
 
     @Override
     public String toString() {
         return "Dies ist eine Kamera des Typs "+ model+
                 ", hergestellt von "+hersteller+
-                ". Ihre kleinste Brennweite beträgt "+brennweiteMin+
-                "mm und ihre größte Brennweite beträgt "+brennweiteMax+
-                "mm. Die damit geschossenen Bilder haben eine Auflösung von bis zu "+megapixel+
-        " Megapixel.";
+                ". Die damit geschossenen Bilder haben eine Auflösung von bis zu "+megapixel+
+        " Megapixel. "+objektiv+speicherkarte;
     }
 }
