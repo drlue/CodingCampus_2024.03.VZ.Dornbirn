@@ -16,7 +16,7 @@ public class CreateVector {
         for (int i = 0; i < 21; i++) {
             vec1.add(random.nextInt(99));
         }
-        Vector<Integer> vec2 = new Vector<Integer>();
+        Vector<Integer> vec2 = new Vector<>();
         vec2.add(1);
         vec2.add(3);
         vec2.add(7);
