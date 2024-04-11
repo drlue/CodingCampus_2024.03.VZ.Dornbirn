@@ -11,7 +11,7 @@ public class Fahrrad extends Fahrzeug {
     }
 
     public void schimpfiSchimpfi(){
-        System.out.println(" Pass doch auf du ......");
+        System.out.println(" Pass doch auf du :......");
 
     }
     
