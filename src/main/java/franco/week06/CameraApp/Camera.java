@@ -52,9 +52,9 @@ public class Camera {
     public void setBatteryCapacity(double batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
     }
-    public void setMemoryCard(MemoryCard NewMemoryCard) {
+    public void setMemoryCard(MemoryCard MemoryCard) {
         if (memoryCard == null) {
-            memoryCard = NewMemoryCard;
+            memoryCard = MemoryCard;
         } else {
             System.out.println("A memorycard is already in!");
         }
