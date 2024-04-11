@@ -7,6 +7,6 @@ public class Fahrrad extends Fahrzeug {
 
     @Override
     public void fahre() {
-        System.out.println("Ich fahre gemütlich im Dorf mit 2 Reifen HAHAHAHHAHAHAH Calender ist outdated ");
+        System.out.println("Ich fahre gemuetlich im Dorf mit 2 Reifen HAHAHAHHAHAHAH Calender ist outdated ");
     }
 }
