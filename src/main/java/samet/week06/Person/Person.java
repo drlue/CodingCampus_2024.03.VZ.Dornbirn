@@ -14,26 +14,10 @@ public class Person {
         this.weight = weight;
     }
 
-    public int getSize() {
-        return size;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
     public String toString() { //to String damit die Ausgabe schön aussieht!
         return
                 "Name: " + name + "\n" +
-                        "Alter: " + age + " Jahre" +"\n" +
+                        "Alter: " + age + " Jahre" + "\n" +
                         "Größe: " + size + " cm\n" +
                         "Gewicht: " + weight + " kg\n";
     }
