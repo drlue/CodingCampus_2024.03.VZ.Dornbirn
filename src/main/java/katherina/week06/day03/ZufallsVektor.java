@@ -19,8 +19,14 @@ public class ZufallsVektor {
         System.out.println();
         int countUneven = ungeradeZahlen(zufallsZahl);
         System.out.println("Es gibt " + countUneven + " ungerade Zahlen hier.");
-        kleinsteZahl(zufallsZahl);
-
+        System.out.print("Die kleinste Zahl lautet: ");
+        System.out.println(kleinsteZahl(zufallsZahl));
+        System.out.print("Die größte Zahl lautet: ");
+        System.out.println(groessteZahl(zufallsZahl));
+        System.out.print("Einmal absteigend sortiert, bitte: ");
+        System.out.println(absteigend(zufallsZahl));
+        System.out.print("Einmal alles Ungerade wegschießen, bitte: ");
+        System.out.println(ungeradeZahlenKillen(zufallsZahl));
     }
 
     public static int geradeZahlen(Vector<Integer> zufallsZahl) {
@@ -54,15 +60,46 @@ public class ZufallsVektor {
     }
 
     public static int kleinsteZahl(Vector<Integer> zufallsZahl) {
-        int minNumber = 0;
+        int minNumber = Integer.MAX_VALUE;
         for (int index = 0; index < zufallsZahl.size(); index++) {
-
+            if (minNumber > zufallsZahl.get(index)) {
+                minNumber = zufallsZahl.get(index);
+            }
         }
         return minNumber;
     }
 
-    //Suche nach der kleinsten Zahl
-    //Suche nach der größten Zahl
-    //Sortiere die Elementen absteigend
-    //Lösche alle Ungerade Zahlen
+    public static int groessteZahl(Vector<Integer> zufallsZahl) {
+        int maxNumber = Integer.MIN_VALUE;
+        for (int index = 0; index < zufallsZahl.size(); index++) {
+            if (maxNumber < zufallsZahl.get(index)) {
+                maxNumber = zufallsZahl.get(index);
+            }
+        }
+        return maxNumber;
+    }
+
+    public static Vector absteigend(Vector<Integer> zufallsZahl) {
+        boolean sorted = true;
+        while (sorted) {
+            sorted = false;
+            for (int index = 1; index < zufallsZahl.size(); index++) {
+                if (zufallsZahl.get(index) > zufallsZahl.get(index - 1)) {
+                    Integer temp = zufallsZahl.set(index - 1, zufallsZahl.get(index));
+                    zufallsZahl.set(index, temp);
+                    sorted = true;
+                }
+            }
+        }
+        return zufallsZahl;
+    }
+
+    public static Vector ungeradeZahlenKillen(Vector<Integer> zufallsZahl) {
+        for (int index = 0; index < zufallsZahl.size(); index++) {
+            if (zufallsZahl.get(index) % 2 != 0) {
+                zufallsZahl.remove(index);
+            }
+        }
+        return zufallsZahl;
+    }
 }
