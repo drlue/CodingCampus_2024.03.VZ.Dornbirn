@@ -7,6 +7,6 @@ public class Boot extends Fahrzeug {
 
     @Override
     public void fahre() {
-        System.out.println("Ich fahre im Wasser ohne Reifen!");
+        System.out.println("Ich fahre im Missisippi ohne Reifen!");
     }
 }
