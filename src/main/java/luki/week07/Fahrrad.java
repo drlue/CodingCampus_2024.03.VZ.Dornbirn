@@ -14,4 +14,8 @@ public class Fahrrad extends Fahrzeug {
         System.out.println(" Pass doch auf du ......");
 
     }
+    
+    public void pumpItUp() {
+        System.out.println("Ich pumpe die Reifen auf!");
+    }
 }
