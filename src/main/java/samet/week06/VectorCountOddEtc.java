@@ -5,6 +5,7 @@ import java.util.Vector;
 import java.util.Random;
 
 public class VectorCountOddEtc {
+    private static Random random = new Random();
 
 
     public static void main(String[] args) {
@@ -29,18 +30,25 @@ public class VectorCountOddEtc {
     }
 
     public static Vector<Integer> generateRandomNumbers(int count) {
-
         Vector<Integer> randomNumbers = new Vector<Integer>();
-        Random random = new Random();
         for (int i = 0; i < count; i++) {
-            int rand = random.nextInt(101);
-            randomNumbers.add(rand);
+            randomNumbers.add(random.nextInt(100));
         }
         return randomNumbers;
     }
 
-    public static int countEvenNumbers(Vector<Integer> numbers) {
 
+    public static int countEvenNumbersByGyula(Vector<Integer> numbers) {
+        int count = 0;
+        for (Integer value : numbers) {
+            if (value % 2 == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int countEvenNumbers(Vector<Integer> numbers) {
         int count = 0;
         for (int i = 0; i < numbers.size(); i++) {
             if (numbers.get(i) % 2 == 0) {
@@ -50,8 +58,8 @@ public class VectorCountOddEtc {
         return count;
     }
 
-    public static int findSmallestNumber(Vector<Integer> numbers){
-        int smallestNumber = Integer.MAX_VALUE;
+    public static Integer findSmallestNumber(Vector<Integer> numbers){
+        Integer smallestNumber = Integer.MAX_VALUE;
         for (int i = 0; i < numbers.size(); i++) {
             if (numbers.get(i) < smallestNumber){
                 smallestNumber = numbers.get(i);

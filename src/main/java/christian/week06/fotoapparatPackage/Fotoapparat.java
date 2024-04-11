@@ -10,10 +10,9 @@ public class Fotoapparat {
     private int akkuKapazitaet;
     private Objektiv objektiv;
     private Speicherkarte speicherkarte;
-    private Scanner scanner;
 
 
-    public Fotoapparat(String modell, String hersteller, int megapixel, int akkuKapazitaet, Scanner sc) {
+    public Fotoapparat(String modell, String hersteller, int megapixel, int akkuKapazitaet) {
 
         this.modell = modell;
         this.hersteller = hersteller;
@@ -21,7 +20,7 @@ public class Fotoapparat {
         this.akkuKapazitaet = akkuKapazitaet;
         this.objektiv = null;
         this.speicherkarte = null;
-        this.scanner = sc;
+
     }
 
     // =================Get und Set =======================
@@ -85,21 +84,26 @@ public class Fotoapparat {
     }
 
     public void takePhoto() {
-        if (this.objektiv != null && this.speicherkarte != null){
-            if (this.speicherkarte.safePhotoPossible(this.megapixel)  ) {
-                this.speicherkarte.safePhoto(this.megapixel, scanner.nextLine());
-                System.out.println("Klick!! Foto gespeichert");
+        Scanner scanner = new Scanner(System.in);
+        if (this.objektiv == null) {
+            System.out.println("Kein Objektiv vorhanden!");
+        } else if (this.speicherkarte == null) {
+            System.out.println("Keine Speicherkarte vorhanden!");
         } else {
-                System.out.println("Speicher voll!");
-            }
+            if (this.objektiv != null && this.speicherkarte != null) {
+                if (this.speicherkarte.savePhotoPossible(this.megapixel)) {
+                    System.out.println("Mach ein Foto: (gib einen String ein!)");
+                    String photo = scanner.nextLine();
+                    this.speicherkarte.savePhoto(this.megapixel, photo);
+                    System.out.println("Klick!! Foto gespeichert");
+                } else {
+                    System.out.println("Speicher voll!");
+                }
 
-        } else {
-            if (this.objektiv == null){
-                System.out.println("Kein Objektiv vorhanden!");
-            } else if (this.speicherkarte == null){
-                System.out.println("Keine Speicherkarte vorhanden!");
             }
         }
+
+
     }
 
     public int showPhotoCount() {
