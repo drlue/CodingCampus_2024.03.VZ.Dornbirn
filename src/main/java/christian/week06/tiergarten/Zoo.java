@@ -15,15 +15,10 @@ public class Zoo {
 
     public String toString() {
         String beschreibung = "";
-        if (gehegeListe == null) {
-            beschreibung += "|---Zoo: " + name + ", geründet " + gruendungsJahr;
-        } else if (gehegeListe != null) {
-            beschreibung += "|---Zoo: " + name + ", geründet " + gruendungsJahr;
+        beschreibung += "|---Zoo: " + name + ", geründet " + gruendungsJahr + "\n";
+        if (gehegeListe != null) {
             for (Gehege x : gehegeListe) {
-                beschreibung += "\n    |---Gehege: " + x.getName();
-                for (Tier y : x.tierListe){
-                    beschreibung += "\n"+y.toString();
-                }
+                beschreibung += x.toString();
             }
         }
         return beschreibung;

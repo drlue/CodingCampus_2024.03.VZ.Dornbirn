@@ -6,11 +6,21 @@ public class Gehege {
     private String name;
     public List<Tier> tierListe;
 
-    public Gehege(String name){
-        this.name= name;
+    public Gehege(String name) {
+        this.name = name;
         this.tierListe = null;
     }
-    public String getName (){
+
+    public String getName() {
         return name;
+    }
+
+    public String toString() {
+        String beschreibung = "";
+        beschreibung += " Gehege: " + name + "";
+        for (Tier x : tierListe) {
+            x.toString();
+        }
+        return beschreibung;
     }
 }
