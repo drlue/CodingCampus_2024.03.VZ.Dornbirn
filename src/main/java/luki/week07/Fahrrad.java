@@ -10,7 +10,10 @@ public class Fahrrad extends Fahrzeug {
         System.out.println("ICH fahre gemuetlich im Dorf mit 2 Reifen HAHAHAHHAHAHAH Calender ist outdated ");
     }
 
-    public void flickPatschen() {
+    public void pumpItUp() {
+        System.out.println("Ich pumpe die Reifen auf!");
+    }
+ public void flickPatschen() {
         System.out.println("You have a flat tyre!");
     }
 }
