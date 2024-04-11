@@ -13,4 +13,8 @@ public class Fahrrad extends Fahrzeug {
     public void pumpItUp() {
         System.out.println("Ich pumpe die Reifen auf!");
     }
+
+    public void gearShifter(){
+        System.out.println("Ich schalte einen Gang noch oben!");
+    }
 }
