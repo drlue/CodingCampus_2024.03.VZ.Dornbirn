@@ -9,7 +9,8 @@ public class Tier {
         this.gattung = gattung;
 
     }
-    public String toString(){
-        return "|---" + name + ", "+ gattung;
+
+    public String toString() {
+        return "|---" + name + ", " + gattung;
     }
 }
