@@ -96,7 +96,7 @@ public class ZufallsVektor {
 
     public static Vector ungeradeZahlenKillen(Vector<Integer> zufallsZahl) {
         for (int index = 0; index < zufallsZahl.size(); index++) {
-            if (zufallsZahl.get(index) % 2 != 0) {
+            while (index < zufallsZahl.size() && zufallsZahl.get(index) % 2 != 0) {
                 zufallsZahl.remove(index);
             }
         }
