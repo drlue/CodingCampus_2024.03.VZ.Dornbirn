@@ -59,21 +59,21 @@ public class ZufallsVektor {
         return count;
     }
 
-    public static int kleinsteZahl(Vector<Integer> zufallsZahl) {
-        int minNumber = Integer.MAX_VALUE;
-        for (int index = 0; index < zufallsZahl.size(); index++) {
-            if (minNumber > zufallsZahl.get(index)) {
-                minNumber = zufallsZahl.get(index);
+    public static Integer kleinsteZahl(Vector<Integer> vektor) {
+        Integer minNumber = Integer.MAX_VALUE;
+        for (int index = 0; index < vektor.size(); index++) {
+            if (minNumber > vektor.get(index)) {
+                minNumber = vektor.get(index);
             }
         }
         return minNumber;
     }
 
-    public static int groessteZahl(Vector<Integer> zufallsZahl) {
-        int maxNumber = Integer.MIN_VALUE;
-        for (int index = 0; index < zufallsZahl.size(); index++) {
-            if (maxNumber < zufallsZahl.get(index)) {
-                maxNumber = zufallsZahl.get(index);
+    public static Integer groessteZahl(Vector<Integer> vektor) {
+        Integer maxNumber = Integer.MIN_VALUE;
+        for (int index = 0; index < vektor.size(); index++) {
+            if (maxNumber < vektor.get(index)) {
+                maxNumber = vektor.get(index);
             }
         }
         return maxNumber;
@@ -98,6 +98,9 @@ public class ZufallsVektor {
         for (int index = 0; index < zufallsZahl.size(); index++) {
             if (zufallsZahl.get(index) % 2 != 0) {
                 zufallsZahl.remove(index);
+                index--;
+                //Ohne das "Rückwärtszählen" nach jedem Entfernvorgang wird sonst ein Index übersprungen.
+                //Wenn dort eine ungerade Zahl dann reinrutscht, wird sie nicht mehr erfasst.
             }
         }
         return zufallsZahl;
