@@ -11,7 +11,7 @@ public class PersonMain {
         System.out.println(person1.toString());
         List<PersonBasics> personBasicsList = new ArrayList<>();
         personBasicsList.add(person1);
-        perosn
+        //perosn
 
 
     }
