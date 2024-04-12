@@ -1,5 +1,6 @@
 package lukas.week06.Example3_Person;
 
+import java.util.Collections;
 import java.util.Vector;
 
 public class PersonStats {
@@ -15,6 +16,7 @@ public class PersonStats {
     private int minWeight;
     private int maxWeight;
     private float avgWeight;
+
 
     private Vector<Person> persons;
 
@@ -124,9 +126,13 @@ public class PersonStats {
     }
 
 
+
+
+
     @Override
     public String toString() {
-
+        System.out.printf("%29s\n", "PERSONSTATS");
+        //Datatable
         String header = String.format("%5s| %11s| %12s| %12s|\n","", "Age", "Height", "Weight");
         String minLine = String.format("%5s| %10dy| %10dcm| %10dkg|\n","MIN", calcMinAge(), calcMinHeight(), calcMinWeight());
         String maxLine = String.format("%5s| %10dy| %10dcm| %10dkg|\n","MAX", calcMaxAge(), calcMaxHeight(), calcMaxWeight());
