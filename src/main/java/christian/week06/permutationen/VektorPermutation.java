@@ -19,6 +19,7 @@ public class VektorPermutation {
         endcounter++;
         if (index == vector.size() - 1) {
             index = 0;
+
         }
         if (endcounter<christian.week01.day04.UebungenFaktoriell.faktoriell1(vector.size())){
             permutate(vector, index, endcounter, permutations);
