@@ -1,5 +1,6 @@
 package christian.week06.tiergarten;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Gehege {
@@ -8,7 +9,7 @@ public class Gehege {
 
     public Gehege(String name) {
         this.name = name;
-        this.tierListe = null;
+        this.tierListe = new ArrayList<Tier>();
     }
 
     public String getName() {
@@ -17,9 +18,9 @@ public class Gehege {
 
     public String toString() {
         String beschreibung = "";
-        beschreibung += " Gehege: " + name + "";
+        beschreibung += "  |---Gehege: " + name + "";
         for (Tier x : tierListe) {
-            x.toString();
+            beschreibung += x.toString();
         }
         return beschreibung;
     }
