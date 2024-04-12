@@ -21,6 +21,8 @@ public class ZufallsVektor {
         System.out.println("Es gibt " + countUneven + " ungerade Zahlen hier.");
         System.out.print("Die kleinste Zahl lautet: ");
         System.out.println(kleinsteZahl(zufallsZahl));
+//        System.out.print("Die kleinste Zahl - Version 2 - lautet: ");
+//        System.out.println(kleinsteZahl2(zufallsZahl));
         System.out.print("Die größte Zahl lautet: ");
         System.out.println(groessteZahl(zufallsZahl));
         System.out.print("Einmal absteigend sortiert, bitte: ");
@@ -64,6 +66,16 @@ public class ZufallsVektor {
         for (int index = 0; index < vektor.size(); index++) {
             if (minNumber > vektor.get(index)) {
                 minNumber = vektor.get(index);
+            }
+        }
+        return minNumber;
+    }
+
+    public static Integer kleinsteZahl2(Vector<Integer> vektor) {
+        Integer minNumber = Integer.MAX_VALUE;
+        for (Integer value : vektor) {
+            if (value < minNumber) ;
+            {
             }
         }
         return minNumber;
