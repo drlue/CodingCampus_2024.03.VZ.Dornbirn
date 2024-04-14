@@ -12,17 +12,23 @@ public class VektorPermutation {
     }
 
     public static void permutate(Vector<String> vector, Vector<String> leftOver) {
+        int forCounter = leftOver.size();
         Vector<String> copyOfVector = new Vector<>(vector);
-        Vector<String> copyOfLeftOver = new Vector<>(leftOver);
+
         Vector<String> permVector = copyOfVector;
 
-        while (!copyOfLeftOver.isEmpty()) {
-            for (int i = 0; i < copyOfLeftOver.size(); i++) {
-                permVector.add(copyOfLeftOver.remove(i));
-                permutate(permVector, copyOfLeftOver);
-            }
+        for (int i = 0; i < leftOver.size(); i++) {
+
+            permVector.add(leftOver.remove(i));
         }
-        System.out.println(permVector.toString());
+
+        if (!leftOver.isEmpty()) {
+            permutate(copyOfVector, leftOver);
+
+        } else {
+            System.out.println(permVector.toString());
+        }
+
     }
 
     public static void permutate2(Vector<String> vector, int fixedIndex) {
