@@ -5,30 +5,24 @@ import java.util.Vector;
 
 public class VektorPermutation {
     public static void main(String[] args) {
-        Vector<String> vektor1 = new Vector<String>();
-        Vector<String> vektor2 = new Vector<String>(Arrays.asList("A", "B", "C", "D"));
-        permutate(vektor1, vektor2);
+        Vector<String> leererVektor = new Vector<String>();
+        Vector<String> inputVektor = new Vector<String>(Arrays.asList("A", "B", "C", "D"));
+        permutate(leererVektor, inputVektor);
 //        permutate2(vektor2, 0);
     }
 
-    public static void permutate(Vector<String> vector, Vector<String> leftOver) {
-        int forCounter = leftOver.size();
-        Vector<String> copyOfVector = new Vector<>(vector);
+    public static void permutate(Vector<String> permVektor, Vector<String> remainingLetters) {
 
-        Vector<String> permVector = copyOfVector;
+            for (int i = 0; i < remainingLetters.size(); i++) {
+                permVektor.add(remainingLetters.remove(i));
 
-        for (int i = 0; i < leftOver.size(); i++) {
+                permutate(permVektor, remainingLetters);
 
-            permVector.add(leftOver.remove(i));
-        }
+                permVektor.remove(i);
 
-        if (!leftOver.isEmpty()) {
-            permutate(copyOfVector, leftOver);
+            }
 
-        } else {
-            System.out.println(permVector.toString());
-        }
-
+        System.out.println(permVektor.toString());
     }
 
     public static void permutate2(Vector<String> vector, int fixedIndex) {
