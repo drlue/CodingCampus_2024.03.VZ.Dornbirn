@@ -5,28 +5,42 @@ import java.util.Vector;
 
 public class VektorPermutation {
     public static void main(String[] args) {
-        Vector<String> vektor1 = new Vector<String>(Arrays.asList("A", "B", "C", "D"));
-        permutate(vektor1, 0, 0, "");
+        Vector<String> vektor1 = new Vector<String>();
+        Vector<String> vektor2 = new Vector<String>(Arrays.asList("A", "B", "C", "D"));
+        permutate(vektor1, vektor2);
+//        permutate2(vektor2, 0);
     }
 
-    public static void permutate(Vector<String> vector, int index, int endcounter, String permutations) {
+    public static void permutate(Vector<String> vector, Vector<String> leftOver) {
+        int forCounter = leftOver.size();
+        Vector<String> copyOfVector = new Vector<>(vector);
 
-//swap 1 Element
-        vector.set(index + 1, vector.set(index, vector.get(index + 1)));
+        Vector<String> permVector = copyOfVector;
 
-        permutations += "\n, " + vector.toString();
-        index++;
-        endcounter++;
-        if (index == vector.size() - 1) {
-            index = 0;
+        for (int i = 0; i < leftOver.size(); i++) {
 
-        }
-        if (endcounter<christian.week01.day04.UebungenFaktoriell.faktoriell1(vector.size())){
-            permutate(vector, index, endcounter, permutations);
-        }
-        if (endcounter == christian.week01.day04.UebungenFaktoriell.faktoriell1(vector.size())){
-            System.out.println(permutations);
+            permVector.add(leftOver.remove(i));
         }
 
+        if (!leftOver.isEmpty()) {
+            permutate(copyOfVector, leftOver);
+
+        } else {
+            System.out.println(permVector.toString());
+        }
+
+    }
+
+    public static void permutate2(Vector<String> vector, int fixedIndex) {
+        for (int i = fixedIndex; i < vector.size(); i++) {
+            if (fixedIndex == vector.size() - 1) {
+                System.out.println(vector.toString());
+            } else {
+                vector.set(fixedIndex, vector.get(i));
+                permutate2(vector, fixedIndex++);
+            }
+        }
     }
 }
+
+
