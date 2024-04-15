@@ -1,46 +1,60 @@
 package lukas.week06.Example5_Vector;
 
-import lukas.week06.Example3_Person.Person;
-
-import java.util.*;
+import java.util.Collections;
+import java.util.Random;
+import java.util.Vector;
 
 public class CreateVector {
     public static Random random = new Random();
 
     public static void main(String[] args) {
         //vector 20 numbers between 0-99
-        Vector<Integer> vec = new Vector<>();
+        Vector<Integer> vec1 = new Vector<>();
         for (int i = 0; i < 21; i++) {
-            vec.add(random.nextInt(99));
+            vec1.add(random.nextInt(99));
         }
+        Vector<Integer> vec2 = new Vector<>();
+        vec2.add(1);
+        vec2.add(3);
+        vec2.add(7);
+        vec2.add(2);
+        vec2.add(8);
+        vec2.add(3);
+
+
         //print
-        printVec(vec);
+        printVec(vec1);
+        printVec(vec2);
 
         //count odd numbers
-        System.out.println("Anzahl gerade Zahlen: " + countOddNumbers(vec));
-        System.out.println("Minimum: " + getMin(vec));
-        System.out.println("Maximum: " + getMax(vec));
+        System.out.println("Anzahl gerade Zahlen: " + countOddNumbers(vec1));
+        System.out.println("Minimum: " + getMin(vec1));
+        System.out.println("Maximum: " + getMax(vec1));
+
         System.out.println("Sort Descending:");
-        printVec(bubbleSortDesc(vec));
+        printVec(bubbleSortDesc(vec1));
+
         System.out.println("Delete all uneven numbers");
-        Vector<Integer> vec1 = new Vector<Integer>();
-        vec1.add(1);
-        vec1.add(3);
-        vec1.add(7);
-        vec1.add(2);
-        vec1.add(8);
-        vec1.add(3);
-        printVec(deleteUneven(vec1));
+        printVec(deleteUneven(vec2));
 
         System.out.println("Merge Vectors");
-        Collections.sort(vec);
-        Collections.sort(vec1);
+        //make copy of vec1 and vec2
+        Vector<Integer> v1 = new Vector<>(vec1);
+        Vector<Integer> v2 = new Vector<>(vec2);
         System.out.println("Vector 1");
-        System.out.println(vec);
-        System.out.println(vec1);
+        System.out.println(v1);
+        System.out.println("Vector 2");
+        System.out.println(v2);
         System.out.println("Merged Vectors");
-        System.out.println(mergeVectors(vec, vec1));
+        System.out.println(mergeVectorsV2(v1, v2));
 
+        System.out.println("Merged SortedVectors");
+        //make copy of vec1 and vec2
+        Vector<Integer> v3 = new Vector<>(vec1);
+        Vector<Integer> v4 = new Vector<>(vec2);
+        Collections.sort(v3);
+        Collections.sort(v4);
+        System.out.println(mergeSortedVectorsV2(v3, v4));
 
 
     }
@@ -118,8 +132,75 @@ public class CreateVector {
         return res;
     }
 
-    ArrayList<Person> persons = new ArrayList<>();
+    public static Vector<Integer> mergeVectorsV2(Vector<Integer> vec1, Vector<Integer> vec2) {
+        Vector<Integer> res = new Vector<>();
+        //vector 1
+        while (!vec1.isEmpty()) {
+            if (res.isEmpty()) {
+                res.add(vec1.getFirst());
+                vec1.removeFirst();
+            }
+            for (int i = 0; i < res.size(); i++) {
+                if (vec1.getFirst() < res.get(i)) {
+                    res.add(i, vec1.getFirst());
+                    vec1.removeFirst();
+                    break;
+                } else if (i == res.size() - 1) {
+                    res.add(vec1.getFirst());
+                    vec1.removeFirst();
+                    break;
+                }
+            }
+        }
+        //vector 2
+        while (!vec2.isEmpty()) {
+            for (int i = 0; i < res.size(); i++) {
+                if (vec2.getFirst() < res.get(i)) {
+                    res.add(i, vec2.getFirst());
+                    vec2.removeFirst();
+                    break;
+                } else if (i == res.size() - 1) {
+                    res.add(vec2.getFirst());
+                    vec2.removeFirst();
+                    break;
+                }
+            }
+        }
+        return res;
+    }
 
+    public static Vector<Integer> mergeSortedVectors(Vector<Integer> vec1, Vector<Integer> vec2) {
+        Vector<Integer> res = new Vector<>(vec1); //copy all elements from vec1 to res
+        while (!vec2.isEmpty()) {
+            for (int i = 0; i < res.size(); i++) {
+                if (vec2.getFirst() < res.get(i)) {
+                    res.add(i, vec2.getFirst());
+                    vec2.removeFirst();
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+
+    public static Vector<Integer> mergeSortedVectorsV2(Vector<Integer> vec1, Vector<Integer> vec2) {
+        Vector<Integer> res = new Vector<Integer>();
+        while (!vec1.isEmpty() && !vec2.isEmpty()) {
+            if (vec1.getFirst() < vec2.getFirst()) {
+                res.add(vec1.getFirst());
+                vec1.removeFirst();
+            } else {
+                res.add(vec2.getFirst());
+                vec2.removeFirst();
+            }
+        }
+        if (!vec1.isEmpty()) {
+            res.addAll(vec1);
+        } else if (!vec2.isEmpty()) {
+            res.addAll(vec2);
+        }
+        return res;
+    }
 
 
 }

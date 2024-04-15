@@ -1,5 +1,6 @@
 package christian.week06.tiergarten;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Zoo {
@@ -10,20 +11,15 @@ public class Zoo {
     public Zoo(String name, int gruendungsJahr) {
         this.name = name;
         this.gruendungsJahr = gruendungsJahr;
-        this.gehegeListe = null;
+        this.gehegeListe = new ArrayList<Gehege>();
     }
 
     public String toString() {
         String beschreibung = "";
-        if (gehegeListe == null) {
-            beschreibung += "|---Zoo: " + name + ", geründet " + gruendungsJahr;
-        } else if (gehegeListe != null) {
-            beschreibung += "|---Zoo: " + name + ", geründet " + gruendungsJahr;
+        beschreibung += "|---Zoo: " + name + ", geründet " + gruendungsJahr + "\n";
+        if (gehegeListe != null) {
             for (Gehege x : gehegeListe) {
-                beschreibung += "\n    |---Gehege: " + x.getName();
-                for (Tier y : x.tierListe){
-                    beschreibung += "\n"+y.toString();
-                }
+                beschreibung += x.toString();
             }
         }
         return beschreibung;
