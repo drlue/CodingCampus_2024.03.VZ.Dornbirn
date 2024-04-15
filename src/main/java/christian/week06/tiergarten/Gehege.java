@@ -18,7 +18,7 @@ public class Gehege {
 
     public String toString() {
         String beschreibung = "";
-        beschreibung += "  |---Gehege: " + name + "";
+        beschreibung += "  |---Gehege: " + name + "\n";
         for (Tier x : tierListe) {
             beschreibung += x.toString();
         }

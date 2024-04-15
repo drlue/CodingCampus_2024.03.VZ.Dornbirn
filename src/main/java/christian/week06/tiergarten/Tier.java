@@ -16,7 +16,7 @@ public class Tier {
     }
 
     public String toString() {
-        return "\n    |---" + name + ", " + gattung;
+        return "    |---" + name + ", " + gattung + "\n";
     }
 
     public String getName() {
@@ -27,8 +27,8 @@ public class Tier {
         return gattung;
     }
 
-    public String getFutter() {
-        return futter.toString();
+    public Futter getFutter() {
+        return futter;
     }
 
     public float getFutterMenge() {

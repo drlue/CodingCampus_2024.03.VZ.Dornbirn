@@ -6,12 +6,18 @@ import java.util.List;
 public class Zoo {
     private String name;
     private int gruendungsJahr;
+    private float vermoegen;
     public List<Gehege> gehegeListe;
 
-    public Zoo(String name, int gruendungsJahr) {
+    public Zoo(String name, int gruendungsJahr, float vermoegen) {
+        this.vermoegen = vermoegen;
         this.name = name;
         this.gruendungsJahr = gruendungsJahr;
         this.gehegeListe = new ArrayList<Gehege>();
+    }
+
+    public float getVermoegen() {
+        return vermoegen;
     }
 
     public String toString() {
