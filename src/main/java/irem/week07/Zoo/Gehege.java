@@ -1,25 +1,24 @@
 package irem.week07.Zoo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Vector;
 
 public class Gehege {
 
     private String name;
-    private List<Tiere> tiereList;
+    private Vector<Tiere> tiereListe;
 
     public Gehege(String name) {
         this.name = name;
-        this.tiereList = new ArrayList<>();
+        this.tiereListe = new Vector<>();
     }
 
     public void addTiere(Tiere tiere) {
-        tiereList.add(tiere);
+        tiereListe.add(tiere);
 
     }
 
     public void removeTiere(Tiere tiere) {
-        tiereList.remove(tiere);
+        tiereListe.remove(tiere);
     }
 
     public String getName() {
@@ -28,16 +27,15 @@ public class Gehege {
 
     public String toString() {
         StringBuilder sb = new StringBuilder("├── Gehege: " + name + "\n");
-        if (tiereList.isEmpty()) {
+        if (tiereListe.isEmpty()) {
             sb.append("│   ├── (leer)\n");
         } else {
-            for (Tiere tier : tiereList) {
+            for (Tiere tier : tiereListe) {
                 sb.append("│   ├── " + tier.toString() + "\n");
             }
         }
         return sb.toString();
     }
-
 }
 
 

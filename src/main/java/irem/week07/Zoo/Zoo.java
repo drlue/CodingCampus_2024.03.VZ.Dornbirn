@@ -1,19 +1,17 @@
 package irem.week07.Zoo;
 
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Vector;
 
 public class Zoo {
 
     private String name;
     private int gruendungsjahr;
-    private List<Gehege> gehegeListe;
+    private Vector<Gehege> gehegeListe;
 
     public Zoo(String name, int gruendungsjahr) {
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
-        this.gehegeListe = new ArrayList<>();
+        gehegeListe = new Vector<>();
 
     }
 

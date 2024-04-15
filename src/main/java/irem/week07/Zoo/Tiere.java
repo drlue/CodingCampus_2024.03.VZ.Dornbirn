@@ -10,10 +10,8 @@ public class Tiere {
         this.gattung = gattung;
 
     }
-
     public String toString() {
         return name + " ," + gattung;
     }
-
 }
 
