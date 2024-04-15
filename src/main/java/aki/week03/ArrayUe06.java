@@ -55,10 +55,11 @@ public class ArrayUe06 {
         }
         return result;
     }
+
     public static void sortBubbleDesc(int[] values) {
         for (int i = 0; i < values.length; i++) {
             for (int j = 0; j < values.length - i - 1; j++) {
-                if (values[j] < values[j +1]) {
+                if (values[j] < values[j + 1]) {
                     int temp = values[j];
                     values[j] = values[j + 1];
                     values[j + 1] = temp;
