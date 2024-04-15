@@ -13,8 +13,6 @@ public class CharRandomize {
         System.out.println("Output:");
         System.out.println(randomM(line));
     }
-
-
     public static String randomM(String text) {
         char[] arr = text.toCharArray();
         for (int count = 0; count < 10 + 2 * arr.length; count++) {
@@ -25,7 +23,6 @@ public class CharRandomize {
         }
         return new String(arr);
     }
-
     public static void swap(char[] arr, int idx1, int idx2){
         char temp = arr[idx1];
         arr[idx1] = arr[idx2];
