@@ -13,22 +13,23 @@ public class ZusammenfuhrungVektor {
         Vector<Integer> zufallsZahlen = new Vector<Integer>();
         Vector<Integer> zahlenZufall = new Vector<Integer>();
 
+
         for (int i = 0; i < 20; i++) {
             zufallsZahlen.add(rand.nextInt(100));
         }
         for (int i = 0; i < 20; i++) {
+
             zahlenZufall.add(rand.nextInt(100));
 
         }
         absteigendZahl(zufallsZahlen);
         System.out.println(zufallsZahlen);
-        System.out.println();
+        System.out.println("-----------------------------------------------------------------------------");
         absteigendZahl(zahlenZufall);
         System.out.println(zahlenZufall);
-        System.out.println();
-        zweiVectorenAddiren(zufallsZahlen,zahlenZufall);
-        System.out.println(zweiVectorenAddiren(zufallsZahlen,zahlenZufall));
-
+        System.out.println("-----------------------------------------------------------------------------");
+        Vector<Integer> combined = mergeVector(zufallsZahlen, zahlenZufall);
+        System.out.println(combined);
     }
 
     public static Vector<Integer> absteigendZahl(Vector<Integer> vector) {
@@ -46,12 +47,21 @@ public class ZusammenfuhrungVektor {
         return vector;
     }
 
-    public static Integer zweiVectorenAddiren(Vector<Integer> vector1, Vector<Integer> vector2) {
-        int summe = 0;
-        for (int vector : vector2) {
-            summe += vector;
+    private static Vector<Integer> mergeVector(Vector<Integer> left, Vector<Integer> right) {
+        Vector<Integer> result = new Vector<>();
+
+        while (!left.isEmpty() && !right.isEmpty()) {
+            if (left.firstElement() < right.firstElement()) {
+                result.add(left.remove(0));
+            } else {
+                result.add(right.remove(0));
+            }
         }
-        return summe;
+        result.addAll(left);
+        result.addAll(right);
+        return result;
     }
 }
+
+
 

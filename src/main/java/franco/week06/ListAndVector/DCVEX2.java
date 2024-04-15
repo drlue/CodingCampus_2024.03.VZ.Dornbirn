@@ -11,8 +11,9 @@ public class DCVEX2 {
         ArrayList<Integer> intlist1 = randomNumberList(10);
         ArrayList<Integer> intList2 = randomNumberList(10);
 
+
         System.out.println(intlist1 + "\n" + intList2);
-        ArrayList<Integer> intList3 = mergeTwoList(intlist1, intList2);
+        ArrayList<Integer> intList3 = mergeTwoListV1(intlist1, intList2);
         System.out.println(intList3);
 
 //        int m = intlist1.size();
@@ -44,21 +45,24 @@ public class DCVEX2 {
     }
 
     public static ArrayList<Integer> mergeTwoListV1(ArrayList<Integer> intList1, ArrayList<Integer> intList2) {
+
         ArrayList<Integer> intlist3 = new ArrayList<>();
-        while (!intList1.isEmpty() || !intList2.isEmpty()) {
-            if (intList1.getFirst() < intList1.getFirst()) {
+        while (!intList1.isEmpty() && !intList2.isEmpty()) {
+            if (intList1.getFirst() < intList2.getFirst()) {
                 intlist3.add(intList1.getFirst());
                 intList1.removeFirst();
 
             } else {
-                intlist3.add(intList1.getFirst());
+                intlist3.add(intList2.getFirst());
                 intList2.removeFirst();
-            } if(!intList1.isEmpty()){
-                intlist3.addAll(intList1);
-            }else{
-                intlist3.addAll(intList2);
             }
         }
+        if (!intList1.isEmpty()) {
+            intlist3.addAll(intList1);
+        } else {
+            intlist3.addAll(intList2);
+        }
+
         return intlist3;
     }
 }

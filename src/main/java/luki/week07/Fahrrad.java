@@ -1,5 +1,8 @@
 package luki.week07;
 
+import java.util.Iterator;
+import java.util.Vector;
+
 public class Fahrrad extends Fahrzeug {
     public Fahrrad(int geschwindigkeit) {
         super(geschwindigkeit);
@@ -19,5 +22,17 @@ public class Fahrrad extends Fahrzeug {
     }
  public void flickPatschen() {
         System.out.println("You have a flat tyre!");
+    }
+
+
+    public static void loescheUngeradeZahlen(Vector<Integer> vektor) {
+        Iterator<Integer> iterator = vektor.iterator();
+        while (((Iterator<?>) iterator).hasNext()) {
+            if (iterator.next() % 2 != 0) {
+                iterator.remove();
+            }
+        }
+
+
     }
 }
