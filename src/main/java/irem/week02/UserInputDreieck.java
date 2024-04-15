@@ -1,5 +1,6 @@
 package irem.week02;
 
+
 import irem.week01.day01.PrintTriangleTopRight;
 
 public class UserInputDreieck {
