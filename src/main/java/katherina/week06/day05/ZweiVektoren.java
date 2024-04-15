@@ -50,7 +50,7 @@ public class ZweiVektoren {
     }
 
 
-    public static Vector zweiVektorenZusammen(Vector<Integer> left, Vector<Integer> right) {
+    public static Vector<Integer> zweiVektorenZusammen(Vector<Integer> left, Vector<Integer> right) {
         Vector<Integer> result = new Vector<>();
         while (!left.isEmpty() && !right.isEmpty()) {
             //Solange weder das linke noch das rechte Vectording alle ist...
