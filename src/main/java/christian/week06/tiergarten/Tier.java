@@ -8,11 +8,17 @@ public class Tier {
     private Futter futter;
     private float futterMenge;
 
-    public Tier(String name, String gattung, Futter futter, float futterMenge) {
+    private boolean gefuettert;
+
+    private int maxHP;
+    private int hp;
+
+    public Tier(String name, String gattung, Futter futter, float futterMenge, int maxHP) {
         this.name = name;
         this.gattung = gattung;
         this.futter = futter;
         this.futterMenge = futterMenge;
+        this.hp = maxHP;
     }
 
     public String toString() {
@@ -33,5 +39,14 @@ public class Tier {
 
     public float getFutterMenge() {
         return futterMenge;
+    }
+    public void reset(){
+        this.gefuettert = false;
+    }
+    public void setGefuettert(){
+        gefuettert = true;
+    }
+    public boolean getGefuettert(){
+        return gefuettert;
     }
 }

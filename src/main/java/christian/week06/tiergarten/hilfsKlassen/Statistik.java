@@ -59,4 +59,11 @@ public class Statistik {
         float days = kapital/this.getFutterKosten();
         return days;
     }
+
+    public void tagesAbrechnung(List<Tier> tierList){
+        setFutterKosten(tierList);
+        kapital-=futterKosten;
+        kapital-=personalkosten;
+        kapital-=gehegeInstandhaltung;
+    }
 }

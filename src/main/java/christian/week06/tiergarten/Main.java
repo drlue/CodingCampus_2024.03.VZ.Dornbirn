@@ -3,15 +3,20 @@ package christian.week06.tiergarten;
 import christian.week06.tiergarten.hilfsKlassen.Futter;
 import christian.week06.tiergarten.hilfsKlassen.Statistik;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+
+    public static boolean hauptMenue = true;
+    public static boolean simLoop = false;
+    public static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
 
         // Futterarten in futterListe
+
         Futter fruechte =  new Futter("Fruechte", "kg",1.5f);
         Futter heu = new Futter("heu","Heuballen",10.50f);
         Futter fleisch = new Futter("Fleisch", "kg", 8.5f);
@@ -20,20 +25,20 @@ public class Main {
         futterListe.add(heu);
         futterListe.add(fleisch);
 
-
-
         // add Affenstall
+
         Gehege affenstall = new Gehege("Affengehege");
-        Tier kapuzinerAffe1 = new Tier("Herbert","Kapuzineraffe",fruechte,1);
-        Tier kapuzinerAffe2 = new Tier("Edeltraud", "Kapuzineraffe", fruechte,1);
+        Tier kapuzinerAffe1 = new Tier("Herbert","Kapuzineraffe",fruechte,1,20);
+        Tier kapuzinerAffe2 = new Tier("Edeltraud", "Kapuzineraffe", fruechte,1,30);
         affenstall.tierListe.add(kapuzinerAffe1);
         affenstall.tierListe.add(kapuzinerAffe2);
 
 
         // add Elefantengehege
+
         Gehege elefantenGehege = new Gehege("Elefantengehege");
-        Tier Elefant1 = new Tier("Alfred", "Elefant", heu,1.2f);
-        Tier Elefant2 =  new Tier("Manni","Elefant", heu , 1.4f);
+        Tier Elefant1 = new Tier("Alfred", "Elefant", heu,1.2f,240);
+        Tier Elefant2 =  new Tier("Manni","Elefant", heu , 1.4f,240);
         elefantenGehege.tierListe.add(Elefant1);
         elefantenGehege.tierListe.add(Elefant2);
 
@@ -62,7 +67,26 @@ public class Main {
                 ,statistik.getKapital()
                 ,statistik.getDaysUntilBroke());
 
-        System.out.println("Informationen zu den Gehegen:\n" + zoo.toString());
+        while(hauptMenue) {
+            System.out.println("Informationen zu den Gehegen:\n" + zoo.toString());
+            System.out.println("Möchten Sie die Simulation starten? Y/N eingeben!!");
+            if (scanner.next().equalsIgnoreCase("y")){
+                simLoop = true;
+            } else if (scanner.next().equalsIgnoreCase("n")) {
+                hauptMenue = false;
+                break;
+            }else {
+                System.out.println("Ungültige Eingabe!");
+                scanner.reset();
+
+        }
+            while(simLoop){
+                System.out.println("funktioniert");
+            }
+        }
+
+
+
 
     }
 
