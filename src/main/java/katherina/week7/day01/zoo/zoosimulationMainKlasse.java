@@ -13,14 +13,14 @@ public class zoosimulationMainKlasse {
         tiergartenAndelsbuch.addGehege(terrariumW);
 
         Tier kuh1 = new Tier("Rijska", "Kuh");
-        alpenwiese.addWiesentier(kuh1);
+        alpenwiese.addTier(kuh1);
 
         Tier storch1 = new Tier("Garmond", "Storch");
-        ried.addRiedTier(storch1);
+        ried.addTier(storch1);
         Tier storch2 = new Tier("Hugo", "Storch");
-        ried.addRiedTier(storch2);
+        ried.addTier(storch2);
         Tier storch3 = new Tier("Idaxis", "Storch");
-        ried.addRiedTier(storch3);
+        ried.addTier(storch3);
 
         //Hier könnte außerdem unser Terrariumstier stehen! Aktuell haben wir noch keins.
 
