@@ -31,8 +31,9 @@ public class Pfleger {
 
     @Override
     public String toString() {
-        return "|            ├── zuständig: " + name + "\n";
+        return "│            ├── zuständig: " + name + "\n";
     }
+
 
 }
 

@@ -61,7 +61,7 @@ public class Gehege {
     public String toString() {
         String gehegestring;
         String personenstring;
-        gehegestring = "|    ├── Gehege: " + name + "\n";
+        gehegestring = "│    ├── Gehege: " + name + "\n";
         personenstring = "";
         if (tierliste != null) {
             for (Tier ausgabe : tierliste) {
@@ -74,10 +74,10 @@ public class Gehege {
             }
         }
         if (tierliste.isEmpty()) {
-            gehegestring += "|        ├── dieses Gehege enthält keine Tiere. Bitte füge Tiere hinzu!\n";
+            gehegestring += "│        ├── dieses Gehege enthält keine Tiere. Bitte füge Tiere hinzu!\n";
         }
         if (personenliste.isEmpty()) {
-            personenstring += "|            ├── für dieses Gehege ist niemand zuständig!\n";
+            personenstring += "│            ├── für dieses Gehege ist niemand zuständig!\n";
         }
         return gehegestring + personenstring;
     }
