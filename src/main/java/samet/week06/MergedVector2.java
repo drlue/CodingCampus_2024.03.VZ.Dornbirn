@@ -26,9 +26,10 @@ public class MergedVector2 {
 
 
     }
+
     public static void sortDescending(Vector<Integer> numbers) {
         Collections.sort(numbers, Collections.reverseOrder());
-
-
     }
+
+
 }

@@ -46,7 +46,7 @@ public class FourInRows {
         for (int col = 0; col < board[0].length; col++) {
             System.out.printf("  %s ", col + 1);
         }
-        System.out.println("\033[H\033[2J");
+        Helper.clearScreen();
         //grid top
         System.out.println("┌" + "───┬".repeat(board[0].length - 1) + "───");
         for (int i = 0; i < board.length; i++) {

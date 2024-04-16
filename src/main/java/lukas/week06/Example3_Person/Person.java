@@ -1,10 +1,6 @@
 package lukas.week06.Example3_Person;
 
-import christian.week04.day03.SearchForWordInText;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 public class Person {
 
@@ -13,6 +9,14 @@ public class Person {
     private String name;
     private int weight;
 
+    public enum PersonProperty {
+        NAME,
+        AGE,
+        HEIGHT,
+        WEIGHT
+    };
+
+    //-------------------CONSTRUCTOR-------------------------------
     public Person(String name, int height, int weight, int age) {
         this.name = name;
         this.height = height;
@@ -20,7 +24,7 @@ public class Person {
         this.age = age;
     }
 
-
+    //------------------GET/SET-------------------------------
     public void setName(String name) {
         if (!name.isBlank()) {
             this.name = name;
@@ -28,6 +32,7 @@ public class Person {
             System.out.println(name + "is not a valid name!");
         }
     }
+
     public String getName() {
         return this.name;
     }
@@ -39,6 +44,7 @@ public class Person {
             System.out.println(Integer.toString(height) + "not between 0 and 260cm");
         }
     }
+
     public int getHeight() {
         return this.height;
     }
@@ -50,6 +56,7 @@ public class Person {
             System.out.println("Weight must be greater than 0!");
         }
     }
+
     public int getWeight() {
         return this.weight;
     }
@@ -61,29 +68,46 @@ public class Person {
             System.out.println("Value of age must be positive!");
         }
     }
+
     public int getAge() {
         return this.age;
     }
 
+    //------------------METHODS-------------------------------
+
     @Override
     public String toString() {
-        return String.format("%s %s\n%-10s%3d\n%-10s%3d\n%-10s%3d\n","Name:", this.name, "Alter:", this.age, "Größe:", this.height,"Gewicht:", this.weight);
+        return String.format("%s %s\n%-10s%3d\n%-10s%3d\n%-10s%3d\n", "Name:", this.name, "Alter:", this.age, "Größe:", this.height, "Gewicht:", this.weight);
     }
 
+    public static void sortPersons(List<Person> persons, PersonProperty property, boolean isAscending){
+        //bubblesort
+        for (int i = 0; i < persons.size(); i++) {
+            for (int j = 0; j < persons.size()-i-1; j++) {
 
-    public static void calcPersonsStats(Vector<Person> persons){
-        int maxHeight = Integer.MIN_VALUE;
-        int minValue = Integer.MAX_VALUE;
-
-
-
-        for (Person p : persons) {
-            if(p.getHeight() > maxHeight) {
-                maxHeight = p.getHeight();
+                boolean isSwitchNecessary;
+                switch (property) {
+                    case NAME:
+                        isSwitchNecessary = persons.get(j).getName().compareTo(persons.get(j+1).getName()) > 0;
+                        break;
+                    case AGE:
+                        isSwitchNecessary = persons.get(j).getAge() > persons.get(j+1).getAge();
+                        break;
+                    case HEIGHT:
+                        isSwitchNecessary = persons.get(j).getHeight() > persons.get(j+1).getHeight();
+                        break;
+                    case WEIGHT:
+                        isSwitchNecessary = persons.get(j).getWeight() > persons.get(j+1).getWeight();
+                        break;
+                    default:
+                        isSwitchNecessary = false;
+                }
+                if (isSwitchNecessary == isAscending) {
+                    Person tmp = persons.set(j, persons.get(j+1));
+                    persons.set(j+1, tmp);
+                }
             }
-
         }
-
 
     }
 
