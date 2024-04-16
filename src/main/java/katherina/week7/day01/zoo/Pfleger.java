@@ -1,14 +1,15 @@
 package katherina.week7.day01.zoo;
 
-import java.util.Vector;
 
 public class Pfleger {
     private String name;
+    private String liebling;
     private Zoo zoo;
     private Gehege gehege;
 
-    public Pfleger(String name) {
+    public Pfleger(String name, String liebling) {
         this.name = name;
+        this.liebling = liebling;
     }
 
 
