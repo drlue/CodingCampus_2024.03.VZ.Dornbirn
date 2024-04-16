@@ -4,16 +4,15 @@ import java.util.Vector;
 
 public class Enclosure {
     private String name;
-
-    private Vector<Animal> animalsArrayList;
+    private Vector<Animal> animalVectorList; //Eine Liste von Tieren wird erstellt
 
     public Enclosure(String enclosureName) {
         this.name = enclosureName;
-        animalsArrayList = new Vector<>();
+        animalVectorList = new Vector<>();
     }
 
     public void addAnimal(Animal ani) {
-        animalsArrayList.add(ani);
+        animalVectorList.add(ani);
     }
 
     //Get Enclosure
@@ -21,9 +20,11 @@ public class Enclosure {
         return name;
     }
 
+
+    //Wird in Zoo aufgerufen
     public void printStructure() {
         System.out.printf("│   ├──  Gehege: %s%n", name);
-        for (Animal a : animalsArrayList) {
+        for (Animal a : animalVectorList) {
             a.printStructure();
         }
     }
