@@ -22,7 +22,7 @@ public class Enclosure {
     }
 
     public void printStructure() {
-        System.out.printf("│   ├──  Gehege: \n", name);
+        System.out.printf("│   ├──  Gehege: %s%n", name);
         for (Animal a : animalsArrayList) {
             a.printStructure();
         }

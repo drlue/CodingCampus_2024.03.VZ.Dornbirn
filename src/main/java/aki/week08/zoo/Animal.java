@@ -10,6 +10,6 @@ public class Animal {
     }
 
     public void printStructure() {
-        System.out.printf("│        ├── %s %s%n", name, species);
+        System.out.printf("│        ├── %s, %s%n", name, species);
     }
 }

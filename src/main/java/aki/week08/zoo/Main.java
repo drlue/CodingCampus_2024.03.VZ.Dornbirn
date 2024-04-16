@@ -8,7 +8,7 @@ public class Main {
         //Gehegen:
         Enclosure pentagon = zoo.searchAndCreateEnclosure("Pentagon");
         Enclosure villa = zoo.searchAndCreateEnclosure("Villa");
-        Animal rijska = new Animal("Katze", "(Raubtier)");
+        Animal rijska = new Animal("Leopold", "(Katze)");
         villa.addAnimal(rijska);
         zoo.printZooStructure();
 
