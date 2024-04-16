@@ -3,23 +3,32 @@ package christian.week06.tiergarten;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Gehege {
+public class GehegeOld {
     private String name;
-    public List<Tier> tierListe;
+    private List<TierOld> tierOldListe;
 
-    public Gehege(String name) {
+    public GehegeOld(String name) {
         this.name = name;
-        this.tierListe = new ArrayList<Tier>();
+        this.tierOldListe = new ArrayList<TierOld>();
     }
 
     public String getName() {
         return name;
     }
 
+    public List<TierOld> getTierListe(){
+        return tierOldListe;
+    }
+    public void addTierToList (TierOld tierOld) {
+        tierOldListe.add(tierOld);
+    }
+
+
+
     public String toString() {
         String beschreibung = "";
         beschreibung += "  |---Gehege: " + name + "\n";
-        for (Tier x : tierListe) {
+        for (TierOld x : tierOldListe) {
             beschreibung += x.toString();
         }
         return beschreibung;
