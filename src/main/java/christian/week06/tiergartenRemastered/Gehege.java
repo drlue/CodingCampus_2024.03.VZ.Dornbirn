@@ -85,5 +85,8 @@ public class Gehege {
 
     public void resetArbeitErledigt() {
         arbeitErledigt = false;
+        for (Tier x : tierList){
+            x.resetGefuettert();
+        }
     }
 }

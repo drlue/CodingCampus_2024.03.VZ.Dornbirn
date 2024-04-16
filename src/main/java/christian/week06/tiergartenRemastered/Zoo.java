@@ -85,4 +85,10 @@ public class Zoo {
         }
         return futterKosten;
     }
+
+    public void resetDay (){
+        for(Gehege x : gehegeList){
+            x.resetArbeitErledigt();
+        }
+    }
 }

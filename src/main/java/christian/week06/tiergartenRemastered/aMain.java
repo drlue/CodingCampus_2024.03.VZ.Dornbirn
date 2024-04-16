@@ -35,7 +35,25 @@ public class aMain {
 
         zoo.printStructure();
         zoo.printFutterKosten();
-        pfleger1.rundgang(pfleger1);
 
+
+        for (int days = 1; days < 10; days++) {
+            System.out.println("\nTag: " + days);
+            sleep(1000);
+            pfleger1.rundgang(pfleger1);
+            for (int hour = 1; hour < 25; hour++) {
+                System.out.println("Stunde: " + hour);
+                sleep(200);
+            }
+            zoo.resetDay();
+
+        }
+    }
+    public static void sleep (long millis){
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
