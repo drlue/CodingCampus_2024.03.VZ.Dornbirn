@@ -7,15 +7,21 @@ import java.util.List;
 
 public class Pfleger {
     private String name;
+    private String lieblingsTierGattung;
     private List<Gehege> gehegeList;
 
-    public Pfleger(String name) {
+    public Pfleger(String name, String lieblingsTierGattung) {
         this.name = name;
+        this.lieblingsTierGattung = lieblingsTierGattung;
         this.gehegeList = new ArrayList<>();
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getLieblingsTierGattung() {
+        return lieblingsTierGattung;
     }
 
     public void getGehegeList() {
