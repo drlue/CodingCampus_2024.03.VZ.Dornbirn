@@ -36,7 +36,13 @@ public class Zoo {
             gua.printStructure();
         }
         for (Enclosure enc : enclosureList){
-            enc.printStructure();
+            Vector<Guardian> workersOfEnclosure = new Vector<>();
+            for (Guardian gua : guardianList){
+                if (gua.isResponsibleFor(enc)){
+                    workersOfEnclosure.add(gua);
+                }
+            }
+            enc.printStructure(workersOfEnclosure);
         }
     }
 }

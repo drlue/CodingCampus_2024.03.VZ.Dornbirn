@@ -15,8 +15,20 @@ public class Enclosure {
         animalList.add(ani);
     }
 
-    public void printStructure(){
-        System.out.printf("|   |-- Gehege: %s%n", name);
+    public void printStructure(Vector<Guardian> workers){
+        System.out.printf("|   |-- Gehege: %s", name);
+        if (!workers.isEmpty()){
+            System.out.print(" (Pfleger: ");
+            for (int i = 0; i < workers.size(); i++) {
+                if (i > 0){
+                    System.out.print(", ");
+                }
+                System.out.print(workers.get(i).getName());
+            }
+            System.out.println(")");
+        } else {
+            System.out.println(" !!! VORSICHT, kein zustaendiger Pfleger wurde identifiziert.");
+        }
         for (Animal a : animalList){
             a.printStructure();
         }
