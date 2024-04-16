@@ -43,13 +43,6 @@ public class Zoo {
         gehegeList.add(gehege);
     }
 
-    public void addPersonal(Pfleger pfleger) {
-        if (pfleger != null) {
-            pfleger.setZooIntern(this);
-        }
-        pflegerList.add(pfleger);
-    }
-
 
     @Override
     public String toString() {

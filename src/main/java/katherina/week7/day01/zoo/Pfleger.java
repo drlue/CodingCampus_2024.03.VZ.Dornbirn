@@ -4,12 +4,11 @@ import java.util.Vector;
 
 public class Pfleger {
     private String name;
-    private Vector<Pfleger> personenliste;
     private Zoo zoo;
+    private Gehege gehege;
 
     public Pfleger(String name) {
         this.name = name;
-        personenliste = new Vector<>();
     }
 
 
@@ -17,16 +16,22 @@ public class Pfleger {
         this.zoo = zoo;
     }
 
+    public Gehege getGehege() {
+        return gehege;
+    }
+
+    public void setGehege(Gehege gehege) {
+        if (gehege != null) {
+            gehege.addPersonal(this);
+        } else if (this.gehege != null) {
+            this.gehege.removePersonal(null);
+        }
+    }
+
     @Override
     public String toString() {
-        String personenstring = "";
-        personenstring = "        ├── zuständig: " + name + "\n";
-        if (personenliste != null) {
-            for (Pfleger ausgabe : personenliste) {
-                personenstring += ausgabe;
-            }
-        }
-        return personenstring;
+        return "|            ├── zuständig: " + name + "\n";
     }
+
 }
 
