@@ -1,11 +1,11 @@
 package christian.week06.tiergarten;
 
-import christian.week06.tiergarten.hilfsKlassen.Futter;
+import christian.week06.tiergarten.hilfsKlassen.FutterOld;
 
-public class Tier {
+public class TierOld {
     private String name;
     private String gattung;
-    private Futter futter;
+    private FutterOld futterOld;
     private float futterMenge;
 
     private boolean gefuettert;
@@ -13,10 +13,10 @@ public class Tier {
     private int maxHP;
     private int hp;
 
-    public Tier(String name, String gattung, Futter futter, float futterMenge, int maxHP) {
+    public TierOld(String name, String gattung, FutterOld futterOld, float futterMenge, int maxHP) {
         this.name = name;
         this.gattung = gattung;
-        this.futter = futter;
+        this.futterOld = futterOld;
         this.futterMenge = futterMenge;
         this.hp = maxHP;
     }
@@ -33,8 +33,8 @@ public class Tier {
         return gattung;
     }
 
-    public Futter getFutter() {
-        return futter;
+    public FutterOld getFutter() {
+        return futterOld;
     }
 
     public float getFutterMenge() {
