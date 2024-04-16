@@ -4,12 +4,20 @@ public class Futter {
 
     private String feed;
     private int units;
-    private double price;
+    private float price;
 
-    private Futter (String feed, int pice, double price){
+    public Futter (String feed, int units, float price){
         this.feed = feed;
-        this.units = pice;
+        this.units = units;
         this.price = price;
+    }
+
+    public String getFeed(){
+        return feed;
+    }
+    public float getPrice(){
+        return price;
 
     }
+
 }
