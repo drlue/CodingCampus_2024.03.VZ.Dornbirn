@@ -41,9 +41,9 @@ public class zoosimulationMainKlasse {
         aquarium.addTier(seeigel);
 
         Pfleger paul = new Pfleger("Paul Rossmann","Murmeltier");
-        alpenwiese.addPersonal(paul);
+        tiergartenAndelsbuch.addPersonal(paul);
         Pfleger alexandra = new Pfleger("Alexandra Kovacevic","Koi-Karpfen");
-        ried.addPersonal(alexandra);
+        tiergartenAndelsbuch.addPersonal(alexandra);
 
         System.out.println(tiergartenAndelsbuch);
 

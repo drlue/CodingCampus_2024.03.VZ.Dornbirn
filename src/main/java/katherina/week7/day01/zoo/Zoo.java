@@ -40,12 +40,12 @@ public class Zoo {
         gehegeList.add(gehege);
     }
 
-//    public void addPersonal(Pfleger pfleger) {
-//        if (pfleger != null) {
-//            pfleger.setZooIntern(this.getZoo());
-//        }
-//        personenliste.add(pfleger);
-//    }
+    public void addPersonal(Pfleger pfleger) {
+        if (pfleger != null) {
+            pfleger.setZooIntern(this);
+        }
+        personenliste.add(pfleger);
+    }
 
     public void removePersonal(Pfleger pfleger) {
         personenliste.remove(pfleger);
