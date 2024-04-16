@@ -17,6 +17,10 @@ public class Guardian {
         }
     }
 
+    public boolean isResponsibleFor(Enclosure enc){
+        return tasks.contains(enc);
+    }
+
     public void printStructure() {
         System.out.printf("|   |-- Pfleger: %s", name);
         for (int i = 0; i < tasks.size(); i++) {
@@ -31,5 +35,9 @@ public class Guardian {
             }
         }
         System.out.println();
+    }
+
+    public String getName() {
+        return name;
     }
 }
