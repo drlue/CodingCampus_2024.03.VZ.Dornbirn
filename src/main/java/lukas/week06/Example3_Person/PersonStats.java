@@ -40,7 +40,7 @@ public class PersonStats {
     //-----------------GET / SET-------------------------------
 
     //-----------------METHODS-------------------------------
-    private int calcMinHeight() {
+    public int calcMinHeight() {
         int minHeight = Integer.MAX_VALUE;
         for (Person p : persons) {
             if (p.getHeight() < minHeight) {

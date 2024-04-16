@@ -27,16 +27,16 @@ public class Tier {
     }
 
     public void setGehege(Gehege gehege) {
-        if ((gehege != null) && ((gehege.getTier() == null) || (gehege.getTier() != null))) {
-            gehege.setTier(this);
+        if (gehege != null) {
+            gehege.addTier(this);
         } else if (gehege == null && this.gehege != null) {
-            this.gehege.setTier(null);
+            this.gehege.removeTier(null);
         }
     }
 
     @Override
     public String toString() {
-        return "        ├── " + name + ", " + gattung+"\n";
+        return "│        ├── " + name + ", " + gattung+"\n";
     }
 
 

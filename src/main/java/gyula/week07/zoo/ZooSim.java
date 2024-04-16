@@ -18,6 +18,10 @@ public class ZooSim {
         Animal rijska = new Animal("Rijska", "Kuh");
         alpenwiese.addAnimal(rijska);
 
+        Guardian stefan = new Guardian("Stefan-Sigfried");
+        zoo.addGuardianAndTask(stefan, alpenwiese);
+        zoo.addGuardianAndTask(stefan, ried);
+
         zoo.printStructure();
     }
 }

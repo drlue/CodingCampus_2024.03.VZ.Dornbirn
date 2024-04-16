@@ -1,13 +1,11 @@
 package lukas;
 
 import java.nio.file.Path;
-import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.DateTimeException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Random;
@@ -194,5 +192,10 @@ public class Helper {
             arr[i] = random.nextInt(minValue, maxValue);
         }
         return arr;
+    }
+
+    public static void clearScreen() {
+        System.out.println("\033[H\033[2J");
+        System.out.flush();
     }
 }
