@@ -1,6 +1,6 @@
 package irem.week07.Zoo;
 
-import gyula.week07.zoo.Pfleger;
+//import gyula.week07.zoo.Pfleger;
 
 public class Main {
 

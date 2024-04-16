@@ -50,6 +50,7 @@ public class Zoo {
             System.out.println("Gehege existiert nicht im Zoo!");
         }
     }
+
     public void addPfleger (Pfleger pfleger){
         if (!pflegerList.contains(pfleger)){
             pflegerList.add(pfleger);
@@ -58,6 +59,7 @@ public class Zoo {
             System.out.println("Dieser Pfleger arbeitet bereits im Zoo!");
         }
     }
+
     public void removePfleger (Pfleger pfleger){
         if (pflegerList.contains(pfleger)){
             pflegerList.remove(pfleger);
@@ -78,7 +80,7 @@ public class Zoo {
     public float calculateFutterKosten(Map<Futter, Float> futterbedarf) {
         float futterKosten = 0;
         for (Map.Entry<Futter, Float> entry : futterbedarf.entrySet()) {
-            System.out.printf("\nFutter: %10s -> Futtermenge: %.2f  ->           Kosten: %6.2f €/Tag",entry.getKey().getName(),entry.getValue(),entry.getValue()*entry.getKey().getEinheitsPreis());
+            System.out.printf("\nFutter:%10s    ->    Futtermenge: %.2f    ->    Kosten: %6.2f €/Tag",entry.getKey().getName(),entry.getValue(),entry.getValue()*entry.getKey().getEinheitsPreis());
             futterKosten += entry.getValue() * entry.getKey().getEinheitsPreis();
         }
         return futterKosten;

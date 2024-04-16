@@ -19,6 +19,8 @@ public class Gehege {
         arbeitErledigt = false;
     }
 
+    Random rnd = new Random();
+
     public void printStructure() {
 
         System.out.println("|   |---Gehege: " + name);
@@ -69,11 +71,19 @@ public class Gehege {
         arbeitErledigt = true;
         for (Tier x : tierList) {
             x.fuettern();
-            System.out.print("\n|---" + x.getName() +"," +  x.getGattung() + " wurde von " +pfleger.getName()+ " gefuettert\n");
+            System.out.print("\n|---" + x.getName() + "," + x.getGattung() + " wurde von " + pfleger.getName() + " gefuettert\n");
+        }
+        int rndIndex = rnd.nextInt(0, tierList.size());
+
+        if (tierList.get(rndIndex).getGattung().equals(pfleger.getLieblingsTierGattung())) {
+            System.out.println("\n" + pfleger.getName() + " bewundert " + tierList.get(rndIndex).getName());
+        } else {
+            System.out.println("\n" + pfleger.getName() + " beobachtet " + tierList.get(rndIndex).getName());
         }
 
     }
-    public void resetArbeitErledigt(){
+
+    public void resetArbeitErledigt() {
         arbeitErledigt = false;
     }
 }
