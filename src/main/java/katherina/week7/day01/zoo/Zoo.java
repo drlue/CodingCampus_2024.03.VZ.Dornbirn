@@ -5,9 +5,7 @@ import java.util.Vector;
 public class Zoo {
     private String name;
     private int year;
-
     private Vector<Gehege> gehegeList;
-    private Vector<Pfleger> pflegerList;
 
 
 
@@ -15,7 +13,6 @@ public class Zoo {
         this.name = name;
         this.year = year;
         gehegeList = new Vector<>();
-        pflegerList = new Vector<>();
 
     }
 

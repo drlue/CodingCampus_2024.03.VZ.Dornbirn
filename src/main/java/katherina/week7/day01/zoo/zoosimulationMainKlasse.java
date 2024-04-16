@@ -5,10 +5,7 @@ public class zoosimulationMainKlasse {
     public static void main(String[] args) {
         Zoo tiergartenAndelsbuch = new Zoo("Tiergarten Andelsbuch", 2024);
 
-        //String text = liebling;
-//boolean matches = text.matches(regex);
-//if matches=true
-//System.out.printf("%s bewundert %s!", name, tier);
+
 
         Gehege alpenwiese = new Gehege("Alpenwiese");
         tiergartenAndelsbuch.addGehege(alpenwiese);
@@ -47,8 +44,6 @@ public class zoosimulationMainKlasse {
         Pfleger alexandra = new Pfleger("Alexandra Kovacevic","Koi-Karpfen");
         ried.addPersonal(alexandra);
 
-
         System.out.println(tiergartenAndelsbuch);
-
     }
 }

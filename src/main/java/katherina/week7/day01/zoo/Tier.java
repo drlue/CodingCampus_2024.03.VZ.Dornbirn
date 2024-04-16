@@ -36,7 +36,7 @@ public class Tier {
 
     @Override
     public String toString() {
-        return "|        ├── " + name + ", " + gattung+"\n";
+        return "│        ├── " + name + ", " + gattung+"\n";
     }
 
 
