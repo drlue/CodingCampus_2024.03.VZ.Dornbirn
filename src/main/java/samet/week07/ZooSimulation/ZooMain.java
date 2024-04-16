@@ -5,12 +5,15 @@ public class ZooMain {
     public static void main(String[] args) {
 
         Zoo zoo = new Zoo("Tiergarten Dornbirn gegründet",2022);
+        Keeper keeper = new Keeper("Günter");
 
         Enclosure alpenwiese = new Enclosure("Alpenwiese");
         zoo.addEnclosure(alpenwiese);
+        zoo.addKeeper(keeper);
 
         Enclosure ried = new Enclosure("Ried");
         zoo.addEnclosure(ried);
+
 
 
         Enclosure terrarium = new Enclosure("Terrarium (warm)");
