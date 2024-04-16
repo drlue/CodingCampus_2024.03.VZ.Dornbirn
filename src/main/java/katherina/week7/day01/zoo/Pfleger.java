@@ -21,13 +21,13 @@ public class Pfleger {
         return gehege;
     }
 
-    public void setGehege(Gehege gehege) {
-        if (gehege != null) {
-            gehege.addPersonal(this);
-        } else if (this.gehege != null) {
-            this.gehege.removePersonal(null);
-        }
-    }
+//    public void setZoo(Gehege gehege) {
+//        if (gehege != null) {
+//            gehege.addPersonal(this);
+//        } else if (this.gehege != null) {
+//            this.gehege.removePersonal(null);
+//        }
+//    }
 
     @Override
     public String toString() {

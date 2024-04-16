@@ -16,6 +16,8 @@ public class EinTagImZoo {
         private String liebling;
         private Vector<Pfleger> personenliste;
         private Vector<Gehege> gehegeList;
+        private Vector<Tier> tierliste;
+        private Gehege gehege;
 
         public Tierpfleger(String name, String liebling){
             this.pfleger = name;
@@ -24,14 +26,16 @@ public class EinTagImZoo {
             personenliste = new Vector<>();
             dauer = 0;
             gehegeList = new Vector<>();
-
+            tierliste = new Vector<>();
         }
+
+
 
         public void activity(int hour){
             switch (status){
                 case ENTER -> {
                     if (hour == 7) {
-                        System.out.printf("Es ist %d Uhr. %s betritt das Gehege.%n",hour, pfleger);
+                        System.out.printf("Es ist %d Uhr. %s betritt [ein Gehege].%n",hour, pfleger);
                         status = Tierpfleger.Status.FEED;
                         dauer =1;
                     }
