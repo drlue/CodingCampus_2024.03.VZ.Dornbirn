@@ -49,7 +49,7 @@ public class Pfleger {
     public void rundgang(Pfleger pfleger) {
         for (Gehege x : gehegeList) {
             if (!x.getArbeitErledigt()) {
-                System.out.println(ConsoleColors.RED + "Die Arbeit in " + x.getName() + " wird erledigt!" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.YELLOW + "Die Arbeit in " + x.getName() + " wird erledigt!" + ConsoleColors.RESET);
                 x.arbeitErledigen(pfleger);
                 System.out.println(ConsoleColors.GREEN + "Die Arbeit in " + x.getName() + " ist erledigt!" + ConsoleColors.RESET);
             }

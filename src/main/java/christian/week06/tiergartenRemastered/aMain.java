@@ -12,10 +12,10 @@ public class aMain {
         Gehege elefantenStall = new Gehege("Elefantenstall");
         Gehege affenStall = new Gehege("Affenstall");
 
-        Tier affe1 = new Tier("Albert", "Kapuzineraffe", fruechte, 1.2f,40,10);
-        Tier affe2 = new Tier("Jürgen", "Kapuzineraffe", fruechte, 1.2f,40,10);
-        Tier elefant1 = new Tier("Alfred", "Elefant", heu, 1.5f,500,100);
-        Tier elefant2 = new Tier("Manni", "Elefant", heu, 1.8f,500, 100);
+        Tier affe1 = new Tier("Albert", "Kapuzineraffe", fruechte, 1.2f, 40, 10);
+        Tier affe2 = new Tier("Jürgen", "Kapuzineraffe", fruechte, 1.2f, 40, 10);
+        Tier elefant1 = new Tier("Alfred", "Elefant", heu, 1.5f, 500, 100);
+        Tier elefant2 = new Tier("Manni", "Elefant", heu, 1.8f, 500, 100);
         Pfleger pfleger1 = new Pfleger("Hansi", "Elefant");
 
         zoo.addGehege(elefantenStall);
@@ -47,7 +47,8 @@ public class aMain {
 
         }
     }
-    public static void sleep (long millis){
+
+    public static void sleep(long millis) {
         try {
             Thread.sleep(millis);
         } catch (InterruptedException e) {
