@@ -7,14 +7,28 @@ import java.util.Vector;
 public class Gehege {
     private String name;
     private Vector<Tier> tierliste;
+    private boolean gepflegt;
 
+    // ======== KONSTRUKTOR ===========
     public Gehege(String name) {
-        if (name == null || name.isEmpty()) {
-            throw new IllegalArgumentException("Name darf nicht leer sein");
-        } else {
-            this.name = name;
-            tierliste = new Vector<>();
-        }
+        this.name = name;
+        this.tierliste = new Vector<>();
+        this.gepflegt = false;
+    }
+
+    // ========== SETTER / GETTER ========
+
+
+    public void setGepflegt(boolean gepflegt) {
+        this.gepflegt = gepflegt;
+    }
+
+    public Vector<Tier> getTierliste() {
+        return tierliste;
+    }
+
+    public String getName() {
+        return name;
     }
 
     // =========== FUNKTIONEN ============
