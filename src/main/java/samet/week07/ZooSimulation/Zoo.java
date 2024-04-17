@@ -18,34 +18,46 @@ public class Zoo {
         this.keeperList = new ArrayList<>();
     }
 
+    public void addGuardianAndTask(Keeper keeper,Enclosure enclosure){
+        keeper.addTask(enclosure);
+        if (!keeperList.contains(keeper)){
+            keeperList.add(keeper);
+        }
+    }
+
     public void addEnclosure(Enclosure enclosure) {
         enclosureList.add(enclosure);
     }
 
-    public void removeGehege(Enclosure gehege) {
-        enclosureList.remove(gehege);
-    }
+//    public void removeGehege(Enclosure gehege) {
+//        enclosureList.remove(gehege);
+//    }
 
     public void addKeeper(Keeper keeper) {
         keeperList.add(keeper);
     }
 
-    public void removeKeeper(Keeper keeper) {
-        keeperList.remove(keeper);
+//    public void removeKeeper(Keeper keeper) {
+//        keeperList.remove(keeper);
+//
+//    }
 
-    }
-        public void printZooStructure() {
-            System.out.println("|-- Zoo: " + zooName + ", gegründet " + openingYear);
-
-            for (Enclosure enclosure : enclosureList) {
-                enclosure.printZooStructure();
-                for (Keeper keeper : keeperList){
-                    keeper.printZooStructure();
-                }
-
+    public void printZooStructure() {
+        System.out.println("|-- Zoo: " + zooName + ", gegründet " + openingYear);
+        for (Keeper keeper : keeperList) {
+            keeper.printZooStructure();
+        }
+        for (Enclosure enc : enclosureList){
+            List<Keeper> workersOfEnclosure = new ArrayList<>();
+            for (Keeper kep : keeperList){
+                if (kep.isResponsibleFor(enc)){
+                    workersOfEnclosure.add(kep);
                 }
             }
+            enc.printZooStructure(workersOfEnclosure);
         }
+    }
+}
 
 
 

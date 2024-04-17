@@ -19,19 +19,30 @@ public class Keeper {
             tasks.add(enclosure);
         }
     }
+    public boolean isResponsibleFor(Enclosure enclosure){
+        return tasks.contains(enclosure);
+    }
 
     public String getName(){
         return name;
     }
 
     public void printZooStructure(){
-        System.out.println("|           |-- Pfleger: " + name);
+        System.out.println("|   |-- Pfleger: " + name);
         for (int i = 0; i < tasks.size(); i++) {
             if (i == 0){
-                System.out.println("Zuständig für:");
-            }
+                System.out.print("|       Zuständig für:");
+            } else {
+            System.out.print(", ");
+        }
+        System.out.print(tasks.get(i).getName());
+        if (i == tasks.size() - 1){
+            System.out.print("");
+        }
+    }
+        System.out.println();
 
         }
 
     }
-}
+
