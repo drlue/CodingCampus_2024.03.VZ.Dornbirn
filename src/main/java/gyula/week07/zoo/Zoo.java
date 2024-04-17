@@ -1,8 +1,10 @@
 package gyula.week07.zoo;
 
+import java.util.Random;
 import java.util.Vector;
 
 public class Zoo {
+    public static Random random = new Random();
     private String name;
     private int established;
     private Vector<Enclosure> enclosureList;
@@ -43,6 +45,13 @@ public class Zoo {
                 }
             }
             enc.printStructure(workersOfEnclosure);
+        }
+    }
+
+    public void simulateDay(int day){
+        System.out.printf("Day %d beginn...%n", day);
+        for (Guardian gua: guardianList){
+            gua.simulateDay();
         }
     }
 }
