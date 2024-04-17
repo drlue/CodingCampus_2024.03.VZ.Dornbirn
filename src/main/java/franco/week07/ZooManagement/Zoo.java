@@ -1,8 +1,6 @@
 package franco.week07.ZooManagement;
 
 
-import lukas.week07.ZooSimulation.Caretaker;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

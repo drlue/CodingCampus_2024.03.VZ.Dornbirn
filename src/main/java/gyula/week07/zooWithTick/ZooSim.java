@@ -1,6 +1,4 @@
-package gyula.week07.zoo;
-
-import luki.week07.A;
+package gyula.week07.zooWithTick;
 
 public class ZooSim {
     public static void main(String[] args) {

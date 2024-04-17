@@ -1,4 +1,4 @@
-package gyula.week07.zoo;
+package gyula.week07.zooWithTick;
 
 import java.util.Random;
 import java.util.Vector;
@@ -48,10 +48,28 @@ public class Zoo {
         }
     }
 
+    private boolean hasAnyWorkLeft(){
+        for (Guardian gua: guardianList){
+            if (gua.hasWorkLeft()){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void simulateDay(int day){
         System.out.printf("Day %d beginn...%n", day);
         for (Guardian gua: guardianList){
-            gua.simulateDay();
+            gua.initDay();
+        }
+
+        while (hasAnyWorkLeft()){
+            for (Guardian gua: guardianList){
+                gua.tick();
+            }
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException e) {}
         }
     }
 }

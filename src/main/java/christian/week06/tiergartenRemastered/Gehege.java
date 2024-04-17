@@ -73,9 +73,14 @@ public class Gehege {
         }
         int rndIndex = rnd.nextInt(0, tierList.size());
         Tier rndTier = tierList.get(rnd.nextInt(tierList.size()));
-        String verb = tierList.get(rndIndex).getGattung().equals(pfleger.getLieblingsTierGattung()) ? "bewundert" : "beobachtet";
+        String verb = rndTier.getGattung().equals(pfleger.getLieblingsTierGattung()) ? "bewundert" : "beobachtet";
 
-        System.out.println(pfleger.getName() + " " + verb + " " + tierList.get(rndIndex).getName());
+        if (rndTier.lebendig()) {
+            System.out.println(pfleger.getName() + " " + verb + " " + rndTier.getName());
+        } else {
+            System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", rndTier.getName(), pfleger.getName());
+            tierList.remove(rndTier);
+        }
 
 
     }
@@ -87,20 +92,20 @@ public class Gehege {
         }
     }
 
-    public void tierAktivitaetenInGehege(){
+    public void tierAktivitaetenInGehege() {
         Tier nachbar;
-        for(int i = 0;i<tierList.size();i++){
-            if (i==tierList.size()-1){
-                 nachbar = tierList.get(i-1);
-            }else {
-                 nachbar = tierList.get(i+1);
-            }
-
-            int wahrscheinlichkeit = rnd.nextInt(0,100);
-            if(wahrscheinlichkeit <40){
-                tierList.get(i).beissen(nachbar);
+        int wahrscheinlichkeit = rnd.nextInt(0, 100);
+        if (wahrscheinlichkeit < 40) {
+            if (tierList.size() > 1) {
+                for (int i = 0; i < tierList.size(); i++) {
+                    if (i == tierList.size() - 1) {
+                        nachbar = tierList.get(i - 1);
+                    } else {
+                        nachbar = tierList.get(i + 1);
+                    }
+                    tierList.get(i).beissen(nachbar);
+                }
             }
         }
-
     }
 }

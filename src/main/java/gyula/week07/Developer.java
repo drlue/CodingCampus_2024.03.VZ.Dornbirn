@@ -9,7 +9,7 @@ public class Developer {
 
     private String name;
 
-    enum Status { IDLE, WORK, EAT, READ};
+    private enum Status { IDLE, WORK, EAT, READ};
     private Status status;
     private int timeToLeft;
     private String color;

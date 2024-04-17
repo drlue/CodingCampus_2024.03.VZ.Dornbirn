@@ -1,4 +1,4 @@
-package gyula.week07.zoo;
+package gyula.week07.zooWithTick;
 
 public class Animal {
     private String name;

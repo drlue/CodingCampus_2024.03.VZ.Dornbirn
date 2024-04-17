@@ -1,8 +1,7 @@
-package gyula.week07.zoo;
+package gyula.week07.zooWithTick;
 
 import ardijanla.ConsoleColors;
 
-import java.util.Random;
 import java.util.Vector;
 
 public class Enclosure {

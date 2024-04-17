@@ -1,4 +1,4 @@
-package gyula.week07.zoo;
+package gyula.week07.zooWithTick;
 
 import ardijanla.ConsoleColors;
 
@@ -8,11 +8,16 @@ public class Guardian {
     private String name;
     private String favoriteSpecies;
     private Vector<Enclosure> tasks;
+    private Vector<Enclosure> tasksLeft;
+    private int timeToLeft;
+
 
     public Guardian(String name, String favoriteSpecies) {
         this.name = name;
         this.favoriteSpecies = favoriteSpecies;
         tasks = new Vector<>();
+        tasksLeft = new Vector<>();
+        timeToLeft = 0;
     }
 
     public void addTask(Enclosure enc) {
@@ -49,11 +54,24 @@ public class Guardian {
         return name;
     }
 
-    public void simulateDay(){
-        System.out.printf("%s%s%s start working...%n", ConsoleColors.BLUE, name, ConsoleColors.RESET);
-        for (Enclosure enc: tasks){
-            enc.doClean(this);
-            enc.watchRandomAnimal(this);
+
+    public boolean hasWorkLeft(){
+        return !tasksLeft.isEmpty();
+    }
+    public void initDay(){
+        tasksLeft = new Vector<>(tasks);
+    }
+
+    public void tick(){
+        if (timeToLeft <= 0) {
+            if (!tasksLeft.isEmpty()) {
+                Enclosure currentTask = tasksLeft.remove(Zoo.random.nextInt(tasksLeft.size()));
+                currentTask.doClean(this);
+                currentTask.watchRandomAnimal(this);
+                timeToLeft = Zoo.random.nextInt(10);
+            }
+        } else {
+            --timeToLeft;
         }
     }
 }
