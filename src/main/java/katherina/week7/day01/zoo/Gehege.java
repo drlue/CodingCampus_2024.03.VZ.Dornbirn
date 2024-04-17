@@ -8,12 +8,14 @@ public class Gehege {
     private Vector<Tier> tierliste;
 
 
+
     public Gehege(String name) {
         this.name = name;
         this.zoo = null;
         tierliste = new Vector<>();
 
     }
+
 
     public void setName(String name) {
         this.name = name;

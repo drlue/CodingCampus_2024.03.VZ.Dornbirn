@@ -47,7 +47,6 @@ public class zoosimulationMainKlasse {
 
         System.out.println(tiergartenAndelsbuch);
 
-        //tiergartenAndelsbuch.simulateDay(1);
-        tiergartenAndelsbuch.zoosimulator();
+        tiergartenAndelsbuch.simulateDay(1);
     }
 }

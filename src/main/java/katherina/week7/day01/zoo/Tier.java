@@ -18,6 +18,15 @@ public class Tier {
         return this.name;
     }
 
+    public void setGattung(String gattung) {
+        this.gattung = gattung;
+    }
+
+    public String getGattung() {
+        return this.gattung;
+    }
+
+
     public Gehege getGehege() {
         return gehege;
     }
