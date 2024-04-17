@@ -9,13 +9,11 @@ public class Gehege {
 
     private String name;
     private List<Tier> tierList;
-    private List<Pfleger> pflegerList;
     private boolean arbeitErledigt;
 
     public Gehege(String name) {
         this.name = name;
         tierList = new ArrayList<>();
-        pflegerList = new ArrayList<>();
         arbeitErledigt = false;
     }
 
@@ -70,23 +68,39 @@ public class Gehege {
 
         arbeitErledigt = true;
         for (Tier x : tierList) {
-            x.fuettern();
-            System.out.print("\n|---" + x.getName() + "," + x.getGattung() + " wurde von " + pfleger.getName() + " gefuettert\n");
+            x.fuettern(pfleger);
+
         }
         int rndIndex = rnd.nextInt(0, tierList.size());
+        Tier rndTier = tierList.get(rnd.nextInt(tierList.size()));
+        String verb = tierList.get(rndIndex).getGattung().equals(pfleger.getLieblingsTierGattung()) ? "bewundert" : "beobachtet";
 
-        if (tierList.get(rndIndex).getGattung().equals(pfleger.getLieblingsTierGattung())) {
-            System.out.println("\n" + pfleger.getName() + " bewundert " + tierList.get(rndIndex).getName());
-        } else {
-            System.out.println("\n" + pfleger.getName() + " beobachtet " + tierList.get(rndIndex).getName());
-        }
+        System.out.println(pfleger.getName() + " " + verb + " " + tierList.get(rndIndex).getName());
+
 
     }
 
     public void resetArbeitErledigt() {
         arbeitErledigt = false;
-        for (Tier x : tierList){
+        for (Tier x : tierList) {
             x.resetGefuettert();
         }
+    }
+
+    public void tierAktivitaetenInGehege(){
+        Tier nachbar;
+        for(int i = 0;i<tierList.size();i++){
+            if (i==tierList.size()-1){
+                 nachbar = tierList.get(i-1);
+            }else {
+                 nachbar = tierList.get(i+1);
+            }
+
+            int wahrscheinlichkeit = rnd.nextInt(0,100);
+            if(wahrscheinlichkeit <40){
+                tierList.get(i).beissen(nachbar);
+            }
+        }
+
     }
 }

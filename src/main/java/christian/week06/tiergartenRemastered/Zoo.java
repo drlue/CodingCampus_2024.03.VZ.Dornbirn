@@ -85,6 +85,16 @@ public class Zoo {
         }
         return futterKosten;
     }
+    public void arbeitBeauftragen (){
+        for(Pfleger p : pflegerList){
+            p.rundgang(p);
+        }
+    }
+    public void tierAktivitaeten () {
+        for (Gehege g : gehegeList){
+            g.tierAktivitaetenInGehege();
+        }
+    }
 
     public void resetDay (){
         for(Gehege x : gehegeList){

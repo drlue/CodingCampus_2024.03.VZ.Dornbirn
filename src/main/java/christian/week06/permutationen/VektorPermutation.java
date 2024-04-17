@@ -8,9 +8,27 @@ public class VektorPermutation {
         Vector<String> leererVektor = new Vector<String>();
         Vector<String> inputVektor = new Vector<String>(Arrays.asList("A", "B", "C", "D"));
 
-        System.out.println(permutate(leererVektor, inputVektor));
+        permutate2(leererVektor, inputVektor, "");
 //        permutate2(inputVektor, 0, inputVektor.size(), inputVektor.size());
     }
+
+
+
+    public static void permutate2(Vector<String> permVektor, Vector<String> remainingLetters, String prefix) {
+        System.out.println(prefix + permVektor + " - " + remainingLetters);
+        if(remainingLetters.isEmpty()){
+            //System.out.println("PERM: " + permVektor);
+        }
+        for (int i = 0; i < remainingLetters.size(); i++) {
+            Vector<String> newPermVector = new Vector<>(permVektor);
+            Vector<String> newRemainingLetters = new Vector<>(remainingLetters);
+            newPermVector.add(newRemainingLetters.remove(i));
+
+            permutate2(newPermVector, newRemainingLetters, prefix + "    ");
+        }
+
+    }
+
 
 
     public static Vector<Vector<String>> permutate(Vector<String> permVektor, Vector<String> remainingLetters) {
