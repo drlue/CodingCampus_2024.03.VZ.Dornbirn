@@ -78,7 +78,7 @@ public class MainZooSimulator {
             // Am Tagesbeginn werden alle im Zoo1 enthaltenen gehege werden auf ungepflegt gesetzt:
             zoo1.setGehegeStatusAufUngepflegt();
             // Tag ausdrucken
-            System.out.println("Tag" + (i+1) + ":");
+            System.out.printf("%sTag" + (i+1) + ":%s\n",ConsoleColors.BLUE, ConsoleColors.RESET);
             // Pfleger loschicken
             System.out.println("Zookepper stürmen los");
             // Pfleger Random Gehege zuteilen zum Arbeiten
