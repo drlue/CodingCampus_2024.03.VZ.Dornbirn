@@ -2,6 +2,7 @@ package katherina.week7.day01.zoo;
 
 public class zoosimulationMainKlasse {
 
+
     public static void main(String[] args) {
         Zoo tiergartenAndelsbuch = new Zoo("Tiergarten Andelsbuch", 2024);
 
@@ -40,10 +41,12 @@ public class zoosimulationMainKlasse {
         aquarium.addTier(seeigel);
 
         Pfleger paul = new Pfleger("Paul Rossmann","Murmeltier");
-        alpenwiese.addPersonal(paul);
+        tiergartenAndelsbuch.addPersonal(paul);
         Pfleger alexandra = new Pfleger("Alexandra Kovacevic","Koi-Karpfen");
-        ried.addPersonal(alexandra);
+        tiergartenAndelsbuch.addPersonal(alexandra);
 
         System.out.println(tiergartenAndelsbuch);
+
+        tiergartenAndelsbuch.simulateDay(1);
     }
 }

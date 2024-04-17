@@ -5,34 +5,37 @@ public class ZooMain {
     public static void main(String[] args) {
 
         Zoo zoo = new Zoo("Tiergarten Dornbirn gegründet",2022);
+        Keeper keeper = new Keeper("Günter");
 
         Enclosure alpenwiese = new Enclosure("Alpenwiese");
         zoo.addEnclosure(alpenwiese);
+        zoo.addKeeper(keeper);
 
         Enclosure ried = new Enclosure("Ried");
         zoo.addEnclosure(ried);
 
 
+
         Enclosure terrarium = new Enclosure("Terrarium (warm)");
         zoo.addEnclosure(terrarium);
 
-        Animal rijska = new Animal("Rijska","Kuh");
-        Animal gandalf = new Animal("Gandalf","Kuh");
-        Animal ciquito = new Animal("Ciquito","Kuh");
+        Animal rijska = new Animal("Rijska","Kuh","Heu",20,0.16f);
+        Animal gandalf = new Animal("Gandalf","Kuh","Heu",20,0.16f);
+        Animal ciquito = new Animal("Ciquito","Kuh","Heu",20,0.16f);
         alpenwiese.addAnimal(rijska);
         alpenwiese.addAnimal(gandalf);
         alpenwiese.addAnimal(ciquito);
 
-        Animal garmond = new Animal("Garmond","Reh");
-        Animal hugo = new Animal("Hugo","Reh");
-        Animal idaxis = new Animal("Idaxis","Reh");
+        Animal garmond = new Animal("Garmond","Tiger","Fleisch",10,4.99f);
+        Animal hugo = new Animal("Hugo","Tiger","Fleisch",15,4.99f);
+        Animal idaxis = new Animal("Idaxis","Tiger","Fleisch",12,4.99f);
         ried.addAnimal(garmond);
         ried.addAnimal(hugo);
         ried.addAnimal(idaxis);
 
-        Animal king = new Animal("King","Schlange");
-        Animal queen = new Animal("Queen", "Schlange");
-        Animal prince = new Animal("Prince","Schlange");
+        Animal king = new Animal("King","Schlange","Maus",1,0.49f);
+        Animal queen = new Animal("Queen", "Schlange","Maus",1,0.49f);
+        Animal prince = new Animal("Prince","Schlange","Maus",1,0.49f);
         terrarium.addAnimal(king);
         terrarium.addAnimal(queen);
         terrarium.addAnimal(prince);

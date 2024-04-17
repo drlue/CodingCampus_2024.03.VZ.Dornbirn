@@ -9,8 +9,8 @@ public class Enclosure {
 
     private List<Animal> animalList;
 
-    public Enclosure(String gehege) {
-        this.name = gehege;
+    public Enclosure(String enclosure) {
+        this.name = enclosure;
         animalList = new ArrayList<>();
 
     }

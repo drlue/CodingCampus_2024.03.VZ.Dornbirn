@@ -6,14 +6,14 @@ public class Zoo {
     private String name;
     private int year;
     private Vector<Gehege> gehegeList;
-
+    private Vector<Pfleger> personenliste;
 
 
     public Zoo(String name, int year) {
         this.name = name;
         this.year = year;
         gehegeList = new Vector<>();
-
+        personenliste = new Vector<>();
     }
 
 
@@ -40,17 +40,39 @@ public class Zoo {
         gehegeList.add(gehege);
     }
 
+    public void addPersonal(Pfleger pfleger) {
+        if (pfleger != null) {
+            pfleger.setZooIntern(this);
+        }
+        personenliste.add(pfleger);
+    }
+
+    public void removePersonal(Pfleger pfleger) {
+        personenliste.remove(pfleger);
+    }
+
+    public void simulateDay(int day){
+        System.out.printf("Tag %d:%n",day);
+
+    }
 
     @Override
     public String toString() {
-        String zoostring = "";
+        String zoostring;
+        String personenstring="";
         zoostring = "├── Zoo: " + name + ", gegründet " + year + "\n";
         if (gehegeList != null) {
             for (Gehege ausgabe : gehegeList) {
                 zoostring += ausgabe;
             }
         }
-        return zoostring;
+            for (Pfleger ausgabe : personenliste) {
+                personenstring += ausgabe;
+            }
+        if (personenliste.isEmpty()) {
+            personenstring += "│            ├── für dieses Gehege ist niemand zuständig!\n";
+        }
+        return zoostring+personenstring;
     }
 //So habe ich die Ausgabe in der gewünschten Reihenfolge:
     //String-Variable initialisieren, dann mit dem Wunsch-Grundinhalt belegen.

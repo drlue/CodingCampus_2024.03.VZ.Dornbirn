@@ -3,13 +3,21 @@ package samet.week07.ZooSimulation;
 public class Futter {
 
     private String feed;
-    private int pice;
-    private double price;
+    private int units;
+    private float price;
 
-    private Futter (String feed, int pice, double price){
+    public Futter (String feed, int units, float price){
         this.feed = feed;
-        this.pice = pice;
+        this.units = units;
         this.price = price;
+    }
+
+    public String getFeed(){
+        return feed;
+    }
+    public float getPrice(){
+        return price;
 
     }
+
 }
