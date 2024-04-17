@@ -109,6 +109,9 @@ public class Tier {
             System.out.println();
             System.out.printf(ConsoleColors.RED + "%s ist gestorben!\n"+ ConsoleColors.RESET, this.name);
             System.out.println();
+        }else if (this.hp >= this.maxHP){
+            hp = maxHP;
+
         }
     }
 }

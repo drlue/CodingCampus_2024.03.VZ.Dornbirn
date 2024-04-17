@@ -11,12 +11,15 @@ public class Zoo {
     private List<Gehege> gehegeList;
     private List<Pfleger> pflegerList;
 
+    private List<TierArzt> tierArztList;
+
     public Zoo(String name, int gruendungsjahr) {
 
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
         gehegeList = new ArrayList<>();
         pflegerList = new ArrayList<>();
+        tierArztList = new ArrayList<>();
 
     }
 
@@ -30,6 +33,11 @@ public class Zoo {
         for (Pfleger p : pflegerList) {
             System.out.println("   |---" + p.getName());
             p.getGehegeList();
+        }
+        System.out.println("TierAerzte: ");
+        for(TierArzt t:tierArztList){
+            System.out.println("   |---" + t.getName());
+            t.getGehegeList();
         }
     }
 
@@ -58,6 +66,14 @@ public class Zoo {
         } else {
             System.out.println("Dieser Pfleger arbeitet bereits im Zoo!");
         }
+    }
+
+    public void addTierArztToList(TierArzt tierArzt) {
+        if(!tierArztList.contains(tierArzt)){
+            this.tierArztList.add(tierArzt);
+            System.out.printf("Tierarzt %s wurde eingestellt!\n",tierArzt.getName());
+        }
+
     }
 
     public void removePfleger(Pfleger pfleger) {
@@ -89,6 +105,9 @@ public class Zoo {
     public void arbeitBeauftragen() {
         for (Pfleger p : pflegerList) {
             p.rundgang(p);
+        }
+        for(TierArzt a:tierArztList){
+            a.rundgang();
         }
     }
 
