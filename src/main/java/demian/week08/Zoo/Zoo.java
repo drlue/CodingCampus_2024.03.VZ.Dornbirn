@@ -22,8 +22,11 @@ public class Zoo {
     // ================== SETTER / GETTER ==================
 
     public void addPfleger(zookeeper pfleger){
-
         pflegerliste.add(pfleger);
+    }
+
+    public Vector<zookeeper> getPflegerliste() {
+        return pflegerliste;
     }
 
     public void addGehege(Gehege gehege) {
@@ -31,6 +34,12 @@ public class Zoo {
             System.out.println("Bitte Name des Geheges einfügen welches hinzugefügt werden soll");
         } else {
             gehegeliste.add(gehege);
+        }
+    }
+
+    public void setGehegeStatusAufUngepflegt (){
+        for (Gehege element : gehegeliste){
+            element.setGepflegt(false);
         }
     }
 
