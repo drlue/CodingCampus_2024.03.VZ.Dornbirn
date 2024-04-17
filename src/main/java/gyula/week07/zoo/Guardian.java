@@ -1,13 +1,17 @@
 package gyula.week07.zoo;
 
+import ardijanla.ConsoleColors;
+
 import java.util.Vector;
 
 public class Guardian {
     private String name;
+    private String favoriteSpecies;
     private Vector<Enclosure> tasks;
 
-    public Guardian(String name) {
+    public Guardian(String name, String favoriteSpecies) {
         this.name = name;
+        this.favoriteSpecies = favoriteSpecies;
         tasks = new Vector<>();
     }
 
@@ -19,6 +23,10 @@ public class Guardian {
 
     public boolean isResponsibleFor(Enclosure enc){
         return tasks.contains(enc);
+    }
+
+    public String getFavoriteSpecies() {
+        return favoriteSpecies;
     }
 
     public void printStructure() {
@@ -39,5 +47,13 @@ public class Guardian {
 
     public String getName() {
         return name;
+    }
+
+    public void simulateDay(){
+        System.out.printf("%s%s%s start working...%n", ConsoleColors.BLUE, name, ConsoleColors.RESET);
+        for (Enclosure enc: tasks){
+            enc.doClean(this);
+            enc.watchRandomAnimal(this);
+        }
     }
 }
