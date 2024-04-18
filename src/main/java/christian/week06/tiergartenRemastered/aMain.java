@@ -72,7 +72,7 @@ public class aMain {
             System.out.println("\nTag: " + days);
             sleep(1000);
             zoo.tierAktivitaeten();
-            sleep(2000);
+            sleep(1000);
             zoo.arbeitBeauftragen();
 
             zoo.resetDay();

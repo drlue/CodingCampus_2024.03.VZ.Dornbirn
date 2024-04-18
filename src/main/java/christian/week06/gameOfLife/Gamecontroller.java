@@ -1,5 +1,6 @@
 package christian.week06.gameOfLife;
 
+import java.io.IOException;
 import java.util.Vector;
 
 public class Gamecontroller {
@@ -25,23 +26,26 @@ public class Gamecontroller {
         this.cellsalive = cellsalive;
     }
 
-    public void printFrontend() {
+    public void printFrontend(){
+        System.out.println();
         for (int row = 0; row < sizeOfGrid; row++) {
             for (int col = 0; col < sizeOfGrid; col++) {
                 if (backendGrid[row][col].status == Cell.Status.ALIVE) {
                     System.out.print(" X ");
                 } else {
-                    System.out.print("   ");
+                    System.out.print(" - ");
                 }
             }
             System.out.println();
         }
         try {
-            Thread.sleep(500);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         System.out.println();
+        System.out.println();
+//        Main.clearScreen();
     }
 
     public void createBackend() {
@@ -66,7 +70,7 @@ public class Gamecontroller {
             for (int col = 0; col < sizeOfGrid; col++) {
                 int livingneighbors = 0;
 
-                livingneighbors = checkNeighbors(row, col);
+                livingneighbors = checkNeighbors2(row, col);
                 setLifeOrDeath(row,col,livingneighbors);
             }
         }
@@ -156,9 +160,24 @@ public class Gamecontroller {
         return livingneighbors;
     }
 
+    public int checkNeighbors2(int row, int col){
+        int livingNeighbors = 0;
+        for (int i = -1; i < 2; i++) {
+            for (int j = -1; j < 2; j++) {
+                if(backendGrid[(row+(sizeOfGrid-1)+i)%(sizeOfGrid-1)]
+                              [(col+(sizeOfGrid-1)+j)%(sizeOfGrid-1)]
+                              .status == Cell.Status.ALIVE){
+                    livingNeighbors++;
+                }
+            }
+        }
+
+        return livingNeighbors;
+    }
+
     public void setLifeOrDeath(int row, int col, int livingneighbors) {
         if (backendGrid[row][col].status == Cell.Status.ALIVE) {
-            if (livingneighbors < 2) {
+            if (livingneighbors <= 2) {
                 backendGrid[row][col].status= Cell.Status.DEAD;
             } else if (livingneighbors>3) {
                 backendGrid[row][col].status= Cell.Status.DEAD;

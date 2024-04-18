@@ -32,6 +32,12 @@ public class FinalZoo {
         }
     }
 
+    public void addGuardianToList(Guardian guardian){
+        if(!allGuardianVector.contains(guardian)){
+            allGuardianVector.add(guardian);
+        }
+    }
+
     //=============printMethods============================================================================================================
     public void printStructure() {
         System.out.printf("Zoo: %s, founded in %d\n", name, foundingYear);
@@ -64,5 +70,34 @@ public class FinalZoo {
         //======================EndOfFoodCost======
 
         System.out.printf("-".repeat(21)+"%sEndOfStatistics%s"+"-".repeat(26)+"\n",ConsoleColors.GREEN,ConsoleColors.RESET);
+    }
+
+    //========================create and get methods==============================
+    public Vector<Guardian> createCopyAllGua (){
+        Vector<Guardian>copy = new Vector<>(allGuardianVector);
+        return copy;
+    }
+    public Vector<Enclousure> createCopyAllEnc (){
+        Vector<Enclousure>copy = new Vector<>(allEncVector);
+        return copy;
+    }
+    public Guardian removeRndGuardian(Vector<Guardian>guaV){
+        Guardian gua = guaV.remove(Main.rnd.nextInt(0,guaV.size()));
+        return gua;
+    }
+
+    //============initializeWorkDay========================
+    public void workDay(int hour){
+        Vector<Guardian>copyGua = createCopyAllGua();
+
+        while(!copyGua.isEmpty()){
+            Guardian guardian = removeRndGuardian(copyGua);
+            guardian.startWork(hour,createCopyAllEnc());
+        }
+    }
+    public void resetDay(){
+        for(Enclousure enc : allEncVector){
+            enc.resetDay();
+        }
     }
 }
