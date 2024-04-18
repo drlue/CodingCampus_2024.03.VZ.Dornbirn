@@ -1,11 +1,10 @@
 package samet.week07.ZooSimulation;
 
 import ardijanla.ConsoleColors;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
+
 
 public class Enclosure {
 
@@ -22,10 +21,10 @@ public class Enclosure {
         animalList.add(animal);
     }
 
-//    public void removeAnimal(Animal animal) {
-//        animalList.remove(animal);
-//
-//    }
+    public void removeAnimal(Animal animal) {
+        animalList.remove(animal);
+
+    }
 
     public String getName() {
         return name;
@@ -81,6 +80,31 @@ public class Enclosure {
                     ConsoleColors.RED, animal.getName(), ConsoleColors.RESET);
         }
     }
+
+
+//    public void removeDeadAnimals(){
+//        List<Animal> deadAnimals = new ArrayList<>();
+//        for (Animal animal : animalList){
+//            if (animal.getStatus() == Animal.Status.Dead){
+//                deadAnimals.add(animal);
+//            }
+//        }
+//        animalList.remove(deadAnimals);
+//    }
+
+//    public void simulateDay(){
+//        for (Animal animal : animalList){
+//            if (animal.getStatus() == Animal.Status.Alive){
+//                for (Animal neighbor : animalList){
+//                    if (neighbor != animal){
+//                        animal.bite(neighbor);
+//                    }
+//                }
+//            }
+//        }
+//        removeDeadAnimals();
+//    }
+
 }
 
 

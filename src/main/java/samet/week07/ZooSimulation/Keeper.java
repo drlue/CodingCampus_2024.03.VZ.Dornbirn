@@ -1,8 +1,6 @@
 package samet.week07.ZooSimulation;
 
-
 import ardijanla.ConsoleColors;
-
 import java.util.ArrayList;
 import java.util.List;
 
