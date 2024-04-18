@@ -1,6 +1,6 @@
 package katherina.week7.day01.zoo;
 
-public class ZoosimulationMainKlasse {
+public class ZooSim {
 
 
     public static void main(String[] args) {
@@ -45,11 +45,12 @@ public class ZoosimulationMainKlasse {
 
         tiergartenAndelsbuch.printStructure();
 
+
+
         System.out.println();
         for (int day = 1; day <= 3; day++) {
-
+tiergartenAndelsbuch.tierAktivitaeten();
             tiergartenAndelsbuch.simulateDay(day);
-
         }
 
     }

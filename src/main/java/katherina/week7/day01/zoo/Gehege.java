@@ -1,12 +1,21 @@
 package katherina.week7.day01.zoo;
 
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
+
+
 public class Gehege {
+
+    public static Random random = new Random();
+
+
     private String name;
     private Zoo zoo;
     private Vector<Tier> tierliste;
-
 
     public Gehege(String name) {
         this.name = name;
@@ -27,10 +36,6 @@ public class Gehege {
         return zoo;
     }
 
-    void setZooIntern(Zoo zoo) {
-        this.zoo = zoo;
-    }
-
     public void setZoo(Zoo zoo) {
         this.zoo = zoo;
     }
@@ -46,22 +51,73 @@ public class Gehege {
         tierliste.remove(tier);
     }
 
-    @Override
-    public String toString() {
-        String gehegestring;
-        gehegestring = "│    ├── Gehege: " + name + "\n";
-        if (tierliste != null) {
-            for (Tier ausgabe : tierliste) {
-                gehegestring += ausgabe;
+    public void printStructure(Vector<Pfleger> angestellte){
+        System.out.printf("│    ├── Gehege: %s", name);
+        if (!angestellte.isEmpty()){
+            System.out.print(" (Pfleger: ");
+            for (int index = 0; index < angestellte.size(); index++) {
+                if (index > 0){
+                    System.out.print(", ");
+                }
+                System.out.print(angestellte.get(index).getName());
             }
+            System.out.println(")");
+        } else {
+            System.out.println("     \n     (Achtung! Niemand ist für dieses Gehege zuständig. Bitte ändern!)");
         }
-        if (tierliste.isEmpty()) {
-            gehegestring += "│        ├── dieses Gehege enthält keine Tiere. Bitte füge Tiere hinzu!\n";
+        for (Tier tierchen : tierliste){
+            tierchen.printStructure();
         }
-        return gehegestring;
+        if (tierliste.isEmpty()){
+            System.out.println("│        ├── dieses Gehege enthält keine Tiere. Bitte füge Tiere hinzu!");
+        }
+    }
+    public void putzkolonne(Pfleger pfleger){
+        System.out.printf("%s putzt das Gehege \"%s\" und füttert alle darin lebenden Tiere.%n", pfleger.getName(), name);
     }
 
+    public void zufallstierBegucken(Pfleger pfleger){
+        if (!tierliste.isEmpty()){
+            Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
+            if (tier.lebendig()) {
+            String message = "beobachtet";
 
+                System.out.println(pfleger.getName() + " " + message + " " + tier.getName());
+                if (tier.getGattung().equals(pfleger.getLiebling())){
+                    message = "bewundert";
+                }
+                System.out.printf("%s %s %s.%n",
+                        pfleger.getName(),
+                        message,
+                        tier.getName()
+                );
+      }else {
+                System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tier.getName(), pfleger.getName());
+                tierliste.remove(tier);
+            }
+
+        }
+    }
+
+    public void bissSimulator() {
+        List<Tier> CopyTierlist = new ArrayList<>(tierliste);
+        for (int index = 0; index < CopyTierlist.size(); index++) {
+            if (CopyTierlist.size() > 1) {
+                Tier sameGehege;
+                int zufallsMenge = random.nextInt(CopyTierlist.size());
+                boolean bissfaktor = Math.random() < 0.4;
+                if (bissfaktor) {
+                    if (zufallsMenge == CopyTierlist.size() - 1) {
+                        sameGehege = CopyTierlist.get(zufallsMenge - 1);
+                    } else {
+                        sameGehege = CopyTierlist.get(zufallsMenge + 1);
+                    }
+                    CopyTierlist.get(zufallsMenge).getBiss(sameGehege);
+                    CopyTierlist.remove(zufallsMenge);
+                }
+            }
+        }
+    }
 }
 
 
