@@ -1,9 +1,18 @@
 package katherina.week7.day01.zoo;
 
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Vector;
 
+
+
 public class Gehege {
+
+    public static Random random = new Random();
+
+
     private String name;
     private Zoo zoo;
     private Vector<Tier> tierliste;
@@ -70,15 +79,43 @@ public class Gehege {
     public void zufallstierBegucken(Pfleger pfleger){
         if (!tierliste.isEmpty()){
             Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
+            if (tier.lebendig()) {
             String message = "beobachtet";
-            if (tier.getGattung().equals(pfleger.getLiebling())){
-                message = "bewundert";
+
+                System.out.println(pfleger.getName() + " " + message + " " + tier.getName());
+                if (tier.getGattung().equals(pfleger.getLiebling())){
+                    message = "bewundert";
+                }
+                System.out.printf("%s %s %s.%n",
+                        pfleger.getName(),
+                        message,
+                        tier.getName()
+                );
+      }else {
+                System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tier.getName(), pfleger.getName());
+                tierliste.remove(tier);
             }
-            System.out.printf("%s %s %s.%n",
-                     pfleger.getName(),
-                    message,
-                    tier.getName()
-            );
+
+        }
+    }
+
+    public void bissSimulator() {
+        List<Tier> CopyTierlist = new ArrayList<>(tierliste);
+        for (int index = 0; index < CopyTierlist.size(); index++) {
+            if (CopyTierlist.size() > 1) {
+                Tier sameGehege;
+                int zufallsMenge = random.nextInt(CopyTierlist.size());
+                boolean bissfaktor = Math.random() < 0.4;
+                if (bissfaktor) {
+                    if (zufallsMenge == CopyTierlist.size() - 1) {
+                        sameGehege = CopyTierlist.get(zufallsMenge - 1);
+                    } else {
+                        sameGehege = CopyTierlist.get(zufallsMenge + 1);
+                    }
+                    CopyTierlist.get(zufallsMenge).getBiss(sameGehege);
+                    CopyTierlist.remove(zufallsMenge);
+                }
+            }
         }
     }
 }

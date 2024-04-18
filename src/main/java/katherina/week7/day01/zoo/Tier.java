@@ -1,16 +1,21 @@
 package katherina.week7.day01.zoo;
 
-import java.util.Vector;
 
 public class Tier {
     private String name;
     private String gattung;
     private Gehege gehege;
     private int gesundheit;
-    private int maxGesundheit;
+    private final int maxGesundheit;
     private int biss;
-    private boolean gebissen = Math.random() < 0.4;
-    private Vector<Tier> tierliste;
+
+
+    private Status status;
+
+    private enum Status {
+        LEBENDIG,
+        TOT
+    }
 
     public Tier(String name, String gattung, int gesundheit, int maxGesundheit, int biss) {
         this.name = name;
@@ -18,8 +23,20 @@ public class Tier {
         this.gesundheit = gesundheit;
         this.maxGesundheit = maxGesundheit;
         this.biss = biss;
-        tierliste = new Vector<>();
+    }
 
+    public void sterben() {
+        if (status == Status.LEBENDIG && this.gesundheit <= 0) {
+            status = Status.TOT;
+        }
+    }
+
+    public boolean lebendig() {
+        if (status == Status.LEBENDIG) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void setName(String name) {
@@ -33,17 +50,27 @@ public class Tier {
     public String getGattung() {
         return this.gattung;
     }
+
     public int getGesundheit() {
-        return this.gesundheit;
+        if (status == Status.LEBENDIG) {
+            return gesundheit;
+        } else {
+            return 0;
+        }
     }
 
     public int getMaxGesundheit() {
         return this.maxGesundheit;
     }
 
-    public int getBiss() {
+    public int getBiss(Tier sameGehege) {
+        if (sameGehege.status == Status.LEBENDIG && this.status == Status.LEBENDIG) {
+            System.out.printf("%s beisst %s\n", this.name, sameGehege.getName());
+            sameGehege.bissBerechnung((this.biss * -1));
+        }
         return this.biss;
     }
+
     public Gehege getGehege() {
         return gehege;
     }
@@ -65,26 +92,18 @@ public class Tier {
         System.out.printf("│        ├── %s, %s %n", name, gattung);
     }
 
-    public boolean isGebissen() {
-        return gebissen;
-    }
-    public boolean lebtInGehege(Gehege tier) {
-     return tierliste.contains(tier);
+
+    public void bissBerechnung(int berechnung) {
+        this.gesundheit = gesundheit - biss;
+        if (this.gesundheit <= 0) {
+            this.sterben();
+            System.out.println();
+            System.out.printf("%s ist gestorben!\n", this.name);
+            System.out.println();
+        } else if (this.gesundheit >= this.maxGesundheit) {
+            gesundheit = maxGesundheit;
+        }
     }
 
-    public int bissSimulator(Tier tier){
-        int result = maxGesundheit;
-        Vector<Tier> tierInGehege = new Vector<>();
-        for (Tier tierchen : tierliste){
-            if (tierchen.lebtInGehege(gehege)){
-                tierInGehege.add(tier);
-                for (int index = 0; index < tierInGehege.size(); index++) {
-                    if (gebissen){
-                        result = gesundheit-biss;
-                    }
-                }
-            }
-        }
-        return result;
-    }
+
 }

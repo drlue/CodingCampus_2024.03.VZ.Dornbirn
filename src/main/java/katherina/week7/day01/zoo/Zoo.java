@@ -1,7 +1,5 @@
 package katherina.week7.day01.zoo;
 
-import gyula.week07.zoo.Guardian;
-
 import java.util.Random;
 import java.util.Vector;
 
@@ -41,8 +39,8 @@ public class Zoo {
     public void addGehege(Gehege gehege) {
         if (!gehegeList.contains(gehege)) {
             gehegeList.add(gehege);
-        }else {
-            System.out.printf("Der Zoo namens \" %s\" enthält bereits das Gehege namens \"%\"!",name,gehege.getName());
+        } else {
+            System.out.printf("Der Zoo namens \" %s\" enthält bereits das Gehege namens \"%\"!", name, gehege.getName());
         }
     }
 
@@ -65,9 +63,9 @@ public class Zoo {
         personenliste.add(pfleger);
     }
 
-    public void addPersonalAndBereich(Pfleger pfleger, Gehege gehege){
+    public void addPersonalAndBereich(Pfleger pfleger, Gehege gehege) {
         pfleger.addBereich(gehege);
-        if (!personenliste.contains(pfleger)){
+        if (!personenliste.contains(pfleger)) {
             personenliste.add(pfleger);
         }
     }
@@ -80,43 +78,44 @@ public class Zoo {
         personenliste.remove(pfleger);
     }
 
-    public void simulateDay(int day){
+    public void simulateDay(int day) {
         System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n", day);
-        for (Pfleger pfleger: personenliste){
+        for (Pfleger pfleger : personenliste) {
             sleep(1000);
             pfleger.simulateDay();
         }
-//        for(Tier tier: getGehegeliste().get(tier)){
-//            sleep(1000);
-//tier.bissSimulator(tier);
-//        }
-
     }
 
-    public static void sleep(long milis){
+
+    public void tierAktivitaeten() {
+        for (Gehege gehege : gehegeList) {
+            gehege.bissSimulator();
+        }
+    }
+
+    public static void sleep(long milis) {
         try {
             Thread.sleep(milis);
-        } catch (InterruptedException ie){}
+        } catch (InterruptedException ie) {
+        }
     }
 
 
-    public void printStructure(){
+    public void printStructure() {
         System.out.printf("├── Zoo: %s, gegründet %d%n", name, year);
-        for (Pfleger pfleger : personenliste){
+        for (Pfleger pfleger : personenliste) {
             pfleger.printStructure();
         }
-        for (Gehege gehege : gehegeList){
+        for (Gehege gehege : gehegeList) {
             Vector<Pfleger> pflegerImGehege = new Vector<>();
-            for (Pfleger pfleger : personenliste){
-                if (pfleger.zustaendigkeit(gehege)){
+            for (Pfleger pfleger : personenliste) {
+                if (pfleger.zustaendigkeit(gehege)) {
                     pflegerImGehege.add(pfleger);
                 }
             }
             gehege.printStructure(pflegerImGehege);
         }
     }
-
-
 
 
 }
