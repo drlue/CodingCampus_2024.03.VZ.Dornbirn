@@ -18,10 +18,6 @@ public class Tier {
         return this.name;
     }
 
-    public void setGattung(String gattung) {
-        this.gattung = gattung;
-    }
-
     public String getGattung() {
         return this.gattung;
     }
@@ -43,12 +39,8 @@ public class Tier {
         }
     }
 
-    @Override
-    public String toString() {
-        return "│        ├── " + name + ", " + gattung+"\n";
+
+    public void printStructure() {
+        System.out.printf("│        ├── %s, %s %n", name, gattung);
     }
-
-
-
-
 }

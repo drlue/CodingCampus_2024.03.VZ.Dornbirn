@@ -1,5 +1,6 @@
 package katherina.week7.day01.zoo;
 
+
 import java.util.Vector;
 
 public class Gehege {
@@ -7,15 +8,12 @@ public class Gehege {
     private Zoo zoo;
     private Vector<Tier> tierliste;
 
-
-
     public Gehege(String name) {
         this.name = name;
         this.zoo = null;
         tierliste = new Vector<>();
 
     }
-
 
     public void setName(String name) {
         this.name = name;
@@ -27,10 +25,6 @@ public class Gehege {
 
     public Zoo getZoo() {
         return zoo;
-    }
-
-    void setZooIntern(Zoo zoo) {
-        this.zoo = zoo;
     }
 
     public void setZoo(Zoo zoo) {
@@ -48,21 +42,45 @@ public class Gehege {
         tierliste.remove(tier);
     }
 
-    @Override
-    public String toString() {
-        String gehegestring;
-        gehegestring = "│    ├── Gehege: " + name + "\n";
-        if (tierliste != null) {
-            for (Tier ausgabe : tierliste) {
-                gehegestring += ausgabe;
+    public void printStructure(Vector<Pfleger> angestellte){
+        System.out.printf("│    ├── Gehege: %s", name);
+        if (!angestellte.isEmpty()){
+            System.out.print(" (Pfleger: ");
+            for (int index = 0; index < angestellte.size(); index++) {
+                if (index > 0){
+                    System.out.print(", ");
+                }
+                System.out.print(angestellte.get(index).getName());
             }
+            System.out.println(")");
+        } else {
+            System.out.println("     \n     (Achtung! Niemand ist für dieses Gehege zuständig. Bitte ändern!)");
         }
-        if (tierliste.isEmpty()) {
-            gehegestring += "│        ├── dieses Gehege enthält keine Tiere. Bitte füge Tiere hinzu!\n";
+        for (Tier tierchen : tierliste){
+            tierchen.printStructure();
         }
-        return gehegestring;
+        if (tierliste.isEmpty()){
+            System.out.println("│        ├── dieses Gehege enthält keine Tiere. Bitte füge Tiere hinzu!");
+        }
+    }
+    public void putzkolonne(Pfleger pfleger){
+        System.out.printf("%s putzt das Gehege \"%s\" und füttert alle darin lebenden Tiere.%n", pfleger.getName(), name);
     }
 
+    public void zufallstierBegucken(Pfleger pfleger){
+        if (!tierliste.isEmpty()){
+            Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
+            String message = "beobachtet";
+            if (tier.getGattung().equals(pfleger.getLiebling())){
+                message = "bewundert";
+            }
+            System.out.printf("%s %s %s.%n",
+                     pfleger.getName(),
+                    message,
+                    tier.getName()
+            );
+        }
+    }
 
 }
 
