@@ -89,15 +89,18 @@ public class FinalZoo {
     //============initializeWorkDay========================
     public void workDay(int hour){
         Vector<Guardian>copyGua = createCopyAllGua();
-
+        Vector<Enclousure>remainingEnc = createCopyAllEnc();
         while(!copyGua.isEmpty()){
             Guardian guardian = removeRndGuardian(copyGua);
-            guardian.startWork(hour,createCopyAllEnc());
+            guardian.startWork(hour,remainingEnc);
         }
     }
     public void resetDay(){
         for(Enclousure enc : allEncVector){
             enc.resetDay();
+        }
+        for(Guardian gua : allGuardianVector){
+            gua.setWorkingEncNull();
         }
     }
 }
