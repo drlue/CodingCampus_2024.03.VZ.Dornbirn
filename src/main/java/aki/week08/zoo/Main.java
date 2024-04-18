@@ -3,7 +3,7 @@ package aki.week08.zoo;
 public class Main {
     public static void main(String[] args) {
         //Zoo Name und gründungs Datum
-        Zoo zoo = new Zoo();
+        Zoo zoo = new Zoo("Metter");
 
 
         //Gehegen erstellen
@@ -19,6 +19,12 @@ public class Main {
         //Tiere zur gewünschten Gehege hinzufügen
         villa.addAnimal(rijska);
         pentagon.addAnimal(kuh);
+
+
+        //Pfleger
+        Guardian lama = new Guardian("Stefan-Sigfried");
+        zoo.addGuardianAndTask(lama, pentagon);
+
 
 
         //Ausdruck des Zoo's
