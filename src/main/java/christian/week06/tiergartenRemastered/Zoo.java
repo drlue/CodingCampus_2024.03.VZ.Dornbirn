@@ -11,25 +11,33 @@ public class Zoo {
     private List<Gehege> gehegeList;
     private List<Pfleger> pflegerList;
 
+    private List<TierArzt> tierArztList;
+
     public Zoo(String name, int gruendungsjahr) {
 
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
         gehegeList = new ArrayList<>();
         pflegerList = new ArrayList<>();
+        tierArztList = new ArrayList<>();
 
     }
 
     public void printStructure() {
 
-        System.out.println("|---Zoo: " + name + ", gegruendet am: " + gruendungsjahr );
+        System.out.println("|---Zoo: " + name + ", gegruendet am: " + gruendungsjahr);
         for (Gehege x : gehegeList) {
             x.printStructure();
         }
         System.out.println("TierPfleger: ");
-        for(Pfleger p : pflegerList){
-            System.out.println("   |---"+p.getName());
+        for (Pfleger p : pflegerList) {
+            System.out.println("   |---" + p.getName());
             p.getGehegeList();
+        }
+        System.out.println("TierAerzte: ");
+        for(TierArzt t:tierArztList){
+            System.out.println("   |---" + t.getName());
+            t.getGehegeList();
         }
     }
 
@@ -51,17 +59,25 @@ public class Zoo {
         }
     }
 
-    public void addPfleger (Pfleger pfleger){
-        if (!pflegerList.contains(pfleger)){
+    public void addPfleger(Pfleger pfleger) {
+        if (!pflegerList.contains(pfleger)) {
             pflegerList.add(pfleger);
-            System.out.printf("Pfleger %s wurde eingestellt!\n",pfleger.getName());
+            System.out.printf("Pfleger %s wurde eingestellt!\n", pfleger.getName());
         } else {
             System.out.println("Dieser Pfleger arbeitet bereits im Zoo!");
         }
     }
 
-    public void removePfleger (Pfleger pfleger){
-        if (pflegerList.contains(pfleger)){
+    public void addTierArztToList(TierArzt tierArzt) {
+        if(!tierArztList.contains(tierArzt)){
+            this.tierArztList.add(tierArzt);
+            System.out.printf("Tierarzt %s wurde eingestellt!\n",tierArzt.getName());
+        }
+
+    }
+
+    public void removePfleger(Pfleger pfleger) {
+        if (pflegerList.contains(pfleger)) {
             pflegerList.remove(pfleger);
             System.out.printf("Pfleger %s wurde gefeuert!\n", pfleger.getName());
         } else {
@@ -80,14 +96,29 @@ public class Zoo {
     public float calculateFutterKosten(Map<Futter, Float> futterbedarf) {
         float futterKosten = 0;
         for (Map.Entry<Futter, Float> entry : futterbedarf.entrySet()) {
-            System.out.printf("\nFutter:%10s    ->    Futtermenge: %.2f    ->    Kosten: %6.2f €/Tag",entry.getKey().getName(),entry.getValue(),entry.getValue()*entry.getKey().getEinheitsPreis());
+            System.out.printf("\nFutter:%10s    ->    Futtermenge: %.2f    ->    Kosten: %6.2f €/Tag", entry.getKey().getName(), entry.getValue(), entry.getValue() * entry.getKey().getEinheitsPreis());
             futterKosten += entry.getValue() * entry.getKey().getEinheitsPreis();
         }
         return futterKosten;
     }
 
-    public void resetDay (){
-        for(Gehege x : gehegeList){
+    public void arbeitBeauftragen() {
+        for (Pfleger p : pflegerList) {
+            p.rundgang(p);
+        }
+        for(TierArzt a:tierArztList){
+            a.rundgang();
+        }
+    }
+
+    public void tierAktivitaeten() {
+        for (Gehege g : gehegeList) {
+            g.tierAktivitaetenInGehege();
+        }
+    }
+
+    public void resetDay() {
+        for (Gehege x : gehegeList) {
             x.resetArbeitErledigt();
         }
     }

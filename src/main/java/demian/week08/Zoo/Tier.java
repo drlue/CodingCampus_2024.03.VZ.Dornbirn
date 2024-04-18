@@ -12,6 +12,13 @@ public class Tier {
         this.gattung = gattung;
     }
 
+    // ====== GETTER / SETTER =======
+
+    public String getName() {
+        return name;
+    }
+
+
     // ====== toString ======
 
     @Override

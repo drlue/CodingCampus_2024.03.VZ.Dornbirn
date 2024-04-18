@@ -18,10 +18,25 @@ public class ZooSim {
         Animal rijska = new Animal("Rijska", "Kuh");
         alpenwiese.addAnimal(rijska);
 
-        Guardian stefan = new Guardian("Stefan-Sigfried");
+        Animal zuska = new Animal("Zuska", "Ziege");
+        alpenwiese.addAnimal(zuska);
+        Animal zoltan = new Animal("Zoltan", "Ziege");
+        alpenwiese.addAnimal(zoltan);
+
+
+        Guardian stefan = new Guardian("Stefan-Sigfried", "Kuh");
         zoo.addGuardianAndTask(stefan, alpenwiese);
         zoo.addGuardianAndTask(stefan, ried);
 
+        Guardian tony = new Guardian("Tony", "Elephant");
+        zoo.addGuardianAndTask(tony, terrarium);
+
+
         zoo.printStructure();
+
+        System.out.println();
+        for (int day = 1; day <= 3; day++) {
+            zoo.simulateDay(day);
+        }
     }
 }

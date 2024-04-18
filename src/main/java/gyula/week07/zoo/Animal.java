@@ -9,6 +9,15 @@ public class Animal {
         this.species = species;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
     public void printStructure(){
         System.out.printf("|       |-- %s, %s%n", name, species);
     }

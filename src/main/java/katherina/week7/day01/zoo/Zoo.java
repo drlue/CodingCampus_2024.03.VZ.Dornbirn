@@ -1,8 +1,11 @@
 package katherina.week7.day01.zoo;
 
+import java.util.Random;
 import java.util.Vector;
 
 public class Zoo {
+    public static Random random = new Random();
+
     private String name;
     private int year;
     private Vector<Gehege> gehegeList;
@@ -34,10 +37,23 @@ public class Zoo {
     }
 
     public void addGehege(Gehege gehege) {
-        if (gehege != null) {
-            gehege.setZooIntern(this);
+        if (!gehegeList.contains(gehege)) {
+            gehegeList.add(gehege);
+        } else {
+            System.out.printf("Der Zoo namens \" %s\" enthält bereits das Gehege namens \"%\"!", name, gehege.getName());
         }
-        gehegeList.add(gehege);
+    }
+
+    public void removeGehege(Gehege gehege) {
+        gehegeList.remove(gehege);
+    }
+
+    public Vector<Gehege> getGehegeliste() {
+        return gehegeList;
+    }
+
+    public Gehege getGehege(Gehege gehege) {
+        return gehege;
     }
 
     public void addPersonal(Pfleger pfleger) {
@@ -47,36 +63,60 @@ public class Zoo {
         personenliste.add(pfleger);
     }
 
+    public void addPersonalAndBereich(Pfleger pfleger, Gehege gehege) {
+        pfleger.addBereich(gehege);
+        if (!personenliste.contains(pfleger)) {
+            personenliste.add(pfleger);
+        }
+    }
+
+    public Vector<Pfleger> getPersonenliste() {
+        return personenliste;
+    }
+
     public void removePersonal(Pfleger pfleger) {
         personenliste.remove(pfleger);
     }
 
-    public void simulateDay(int day){
-        System.out.printf("Tag %d:%n",day);
-
+    public void simulateDay(int day) {
+        System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n", day);
+        for (Pfleger pfleger : personenliste) {
+            sleep(1000);
+            pfleger.simulateDay();
+        }
     }
 
-    @Override
-    public String toString() {
-        String zoostring;
-        String personenstring="";
-        zoostring = "├── Zoo: " + name + ", gegründet " + year + "\n";
-        if (gehegeList != null) {
-            for (Gehege ausgabe : gehegeList) {
-                zoostring += ausgabe;
-            }
+
+    public void tierAktivitaeten() {
+        for (Gehege gehege : gehegeList) {
+            gehege.bissSimulator();
+
         }
-            for (Pfleger ausgabe : personenliste) {
-                personenstring += ausgabe;
-            }
-        if (personenliste.isEmpty()) {
-            personenstring += "│            ├── für dieses Gehege ist niemand zuständig!\n";
-        }
-        return zoostring+personenstring;
     }
-//So habe ich die Ausgabe in der gewünschten Reihenfolge:
-    //String-Variable initialisieren, dann mit dem Wunsch-Grundinhalt belegen.
-    //DANN abfragen, ob Gehege vorhanden sind und falls ja, die Ausgabe der Gehege an die Ausgabe des Grundinhalts tackern.
-    //Dann steht alles in der Wunsch-Reihenfolge und es gibt keine herumschwirrende Null! Juhu!
+
+    public static void sleep(long milis) {
+        try {
+            Thread.sleep(milis);
+        } catch (InterruptedException ie) {
+        }
+    }
+
+
+    public void printStructure() {
+        System.out.printf("├── Zoo: %s, gegründet %d%n", name, year);
+        for (Pfleger pfleger : personenliste) {
+            pfleger.printStructure();
+        }
+        for (Gehege gehege : gehegeList) {
+            Vector<Pfleger> pflegerImGehege = new Vector<>();
+            for (Pfleger pfleger : personenliste) {
+                if (pfleger.zustaendigkeit(gehege)) {
+                    pflegerImGehege.add(pfleger);
+                }
+            }
+            gehege.printStructure(pflegerImGehege);
+        }
+    }
+
 
 }

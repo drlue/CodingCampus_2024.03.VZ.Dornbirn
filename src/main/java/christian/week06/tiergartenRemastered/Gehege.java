@@ -9,13 +9,11 @@ public class Gehege {
 
     private String name;
     private List<Tier> tierList;
-    private List<Pfleger> pflegerList;
     private boolean arbeitErledigt;
 
     public Gehege(String name) {
         this.name = name;
         tierList = new ArrayList<>();
-        pflegerList = new ArrayList<>();
         arbeitErledigt = false;
     }
 
@@ -70,23 +68,58 @@ public class Gehege {
 
         arbeitErledigt = true;
         for (Tier x : tierList) {
-            x.fuettern();
-            System.out.print("\n|---" + x.getName() + "," + x.getGattung() + " wurde von " + pfleger.getName() + " gefuettert\n");
+            x.fuettern(pfleger);
+
         }
         int rndIndex = rnd.nextInt(0, tierList.size());
+        Tier rndTier = tierList.get(rnd.nextInt(tierList.size()));
+        String verb = rndTier.getGattung().equals(pfleger.getLieblingsTierGattung()) ? "bewundert" : "beobachtet";
 
-        if (tierList.get(rndIndex).getGattung().equals(pfleger.getLieblingsTierGattung())) {
-            System.out.println("\n" + pfleger.getName() + " bewundert " + tierList.get(rndIndex).getName());
+        if (rndTier.lebendig()) {
+            System.out.println(pfleger.getName() + " " + verb + " " + rndTier.getName());
         } else {
-            System.out.println("\n" + pfleger.getName() + " beobachtet " + tierList.get(rndIndex).getName());
+            System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", rndTier.getName(), pfleger.getName());
+            tierList.remove(rndTier);
         }
+
 
     }
 
     public void resetArbeitErledigt() {
         arbeitErledigt = false;
-        for (Tier x : tierList){
+        for (Tier x : tierList) {
             x.resetGefuettert();
         }
+    }
+
+    public void tierAktivitaetenInGehege() {
+        List<Tier> CopyTierlist = new ArrayList<>(tierList);
+        for (int i = 0; i < CopyTierlist.size(); i++) {
+            if (CopyTierlist.size() > 1) {
+                Tier nachbar;
+                int zufallIndex = rnd.nextInt(CopyTierlist.size());
+                int wahrscheinlichkeit = rnd.nextInt(0, 100);
+                if (wahrscheinlichkeit < 40) {
+                    if (zufallIndex == CopyTierlist.size() - 1) {
+                        nachbar = CopyTierlist.get(zufallIndex - 1);
+                    } else {
+                        nachbar = CopyTierlist.get(zufallIndex + 1);
+                    }
+                    CopyTierlist.get(zufallIndex).beissen(nachbar);
+                    CopyTierlist.remove(zufallIndex);
+                }
+            }
+        }
+    }
+
+    public ArrayList<Tier> tierArztbesuch() {
+        ArrayList<Tier>krankeTiere = new ArrayList<>();
+        for (Tier x : tierList) {
+            if (x.getHp() != x.getMaxHP()){
+                krankeTiere.add(x);
+            }
+        }
+        System.out.printf("Es sind %d verletzte Tiere im Gehege %s\n",krankeTiere.size(),this.getName());
+        return krankeTiere;
     }
 }
