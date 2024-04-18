@@ -1,25 +1,27 @@
 package samet.week07.ZooSimulation;
 
+
+import java.util.Map;
+
 public class Animal {
 
     private String name;
     private String species;
-    private String food;
-    private int units;
-    private float foodprice;
+    private Food food;
+    private float requiredFood;
+    private boolean feeded;
+ //   private
 
 
 
 
-    public Animal(String name, String species,String food, int units ,float foodprice) {
+    public Animal(String name, String species,Food food ,float requiredFood) {
 
         this.name = name;
         this.species = species;
         this.food = food;
-        this.units = units;
-        this.foodprice = foodprice;
-
-
+        this.requiredFood = requiredFood;
+        this.feeded = false;
 
     }
 
@@ -30,6 +32,17 @@ public class Animal {
     public String getSpecies() {
         return species;
     }
+    public Food getFood(){
+        return food;
+    }
+
+    public void getFoodRequirements(Map<Food,Float> neededFood){
+        if (neededFood.containsKey(food)){
+            neededFood.put(food , neededFood.get(food)+ requiredFood);
+            }else {
+            neededFood.put(food,requiredFood);
+    }
+}
 
 
     public void printZooStructure(){

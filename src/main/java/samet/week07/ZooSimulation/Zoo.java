@@ -1,9 +1,13 @@
 package samet.week07.ZooSimulation;
 
-import java.util.ArrayList;
-import java.util.List;
+
+
+import ardijanla.ConsoleColors;
+
+import java.util.*;
 
 public class Zoo {
+    public static Random random = new Random();
 
     private String zooName;
     private int openingYear;
@@ -33,17 +37,35 @@ public class Zoo {
 //        enclosureList.remove(gehege);
 //    }
 
-    public void addKeeper(Keeper keeper) {
-        keeperList.add(keeper);
-    }
+//    public void addKeeper(Keeper keeper) {
+ //       keeperList.add(keeper);
+//    }
 
 //    public void removeKeeper(Keeper keeper) {
 //        keeperList.remove(keeper);
 //
 //    }
 
+
+    public float calculateFoodCost(Map<Food,Float> neededFood){
+        float food = 0;
+        for (Map.Entry<Food, Float> entry : neededFood.entrySet()) {
+            System.out.printf("\"\nFood: %10s    ->    required Food: %.2f    ->    Cost: %6.2f €/Tag\"", entry.getKey().getFeed(), entry.getValue(), entry.getValue() * entry.getKey().getFoodprice());
+            food += entry.getValue() * entry.getKey().getFoodprice();
+        }
+        return food;
+    }
+
+    public void printFoodCost(){
+        Map<Food , Float> foodFloatMap = new HashMap<>();
+        for (Enclosure enclosure : enclosureList){
+            enclosure.getFoodneed(foodFloatMap);
+        }
+        System.out.printf("\nThe Daily Food Cost belongs to : %15.2f €/Day\n", calculateFoodCost(foodFloatMap));
+    }
+
     public void printZooStructure() {
-        System.out.println("|-- Zoo: " + zooName + ", gegründet " + openingYear);
+        System.out.println("|-- Zoo: " + zooName + ", established " + openingYear);
         for (Keeper keeper : keeperList) {
             keeper.printZooStructure();
         }
@@ -55,6 +77,13 @@ public class Zoo {
                 }
             }
             enc.printZooStructure(workersOfEnclosure);
+        }
+    }
+
+    public void simulatedDay(int day){
+        System.out.printf("Day %d beginn...%n", day);
+        for (Keeper keeper : keeperList){
+            keeper.simulatedDay();
         }
     }
 }
