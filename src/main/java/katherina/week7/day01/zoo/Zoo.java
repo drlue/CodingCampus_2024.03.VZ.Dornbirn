@@ -80,17 +80,23 @@ public class Zoo {
         personenliste.remove(pfleger);
     }
 
+    public void simulateDay(int day){
+        System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n", day);
+        for (Pfleger pfleger: personenliste){
+            sleep(1000);
+            pfleger.simulateDay();
+        }
+//        for(Tier tier: getGehegeliste().get(tier)){
+//            sleep(1000);
+//tier.bissSimulator(tier);
+//        }
+
+    }
+
     public static void sleep(long milis){
         try {
             Thread.sleep(milis);
         } catch (InterruptedException ie){}
-    }
-
-    public void simulateDay(int day){
-        System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n", day);
-        for (Pfleger pfleger: personenliste){
-            pfleger.simulateDay();
-        }
     }
 
 
