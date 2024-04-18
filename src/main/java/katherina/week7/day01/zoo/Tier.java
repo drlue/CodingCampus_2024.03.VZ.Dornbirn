@@ -65,9 +65,10 @@ public class Tier {
 
     public int getBiss(Tier sameGehege) {
         if (sameGehege.status == Status.LEBENDIG && this.status == Status.LEBENDIG) {
-            System.out.printf("%s beisst %s\n", this.name, sameGehege.getName());
             sameGehege.bissBerechnung((this.biss * -1));
+            System.out.println(biss);
         }
+        System.out.printf("%s beisst %s\n", this.name, sameGehege.getName());
         return this.biss;
     }
 
@@ -102,7 +103,9 @@ public class Tier {
             System.out.println();
         } else if (this.gesundheit >= this.maxGesundheit) {
             gesundheit = maxGesundheit;
+            System.out.println("Verbleibende Gesundheit:");
         }
+
     }
 
 

@@ -90,6 +90,7 @@ public class Zoo {
     public void tierAktivitaeten() {
         for (Gehege gehege : gehegeList) {
             gehege.bissSimulator();
+
         }
     }
 

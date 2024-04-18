@@ -100,20 +100,21 @@ public class Gehege {
     }
 
     public void bissSimulator() {
-        List<Tier> CopyTierlist = new ArrayList<>(tierliste);
-        for (int index = 0; index < CopyTierlist.size(); index++) {
-            if (CopyTierlist.size() > 1) {
+        for (int index = 0; index < tierliste.size(); index++) {
+            if (tierliste.size() > 1) {
                 Tier sameGehege;
-                int zufallsMenge = random.nextInt(CopyTierlist.size());
+                int zufallsMenge = random.nextInt(tierliste.size());
                 boolean bissfaktor = Math.random() < 0.4;
+                System.out.println("Wurde ein Tier gebissen?"+bissfaktor);
                 if (bissfaktor) {
-                    if (zufallsMenge == CopyTierlist.size() - 1) {
-                        sameGehege = CopyTierlist.get(zufallsMenge - 1);
+                    if (zufallsMenge == tierliste.size() - 1) {
+                        sameGehege = tierliste.get(zufallsMenge - 1);
                     } else {
-                        sameGehege = CopyTierlist.get(zufallsMenge + 1);
+                        sameGehege = tierliste.get(zufallsMenge + 1);
                     }
-                    CopyTierlist.get(zufallsMenge).getBiss(sameGehege);
-                    CopyTierlist.remove(zufallsMenge);
+                    tierliste.get(zufallsMenge).getBiss(sameGehege);
+                    tierliste.remove(zufallsMenge);
+                    System.out.println("Was ist noch in der Menge drin?"+zufallsMenge);
                 }
             }
         }
