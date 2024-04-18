@@ -88,6 +88,7 @@ public class FinalZoo {
 
     //============initializeWorkDay========================
     public void workDay(int hour){
+        //TODO: Methode auflösen um remainingEnc täglich zu erstellen
         Vector<Guardian>copyGua = createCopyAllGua();
         Vector<Enclousure>remainingEnc = createCopyAllEnc();
         while(!copyGua.isEmpty()){
