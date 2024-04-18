@@ -18,8 +18,13 @@ public class Main {
             int intinput = sc.nextInt();
             Gamecontroller game = new Gamecontroller(intinput);
             game.createBackend();
-            while (true){
+            game.createLivingCells((intinput*intinput)-(intinput*3));
+            game.countCellsAlive();
+            while (game.getCellsalive()!=0){
+                game.setCellsalive(0);
                 game.printFrontend();
+                game.lifeOrDeath();
+                game.countCellsAlive();
             }
         }
     }
