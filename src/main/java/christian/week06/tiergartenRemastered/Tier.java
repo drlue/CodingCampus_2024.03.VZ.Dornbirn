@@ -1,5 +1,7 @@
 package christian.week06.tiergartenRemastered;
 
+import ardijanla.ConsoleColors;
+
 import java.util.Map;
 
 public class Tier {
@@ -58,7 +60,7 @@ public class Tier {
             gefuettert = true;
             System.out.printf("|---%s,%s wurde von %s gefuettert\n", name, gattung, pfleger.getName());
         } else {
-            System.out.printf("%s ist tot und braucht nichts mehr zu essen!", this.name);
+            System.out.printf("%s ist tot und braucht nichts mehr zu essen!\n", this.name);
         }
 
     }
@@ -70,6 +72,14 @@ public class Tier {
     public void sterben() {
         if (status == Status.LEBENDIG && this.hp <= 0) {
             status = Status.TOT;
+        }
+    }
+
+    public boolean lebendig() {
+        if (status == Status.LEBENDIG) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -96,7 +106,12 @@ public class Tier {
         this.hp = hp + hpModifier;
         if (this.hp <= 0) {
             this.sterben();
-            System.out.printf("%s ist gestorben!\n", this.name);
+            System.out.println();
+            System.out.printf(ConsoleColors.RED + "%s ist gestorben!\n"+ ConsoleColors.RESET, this.name);
+            System.out.println();
+        }else if (this.hp >= this.maxHP){
+            hp = maxHP;
+
         }
     }
 }
