@@ -36,7 +36,6 @@ public class Enclosure {
         return ani;
     }
 
-
     public void addAnimal(Animal animal) {
         if (animal != null) {
             for (Animal a : animals) {
@@ -50,8 +49,6 @@ public class Enclosure {
             System.out.println("Animal is null!");
         }
     }
-
-
     public void printStructure() {
         System.out.println("|-- Gehege: " + name);
         if (animals.isEmpty()) {

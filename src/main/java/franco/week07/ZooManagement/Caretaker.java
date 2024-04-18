@@ -19,10 +19,10 @@ public class Caretaker {
     public String getName(){return name;}
     public boolean isResponsible(Enclosure enc){return enclosureList.contains(enc);}
     public void printStructure() {
-        System.out.printf("|   |-- Pfleger: %s", name);
+        System.out.printf("|   |-- Caretaker: %s", name);
         for (int i = 0; i < enclosureList.size(); i++) {
             if (i == 0){
-                System.out.printf(" (Zustaendig fuer: ");
+                System.out.printf(" (Responsible for: ");
             } else {
                 System.out.printf(", ");
             }
