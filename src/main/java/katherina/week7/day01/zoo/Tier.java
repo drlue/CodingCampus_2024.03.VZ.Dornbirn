@@ -7,6 +7,7 @@ public class Tier {
     private Gehege gehege;
     private int gesundheit;
     private final int maxGesundheit;
+    //Im Moment irrelevant, aber werde ich spätestens wieder brauchen, wenn ich den Tierarzt einbaue
     private int biss;
 
 
@@ -23,12 +24,7 @@ public class Tier {
         this.gesundheit = gesundheit;
         this.maxGesundheit = maxGesundheit;
         this.biss = biss;
-    }
-
-    public void sterben() {
-        if (status == Status.LEBENDIG && this.gesundheit <= 0) {
-            status = Status.TOT;
-        }
+        this.status = Status.LEBENDIG;
     }
 
     public boolean lebendig() {
@@ -38,6 +34,14 @@ public class Tier {
             return false;
         }
     }
+
+    public void sterben() {
+        if (status == Status.LEBENDIG && this.gesundheit <= 0) {
+            status = Status.TOT;
+        }
+    }
+
+
 
     public void setName(String name) {
         this.name = name;
@@ -57,19 +61,6 @@ public class Tier {
         } else {
             return 0;
         }
-    }
-
-    public int getMaxGesundheit() {
-        return this.maxGesundheit;
-    }
-
-    public int getBiss(Tier sameGehege) {
-        if (sameGehege.status == Status.LEBENDIG && this.status == Status.LEBENDIG) {
-            sameGehege.bissBerechnung((this.biss * -1));
-            System.out.println(biss);
-        }
-        System.out.printf("%s beisst %s\n", this.name, sameGehege.getName());
-        return this.biss;
     }
 
     public Gehege getGehege() {
@@ -94,18 +85,22 @@ public class Tier {
     }
 
 
-    public void bissBerechnung(int berechnung) {
-        this.gesundheit = gesundheit - biss;
-        if (this.gesundheit <= 0) {
-            this.sterben();
+    public void bissBerechnung(Tier beisser, Tier opfer) {
+        System.out.println("Bissberechnung:");
+        System.out.println();
+        System.out.printf("Name des Beissers: %s%n",beisser.getName());
+        System.out.printf("Bissstärke des Beissers: %d%n",beisser.biss);
+        System.out.printf("Name des Opfers: %s%n",opfer.getName());
+        System.out.printf("Ursprüngliche Gesundheit: %d%n",opfer.gesundheit);
+        opfer.gesundheit =  opfer.gesundheit - beisser.biss;
+        System.out.printf("Aktuelle Gesundheit: %d%n",opfer.gesundheit);
+        System.out.println();
+        if ( opfer.gesundheit <= 0) {
+            opfer.sterben();
             System.out.println();
-            System.out.printf("%s ist gestorben!\n", this.name);
+            System.out.printf("%s ist gestorben!\n", opfer.name);
             System.out.println();
-        } else if (this.gesundheit >= this.maxGesundheit) {
-            gesundheit = maxGesundheit;
-            System.out.println("Verbleibende Gesundheit:");
         }
-
     }
 
 

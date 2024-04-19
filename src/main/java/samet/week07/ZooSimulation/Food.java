@@ -1,7 +1,5 @@
 package samet.week07.ZooSimulation;
 
-import java.util.Map;
-
 public class Food {
 
     private String feed;

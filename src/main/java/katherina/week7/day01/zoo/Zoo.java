@@ -80,19 +80,17 @@ public class Zoo {
 
     public void simulateDay(int day) {
         System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n", day);
-        for (Pfleger pfleger : personenliste) {
-            sleep(1000);
-            pfleger.simulateDay();
-        }
-    }
-
-
-    public void tierAktivitaeten() {
         for (Gehege gehege : gehegeList) {
             gehege.bissSimulator();
-
+         //   sleep(1000);
         }
+        for (Pfleger pfleger : personenliste) {
+         //   sleep(1000);
+            pfleger.simulateDay();
+        }
+
     }
+
 
     public static void sleep(long milis) {
         try {

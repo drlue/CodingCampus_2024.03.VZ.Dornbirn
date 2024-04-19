@@ -1,5 +1,7 @@
 package katherina.week7.day01.zoo;
 
+import ardijanla.ConsoleColors;
+
 import java.util.Vector;
 
 public class Pfleger {
@@ -60,6 +62,7 @@ public class Pfleger {
         for (Gehege gehege: bereich){
             gehege.putzkolonne(this);
             gehege.zufallstierBegucken(this);
+
         }
         //System.out.printf("%s ist fertig und geht nach Hause.",name);
     }

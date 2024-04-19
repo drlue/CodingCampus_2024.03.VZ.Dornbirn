@@ -4,8 +4,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
     public static Random rnd = new Random();
     public static Scanner sc = new Scanner(System.in);
+
+
 
     public static void main(String[] args) {
 
@@ -18,9 +21,18 @@ public class Main {
             int intinput = sc.nextInt();
             Gamecontroller game = new Gamecontroller(intinput);
             game.createBackend();
-            while (true){
+            game.createLivingCells((intinput*intinput)-(intinput*6));
+            game.countCellsAlive();
+            while (game.getCellsalive()!=0){
+                game.setCellsalive(0);
                 game.printFrontend();
+                game.lifeOrDeath();
+                game.countCellsAlive();
             }
         }
+    }
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }

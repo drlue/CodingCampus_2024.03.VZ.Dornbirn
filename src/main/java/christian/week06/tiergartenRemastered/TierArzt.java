@@ -18,6 +18,7 @@ public class TierArzt {
     public String getName() {
         return name;
     }
+
     public void getGehegeList() {
         for (Gehege x : gehegeList) {
             System.out.println("       |---" + x.getName());
@@ -42,21 +43,21 @@ public class TierArzt {
             krankeTiere.addAll(g.tierArztbesuch());
         }
         Tier notfall = null;
-        if (krankeTiere.size()>0){
+        if (krankeTiere.size() > 0) {
             for (Tier x : krankeTiere) {
-                if (notfall != null && notfall.lebendig() && (notfall.getMaxHP() - notfall.getHp()) < (x.getMaxHP() - x.getHp())) {
+                if (notfall != null && x.lebendig() && (notfall.getHp() / notfall.getMaxHP())*100 > (x.getHp() / x.getMaxHP())*100) {
                     notfall = x;
                 } else {
                     notfall = x;
                 }
             }
-            System.out.printf("%s muss dringend behandelt werden!\n",notfall.getName());
-            int heilung = notfall.getMaxHP() * (random.nextInt(30,101))/100;
+            System.out.printf("%s muss dringend behandelt werden! Das Tier hat noch %.2f Prozent seiner Lebenspunkte!\n", notfall.getName(), (notfall.getHp() / notfall.getMaxHP()) * 100);
+            float heilung = notfall.getMaxHP() * (random.nextInt(30, 101)) / 100;
             notfall.hpAenderung(heilung);
-            System.out.printf("%s hat %s behandelt(%d Hp Heilung). %s hat aktuell %d Hp\n",name,notfall.getName(),heilung,notfall.getName(),notfall.getHp());
+            System.out.printf("%s hat %s behandelt(%.2f Hp Heilung). %s hat aktuell %.2f Hp\n", name, notfall.getName(), heilung, notfall.getName(), notfall.getHp());
             krankeTiere.removeAll(krankeTiere);
         } else {
-            System.out.printf("%s macht Pause\n",name);
+            System.out.printf("%s macht Pause\n", name);
         }
 
     }
