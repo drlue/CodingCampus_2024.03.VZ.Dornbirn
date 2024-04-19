@@ -31,6 +31,10 @@ public class Gehege {
         return name;
     }
 
+    public boolean isGepflegt() {
+        return gepflegt;
+    }
+
     // =========== FUNKTIONEN ============
     public void addAnimal(Tier tier){
         this.tierliste.add(tier);

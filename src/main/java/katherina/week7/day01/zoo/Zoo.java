@@ -10,6 +10,7 @@ public class Zoo {
     private int year;
     private Vector<Gehege> gehegeList;
     private Vector<Pfleger> personenliste;
+    private Vector<Tierarzt> arztliste;
 
 
     public Zoo(String name, int year) {
@@ -17,6 +18,8 @@ public class Zoo {
         this.year = year;
         gehegeList = new Vector<>();
         personenliste = new Vector<>();
+        arztliste = new Vector<>();
+
     }
 
 
@@ -78,32 +81,36 @@ public class Zoo {
         personenliste.remove(pfleger);
     }
 
+    public void addVet(Tierarzt tierarzt) {
+        if (tierarzt != null) {
+            tierarzt.setZooIntern(this);
+        }
+        arztliste.add(tierarzt);
+    }
+
     public void simulateDay(int day) {
         System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n", day);
         for (Gehege gehege : gehegeList) {
             gehege.bissSimulator();
-         //   sleep(1000);
+            sleep(350);
         }
         for (Pfleger pfleger : personenliste) {
-         //   sleep(1000);
+            sleep(350);
             pfleger.simulateDay();
         }
-
-    }
-
-
-    public static void sleep(long milis) {
-        try {
-            Thread.sleep(milis);
-        } catch (InterruptedException ie) {
+        for (Gehege gehege : gehegeList) {
+            sleep(350);
+            gehege.healSimulator();
         }
+
     }
+
 
 
     public void printStructure() {
         System.out.printf("├── Zoo: %s, gegründet %d%n", name, year);
-        for (Pfleger pfleger : personenliste) {
-            pfleger.printStructure();
+        for (Tierarzt tierarzt : arztliste) {
+            tierarzt.printStructure();
         }
         for (Gehege gehege : gehegeList) {
             Vector<Pfleger> pflegerImGehege = new Vector<>();
@@ -117,4 +124,13 @@ public class Zoo {
     }
 
 
+
+
+    public static void sleep(long milis) {
+        try {
+            Thread.sleep(milis);
+        } catch (InterruptedException ie) {
+        }
+    }
+    //Hilfsklasse, die vor allem dazu da ist, die Verzögerung beim Ausdruck nicht crashen zu lassen.
 }
