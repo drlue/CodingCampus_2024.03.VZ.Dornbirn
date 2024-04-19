@@ -1,7 +1,5 @@
 package katherina.week7.day01.zoo;
 
-import ardijanla.ConsoleColors;
-
 import java.util.Vector;
 
 public class Pfleger {
