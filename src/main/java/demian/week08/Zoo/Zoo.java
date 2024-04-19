@@ -70,11 +70,38 @@ public class Zoo {
             Vector<Gehege> zustaendigkeiten = zookeeper.getResponsabilities();
             // Alle verantworlichen Gehege des aktuellen Zookeepers durchgehen:
             for (Gehege gehege : zustaendigkeiten){
-                //Prüfen ob das gehege bereits bearbeitet wurde:
+                //Prüfen ob das gehege bereits bearbeitet wurde und ansonsten bearbeiten:
                 if (gehege.isGepflegt()){
+                    // Gehege nicht bearbeiten
                     System.out.printf("%s->Das Gehege " + gehege.getName() + " ist bereits bearbeitet worden%s %n", ConsoleColors.CYAN_BRIGHT, ConsoleColors.RESET);
                 } else {
+                    // Gehege bearbeiten
                     System.out.println("->Gehege " + gehege.getName() + " bearbeiten");
+                    System.out.println("  ==>Tiere füttern");
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    // Tiere beobachten, wenn das Lieblingstier des Pfleger dabei ist soll das Tier länger beabachtet werden
+                    Vector<Tier> tierliste = gehege.getTierliste();
+                    if (tierliste.contains(zookeeper.getLieblingstier())){
+                        System.out.printf("%s   ==>" + zookeeper.getName() + " entdeckt ihr Lieblinstier " + zookeeper.getLieblingstier().getName() + "( "+ zookeeper.getLieblingstier().getGattung() + " ) und kommt nicht mehr aus dem staunen" + "%s%n", ConsoleColors.PURPLE_BRIGHT, ConsoleColors.RESET);
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                        System.out.println("   ...weiter gehts!");
+                    } else {
+                        System.out.printf("   ==>" + zookeeper.getName() + "beobachtet die Tiere im Gehege%n");
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    // Gehege auf bearbeitet Status setzen
                     gehege.setGepflegt(true);
                 }
             }

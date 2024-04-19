@@ -32,6 +32,14 @@ public class zookeeper {
         return responsabilities;
     }
 
+    public Tier getLieblingstier() {
+        return lieblingstier;
+    }
+
+    public void setLieblingstier(Tier lieblingstier) {
+        this.lieblingstier = lieblingstier;
+    }
+
     // =========== FUNKTIONEN ============
 
     public void printGehegearbeit(Gehege gehege) {
