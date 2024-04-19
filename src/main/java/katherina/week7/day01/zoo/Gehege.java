@@ -1,5 +1,7 @@
 package katherina.week7.day01.zoo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
@@ -74,26 +76,27 @@ public class Gehege {
 
 
     public void zufallstierBegucken(Pfleger pfleger) {
-        if (!tierliste.isEmpty()) {
-            for (int index = 0; index < tierliste.size(); index++) {
-                if (tierliste.get(index).getGesundheit() < 0)
-                    {
-                        tierliste.remove(index);
-                    System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tierliste.get(index).getName(), pfleger.getName());
+        List<Tier> CopyTierlist = new ArrayList<>(tierliste);
+        if (!CopyTierlist.isEmpty() && CopyTierlist.size() > 1) {
+            for (int index = 0; index < CopyTierlist.size(); index++) {
+                if (!CopyTierlist.get(index).lebendig()) {
+                    System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", CopyTierlist.get(index).getName(), pfleger.getName());
+                    CopyTierlist.remove(index);
                 }
             }
-            Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
+            Tier tier = CopyTierlist.get(Zoo.random.nextInt(CopyTierlist.size()));
             if (tier.getGattung().equals(pfleger.getLiebling())) {
-                System.out.println(pfleger.getName() + " bewundert " + tier.getName());
+                System.out.println(pfleger.getName() + " bewundert " + tier.getName()+".");
             } else {
-                System.out.println(pfleger.getName() + " bewundert " + tier.getName());
+                System.out.println(pfleger.getName() + " beobachtet " + tier.getName()+".");
             }
+
         }
     }
 
 
     public void bissSimulator() {
-        if (tierliste.size() != 0) {
+        if (tierliste.size() != 1) {
             //Erstmal abfragen, ob überhaupt ausreichend Tiere drin sind, um sich gegenseitig zu beißen.
             for (int index = 0; index < tierliste.size(); index++) {
                 boolean bissfaktor = Math.random() < 0.4;

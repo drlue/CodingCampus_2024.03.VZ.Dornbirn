@@ -7,6 +7,7 @@ public class Tier {
     private Gehege gehege;
     private int gesundheit;
     private final int maxGesundheit;
+    //Im Moment irrelevant, aber werde ich spätestens wieder brauchen, wenn ich den Tierarzt einbaue
     private int biss;
 
 
@@ -23,6 +24,15 @@ public class Tier {
         this.gesundheit = gesundheit;
         this.maxGesundheit = maxGesundheit;
         this.biss = biss;
+        this.status = Status.LEBENDIG;
+    }
+
+    public boolean lebendig() {
+        if (status == Status.LEBENDIG) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void sterben() {
@@ -31,13 +41,7 @@ public class Tier {
         }
     }
 
-//    public boolean lebendig() {
-//        if (status == Status.LEBENDIG) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -82,20 +86,20 @@ public class Tier {
 
 
     public void bissBerechnung(Tier beisser, Tier opfer) {
+        System.out.println("Bissberechnung:");
+        System.out.println();
         System.out.printf("Name des Beissers: %s%n",beisser.getName());
         System.out.printf("Bissstärke des Beissers: %d%n",beisser.biss);
         System.out.printf("Name des Opfers: %s%n",opfer.getName());
-        System.out.printf("Verbleibende Gesundheit: %d%n",opfer.gesundheit);
+        System.out.printf("Ursprüngliche Gesundheit: %d%n",opfer.gesundheit);
         opfer.gesundheit =  opfer.gesundheit - beisser.biss;
         System.out.printf("Aktuelle Gesundheit: %d%n",opfer.gesundheit);
+        System.out.println();
         if ( opfer.gesundheit <= 0) {
             opfer.sterben();
             System.out.println();
             System.out.printf("%s ist gestorben!\n", opfer.name);
             System.out.println();
-        } else if (opfer.gesundheit <= opfer.maxGesundheit) {
-            opfer.gesundheit = opfer.maxGesundheit;
-            System.out.printf("Und wie sieht es nach der Heilung aus? %d%n",opfer.gesundheit);
         }
     }
 
