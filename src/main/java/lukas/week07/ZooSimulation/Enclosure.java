@@ -1,5 +1,7 @@
 package lukas.week07.ZooSimulation;
 
+import ardijanla.ConsoleColors;
+
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -8,10 +10,15 @@ public class Enclosure {
     private String name;
     private Vector<Animal> animals;
 
+    private boolean isFinished;
+    private int cleaningDuration;
+
     //---constructor---
     public Enclosure(String name) {
         this.name = name;
         animals = new Vector<>();
+        isFinished = false;
+        cleaningDuration = 0;
     }
 
     //---get/set---
@@ -19,23 +26,15 @@ public class Enclosure {
         return name;
     }
 
-    public Vector<Animal> getAnimals() {
-        return animals;
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
     }
 
     //---methods---
-    public Animal searchAndCreateAnimal(String name, String species, Food f, double amount){
-        for (Animal ani: animals) {
-            if (ani.getName().equals(name)){
-                ani.addFood(f, amount);
-                return ani;
-            }
-        }
-        Animal ani = new Animal(name, species, f, amount);
-        animals.add(ani);
-        return ani;
-    }
-
     public void addAnimal(Animal animal) {
         if (animal != null) {
             for (Animal a : animals) {
@@ -49,8 +48,90 @@ public class Enclosure {
             System.out.println("Animal is null!");
         }
     }
-    public void printStructure() {
-        System.out.println("|-- Gehege: " + name);
+
+    public Animal getRandomAnimal() {
+        if (!animals.isEmpty()) {
+            return animals.get(Zoo.random.nextInt(animals.size()));
+        } else {
+            return null;
+        }
+    }
+
+
+    public void getFoodStat(HashMap<Food, Double> foodStat) {
+        for (Animal ani : animals) {
+            ani.getFoodStat(foodStat);
+        }
+    }
+
+    public void workInEnclosure(Keeper keeper, int duration) {
+        cleaningDuration = duration;
+        for (int i = 0; i < animals.size(); i++) {
+            Animal a = animals.get(i);
+            if (a.getCurrentHealth() < 0) { //animal is death
+                animals.remove(a);
+                System.out.printf("%s%s|--%s wird von %s aus dem Gehege entfernt :-( %s%n",
+                        ConsoleColors.BLACK,
+                        ConsoleColors.WHITE_BACKGROUND,
+                        a.getName(),
+                        keeper.getName(),
+                        ConsoleColors.RESET);
+            } else {
+                a.feed(keeper);
+            }
+        }
+        isFinished = true;
+    }
+
+    public void reset() {
+        isFinished = false;
+        for (Animal a : animals) {
+            a.reset();
+        }
+    }
+
+    public String getColoredName(String color) {
+        return color + name + ConsoleColors.RESET;
+    }
+
+
+    //----------------------------------SIMULATION 0.2
+    public void activityInEnclosure(int hour) {
+        for (Animal aggressor : animals) {
+            Vector<Animal> victims = getListOfPossibleVictimsFor(aggressor);
+            if(!victims.isEmpty()){
+                Animal victim = victims.get(Zoo.random.nextInt(victims.size()));
+                aggressor.bites(victim, hour);
+            }
+        }
+    }
+
+    private Vector<Animal> getListOfPossibleVictimsFor(Animal aggressor) {
+        Vector<Animal> possibleVictims = new Vector<>(animals);
+        possibleVictims.remove(aggressor);
+        for (int i = 0; i < possibleVictims.size(); i++) {
+            if(possibleVictims.get(i).getCurrentHealth()<0) {
+                possibleVictims.remove(possibleVictims.get(i));
+            }
+        }
+        return possibleVictims;
+    }
+
+
+    //---print
+    public void printEnclosureStructure(Vector<Keeper> keepers) {
+        System.out.print("|-- Gehege: " + name);
+        System.out.print(" - Pfleger: ");
+
+        int keeperCount = 0;
+        for (Keeper k : keepers) {
+            if (k.isResponsibleForEnclosure(this)) {
+                System.out.print(keeperCount == 0 ? "" : ", ");
+                k.printKeeper();
+                keeperCount++;
+            }
+        }
+        System.out.println();
         if (animals.isEmpty()) {
             System.out.println("|       |-- (leer)");
         } else {
@@ -61,28 +142,11 @@ public class Enclosure {
         }
     }
 
-    public void getFoodStatByGyula(HashMap<Food, Double> foodStat) {
-        for (Animal ani:  animals) {
-            ani.getFoodStatByGyula(foodStat);
+    public void printAnimalList() {
+        for(Animal a : animals) {
+            System.out.printf("%s, ", a.getName());
         }
+        System.out.println();
     }
 
-
-
-
-    public HashMap<Food, Double> getFoodStat() {
-        // TODO: 2024.04.14 Clean up old food stats
-        HashMap<Food, Double> foodOverview = new HashMap<>();
-                for (Animal animal : getAnimals()) {
-                    for (Food food : animal.getFoodList().keySet()) {
-                        if (foodOverview.get(food) != null) {
-                            Double oldValue = foodOverview.get(food);
-                            foodOverview.put(food, oldValue + animal.getFoodList().get(food));
-                        } else {
-                            foodOverview.put(food, animal.getFoodList().get(food));
-                        }
-                    }
-                }
-        return foodOverview;
-    }
 }
