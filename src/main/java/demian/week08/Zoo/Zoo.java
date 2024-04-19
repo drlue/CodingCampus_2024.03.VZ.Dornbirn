@@ -64,6 +64,10 @@ public class Zoo {
         }
     }
 
+//    public void tagesSimulation(){
+//        for ()
+//    }
+
     public void printPflegerliste (){
 
     }

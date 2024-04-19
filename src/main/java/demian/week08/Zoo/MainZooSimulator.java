@@ -82,7 +82,7 @@ public class MainZooSimulator {
             // Pfleger loschicken
             System.out.println("Zookepper stürmen los");
             // Pfleger Random Gehege zuteilen zum Arbeiten
-            pfleger1.printGehegearbeit(geh1);
+
 
         }
 
