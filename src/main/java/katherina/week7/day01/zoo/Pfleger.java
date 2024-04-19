@@ -62,9 +62,8 @@ public class Pfleger {
         for (Gehege gehege: bereich){
             gehege.putzkolonne(this);
             gehege.zufallstierBegucken(this);
-
         }
-        //System.out.printf("%s ist fertig und geht nach Hause.",name);
+        System.out.printf("%s ist fertig und geht nach Hause.%n",name);
     }
 }
 

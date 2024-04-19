@@ -82,13 +82,13 @@ public class Zoo {
         System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n", day);
         for (Gehege gehege : gehegeList) {
             gehege.bissSimulator();
-         //   sleep(1000);
-        }
-        for (Pfleger pfleger : personenliste) {
-         //   sleep(1000);
-            pfleger.simulateDay();
-        }
+            //   sleep(1000);
 
+            for (Pfleger pfleger : personenliste) {
+                //   sleep(1000);
+                pfleger.simulateDay();
+            }
+        }
     }
 
 

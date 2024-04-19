@@ -86,9 +86,9 @@ public class Gehege {
             }
             Tier tier = CopyTierlist.get(Zoo.random.nextInt(CopyTierlist.size()));
             if (tier.getGattung().equals(pfleger.getLiebling())) {
-                System.out.println(pfleger.getName() + " bewundert " + tier.getName()+".");
+                System.out.println(pfleger.getName() + " bewundert " + tier.getName() + ".");
             } else {
-                System.out.println(pfleger.getName() + " beobachtet " + tier.getName()+".");
+                System.out.println(pfleger.getName() + " beobachtet " + tier.getName() + ".");
             }
 
         }
@@ -103,7 +103,7 @@ public class Gehege {
                 if (bissfaktor) {
                     Tier beisser = tierliste.get(index);
                     Tier opfer = tierliste.get(random.nextInt(tierliste.size()));
-                    if (beisser == opfer) {
+                    if (beisser == opfer ||!opfer.lebendig()) {
                     } else {
                         beisser.bissBerechnung(beisser, opfer);
                     }
