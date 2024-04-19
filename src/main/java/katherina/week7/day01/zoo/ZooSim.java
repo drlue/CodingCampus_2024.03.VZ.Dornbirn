@@ -64,13 +64,18 @@ public class ZooSim {
         tiergartenAndelsbuch.addPersonalAndBereich(sally, ried);
         Pfleger alexandra = new Pfleger("Alexandra Kovacevic", "Koi-Karpfen");
         tiergartenAndelsbuch.addPersonalAndBereich(alexandra, aquarium);
+
+        Tierarzt drdolittle = new Tierarzt("Dr. Dolittle");
+        tiergartenAndelsbuch.addVet(drdolittle);
+
         tiergartenAndelsbuch.printStructure();
+
+
 
 
         System.out.println();
         for (int day = 1; day <= 3; day++) {
             tiergartenAndelsbuch.simulateDay(day);
-            System.out.println("===");
         }
 
     }
