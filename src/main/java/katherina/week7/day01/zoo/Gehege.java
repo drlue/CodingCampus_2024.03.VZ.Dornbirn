@@ -1,7 +1,5 @@
 package katherina.week7.day01.zoo;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
@@ -76,15 +74,17 @@ public class Gehege {
 
 
     public void zufallstierBegucken(Pfleger pfleger) {
-        List<Tier> CopyTierlist = new ArrayList<>(tierliste);
-        if (!CopyTierlist.isEmpty() && CopyTierlist.size() > 1) {
-            for (int index = 0; index < CopyTierlist.size(); index++) {
-                if (!CopyTierlist.get(index).lebendig()) {
-                    System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", CopyTierlist.get(index).getName(), pfleger.getName());
-                    CopyTierlist.remove(index);
-                }
+        //Diese Schleife entfernt alle toten Tiere:
+        for (int index = 0; index < tierliste.size(); index++) {
+            if (!tierliste.get(index).lebendig()) {
+                System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tierliste.get(index).getName(), pfleger.getName());
+                tierliste.remove(index);
+                --index;
             }
-            Tier tier = CopyTierlist.get(Zoo.random.nextInt(CopyTierlist.size()));
+        }
+        //Diese Abfrage sorgt dafür, dass die Pfleger ein Tier betrachten oder bewundern.
+        if (!tierliste.isEmpty()) {
+            Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
             if (tier.getGattung().equals(pfleger.getLiebling())) {
                 System.out.println(pfleger.getName() + " bewundert " + tier.getName() + ".");
             } else {
@@ -103,7 +103,7 @@ public class Gehege {
                 if (bissfaktor) {
                     Tier beisser = tierliste.get(index);
                     Tier opfer = tierliste.get(random.nextInt(tierliste.size()));
-                    if (beisser == opfer ||!opfer.lebendig()) {
+                    if (beisser == opfer || !opfer.lebendig()) {
                     } else {
                         beisser.bissBerechnung(beisser, opfer);
                     }
@@ -113,7 +113,20 @@ public class Gehege {
         }
     }
 
-}
+    public void healSimulator() {
+        if (!tierliste.isEmpty()) {
+            //Erstmal abfragen, ob überhaupt Tiere drin sind, um die geheilt werden können.
+            for (int index = 0; index < tierliste.size(); index++) {
+                    Tier patient = tierliste.get(index);
+                    if (patient.lebendig()&&patient.getMaxGesundheit()>patient.getGesundheit()) {
+                        patient.heilBerechnung(patient);
+                    }
+                }
+            }
+        }
+    }
+
+
 
 
 
