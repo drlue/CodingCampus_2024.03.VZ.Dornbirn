@@ -10,13 +10,17 @@ public class Example6_Permutation {
         vec.add("B");
         vec.add("C");
         vec.add("D");
+        vec.add("E");
+        vec.add("F");
+        vec.add("G");
+        vec.add("H");
 
         System.out.println("----VERSION1----");
-        getPermutations(vec, new Vector<String>(), "");
+        //getPermutations(vec, new Vector<String>(), "");
         System.out.println("----VERSION2----");
         getPermutationsV2(vec, "");
         System.out.println("----VERSION3----");
-        getPermutationsV3(vec, "");
+        //getPermutationsV3(vec, "");
 
     }
 
