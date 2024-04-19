@@ -1,6 +1,7 @@
 package christian.week06.zooEnglish;
 
 import java.util.Random;
+import java.util.Vector;
 
 public class Main {
 
@@ -12,20 +13,20 @@ public class Main {
         Food hay = new Food("Hay", "kg", 0.60f);
         Enclousure sheepEnc = new Enclousure("SheepEnclousure");
         Enclousure lionEnc = new Enclousure("LionEnclousure");
-        Enclousure duckEnc = new Enclousure("LionEnclousure");
-        Enclousure foxEnc = new Enclousure("LionEnclousure");
-        Animal sheep1 = new Animal("Berti", "Sheep", hay, 6f);
-        Animal sheep2 = new Animal("Brutus", "Sheep", hay, 6f);
-        Animal sheep3 = new Animal("Herta", "Sheep", hay, 6f);
-        Animal duck1 = new Animal("Bibi", "Duck", hay, 1f);
-        Animal duck2 = new Animal("Susi", "Duck", hay, 1f);
-        Animal lion1 = new Animal("Hans", "Lion", meat, 1.6f);
-        Animal lion2 = new Animal("Paul", "Lion", meat, 1.6f);
-        Animal lion3 = new Animal("Jörg", "Lion", meat, 1.6f);
-        Animal fox1 = new Animal("Herbert", "Fox", meat, 0.7f);
-        Animal fox2 = new Animal("Klaus", "Fox", meat, 0.7f);
-        Guardian guardian1 = new Guardian("Jonathan");
-        Guardian guardian2 = new Guardian("Abraham");
+        Enclousure duckEnc = new Enclousure("DuckEnclousure");
+        Enclousure foxEnc = new Enclousure("FoxEnclousure");
+        Animal sheep1 = new Animal("Berti", "Sheep", hay, 6f, 120f,10);
+        Animal sheep2 = new Animal("Brutus", "Sheep", hay, 6f,120f,10);
+        Animal sheep3 = new Animal("Herta", "Sheep", hay, 6f,120f,10);
+        Animal duck1 = new Animal("Bibi", "Duck", hay, 1f,40f,3);
+        Animal duck2 = new Animal("Susi", "Duck", hay, 1f,40f,3);
+        Animal lion1 = new Animal("Hans", "Lion", meat, 1.6f,150f,30);
+        Animal lion2 = new Animal("Paul", "Lion", meat, 1.6f,150f,30);
+        Animal lion3 = new Animal("Jörg", "Lion", meat, 1.6f,150f,30);
+        Animal fox1 = new Animal("Herbert", "Fox", meat, 0.7f,60f,10);
+        Animal fox2 = new Animal("Klaus", "Fox", meat, 0.7f,60f,10);
+        Guardian guardian1 = new Guardian("Jonathan","Fox");
+        Guardian guardian2 = new Guardian("Abraham","Lion");
 
         zoo.addEnclousureToList(sheepEnc);
         zoo.addEnclousureToList(lionEnc);
@@ -50,6 +51,8 @@ public class Main {
 
         for (int days = 1; days < 30; days++) {
             System.out.printf("Day: %d\n", days);
+            Vector<Enclousure>remainingWork =  zoo.getRemainingWork();
+            zoo.animalActivities();
             for (int hour = 0; hour < 24; hour++) {
                 System.out.printf("Hour: %d\n", hour);
                 try {
@@ -57,7 +60,7 @@ public class Main {
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
-                zoo.workDay(hour);
+                zoo.workDay(hour,remainingWork);
             }
             zoo.resetDay();
         }
