@@ -103,11 +103,15 @@ public class Zoo {
     }
 
     public void arbeitBeauftragen() {
-        for (Pfleger p : pflegerList) {
-            p.rundgang(p);
+        ArrayList<Pfleger> copyOfPflegerList = new ArrayList<>(pflegerList);
+        ArrayList<TierArzt>copyOfTierArztList = new ArrayList<>(tierArztList);
+        for (Pfleger p : copyOfPflegerList) {
+            Pfleger workingPfleger = copyOfPflegerList.remove(aMain.rnd.nextInt(0,copyOfPflegerList.size()-1));
+            workingPfleger.rundgang(workingPfleger);
         }
-        for(TierArzt a:tierArztList){
-            a.rundgang();
+        for(TierArzt a:copyOfTierArztList){
+            TierArzt workingTierarzt = copyOfTierArztList.remove(aMain.rnd.nextInt(0,copyOfTierArztList.size()-1));
+            workingTierarzt.rundgang();
         }
     }
 

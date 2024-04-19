@@ -6,8 +6,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class GameOfLive {
-    private static int cols = 20;
-    private static int rows = 20;
+    private static int cols = 40;
+    private static int rows = 40;
 
 
     public static void main(String[] args) {
@@ -31,13 +31,13 @@ public class GameOfLive {
     }
 
     public static void initGeneration(int[][] grid) {
-//        Random random = new Random();
-//        for (int i = 0; i < grid.length; i++) {
-//            for (int j = 0; j < grid[i].length; j++) {
-//                grid[i][j] = random.nextInt(2);
-//            }
-//        }
-        placeGlider(grid,1,1);
+        Random random = new Random();
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                grid[i][j] = random.nextInt(2);
+            }
+        }
+        //placeGlider(grid,1,1);
     }
 
     public static void printGrid(int[][] grid) {
