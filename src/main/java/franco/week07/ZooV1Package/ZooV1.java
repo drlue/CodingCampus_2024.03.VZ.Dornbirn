@@ -1,15 +1,20 @@
 package franco.week07.ZooV1Package;
 
 
+import samet.week07.ZooSimulation.Keeper;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ZooV1 {
+    public static Random random = new Random();
     private String name;
     private int establishedYear;
 
     private List<EnclosureV1> enclosureV1List;
     private List<FoodV1> foodV1List;
+    private List<CaretakerV1>caretakerV1List;
 
 
     public ZooV1(String name, int establishedYear) {
@@ -18,6 +23,7 @@ public class ZooV1 {
         this.establishedYear = establishedYear;
         enclosureV1List = new ArrayList<>();
         foodV1List = new ArrayList<>();
+        caretakerV1List=new ArrayList<>();
 
     }
 
@@ -32,21 +38,6 @@ public class ZooV1 {
             this.name = name;
         }
     }
-    //Get and set
-
-    public int getEstablishedYear() {
-        return establishedYear;
-    }
-
-    public void setEstablishedYear(int establishedYear) {
-        if (establishedYear < 0) {
-            System.out.println("Enter a positive year...");
-        } else {
-            this.establishedYear = establishedYear;
-        }
-
-    }
-
     public EnclosureV1 addNewEnclosureAndCheckIfExist(String name) {
         for (EnclosureV1 enc : enclosureV1List) {
             if (enc.getName().equals(name)) {
@@ -67,12 +58,18 @@ public class ZooV1 {
         foodV1List.add(food);
         return food;
     }
+    public void addCarerAndTask(CaretakerV1 carer,EnclosureV1 enclosureV1){
+        carer.addTask(enclosureV1);
+        if(!caretakerV1List.contains(carer)){
+            caretakerV1List.add(carer);
+        }
+    }
 
     public void addNewAnimalAndCheckIfExist(String encName, String name, String species,
-                                            FoodV1 food, String foodNAme, double pricePerUnit, double amount){
-        EnclosureV1 enc=addNewEnclosureAndCheckIfExist(encName);
-        FoodV1 foodV1=addNewFoodAndCheckIfExist(foodNAme,pricePerUnit);
-        AnimalV1 animalV1=enc.createNewAndCheckIfExist(name,species,food,amount);
+                                            FoodV1 food ,String foodNAme, double pricePerUnit, double amount) {
+        EnclosureV1 enc = addNewEnclosureAndCheckIfExist(encName);
+        FoodV1 foodV1 = addNewFoodAndCheckIfExist(foodNAme, pricePerUnit);
+        AnimalV1 animalV1 = enc.createNewAndCheckIfExist(name, species, food, amount);
     }
 
     public void printStructure() {
@@ -85,6 +82,12 @@ public class ZooV1 {
                 System.out.print("│   ");
                 enc.printStructure();
             }
+        }
+    }
+    public void simulation(int day){
+        System.out.printf("Day %d beginn at 07:00 Morning%n", day);
+        for (CaretakerV1 carer : caretakerV1List) {
+            carer.simulatedDay();
         }
     }
 

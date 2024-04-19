@@ -1,7 +1,12 @@
 package katherina.week7.day01.zoo;
 
 
+import java.util.Random;
+
 public class Tier {
+    public Random random = new Random();
+    int healfactor = random.nextInt(30,100);
+
     private String name;
     private String gattung;
     private Gehege gehege;
@@ -112,13 +117,15 @@ public class Tier {
     }
 
 
+
     public void heilBerechnung(Tier patient) {
 
         System.out.println("Heilberechnung:");
         System.out.println();
         System.out.printf("Name des Patienten: %s%n", patient.getName());
         System.out.printf("Ursprüngliche Gesundheit: %d%n", patient.gesundheit);
-        patient.gesundheit = patient.gesundheit + 30; //heal;
+        patient.gesundheit = patient.gesundheit + (healfactor*(maxGesundheit/100));
+        System.out.printf("Geheilt um %d Prozent der Lebenspunkte%n",healfactor);
         System.out.printf("Aktuelle Gesundheit: %d%n", patient.gesundheit);
         System.out.println();
         if (patient.gesundheit >= patient.maxGesundheit) {
