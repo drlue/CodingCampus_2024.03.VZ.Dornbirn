@@ -11,21 +11,42 @@ public class zookeeper {
     private Vector<Gehege> responsabilities;
     private Tier lieblingstier;
 
+    /// ============= KONSTRUKTOR ===========
     public zookeeper(String name, Tier lieblingstier) {
         this.name = name;
         responsabilities = new Vector<>();
         this.lieblingstier = lieblingstier;
     }
 
+
+    // ======== SETTER / GETTER =============
+    public String getName() {
+        return name;
+    }
+
     public void addResp(Gehege gehege) {
         responsabilities.add(gehege);
     }
+
+    public Vector<Gehege> getResponsabilities() {
+        return responsabilities;
+    }
+
+    public Tier getLieblingstier() {
+        return lieblingstier;
+    }
+
+    public void setLieblingstier(Tier lieblingstier) {
+        this.lieblingstier = lieblingstier;
+    }
+
+    // =========== FUNKTIONEN ============
 
     public void printGehegearbeit(Gehege gehege) {
         gehege.setGepflegt(true);
         System.out.println(name + "füttert alle Tiere im " + gehege.getName());
         Vector<Tier> temp = gehege.getTierliste();
-        if (!temp.contains(this.lieblingstier)){
+        if (!temp.contains(this.lieblingstier)) {
             System.out.println(name + "beobachtet die Tiere im Gehege für 1s");
             try {
                 Thread.sleep(1000);
@@ -44,11 +65,7 @@ public class zookeeper {
         }
     }
 
-
-    public String getName() {
-        return name;
-    }
-
+    /// ========== TO STRING ==============
     @Override
     public String toString() {
         StringBuilder verantworungsbereich = new StringBuilder();

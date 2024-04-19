@@ -1,6 +1,10 @@
 package christian.week06.tiergartenRemastered;
 
+import java.util.Random;
+
 public class aMain {
+    public static Random rnd = new Random();
+
 
     public static void main(String[] args) {
 
@@ -68,11 +72,10 @@ public class aMain {
             System.out.println("\nTag: " + days);
             sleep(1000);
             zoo.tierAktivitaeten();
-            sleep(2000);
+            sleep(1000);
             zoo.arbeitBeauftragen();
 
             zoo.resetDay();
-
         }
     }
 

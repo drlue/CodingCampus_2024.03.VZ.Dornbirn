@@ -18,6 +18,9 @@ public class Tier {
         return name;
     }
 
+    public String getGattung() {
+        return gattung;
+    }
 
     // ====== toString ======
 

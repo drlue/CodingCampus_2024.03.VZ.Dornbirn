@@ -1,16 +1,11 @@
 package katherina.week7.day01.zoo;
 
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.util.Vector;
 
-
-
 public class Gehege {
 
-    public static Random random = new Random();
+    public Random random = new Random();
 
 
     private String name;
@@ -51,12 +46,12 @@ public class Gehege {
         tierliste.remove(tier);
     }
 
-    public void printStructure(Vector<Pfleger> angestellte){
+    public void printStructure(Vector<Pfleger> angestellte) {
         System.out.printf("│    ├── Gehege: %s", name);
-        if (!angestellte.isEmpty()){
+        if (!angestellte.isEmpty()) {
             System.out.print(" (Pfleger: ");
             for (int index = 0; index < angestellte.size(); index++) {
-                if (index > 0){
+                if (index > 0) {
                     System.out.print(", ");
                 }
                 System.out.print(angestellte.get(index).getName());
@@ -65,61 +60,72 @@ public class Gehege {
         } else {
             System.out.println("     \n     (Achtung! Niemand ist für dieses Gehege zuständig. Bitte ändern!)");
         }
-        for (Tier tierchen : tierliste){
+        for (Tier tierchen : tierliste) {
             tierchen.printStructure();
         }
-        if (tierliste.isEmpty()){
+        if (tierliste.isEmpty()) {
             System.out.println("│        ├── dieses Gehege enthält keine Tiere. Bitte füge Tiere hinzu!");
         }
     }
-    public void putzkolonne(Pfleger pfleger){
+
+    public void putzkolonne(Pfleger pfleger) {
         System.out.printf("%s putzt das Gehege \"%s\" und füttert alle darin lebenden Tiere.%n", pfleger.getName(), name);
     }
 
-    public void zufallstierBegucken(Pfleger pfleger){
-        if (!tierliste.isEmpty()){
-            Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
-            if (tier.lebendig()) {
-            String message = "beobachtet";
 
-                System.out.println(pfleger.getName() + " " + message + " " + tier.getName());
-                if (tier.getGattung().equals(pfleger.getLiebling())){
-                    message = "bewundert";
-                }
-                System.out.printf("%s %s %s.%n",
-                        pfleger.getName(),
-                        message,
-                        tier.getName()
-                );
-      }else {
-                System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tier.getName(), pfleger.getName());
-                tierliste.remove(tier);
+    public void zufallstierBegucken(Pfleger pfleger) {
+        //Diese Schleife entfernt alle toten Tiere:
+        for (int index = 0; index < tierliste.size(); index++) {
+            if (!tierliste.get(index).lebendig()) {
+                System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tierliste.get(index).getName(), pfleger.getName());
+                tierliste.remove(index);
+                --index;
+            }
+        }
+        //Diese Abfrage sorgt dafür, dass die Pfleger ein Tier betrachten oder bewundern.
+        if (!tierliste.isEmpty()) {
+            Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
+            if (tier.getGattung().equals(pfleger.getLiebling())) {
+                System.out.println(pfleger.getName() + " bewundert " + tier.getName() + ".");
+            } else {
+                System.out.println(pfleger.getName() + " beobachtet " + tier.getName() + ".");
             }
 
         }
     }
+
 
     public void bissSimulator() {
-        for (int index = 0; index < tierliste.size(); index++) {
-            if (tierliste.size() > 1) {
-                Tier sameGehege;
-                int zufallsMenge = random.nextInt(tierliste.size());
+        if (tierliste.size() != 1) {
+            //Erstmal abfragen, ob überhaupt ausreichend Tiere drin sind, um sich gegenseitig zu beißen.
+            for (int index = 0; index < tierliste.size(); index++) {
                 boolean bissfaktor = Math.random() < 0.4;
-                System.out.println("Wurde ein Tier gebissen?"+bissfaktor);
                 if (bissfaktor) {
-                    if (zufallsMenge == tierliste.size() - 1) {
-                        sameGehege = tierliste.get(zufallsMenge - 1);
+                    Tier beisser = tierliste.get(index);
+                    Tier opfer = tierliste.get(random.nextInt(tierliste.size()));
+                    if (beisser == opfer || !opfer.lebendig()) {
                     } else {
-                        sameGehege = tierliste.get(zufallsMenge + 1);
+                        beisser.bissBerechnung(beisser, opfer);
                     }
-                    tierliste.get(zufallsMenge).getBiss(sameGehege);
-                    tierliste.remove(zufallsMenge);
-                    System.out.println("Was ist noch in der Menge drin?"+zufallsMenge);
+                }
+                //Ich brauche zwei Tiere. Eins, das mit 40% Wahrscheinlichkeit beißt und ein beliebiges anderes, das gebissen wird.
+            }
+        }
+    }
+
+    public void healSimulator() {
+        if (!tierliste.isEmpty()) {
+            //Erstmal abfragen, ob überhaupt Tiere drin sind, um die geheilt werden können.
+            for (int index = 0; index < tierliste.size(); index++) {
+                    Tier patient = tierliste.get(index);
+                    if (patient.lebendig()&&patient.getMaxGesundheit()>patient.getGesundheit()) {
+                        patient.heilBerechnung(patient);
+                    }
                 }
             }
         }
     }
-}
+
 
 
 

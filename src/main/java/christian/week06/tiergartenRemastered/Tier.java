@@ -17,12 +17,12 @@ public class Tier {
     }
 
     private Status status;
-    private int maxHP;
-    private int hp;
-    private int biss;
+    private float maxHP;
+    private float hp;
+    private float biss;
 
 
-    public Tier(String name, String gattung, Futter futter, float futterMenge, int maxHP, int biss) {
+    public Tier(String name, String gattung, Futter futter, float futterMenge, float maxHP, float biss) {
         this.name = name;
         this.gattung = gattung;
         this.futter = futter;
@@ -83,7 +83,7 @@ public class Tier {
         }
     }
 
-    public int getHp() {
+    public float getHp() {
         if (status == Status.LEBENDIG) {
             return hp;
         } else {
@@ -91,7 +91,7 @@ public class Tier {
         }
     }
 
-    public int getMaxHP() {
+    public float getMaxHP() {
         return maxHP;
     }
 
@@ -102,7 +102,7 @@ public class Tier {
         }
     }
 
-    public void hpAenderung(int hpModifier) {
+    public void hpAenderung(float hpModifier) {
         this.hp = hp + hpModifier;
         if (this.hp <= 0) {
             this.sterben();
@@ -111,7 +111,6 @@ public class Tier {
             System.out.println();
         }else if (this.hp >= this.maxHP){
             hp = maxHP;
-
         }
     }
 }
