@@ -1,7 +1,5 @@
 package katherina.week7.day01.zoo;
 
-import ardijanla.ConsoleColors;
-
 import java.util.Vector;
 
 public class Pfleger {
@@ -41,22 +39,6 @@ public class Pfleger {
         return name;
     }
 
-    public void printStructure() {
-        System.out.printf("│  ├── heute im Dienst: %s", name);
-        for (int index = 0; index < bereich.size(); index++) {
-            if (index == 0) {
-                System.out.print(" (zuständig für: ");
-            } else {
-                System.out.print(", ");
-            }
-            System.out.print(bereich.get(index).getName());
-            if (index == bereich.size() - 1) {
-                System.out.print(")");
-            }
-        }
-        System.out.println();
-    }
-
     public void simulateDay(){
         System.out.printf("%s beginnt den Arbeitstag.%n", name);
         for (Gehege gehege: bereich){
@@ -64,7 +46,7 @@ public class Pfleger {
             gehege.zufallstierBegucken(this);
 
         }
-        //System.out.printf("%s ist fertig und geht nach Hause.",name);
+        System.out.printf("%s ist fertig und geht nach Hause.%n",name);
     }
 }
 

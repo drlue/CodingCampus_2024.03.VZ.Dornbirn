@@ -74,33 +74,36 @@ public class Gehege {
 
 
     public void zufallstierBegucken(Pfleger pfleger) {
-        if (!tierliste.isEmpty()) {
-            for (int index = 0; index < tierliste.size(); index++) {
-                if (tierliste.get(index).getGesundheit() < 0)
-                    {
-                        tierliste.remove(index);
-                    System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tierliste.get(index).getName(), pfleger.getName());
-                }
+        //Diese Schleife entfernt alle toten Tiere:
+        for (int index = 0; index < tierliste.size(); index++) {
+            if (!tierliste.get(index).lebendig()) {
+                System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tierliste.get(index).getName(), pfleger.getName());
+                tierliste.remove(index);
+                --index;
             }
+        }
+        //Diese Abfrage sorgt dafür, dass die Pfleger ein Tier betrachten oder bewundern.
+        if (!tierliste.isEmpty()) {
             Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
             if (tier.getGattung().equals(pfleger.getLiebling())) {
-                System.out.println(pfleger.getName() + " bewundert " + tier.getName());
+                System.out.println(pfleger.getName() + " bewundert " + tier.getName() + ".");
             } else {
-                System.out.println(pfleger.getName() + " bewundert " + tier.getName());
+                System.out.println(pfleger.getName() + " beobachtet " + tier.getName() + ".");
             }
+
         }
     }
 
 
     public void bissSimulator() {
-        if (tierliste.size() != 0) {
+        if (tierliste.size() != 1) {
             //Erstmal abfragen, ob überhaupt ausreichend Tiere drin sind, um sich gegenseitig zu beißen.
             for (int index = 0; index < tierliste.size(); index++) {
                 boolean bissfaktor = Math.random() < 0.4;
                 if (bissfaktor) {
                     Tier beisser = tierliste.get(index);
                     Tier opfer = tierliste.get(random.nextInt(tierliste.size()));
-                    if (beisser == opfer) {
+                    if (beisser == opfer || !opfer.lebendig()) {
                     } else {
                         beisser.bissBerechnung(beisser, opfer);
                     }
@@ -110,7 +113,20 @@ public class Gehege {
         }
     }
 
-}
+    public void healSimulator() {
+        if (!tierliste.isEmpty()) {
+            //Erstmal abfragen, ob überhaupt Tiere drin sind, um die geheilt werden können.
+            for (int index = 0; index < tierliste.size(); index++) {
+                    Tier patient = tierliste.get(index);
+                    if (patient.lebendig()&&patient.getMaxGesundheit()>patient.getGesundheit()) {
+                        patient.heilBerechnung(patient);
+                    }
+                }
+            }
+        }
+    }
+
+
 
 
 
