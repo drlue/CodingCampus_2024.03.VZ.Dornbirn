@@ -61,6 +61,9 @@ public class MainZooSimulator {
         zoo1.addPfleger(pflDaniel);
         zoo1.addPfleger(pflManfred);
 
+        // Lieblinstiere zu Pfleger hinzufügen
+        pflNadine.setLieblingstier(steinbock1);
+
         // Pflegerliste ausdrucken:
 
         System.out.printf("%sPflegerliste Zoo1: %s", ConsoleColors.BLUE, ConsoleColors.RESET);
@@ -83,7 +86,7 @@ public class MainZooSimulator {
         //Simulation 1.0
 
         System.out.printf("%n%n%s ZOOSIMULATION: %s%n%n", KonsolenFarben.BLUE_BACKGROUND.getCode(),KonsolenFarben.RESET.getCode());
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             // Am Tagesbeginn werden alle im Zoo1 enthaltenen gehege werden auf ungepflegt gesetzt:
             zoo1.setGehegeStatusAufUngepflegt();
             // Tag ausdrucken
