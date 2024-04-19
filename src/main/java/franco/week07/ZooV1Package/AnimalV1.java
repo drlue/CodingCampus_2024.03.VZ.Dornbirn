@@ -8,9 +8,12 @@ import java.util.List;
 public class AnimalV1 {
 
     private String name;
+
     private String species;
 
     private HashMap<FoodV1, Double> foodV1DoubleHashMap;
+
+
 
     public AnimalV1(String name, String species, FoodV1 foodV1, double amount) {
         this.name = name;
@@ -23,7 +26,13 @@ public class AnimalV1 {
     public void setName(String name) {
         this.name = name;
     }
+    public String getSpecies() {
+        return species;
+    }
 
+    public void setSpecies(String species) {
+        this.species = species;
+    }
     public String getName() {
         return name;
     }
