@@ -13,16 +13,16 @@ public class Rectangle extends Geometry {
 
     @Override
     public double getCircumference() {
-        return 2*width + 2*height;
+        return 2 * width + 2 * height;
     }
 
     @Override
     public double getArea() {
-        return width*height;
+        return width * height;
     }
 
     @Override
     public String toString() {
-        return "Rectangle (axb="+width+"x"+height+")";
+        return "Rectangle (axb = " + width + "x" + height + ")";
     }
 }

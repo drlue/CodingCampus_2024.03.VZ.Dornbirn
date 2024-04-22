@@ -7,7 +7,7 @@ public class Geometry {
     //constructor
 
     //methods
-    public double getCircumference(){
+    public double getCircumference() {
 
         return 0d;
     }
