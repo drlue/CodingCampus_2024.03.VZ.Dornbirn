@@ -1,8 +1,5 @@
 package lukas.week06.Example5_Vector;
 
-import lukas.week06.Example3_Person.Person;
-
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import java.util.Vector;
@@ -25,7 +22,6 @@ public class CreateVector {
         vec2.add(3);
 
 
-
         //print
         printVec(vec1);
         printVec(vec2);
@@ -43,8 +39,8 @@ public class CreateVector {
 
         System.out.println("Merge Vectors");
         //make copy of vec1 and vec2
-        Vector<Integer>v1 = new Vector<>(vec1);
-        Vector<Integer>v2 = new Vector<>(vec2);
+        Vector<Integer> v1 = new Vector<>(vec1);
+        Vector<Integer> v2 = new Vector<>(vec2);
         System.out.println("Vector 1");
         System.out.println(v1);
         System.out.println("Vector 2");
@@ -54,8 +50,8 @@ public class CreateVector {
 
         System.out.println("Merged SortedVectors");
         //make copy of vec1 and vec2
-        Vector<Integer>v3 = new Vector<>(vec1);
-        Vector<Integer>v4 = new Vector<>(vec2);
+        Vector<Integer> v3 = new Vector<>(vec1);
+        Vector<Integer> v4 = new Vector<>(vec2);
         Collections.sort(v3);
         Collections.sort(v4);
         System.out.println(mergeSortedVectorsV2(v3, v4));
@@ -137,10 +133,10 @@ public class CreateVector {
     }
 
     public static Vector<Integer> mergeVectorsV2(Vector<Integer> vec1, Vector<Integer> vec2) {
-        Vector<Integer> res = new Vector<Integer>();
+        Vector<Integer> res = new Vector<>();
         //vector 1
         while (!vec1.isEmpty()) {
-            if (res.isEmpty()){
+            if (res.isEmpty()) {
                 res.add(vec1.getFirst());
                 vec1.removeFirst();
             }
@@ -149,8 +145,7 @@ public class CreateVector {
                     res.add(i, vec1.getFirst());
                     vec1.removeFirst();
                     break;
-                } else if (i == res.size() - 1)
-                {
+                } else if (i == res.size() - 1) {
                     res.add(vec1.getFirst());
                     vec1.removeFirst();
                     break;
@@ -164,9 +159,7 @@ public class CreateVector {
                     res.add(i, vec2.getFirst());
                     vec2.removeFirst();
                     break;
-                }
-                else if (i == res.size() - 1)
-                {
+                } else if (i == res.size() - 1) {
                     res.add(vec2.getFirst());
                     vec2.removeFirst();
                     break;
@@ -208,9 +201,6 @@ public class CreateVector {
         }
         return res;
     }
-
-
-    ArrayList<Person> persons = new ArrayList<>();
 
 
 }

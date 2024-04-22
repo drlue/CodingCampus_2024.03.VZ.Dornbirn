@@ -1,23 +1,32 @@
 package lukas.bonus;
 
+import lukas.Helper;
+
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class GameOfLive {
-    private static int cols = 10;
-    private static int rows = 10;
+    private static int cols = 40;
+    private static int rows = 40;
 
 
     public static void main(String[] args) {
         int[][] grid = new int[rows][cols];
         initGeneration(grid);
         printGrid(grid);
-        System.out.println();
-        System.out.println();
-        for (int i = 0; i < 5; i++) {
-                grid = computeNewGeneration(grid);
-                printGrid(grid);
-                System.out.println();
-                System.out.println();
+        //System.out.println();
+        //System.out.println();
+        while (true) {
+            Helper.clearScreen();
+            grid = computeNewGeneration(grid);
+            printGrid(grid);
+            try {
+                TimeUnit.MILLISECONDS.sleep(30);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            //System.out.println();
+            //System.out.println();
         }
     }
 
@@ -28,12 +37,13 @@ public class GameOfLive {
                 grid[i][j] = random.nextInt(2);
             }
         }
+        //placeGlider(grid,1,1);
     }
 
     public static void printGrid(int[][] grid) {
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                System.out.print(grid[i][j] == 1 ? " * |" : "   |");
+                System.out.print(grid[i][j] == 1 ? "x" : " ");
             }
             System.out.println();
         }
@@ -42,29 +52,27 @@ public class GameOfLive {
     public static int countNeighbors(int[][] grid, int x, int y) {
         int sum = 0;
         //regular cell
-        if (x != 0 && x != grid.length - 1 && y != 0 && y != grid[0].length - 1) {
             for (int i = -1; i < 2; i++) {
                 for (int j = -1; j < 2; j++) {
-                    if (x != i && y != j) { //do not count cell itself!
-                        sum += grid[x + i][y + j];
+                    if (i != 0 || j != 0) { //do not count cell itself!
+                        sum += grid[(x + grid.length + i) % grid.length][(y + grid[0].length+ j) % grid[0].length];
+                        //wenn
                     }
                 }
             }
-        }
-
         return sum;
     }
 
     public static int[][] computeNewGeneration(int[][] grid) {
-        int[][] gridNew = grid.clone();
+        int[][] gridNew = new int[grid.length][grid[0].length];
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
 
                 int state = grid[i][j];
                 int neighbors = countNeighbors(grid, i, j);
-                if (state == 0 && neighbors > 2) {
+                if (state == 0 && neighbors == 3) {
                     gridNew[i][j] = 1;
-                } else if (state == 1 && neighbors < 2 || neighbors > 3) {
+                } else if (state == 1 && (neighbors < 2 || neighbors > 3)) {
                     gridNew[i][j] = 0;
                 } else {
                     gridNew[i][j] = state;
@@ -72,6 +80,20 @@ public class GameOfLive {
             }
         }
         return gridNew;
+    }
+
+    public static void placeGlider(int[][] grid, int x, int y){
+        //.x.
+        //..x
+        //xxx
+
+        grid[x][y+1] = 1;
+        grid[x+1][y+2] = 1;
+        grid[x+2][y] = 1;
+        grid[x+2][y+1] = 1;
+        grid[x+2][y+2] = 1;
+
+
     }
 
 

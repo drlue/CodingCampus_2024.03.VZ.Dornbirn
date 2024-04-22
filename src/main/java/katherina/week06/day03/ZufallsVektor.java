@@ -21,6 +21,8 @@ public class ZufallsVektor {
         System.out.println("Es gibt " + countUneven + " ungerade Zahlen hier.");
         System.out.print("Die kleinste Zahl lautet: ");
         System.out.println(kleinsteZahl(zufallsZahl));
+//        System.out.print("Die kleinste Zahl - Version 2 - lautet: ");
+//        System.out.println(kleinsteZahl2(zufallsZahl));
         System.out.print("Die größte Zahl lautet: ");
         System.out.println(groessteZahl(zufallsZahl));
         System.out.print("Einmal absteigend sortiert, bitte: ");
@@ -59,21 +61,31 @@ public class ZufallsVektor {
         return count;
     }
 
-    public static int kleinsteZahl(Vector<Integer> zufallsZahl) {
-        int minNumber = Integer.MAX_VALUE;
-        for (int index = 0; index < zufallsZahl.size(); index++) {
-            if (minNumber > zufallsZahl.get(index)) {
-                minNumber = zufallsZahl.get(index);
+    public static Integer kleinsteZahl(Vector<Integer> vektor) {
+        Integer minNumber = Integer.MAX_VALUE;
+        for (int index = 0; index < vektor.size(); index++) {
+            if (minNumber > vektor.get(index)) {
+                minNumber = vektor.get(index);
             }
         }
         return minNumber;
     }
 
-    public static int groessteZahl(Vector<Integer> zufallsZahl) {
-        int maxNumber = Integer.MIN_VALUE;
-        for (int index = 0; index < zufallsZahl.size(); index++) {
-            if (maxNumber < zufallsZahl.get(index)) {
-                maxNumber = zufallsZahl.get(index);
+    public static Integer kleinsteZahl2(Vector<Integer> vektor) {
+        Integer minNumber = Integer.MAX_VALUE;
+        for (Integer value : vektor) {
+            if (value < minNumber) ;
+            {
+            }
+        }
+        return minNumber;
+    }
+
+    public static Integer groessteZahl(Vector<Integer> vektor) {
+        Integer maxNumber = Integer.MIN_VALUE;
+        for (int index = 0; index < vektor.size(); index++) {
+            if (maxNumber < vektor.get(index)) {
+                maxNumber = vektor.get(index);
             }
         }
         return maxNumber;
@@ -96,8 +108,11 @@ public class ZufallsVektor {
 
     public static Vector ungeradeZahlenKillen(Vector<Integer> zufallsZahl) {
         for (int index = 0; index < zufallsZahl.size(); index++) {
-            if (zufallsZahl.get(index) % 2 != 0) {
+            while (index < zufallsZahl.size() && zufallsZahl.get(index) % 2 != 0) {
                 zufallsZahl.remove(index);
+                index--;
+                //Ohne das "Rückwärtszählen" nach jedem Entfernvorgang wird sonst ein Index übersprungen.
+                //Wenn dort eine ungerade Zahl dann reinrutscht, wird sie nicht mehr erfasst.
             }
         }
         return zufallsZahl;
