@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
 
         Vector<Geometry> geometries = new Vector<>();
-        geometries.add(new Triangle(10));
+        geometries.add(new Triangle(10)); //gleichseitiges Dreieck, eigener constructor
         geometries.add(new Triangle(10, 7, 7));
         geometries.add(new Rectangle(10, 5));
         geometries.add(new Square(10));
@@ -15,8 +15,6 @@ public class Main {
 
         System.out.println("Liste der Geometrieformen");
         printGeometryData(geometries);
-        //stringTest();
-
     }
 
     public static double getSumOfCircumference(Vector<Geometry> geometries) {

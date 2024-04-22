@@ -1,6 +1,6 @@
 package lukas.week08.Geometry;
 
-public abstract class Geometry implements IGeometry{
+public abstract class Geometry implements IGeometry {
 
     //methods
     @Override
