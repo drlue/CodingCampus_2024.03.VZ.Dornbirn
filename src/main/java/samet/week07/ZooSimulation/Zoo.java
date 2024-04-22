@@ -48,8 +48,8 @@ public class Zoo {
     public float calculateFoodCost(Map<Food, Float> neededFood) {
         float food = 0;
         for (Map.Entry<Food, Float> entry : neededFood.entrySet()) {
-            System.out.printf("\"\nFood: %10s    --->    required Food: %.2f    --->    Cost: %6.2f €/Tag\"" , entry.getKey().getFeed(), entry.getValue(), entry.getValue() * entry.getKey().getFoodprice());
-            food += entry.getValue() * entry.getKey().getFoodprice();
+            System.out.printf("\"\nFood: %10s    --->    required Food: %.2f    --->    Cost: %6.2f €/Tag\"" , entry.getKey().getFoodName(), entry.getValue(), entry.getValue() * entry.getKey().getPrice());
+            food += entry.getValue() * entry.getKey().getPrice();
         }
         return food;
     }

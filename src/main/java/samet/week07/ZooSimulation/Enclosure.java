@@ -85,6 +85,23 @@ public class Enclosure {
         List<Animal> aniBite = new ArrayList<>(animalList);
         for (int i = 0; i < aniBite.size(); i++) {
             if (aniBite.size() > 1) {
+                // 1.Prüfung ob es einen nachbartier in gehäge gibt
+                // 2. Angriffswahrscheinlichkeit Random (0,1) wenn  größer als 0.4 dann greift es an.
+                // 3. Zufällig einen Gegener wählen. Random (0, Anzahl Tiere in GEhäge, aber ohne sich selbst zu wählen)
+                // 4. getsBittenn ( int Damage)
+                // 4.1 Hp reduzieren
+                // 4.2 Wenn Hp - damage < 0 dann Status Tier auf tot stellen
+                // 5. Ausgabe aller Tiere mit Ihrem HP sa und markeiren von toten Tieren
+                // 6. Enfernnen von toten Tieren aus dem gehäge
+                if (random.nextDouble() <= 0.4){
+                    Animal neighbor = null;
+                    Animal currentAnimal = aniBite.get(i);
+                    while (neighbor.equals(currentAnimal)|| neighbor == null){
+                        neighbor = aniBite.get(random.nextInt(aniBite.size()));
+                    }
+                    currentAnimal.bite(neighbor);
+                }
+
                 Animal neighbor;
                 int randomAnimal = random.nextInt(aniBite.size());
                 int randomProbability = random.nextInt(0, 101);
