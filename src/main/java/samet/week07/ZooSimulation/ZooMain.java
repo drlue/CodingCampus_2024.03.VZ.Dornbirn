@@ -17,10 +17,10 @@ public class ZooMain {
         zoo.addEnclosure(aquarium);
         zoo.addEnclosure(birdHouse);
 
-        Food hay = new Food("Hay", "kg", 0.16f);
-        Food meat = new Food("Meat", "kg", 4.99f);
+        Food hay = new Food("Hay", "kg", 0.25f);
+        Food meat = new Food("Meat", "kg", 6.99f);
         Food mouse = new Food("Mouse", "Stück", 0.49f);
-        Food fish = new Food("Fish","kg",1.25f);
+        Food fish = new Food("Fish","kg",1.95f);
 
         Animal boss = new Animal("Boss", "Cow", hay, 20f,150,150,25);
         Animal gandalf = new Animal("Gandalf", "Cow", hay, 20f,150,150,25);
@@ -51,20 +51,20 @@ public class ZooMain {
         Keeper gunter = new Keeper("Günter", "Kuh");
         Keeper stefan = new Keeper("Stefan", "Tiger");
         Keeper josef = new Keeper("Josef", "Schlange");
-        zoo.addGuardianAndTask(gunter, meadow);
-        zoo.addGuardianAndTask(stefan, predatorEnclosure);
-        zoo.addGuardianAndTask(josef, terrarium);
+        Keeper wilma = new Keeper("Wilma","Dolphin");
+        zoo.addKeeperAndTask(gunter, meadow);
+        zoo.addKeeperAndTask(stefan, predatorEnclosure);
+        zoo.addKeeperAndTask(josef, terrarium);
+        zoo.addKeeperAndTask(wilma,aquarium);
 
 
         zoo.printZooStructure();
         zoo.printFoodCost();
-
-
-
         sleep(1000);
 
+
         System.out.println();
-        for (int day = 1; day <= 7; day++) {
+        for (int day = 1; day <= 3; day++) {
             zoo.simulatedDay(day);
             sleep(1000);
         }
@@ -77,7 +77,6 @@ public class ZooMain {
             throw new RuntimeException(e);
         }
     }
-
 }
 
 
