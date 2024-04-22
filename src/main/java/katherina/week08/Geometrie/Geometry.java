@@ -1,6 +1,6 @@
 package katherina.week08.Geometrie;
 
-public class Geometry {
+public abstract class Geometry {
     //Superklasse, wenn ich es richtig verstanden habe
 
 

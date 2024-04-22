@@ -2,9 +2,13 @@ package katherina.week08.Geometrie;
 
 public class Rhomboid extends Geometry{
     private double height;
+    private double a;
+    private double b;
     public Rhomboid(double a, double b, double height) {
-        super(a, b);
+        super();
         this.height=height;
+        this.a=a;
+        this.b=b;
     }
 
     public double getCircumference() {
