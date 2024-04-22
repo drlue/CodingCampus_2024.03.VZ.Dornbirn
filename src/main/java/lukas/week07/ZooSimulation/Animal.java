@@ -15,18 +15,22 @@ public class Animal {
     private int maxHealth;
     private int snapPower;
     private boolean isAggressive;
+    private boolean isTreated;
+    private boolean isInTreatmentAtMoment;
 
     //---constructor---
-    public Animal(String name, String species, Food food, double amount) {
+    public Animal(String name, String species, Food food, double amount, int maxHealth, int snapPower) {
         this.name = name;
         this.species = species;
         foodMap = new HashMap<>();
         foodMap.put(food, amount);
         isFed = false;
-        maxHealth = 100;
+        this.maxHealth = maxHealth;
         currentHealth = maxHealth;
-        this.snapPower = 60;
+        this.snapPower = snapPower;
         isAggressive = true;
+        isTreated = false;
+        isInTreatmentAtMoment = false;
     }
 
     //---get/set---
@@ -38,9 +42,6 @@ public class Animal {
         return species;
     }
 
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
-    }
 
     public int getCurrentHealth() {
         return currentHealth;
@@ -56,6 +57,24 @@ public class Animal {
 
     public void setAggressive(boolean aggressive) {
         this.isAggressive = aggressive;
+    }
+
+    public boolean isTreated() {
+        return isTreated;
+    }
+
+    public void setTreated(boolean treated) {
+        isTreated = treated;
+
+    }
+
+    public void setInTreatmentAtMoment(boolean inTreatmentAtMoment) {
+        isInTreatmentAtMoment = inTreatmentAtMoment;
+        isTreated = true;
+    }
+
+    public boolean isInTreatmentAtMoment() {
+        return isInTreatmentAtMoment;
     }
 
     //---methods---
@@ -74,8 +93,8 @@ public class Animal {
         }
     }
 
-    public int getRelativeHealth(){
-        return (int)(currentHealth / (float)maxHealth);
+    public float getRelativeHealth(){
+        return currentHealth / (float)maxHealth;
     }
 
     public void feed(Keeper keeper) {
@@ -88,15 +107,22 @@ public class Animal {
     public void reset() {
         isFed = false;
         isAggressive = true;
+        isTreated = false;
     }
 
     public String getColoredName(String color) {
         return color + species + " " + name + ConsoleColors.RESET;
     }
+    public String getColoredName() {
+        return getColoredName(ConsoleColors.RED);
+    }
 
     public boolean canBite() {
         int ticksPerDay = 24;
-        return (isAggressive() && getCurrentHealth() > 0 && Zoo.random.nextInt(100 * ticksPerDay) <= 40);
+        return (isAggressive() &&
+                getCurrentHealth() > 0 &&
+                !isInTreatmentAtMoment &&
+                Zoo.random.nextInt(100 * ticksPerDay) <= 40);
     }
 
 
@@ -120,6 +146,25 @@ public class Animal {
         }
     }
 
+    public void heal(Doctor doc, int hour){
+        int newHealth = Math.min((int) (currentHealth * (Zoo.random.nextDouble(1.3,2.0))),maxHealth);
+        //print
+        if(newHealth != currentHealth) {
+            isInTreatmentAtMoment = false; //treatment is over
+            System.out.printf("%d Uhr: %s hat %s behandelt (Health %d --> %d)%n",
+                    hour,
+                    doc.getColoredName(),
+                    getColoredName(),
+                    currentHealth,
+                    newHealth);
+        }
+        else{
+            System.out.printf("%s hat keine Patienten %n",
+                    doc.getColoredName());
+        }
+        //set
+        currentHealth = newHealth;
+    }
 
 
     //---print

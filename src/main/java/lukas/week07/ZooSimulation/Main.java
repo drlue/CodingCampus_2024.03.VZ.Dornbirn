@@ -23,42 +23,48 @@ public class Main {
         Food worm = new Food("Wuermer", Food.Unit.STK, 0.30);
         Food water = new Food("Wasser", Food.Unit.LITER, 1.00);
         Food dope = new Food("Doping", Food.Unit.KILOGRAMM, 150);
+        Food blood = new Food("Blut", Food.Unit.GRAMM, 0.1);
 
         //ANIMALS
-        Animal kuh1 = new Animal("Rijska", "Kuh", hay, 2);
+        Animal kuh1 = new Animal("Rijska", "Kuh", hay, 2, 100, 20);
         kuh1.addFood(water, 20);
         zoo1Alpenwiese.addAnimal(kuh1);
 
-        Animal hirsch1 = new Animal("Josef", "Hirsch", hay, 3);
+        Animal hirsch1 = new Animal("Josef", "Hirsch", hay, 3, 100, 35);
         hirsch1.addFood(water, 20);
         hirsch1.addFood(dope, 12);
         zoo1Alpenwiese.addAnimal(hirsch1);
-        Animal reh1 = new Animal("Bambi", "Reh", hay, 5);
+        Animal reh1 = new Animal("Bambi", "Reh", hay, 5, 70, 15);
         reh1.addFood(water, 3);
         zoo1Alpenwiese.addAnimal(reh1);
 
-        Animal storch1 = new Animal("Garmond", "Storch", worm, 25);
+        Animal storch1 = new Animal("Garmond", "Storch", worm, 25, 30, 10);
         storch1.addFood(water, 0.50);
         zoo1Ried.addAnimal(storch1);
-        Animal storch2 = new Animal("Hugo", "Storch", worm, 30);
+        Animal storch2 = new Animal("Hugo", "Storch", worm, 30, 40,15);
         storch2.addFood(water, 0.50);
         zoo1Ried.addAnimal(storch2);
-        Animal storch3 = new Animal("Idaxis", "Storch", worm, 50);
+        Animal storch3 = new Animal("Idaxis", "Storch", worm, 50,40,15 );
         storch3.addFood(water, 0.50);
         zoo1Ried.addAnimal(storch3);
 
-        Animal elephant1 = new Animal("Ubongo", "Elefant", hay, 15);
+        Animal elephant1 = new Animal("Ubongo", "Elefant", hay, 15, 150,60);
         elephant1.addFood(water, 10);
         zoo1Steppe.addAnimal(elephant1);
-        Animal elephant2 = new Animal("Maputo", "Elefant", hay, 10);
+        Animal elephant2 = new Animal("Maputo", "Elefant", hay, 10, 130,55);
         elephant2.addFood(water, 10);
         zoo1Steppe.addAnimal(elephant2);
-        Animal giraffe1 = new Animal("Gucki", "Giraffe", hay, 3);
+        Animal giraffe1 = new Animal("Gucki", "Giraffe", hay, 3, 70,30);
         giraffe1.addFood(water, 3);
         zoo1Steppe.addAnimal(giraffe1);
-        Animal giraffe2 = new Animal("Langhals", "Giraffe", hay, 3);
+        Animal giraffe2 = new Animal("Langhals", "Giraffe", hay, 3, 70, 30);
         giraffe2.addFood(water, 3);
         zoo1Steppe.addAnimal(giraffe2);
+
+        for (int i = 0; i < 10; i++) {
+            Animal muecke = new Animal("Muecke"+i,"Muecke", blood, 1, 2, 1);
+            zoo1Steppe.addAnimal(muecke);
+        }
 
 
         //KEEPERS
@@ -80,6 +86,14 @@ public class Main {
         keeper4.addEnclosure(zoo1Steppe);
         zoo1.addKeeper(keeper4);
 
+        //doctors
+        Doctor dr1 = new Doctor("Dr Bob");
+        zoo1.addDoctor(dr1);
+        Doctor dr2 = new Doctor("Dr Brinkmann");
+        zoo1.addDoctor(dr2);
+        Doctor dr3 = new Doctor("Bergdoktor");
+        zoo1.addDoctor(dr3);
+
 
         //Print Zoo
         zoo1.printStructure();
@@ -94,6 +108,7 @@ public class Main {
 
         //Print Zoo at End of Simulation
         zoo1.printStructure();
+
     }
 
 

@@ -2,7 +2,9 @@ package lukas.week07.ZooSimulation;
 
 import ardijanla.ConsoleColors;
 
+import javax.print.Doc;
 import java.time.Year;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Vector;
@@ -20,7 +22,6 @@ public class Zoo {
     private Vector<Keeper> remainingKeepers;
     private Vector<Doctor> doctors;
     private Vector<Doctor> remainingDoctors;
-    private Vector<Animal> injuredAnimals;
 
 
     //---constructor---
@@ -31,6 +32,8 @@ public class Zoo {
         foods = new Vector<>();
         keepers = new Vector<>();
         remainingKeepers = new Vector<>();
+        doctors = new Vector<>();
+        remainingDoctors = new Vector<>();
 
     }
 
@@ -50,6 +53,11 @@ public class Zoo {
         }
     }
 
+    public void addDoctor(Doctor doc) {
+        if(doc != null){
+            doctors.add(doc);
+        }
+    }
 
     private void getFoodStat(HashMap<Food, Double> foodStat) {
         for (Enclosure enc : enclosures) {
@@ -75,27 +83,16 @@ public class Zoo {
     private Animal getMaxInjuredAnimal() {
         Animal animal = null;
         //int minHealth = Integer.MAX_VALUE;
+        Collections.shuffle(enclosures); //not always animal from the same enclosure treated first when same relative health
         for (Enclosure enc : enclosures) {
-            if (animal == null || enc.getMaxInjuredAnimal().getRelativeHealth() < animal.getRelativeHealth()) {
+            if (animal == null ||
+                    (enc.getMaxInjuredAnimal()!=null &&  enc.getMaxInjuredAnimal().getRelativeHealth() < animal.getRelativeHealth())) {
                 animal = enc.getMaxInjuredAnimal();
             }
         }
         return animal;
     }
 
-    private void getAllInjuredAnimals() {
-        for (Enclosure enc : enclosures) {
-            injuredAnimals.addAll(enc.getInjuredAnimals());
-        }
-    }
-
-    private void sortInjuredAnimalsByHealthPercent() {
-        for (int i = 0; i < injuredAnimals.size(); i++) {
-            for (int j = 0; j < injuredAnimals.size() - i - 1; j++) {
-//TODO: BubbleSort
-            }
-        }
-    }
 
     public void startSimulationDynamic() {
         for (int day = 1; day <= 10; day++) {
@@ -122,11 +119,13 @@ public class Zoo {
                 }
 
                 while (!remainingDoctors.isEmpty()) {
-                    Doctor doc = remainingDoctors.remove(random.nextInt(remainingKeepers.size()));
-                    doc.activityOfDoc(hour);
+                    Doctor doc = remainingDoctors.remove(random.nextInt(remainingDoctors.size()));
+                    Animal animalToTreat = getMaxInjuredAnimal();
+                    if (animalToTreat != null){
+                        doc.activityOfDoc(hour,animalToTreat);
+                    }
                 }
-
-                //TODO Doctor Bob im Zoo anstellen
+                remainingDoctors = new Vector<>(doctors);
 
                 sleep(100);
             }
@@ -136,12 +135,14 @@ public class Zoo {
 
     public void reset() {
         remainingKeepers = new Vector<>(keepers);
+        remainingDoctors = new Vector<>(doctors);
         for (Enclosure enc : enclosures) {
             enc.reset();
         }
         for (Keeper kee : keepers) {
             kee.reset();
         }
+
 
     }
 

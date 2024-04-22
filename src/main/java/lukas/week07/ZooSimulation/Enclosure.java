@@ -2,6 +2,7 @@ package lukas.week07.ZooSimulation;
 
 import ardijanla.ConsoleColors;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -66,23 +67,18 @@ public class Enclosure {
     public Animal getMaxInjuredAnimal() {
         float minHealthPercent = Float.MAX_VALUE;
         Animal maxInjuredAnimal = null;
-        for(Animal ani : animals) {
-            if ((float)(ani.getCurrentHealth())/ani.getMaxHealth()< minHealthPercent) {
+        Collections.shuffle(animals);
+        for (Animal ani : animals) {
+            if (!ani.isTreated() && //animal is or gets already treated by doctor
+                    ani.getCurrentHealth()>0 && //animal is alive
+                    ani.getRelativeHealth() < minHealthPercent) {
+                minHealthPercent = ani.getRelativeHealth();
                 maxInjuredAnimal = ani;
             }
         }
         return maxInjuredAnimal;
     }
 
-    public Vector<Animal> getInjuredAnimals() {
-        Vector<Animal> injuredAnimals = new Vector<>();
-        for(Animal ani : animals) {
-            if (ani.getCurrentHealth()< ani.getMaxHealth() && ani.getCurrentHealth() > 0) {
-                injuredAnimals.add(ani);
-            }
-        }
-        return injuredAnimals;
-    }
 
     public void workInEnclosure(Keeper keeper, int duration) {
         cleaningDuration = duration;
@@ -114,6 +110,10 @@ public class Enclosure {
         return color + name + ConsoleColors.RESET;
     }
 
+    public String getColoredName(){
+        return getColoredName(ConsoleColors.BLUE);
+    }
+
 
     //----------------------------------SIMULATION 0.2
     public void activityInEnclosure(int hour) {
@@ -130,7 +130,7 @@ public class Enclosure {
         Vector<Animal> possibleVictims = new Vector<>(animals);
         possibleVictims.remove(aggressor);
         for (int i = 0; i < possibleVictims.size(); i++) {
-            if (possibleVictims.get(i).getCurrentHealth() < 0) {
+            if (possibleVictims.get(i).getCurrentHealth() < 0 && !possibleVictims.get(i).isInTreatmentAtMoment()) {
                 possibleVictims.remove(possibleVictims.get(i));
             }
         }

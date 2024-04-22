@@ -58,6 +58,9 @@ public class Keeper {
     public String getColoredName(String color) {
         return color + name + ConsoleColors.RESET;
     }
+    public String getColoredName() {
+        return getColoredName(ConsoleColors.GREEN);
+    }
 
     // -------------------------------SIMULATION 0.1 -------------------------------
     public void activitySim1(int hour) {
@@ -72,7 +75,7 @@ public class Keeper {
             }
             case WORKING -> {
                 if (hasWorkLeft()) {
-                    System.out.printf("%d Uhr: %s beginnt in Gehege %s zu arbeiten.%n", hour, getColoredName(ConsoleColors.GREEN), activeEnclosure.getColoredName(ConsoleColors.BLUE));
+                    System.out.printf("%d Uhr: %s beginnt in Gehege %s zu arbeiten.%n", hour, getColoredName(), activeEnclosure.getColoredName());
                     duration = Zoo.random.nextInt(1, 4);
                     activeEnclosure.workInEnclosure(this, duration);
                     activeEnclosure.setFinished(true);
@@ -95,7 +98,7 @@ public class Keeper {
             }
             case IDLE -> {
                 if (hour == 17) {
-                    System.out.printf("%d Uhr: %s hat seine Arbeit getan und geht nach Hause%n", hour, getColoredName(ConsoleColors.GREEN));
+                    System.out.printf("%d Uhr: %s hat seine Arbeit getan und geht nach Hause%n", hour, getColoredName());
                     status = Status.LOOKING_FOR_WORK;
                 }
             }
@@ -103,14 +106,14 @@ public class Keeper {
     }
 
     private void watchAnimalInEnclosure(int hour) {
-        System.out.printf("%d Uhr: %s hat Arbeit in Gehege %s beendet und ", hour, getColoredName(ConsoleColors.GREEN), activeEnclosure.getColoredName(ConsoleColors.BLUE));
+        System.out.printf("%d Uhr: %s hat Arbeit in Gehege %s beendet und ", hour, getColoredName(), activeEnclosure.getColoredName());
         Animal activeAnimal = activeEnclosure.getRandomAnimal();
         if (activeAnimal != null) {
             if (activeAnimal.getSpecies().equals(favSpecies)) {
 
-                System.out.printf("%sbewundert%s nun %s.%n",  ConsoleColors.YELLOW, ConsoleColors.RESET, activeAnimal.getColoredName(ConsoleColors.RED));
+                System.out.printf("%sbewundert%s nun %s.%n",  ConsoleColors.YELLOW, ConsoleColors.RESET, activeAnimal.getColoredName());
             } else {
-                System.out.printf("betrachtet nun %s.%n",  activeAnimal.getColoredName(ConsoleColors.RED));
+                System.out.printf("betrachtet nun %s.%n",  activeAnimal.getColoredName());
             }
         }
     }
