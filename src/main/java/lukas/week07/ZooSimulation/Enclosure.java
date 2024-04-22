@@ -9,7 +9,6 @@ public class Enclosure {
 
     private String name;
     private Vector<Animal> animals;
-
     private boolean isFinished;
     private int cleaningDuration;
 
@@ -64,6 +63,27 @@ public class Enclosure {
         }
     }
 
+    public Animal getMaxInjuredAnimal() {
+        float minHealthPercent = Float.MAX_VALUE;
+        Animal maxInjuredAnimal = null;
+        for(Animal ani : animals) {
+            if ((float)(ani.getCurrentHealth())/ani.getMaxHealth()< minHealthPercent) {
+                maxInjuredAnimal = ani;
+            }
+        }
+        return maxInjuredAnimal;
+    }
+
+    public Vector<Animal> getInjuredAnimals() {
+        Vector<Animal> injuredAnimals = new Vector<>();
+        for(Animal ani : animals) {
+            if (ani.getCurrentHealth()< ani.getMaxHealth() && ani.getCurrentHealth() > 0) {
+                injuredAnimals.add(ani);
+            }
+        }
+        return injuredAnimals;
+    }
+
     public void workInEnclosure(Keeper keeper, int duration) {
         cleaningDuration = duration;
         for (int i = 0; i < animals.size(); i++) {
@@ -99,7 +119,7 @@ public class Enclosure {
     public void activityInEnclosure(int hour) {
         for (Animal aggressor : animals) {
             Vector<Animal> victims = getListOfPossibleVictimsFor(aggressor);
-            if(!victims.isEmpty()){
+            if (!victims.isEmpty()) {
                 Animal victim = victims.get(Zoo.random.nextInt(victims.size()));
                 aggressor.bites(victim, hour);
             }
@@ -110,7 +130,7 @@ public class Enclosure {
         Vector<Animal> possibleVictims = new Vector<>(animals);
         possibleVictims.remove(aggressor);
         for (int i = 0; i < possibleVictims.size(); i++) {
-            if(possibleVictims.get(i).getCurrentHealth()<0) {
+            if (possibleVictims.get(i).getCurrentHealth() < 0) {
                 possibleVictims.remove(possibleVictims.get(i));
             }
         }
@@ -143,7 +163,7 @@ public class Enclosure {
     }
 
     public void printAnimalList() {
-        for(Animal a : animals) {
+        for (Animal a : animals) {
             System.out.printf("%s, ", a.getName());
         }
         System.out.println();

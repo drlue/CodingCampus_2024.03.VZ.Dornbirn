@@ -46,6 +46,10 @@ public class Animal {
         return currentHealth;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
     public boolean isAggressive() {
         return isAggressive;
     }
@@ -68,6 +72,10 @@ public class Animal {
                 foodStat.put(f, foodMap.get(f));
             }
         }
+    }
+
+    public int getRelativeHealth(){
+        return (int)(currentHealth / (float)maxHealth);
     }
 
     public void feed(Keeper keeper) {
@@ -111,6 +119,7 @@ public class Animal {
             }
         }
     }
+
 
 
     //---print
