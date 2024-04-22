@@ -1,7 +1,6 @@
 package samet.week07.ZooSimulation;
 
 import java.util.Map;
-import java.util.Random;
 
 public class Animal {
 
@@ -10,8 +9,8 @@ public class Animal {
     private Food food;
     private float requiredFood;
     private boolean feeded;
-    private int hp;
-    private int maxHp;
+    private int health;
+    private int maxHealth;
     private int bite;
 
     enum Status {
@@ -28,10 +27,10 @@ public class Animal {
         this.food = food;
         this.requiredFood = requiredFood;
         this.feeded = false;
-        this.hp = hp;
-        this.maxHp = maxHp;
+        this.health = hp;
+        this.maxHealth = maxHp;
         this.bite = bite;
-        this.status = status;
+        this.status = Status.Alive;
 
     }
 
@@ -47,52 +46,44 @@ public class Animal {
         return food;
     }
 
-    public Status getStatus(){
+    public Status getStatus() {
         return status;
     }
-    public int setHp(int hp){
-        this.hp = hp;
+
+    public int setHp(int hp) {
+        this.health = hp;
         return hp;
     }
-    public void setStatus(Status status){
-        this.status=status;
-   }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
 
     public void dead() {
-        if (status == Status.Alive && this.hp <= 0) {
+        if (status == Status.Alive && this.health <= 0) {
             status = Status.Dead;
         }
     }
 
-    public boolean alive() {
+   public boolean alive() {
         if (status == Status.Alive) {
-           return true;
+            return true;
         } else {
             return false;
-        }}
-
-    public int getMaxHp() {
-        return maxHp;
+        }
     }
 
-    public void bite(Animal target){
-        if (this.status == Status.Dead){
-            System.out.println(this.name + " is dead and can not bite!!");
-        }
-        if (target.getStatus() == Status.Alive){
-            Random random = new Random();
-            double chance = random.nextDouble();
-            if (chance <= 0.4){
-                System.out.println(this.name + " bite" + target.getName() + ".");
-               int bitedamage = random.nextInt(21);
-                target.setHp(target.getMaxHp() - bitedamage);
-                System.out.println("Health of" + target.getName() + " reduced " +bitedamage + "to" + target.getMaxHp());
-            }else {
-                System.out.println(this.name + "tried" + target.getName() + " to bite");
-            }
-        }
-   }
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+
+    public void bite(Animal neighbor){
+
+    }
+
+
 
     public void getFoodRequirements(Map<Food, Float> neededFood) {
         if (neededFood.containsKey(food)) {

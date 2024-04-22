@@ -1,5 +1,7 @@
 package samet.week07.ZooSimulation;
 
+import ardijanla.ConsoleColors;
+
 import java.util.*;
 
 public class Zoo {
@@ -18,7 +20,7 @@ public class Zoo {
         this.keeperList = new ArrayList<>();
     }
 
-    public void addGuardianAndTask(Keeper keeper, Enclosure enclosure) {
+    public void addKeeperAndTask(Keeper keeper, Enclosure enclosure) {
         keeper.addTask(enclosure);
         if (!keeperList.contains(keeper)) {
             keeperList.add(keeper);
@@ -37,16 +39,16 @@ public class Zoo {
         keeperList.add(keeper);
     }
 
+    //
     public void removeKeeper(Keeper keeper) {
         keeperList.remove(keeper);
-
     }
 
 
     public float calculateFoodCost(Map<Food, Float> neededFood) {
         float food = 0;
         for (Map.Entry<Food, Float> entry : neededFood.entrySet()) {
-            System.out.printf("\"\nFood: %10s    --->    required Food: %.2f    --->    Cost: %6.2f €/Tag\"", entry.getKey().getFeed(), entry.getValue(), entry.getValue() * entry.getKey().getFoodprice());
+            System.out.printf("\"\nFood: %10s    --->    required Food: %.2f    --->    Cost: %6.2f €/Tag\"" , entry.getKey().getFeed(), entry.getValue(), entry.getValue() * entry.getKey().getFoodprice());
             food += entry.getValue() * entry.getKey().getFoodprice();
         }
         return food;
@@ -57,7 +59,7 @@ public class Zoo {
         for (Enclosure enclosure : enclosureList) {
             enclosure.getFoodneed(foodFloatMap);
         }
-        System.out.printf("\nThe Daily Food Cost belongs to : %15.2f €/Day\n", calculateFoodCost(foodFloatMap));
+        System.out.printf(ConsoleColors.RED + "\nThe Daily Food Cost belongs to : %15.2f €/Day\n" + ConsoleColors.RESET, calculateFoodCost(foodFloatMap));
     }
 
     public void printZooStructure() {
@@ -77,9 +79,8 @@ public class Zoo {
     }
 
 
-
     public void simulatedDay(int day) {
-        System.out.printf("Day %d beginn at 07:00 Morning%n", day);
+        System.out.printf("Day %d beginns at 07:00 Morning%n", day);
         for (Keeper keeper : keeperList) {
             keeper.simulatedDay();
         }
