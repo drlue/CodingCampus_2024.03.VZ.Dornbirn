@@ -7,8 +7,6 @@ package katherina.week06.day05;
 import java.util.Random;
 import java.util.Vector;
 
-import static java.io.ObjectInputFilter.merge;
-
 public class ZweiVektoren {
 
 

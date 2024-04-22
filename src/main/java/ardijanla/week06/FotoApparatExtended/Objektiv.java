@@ -1,7 +1,5 @@
 package ardijanla.week06.FotoApparatExtended;
 
-import gyula.week06.example2.Car;
-
 public class Objektiv {
     int brennweiteMin;
     int brennweiteMax;

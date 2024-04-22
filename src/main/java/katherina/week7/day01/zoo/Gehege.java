@@ -124,6 +124,23 @@ public class Gehege {
                 }
             }
         }
+
+            public static Integer schwachesTier(Vector<Integer> patient) {
+            boolean sorted = true;
+            while (sorted) {
+                sorted = false;
+                for (int index = 1; index < patient.size(); index++) {
+                    if (patient.get(index) > patient.get(index - 1)) {
+                        Integer temp = patient.set(index - 1, patient.get(index));
+                        patient.set(index, temp);
+                        sorted = true;
+                    }
+                }
+                System.out.println(patient.get(patient.indexOf(patient.size())));
+
+            }
+            return patient.get(patient.indexOf(patient.size()));
+        }
     }
 
 
