@@ -1,21 +1,10 @@
 package lukas.week08.Geometry;
 
-public class Geometry {
-
-    //properties
-
-    //constructor
+public abstract class Geometry implements IGeometry{
 
     //methods
-    public double getCircumference() {
-
-        return 0d;
+    @Override
+    public String toString() {
+        return String.format("%s (%s)", getClass().getSimpleName(), getDimensionString());
     }
-
-    public double getArea() {
-
-        return 0d;
-    }
-
-
 }

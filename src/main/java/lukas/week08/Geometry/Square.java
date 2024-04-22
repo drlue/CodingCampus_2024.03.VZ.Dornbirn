@@ -10,7 +10,7 @@ public class Square extends Rectangle {
     }
 
     @Override
-    public String toString() {
-        return "Square (a = " + length + ")";
+    public String getDimensionString() {
+        return String.format("a = %.1f", length);
     }
 }

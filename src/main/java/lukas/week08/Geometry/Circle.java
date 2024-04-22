@@ -5,6 +5,7 @@ public class Circle extends Geometry {
     private double radius;
 
     public Circle(double radius) {
+        super(); //nicht notwendig, da automatisch aufgerufen
         this.radius = radius;
     }
 
@@ -19,7 +20,9 @@ public class Circle extends Geometry {
     }
 
     @Override
-    public String toString() {
-        return "Circle (r = " + radius + ")";
+    public String getDimensionString() {
+        return "r = " + radius;
     }
+
+
 }

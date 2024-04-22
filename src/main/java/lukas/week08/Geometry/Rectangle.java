@@ -22,7 +22,8 @@ public class Rectangle extends Geometry {
     }
 
     @Override
-    public String toString() {
-        return "Rectangle (axb = " + width + "x" + height + ")";
+    public String getDimensionString() {
+        return "a x b = " + width + " x " + height;
     }
+
 }

@@ -19,7 +19,7 @@ public class Main {
 
     }
 
-    public static double getSumOfCicumference(Vector<Geometry> geometries) {
+    public static double getSumOfCircumference(Vector<Geometry> geometries) {
         double sum = 0;
         for (Geometry geo : geometries) {
             sum += geo.getCircumference();
@@ -36,13 +36,13 @@ public class Main {
     }
 
     public static void printGeometryData(Vector<Geometry> geometries) {
-        String stringFormat = "%-40s%20.2f%15.2f%n";
-        System.out.printf("%-40s%20s%15s%n", "Geometry", "Circumference", "Aerea");
+        String stringFormat = "%-50s%15.2f%15.2f%n";
+        System.out.printf("%-50s%15s%15s%n", "Geometry", "Circumference", "Area");
         for (Geometry geo : geometries) {
             System.out.printf(stringFormat, geo.toString(), geo.getCircumference(), geo.getArea());
         }
-        System.out.println("-".repeat(75));
-        System.out.printf(stringFormat, "Sum", getSumOfCicumference(geometries), getSumOfAreas(geometries));
+        System.out.println("-".repeat(80));
+        System.out.printf(stringFormat, "Sum", getSumOfCircumference(geometries), getSumOfAreas(geometries));
     }
 
 }

@@ -8,12 +8,12 @@ public class Triangle extends Geometry {
 
 
     public Triangle(double a, double b, double c) {
-        if (a + b >= c && a + c >= b && b + c >= a) {
+        if (a + b > c && a + c > b && b + c > a) { //can build triangle only if this condition is true
             this.a = a;
             this.b = b;
             this.c = c;
         } else {
-            System.out.println("Not possible to form triangle with choosen parameters!");
+            System.out.println("Not possible to form triangle with chosen parameters!");
         }
 
     }
@@ -40,7 +40,7 @@ public class Triangle extends Geometry {
     }
 
     @Override
-    public String toString() {
-        return String.format("Triangle (axbxc = %.1fx%.1fx%.1f)", a, b, c);
+    public String getDimensionString() {
+        return String.format("a x b x c = %.1f x %.1f x %.1f", a, b, c);
     }
 }
