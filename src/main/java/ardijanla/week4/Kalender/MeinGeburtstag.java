@@ -10,7 +10,7 @@ public class MeinGeburtstag {
     public static void main(String[] args) {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        String input = "13.08.2000";
+        String input = "03.03.2003";
         try {
             // Bestimme den Wochentag des Geburtstags
             SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE");

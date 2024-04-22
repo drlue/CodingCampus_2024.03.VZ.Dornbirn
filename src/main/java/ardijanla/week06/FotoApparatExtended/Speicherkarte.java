@@ -10,8 +10,4 @@ public class Speicherkarte {
     public int getSpeicherKapazitaet() {
         return speicherKapazitaet;
     }
-
-    public void setSpeicherKapazitaet(int speicherKapazitaet) {
-        this.speicherKapazitaet = speicherKapazitaet;
-    }
 }
