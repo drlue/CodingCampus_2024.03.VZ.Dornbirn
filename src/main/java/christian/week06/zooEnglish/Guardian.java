@@ -10,12 +10,15 @@ public class Guardian {
 
     private int hourForWork;
 
+    private String favSpecies;
+
     private enum Status {FREETIME, SEARCHING, WORKING}
 
     private Status status;
 
-    public Guardian(String name) {
+    public Guardian(String name, String favSpecies) {
         this.name = name;
+        this.favSpecies = favSpecies;
         this.status = Status.FREETIME;
         Enclousure workingEnc = null;
         hourForWork = 0;
@@ -30,9 +33,13 @@ public class Guardian {
         this.workingEnc = null;
     }
 
-    //============Simulation================
-    public void startWork(int hour, Vector<Enclousure> remainingWorkEnc) {
+    public String getFavSpecies() {
+        return favSpecies;
+    }
 
+    //============Simulation================
+    public Vector<Animal> startWork(int hour, Vector<Enclousure> remainingWorkEnc) {
+        Vector<Animal> injuredAnimals = new Vector<>();
 
         switch (status) {
             case FREETIME -> {
@@ -46,30 +53,34 @@ public class Guardian {
                 hourForWork--;
                 if (hourForWork == 0) {
                     workingEnc.feedAllAnimals(this);
+                    workingEnc.watchRndAnimal(this);
+                    injuredAnimals.addAll(workingEnc.reportInjuredAnimals(this));
                     workingEnc.switchWorkFinished();
                     status = Status.SEARCHING;
                 }
             }
             case SEARCHING -> {
-                boolean found= false;
-                while(!found){
+                boolean found = false;
+                while (!found) {
+                    if (!remainingWorkEnc.isEmpty()) {
+                        int rndIndex = Main.rnd.nextInt(0, remainingWorkEnc.size());
+                        if (!remainingWorkEnc.get(rndIndex).getWorkFinished()) {
+                            workingEnc = remainingWorkEnc.remove(rndIndex);
+                            System.out.printf("%s%s%s visits %s%s%s for work! Its %d o'clock!\n", ConsoleColors.BLUE, name, ConsoleColors.RESET, ConsoleColors.PURPLE, workingEnc.getName(), ConsoleColors.RESET, hour);
+                            hourForWork = Main.rnd.nextInt(1, 3);
+                            found = true;
+                            status = Status.WORKING;
+                        }
 
-                int rndIndex = Main.rnd.nextInt(0, remainingWorkEnc.size());
-
-                    if (!remainingWorkEnc.isEmpty() && !remainingWorkEnc.get(rndIndex).getWorkFinished()) {
-                        workingEnc = remainingWorkEnc.remove(rndIndex);
-                        System.out.printf("%s besucht %s um zu arbeiten! Es ist %d Uhr!\n", name, workingEnc.getName(), hour);
-                        hourForWork = Main.rnd.nextInt(1, 3);
-                        found = true;
-                        status = Status.WORKING;
                     } else if (remainingWorkEnc.isEmpty()) {
-                        System.out.printf("Work is done at %d\n", hour);
-                        found =true;
+                        System.out.printf("Work is done at %d! %s%s%s goes home\n", hour, ConsoleColors.BLUE, name, ConsoleColors.RESET);
+                        found = true;
                         status = Status.FREETIME;
                     }
                 }
             }
         }
+        return injuredAnimals;
     }
 }
 

@@ -45,7 +45,7 @@ public class Gamecontroller {
         }
         System.out.println();
         System.out.println();
-//        Main.clearScreen();
+        Main.clearScreen();
     }
 
     public void createBackend() {
