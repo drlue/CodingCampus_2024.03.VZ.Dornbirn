@@ -63,15 +63,27 @@ public class Zoo {
         }
     }
 
+    public void fightSIM() {
+        //alle Gehege durchgehen
+        for (Gehege enc : gehegeliste) {
+            //fight SIM des Gehege starten, wenn mehr als ein Tier im Gehege ist
+            if (enc.getTierliste().size() > 1) {
+                System.out.printf("%sGEHEGE: %s%s%n", ConsoleColors.BLUE_BACKGROUND, enc.getName(), ConsoleColors.RESET);
+                enc.fight();
+                System.out.println("Hier passiert nichts mehr, ab zum nächsten Gehege..\n");
+            }
+        }
+    }
+
     public void tagesSimulation() {
         // Alle Zookeeper nacheinander durchgehen:
         for (zookeeper zookeeper : zookeeperList) {
-            System.out.printf("%s" + zookeeper.getName() + "legt los%s%n",ConsoleColors.GREEN_BACKGROUND, ConsoleColors.RESET);
+            System.out.printf("%s" + zookeeper.getName() + "legt los%s%n", ConsoleColors.GREEN_BACKGROUND, ConsoleColors.RESET);
             Vector<Gehege> zustaendigkeiten = zookeeper.getResponsabilities();
             // Alle verantworlichen Gehege des aktuellen Zookeepers durchgehen:
-            for (Gehege gehege : zustaendigkeiten){
+            for (Gehege gehege : zustaendigkeiten) {
                 //Prüfen ob das gehege bereits bearbeitet wurde und ansonsten bearbeiten:
-                if (gehege.isGepflegt()){
+                if (gehege.isGepflegt()) {
                     // Gehege nicht bearbeiten
                     System.out.printf("%s->Das Gehege " + gehege.getName() + " ist bereits bearbeitet worden%s %n", ConsoleColors.CYAN_BRIGHT, ConsoleColors.RESET);
                 } else {
@@ -85,8 +97,8 @@ public class Zoo {
                     }
                     // Tiere beobachten, wenn das Lieblingstier des Pfleger dabei ist soll das Tier länger beabachtet werden
                     Vector<Tier> tierliste = gehege.getTierliste();
-                    if (tierliste.contains(zookeeper.getLieblingstier())){
-                        System.out.printf("%s   ==>" + zookeeper.getName() + " entdeckt ihr Lieblinstier " + zookeeper.getLieblingstier().getName() + "( "+ zookeeper.getLieblingstier().getGattung() + " ) und kommt nicht mehr aus dem staunen" + "%s%n", ConsoleColors.PURPLE_BRIGHT, ConsoleColors.RESET);
+                    if (tierliste.contains(zookeeper.getLieblingstier())) {
+                        System.out.printf("%s   ==>" + zookeeper.getName() + " entdeckt ihr Lieblinstier " + zookeeper.getLieblingstier().getName() + "( " + zookeeper.getLieblingstier().getGattung() + " ) und kommt nicht mehr aus dem staunen" + "%s%n", ConsoleColors.PURPLE_BRIGHT, ConsoleColors.RESET);
                         try {
                             Thread.sleep(3000);
                         } catch (InterruptedException e) {

@@ -13,16 +13,26 @@ public class ZooSim {
 
         Enclosure terrarium = new Enclosure("Terrarium (warm)");
         zoo.addEnclosure(terrarium);
-        zoo.addEnclosure(alpenwiese);
 
-        Animal rijska = new Animal("Rijska", "Kuh");
+        Animal rijska = new Animal("Rijska", "Kuh", 100, 20);
         alpenwiese.addAnimal(rijska);
 
-        Animal zuska = new Animal("Zuska", "Ziege");
+        Animal zuska = new Animal("Zuska", "Ziege", 40, 20);
         alpenwiese.addAnimal(zuska);
-        Animal zoltan = new Animal("Zoltan", "Ziege");
+        Animal zoltan = new Animal("Zoltan", "Ziege", 40, 20);
         alpenwiese.addAnimal(zoltan);
 
+        Animal paula = new Animal("Paula", "Pferd", 120, 25);
+        alpenwiese.addAnimal(paula);
+        Animal peter = new Animal("Peter", "Pferd", 40, 25);
+        alpenwiese.addAnimal(peter);
+
+        Animal martin = new Animal("Martin", "Muecke", 1, 5);
+        alpenwiese.addAnimal(martin);
+        Animal manuela = new Animal("Manuela", "Muecke", 1, 5);
+        alpenwiese.addAnimal(manuela);
+        Animal michael = new Animal("Michael", "Muecke", 1, 6);
+        alpenwiese.addAnimal(michael);
 
         Guardian stefan = new Guardian("Stefan-Sigfried", "Kuh");
         zoo.addGuardianAndTask(stefan, alpenwiese);
@@ -31,12 +41,16 @@ public class ZooSim {
         Guardian tony = new Guardian("Tony", "Elephant");
         zoo.addGuardianAndTask(tony, terrarium);
 
+        Veterian vet = new Veterian("Dr. Doolitle");
+        zoo.addVeterian(vet);
 
         zoo.printStructure();
 
         System.out.println();
-        for (int day = 1; day <= 3; day++) {
+        for (int day = 1; day <= 7; day++) {
             zoo.simulateDay(day);
         }
+
+        zoo.printStructure();
     }
 }
