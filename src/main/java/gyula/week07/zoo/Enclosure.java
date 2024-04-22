@@ -63,4 +63,34 @@ public class Enclosure {
                     );
         }
     }
+
+    private void removeDeadAnimals(){
+        for (int i = animalList.size() -1; i >= 0; --i) {
+            if (animalList.get(i).isDead()){
+                animalList.remove(i);
+            }
+        }
+    }
+
+    public void simulateDay(){
+        for (Animal attacker: animalList){
+            Animal victim = animalList.get(Zoo.random.nextInt(animalList.size()));
+            if (attacker != victim) { // Keiner bisst sich selbst
+                if (Zoo.random.nextDouble() < 0.4){
+                    attacker.bite(victim);
+                }
+            }
+        }
+        removeDeadAnimals();
+    }
+
+    public Animal searchLowestRelativeHealth(){
+        Animal bestOption = null;
+        for (Animal ani: animalList){
+            if (bestOption == null || ani.getRelativeHealth() < bestOption.getRelativeHealth()){
+                bestOption = ani;
+            }
+        }
+        return bestOption;
+    }
 }
