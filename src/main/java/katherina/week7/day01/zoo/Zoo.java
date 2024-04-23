@@ -12,14 +12,12 @@ public class Zoo {
     private Vector<Pfleger> personenliste;
     private Vector<Tierarzt> arztliste;
 
-
     public Zoo(String name, int year) {
         this.name = name;
         this.year = year;
         gehegeList = new Vector<>();
         personenliste = new Vector<>();
         arztliste = new Vector<>();
-
     }
 
 
@@ -43,28 +41,14 @@ public class Zoo {
         if (!gehegeList.contains(gehege)) {
             gehegeList.add(gehege);
         } else {
-            System.out.printf("Der Zoo namens \" %s\" enthält bereits das Gehege namens \"%\"!", name, gehege.getName());
+            System.out.printf("Der Zoo namens \" %s\" enthält bereits das Gehege namens %s!", name, gehege.getName());
         }
     }
 
     public void removeGehege(Gehege gehege) {
         gehegeList.remove(gehege);
     }
-
-    public Vector<Gehege> getGehegeliste() {
-        return gehegeList;
-    }
-
-    public Gehege getGehege(Gehege gehege) {
-        return gehege;
-    }
-
-    public void addPersonal(Pfleger pfleger) {
-        if (pfleger != null) {
-            pfleger.setZooIntern(this);
-        }
-        personenliste.add(pfleger);
-    }
+    //Remove-Methoden lasse ich stehen, auch wenn ich sie nicht im Gebrauch habe.
 
     public void addPersonalAndBereich(Pfleger pfleger, Gehege gehege) {
         pfleger.addBereich(gehege);
@@ -73,13 +57,10 @@ public class Zoo {
         }
     }
 
-    public Vector<Pfleger> getPersonenliste() {
-        return personenliste;
-    }
-
     public void removePersonal(Pfleger pfleger) {
         personenliste.remove(pfleger);
     }
+    //Ist grau, aber bleibt, falls es mal gebraucht wird.
 
     public void addVet(Tierarzt tierarzt) {
         if (tierarzt != null) {
@@ -88,24 +69,37 @@ public class Zoo {
         arztliste.add(tierarzt);
     }
 
+    private Tier patientenSuche() {
+        Tier patient = null;
+        for (Gehege gehege : gehegeList) {
+            Tier tier = gehege.kaputtestesTier();
+            if (patient == null ||
+                    (tier != null && tier.aktuelleGesundheit() < patient.aktuelleGesundheit())) {
+                patient = tier;
+            }
+        }
+        return patient;
+    }
+
     public void simulateDay(int day) {
         System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n", day);
         for (Gehege gehege : gehegeList) {
             gehege.bissSimulator();
             sleep(350);
+            System.out.println();
         }
         for (Pfleger pfleger : personenliste) {
             sleep(350);
             pfleger.simulateDay();
+            System.out.println();
         }
-        for (Gehege gehege : gehegeList) {
-            sleep(350);
-            gehege.healSimulator();
+        for (Tierarzt tierarzt : arztliste) {
+            Tier patient = patientenSuche();
+            if (patient != null) {
+                tierarzt.heal(patient);
+            }
         }
-
     }
-
-
 
     public void printStructure() {
         System.out.printf("├── Zoo: %s, gegründet %d%n", name, year);
@@ -123,9 +117,6 @@ public class Zoo {
         }
     }
 
-
-
-
     public static void sleep(long milis) {
         try {
             Thread.sleep(milis);
@@ -133,4 +124,7 @@ public class Zoo {
         }
     }
     //Hilfsklasse, die vor allem dazu da ist, die Verzögerung beim Ausdruck nicht crashen zu lassen.
+
+
 }
+

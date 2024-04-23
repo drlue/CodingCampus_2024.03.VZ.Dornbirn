@@ -6,7 +6,6 @@ public class Pfleger {
 
     private String name;
     private String liebling;
-    private Zoo zoo;
 
     private Vector<Gehege> bereich;
 
@@ -20,10 +19,6 @@ public class Pfleger {
         if (!bereich.contains(gehege)) {
             bereich.add(gehege);
         }
-    }
-
-    public void setZooIntern(Zoo zoo) {
-        this.zoo = zoo;
     }
 
     public boolean zustaendigkeit(Gehege gehege) {

@@ -5,19 +5,16 @@ import java.util.Random;
 
 public class Tier {
     public Random random = new Random();
-    int healfactor = random.nextInt(30,100);
 
     private String name;
     private String gattung;
     private Gehege gehege;
     private int gesundheit;
     private int maxGesundheit;
-    //Im Moment irrelevant, aber werde ich spätestens wieder brauchen, wenn ich den Tierarzt einbaue
     private int biss;
 
 
     private Status status;
-    private Tierarzt tierarzt;
 
     private enum Status {
         LEBENDIG,
@@ -60,28 +57,12 @@ public class Tier {
         return this.gattung;
     }
 
-    public int getGesundheit() {
-        if (status == Status.LEBENDIG) {
-            return gesundheit;
-        } else {
-            return 0;
-        }
-    }
-
-    public int getMaxGesundheit() {
-        return maxGesundheit;
-    }
-
     public Gehege getGehege() {
         return gehege;
     }
 
     void setGehegeIntern(Gehege gehege) {
         this.gehege = gehege;
-    }
-
-    void setTierarztIntern(Tierarzt tierarzt) {
-        this.tierarzt = tierarzt;
     }
 
     public void setGehege(Gehege gehege) {
@@ -99,38 +80,36 @@ public class Tier {
 
 
     public void bissBerechnung(Tier beisser, Tier opfer) {
-        System.out.println("Bissberechnung:");
-        System.out.println();
-        System.out.printf("Name des Beissers: %s%n", beisser.getName());
-        System.out.printf("Bissstärke des Beissers: %d%n", beisser.biss);
-        System.out.printf("Name des Opfers: %s%n", opfer.getName());
-        System.out.printf("Ursprüngliche Gesundheit: %d%n", opfer.gesundheit);
+        System.out.printf("%s beißt %s mit einer Stärke von %d. ", beisser.getName(), opfer.getName(), beisser.biss);
         opfer.gesundheit = opfer.gesundheit - beisser.biss;
-        System.out.printf("Aktuelle Gesundheit: %d%n", opfer.gesundheit);
-        System.out.println();
-        if (opfer.gesundheit <= 0) {
+        if (opfer.gesundheit > 0) {
+            System.out.printf("%s hat noch %d Lebenspunkte übrig.%n", opfer.getName(), opfer.gesundheit);
+        } else{
             opfer.sterben();
-            System.out.println();
-            System.out.printf("%s ist gestorben!\n", opfer.name);
-            System.out.println();
+            System.out.printf("%s ist an den Verletzungen gestorben!%n", opfer.name);
         }
     }
 
+    public float aktuelleGesundheit(){
+        return gesundheit / (float)maxGesundheit;
+    }
 
-
-    public void heilBerechnung(Tier patient) {
-
-        System.out.println("Heilberechnung:");
-        System.out.println();
-        System.out.printf("Name des Patienten: %s%n", patient.getName());
-        System.out.printf("Ursprüngliche Gesundheit: %d%n", patient.gesundheit);
-        patient.gesundheit = patient.gesundheit + (healfactor*(maxGesundheit/100));
-        System.out.printf("Geheilt um %d Prozent der Lebenspunkte%n",healfactor);
-        System.out.printf("Aktuelle Gesundheit: %d%n", patient.gesundheit);
-        System.out.println();
-        if (patient.gesundheit >= patient.maxGesundheit) {
-            patient.maxGesundheit = patient.gesundheit;
+    public void geheilt(Tierarzt tierarzt) {
+        float healfactor = Zoo.random.nextFloat(1.3f, 2.0f);
+        int geboosteteGesundheit = Math.min(maxGesundheit, (int) (gesundheit * healfactor));
+        if (gesundheit != geboosteteGesundheit) {
+            System.out.printf("%s heilt %s (von %d Lebenspunkten auf %d Lebenspunkte).%n",
+                    tierarzt.getName(),
+                    name,
+                    gesundheit, geboosteteGesundheit
+            );
+        } else {
+            System.out.printf("%s hat nichts zu tun und geht wieder.%n",
+                    tierarzt.getName()
+            );
         }
+        gesundheit = geboosteteGesundheit;
     }
 
 }
+
