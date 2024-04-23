@@ -81,7 +81,7 @@ public class HeritageGeometry {
             circumference += geometry.getCircumference();
             area += geometry.getArea();
         }
-        System.out.printf("Der Gesamtumfang beträgt %f Einheiten, und die Gesamtfläche beträgt %f Einheiten! %n", circumference, area);
+        System.out.printf("Der Gesamtumfang beträgt %.2f Einheiten, und die Gesamtfläche beträgt %.2f Einheiten! %n", circumference, area);
 
     }
 }
