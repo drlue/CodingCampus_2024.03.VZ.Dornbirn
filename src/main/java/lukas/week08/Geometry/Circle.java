@@ -24,5 +24,7 @@ public class Circle extends Geometry {
         return "r = " + radius;
     }
 
-
+    public void doubleSize(){
+        radius *= 2;
+    }
 }
