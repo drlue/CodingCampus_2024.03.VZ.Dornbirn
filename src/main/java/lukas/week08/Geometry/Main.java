@@ -11,9 +11,20 @@ public class Main {
         geometries.add(new Rectangle(10, 5));
         geometries.add(new Square(10));
         geometries.add(new Circle(10));
-
+        geometries.add(new HouseOfNikolaus(10,10,10));
+        geometries.add(new CompassStar(10,10));
 
         System.out.println("Liste der Geometrieformen");
+        printGeometryData(geometries);
+
+
+        Vector<Geometry> vec2 = (Vector<Geometry>)geometries.clone();
+        Vector<Geometry> vec3 = new Vector<Geometry>(geometries);
+
+        vec2.getFirst().doubleSize();
+
+        printGeometryData(vec2);
+        System.out.println("============");
         printGeometryData(geometries);
     }
 
