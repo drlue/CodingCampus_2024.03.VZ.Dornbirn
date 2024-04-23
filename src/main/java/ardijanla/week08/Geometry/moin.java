@@ -8,12 +8,14 @@ public class moin {
 
         Circle kreis = new Circle(4);
         Rectangle vierreck = new Rectangle(10, 15);
+        Square quadrat = new Square(15);
         Triangle dreieck = new Triangle(10, 5, 10);
 
         List<Geometry> geos = new ArrayList<>();
         geos.add(kreis);
         geos.add(vierreck);
         geos.add(dreieck);
+        geos.add(quadrat);
 
         for (Geometry x : geos) {
             System.out.println(x);
