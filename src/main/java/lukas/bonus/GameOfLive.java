@@ -6,8 +6,8 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class GameOfLive {
-    private static int cols = 40;
-    private static int rows = 40;
+    private static int cols = 100;
+    private static int rows = 50;
 
 
     public static void main(String[] args) {

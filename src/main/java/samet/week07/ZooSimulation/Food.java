@@ -2,23 +2,23 @@ package samet.week07.ZooSimulation;
 
 public class Food {
 
-    private String feed;
+    private String foodName;
     private String units;
-    private float foodprice;
+    private float price;
 
 
-    public Food(String feed, String units, float foodprice) {
-        this.feed = feed;
+    public Food(String foodName, String units, float price) {
+        this.foodName = foodName;
         this.units = units;
-        this.foodprice = foodprice;
+        this.price = price;
     }
 
-    public String getFeed() {
-        return feed;
+    public String getFoodName() {
+        return foodName;
     }
 
-    public float getFoodprice() {
-        return foodprice;
+    public float getPrice() {
+        return price;
     }
 
 }

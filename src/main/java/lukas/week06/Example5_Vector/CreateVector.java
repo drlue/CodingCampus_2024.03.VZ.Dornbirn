@@ -35,7 +35,7 @@ public class CreateVector {
         printVec(bubbleSortDesc(vec1));
 
         System.out.println("Delete all uneven numbers");
-        printVec(deleteUneven(vec2));
+        printVec(deleteUneven2(vec2));
 
         System.out.println("Merge Vectors");
         //make copy of vec1 and vec2
@@ -123,6 +123,24 @@ public class CreateVector {
         }
         return res;
     }
+
+    public static Vector<Integer> deleteUneven2(Vector<Integer> vec) {
+        Vector<Integer> res = (Vector<Integer>) vec.clone();
+        Vector<Integer> toDelete = new Vector<>();
+        for (Integer value: res) {
+            if (value % 2 != 0) {
+                toDelete.add(value);
+            }
+        }
+        for (Integer value: toDelete) {
+            res.remove(value);
+        }
+        return res;
+    }
+
+
+
+
 
     public static Vector<Integer> mergeVectors(Vector<Integer> vec1, Vector<Integer> vec2) {
         Vector<Integer> res = new Vector<>();

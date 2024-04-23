@@ -1,9 +1,10 @@
 package katherina.week08.Geometrie;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class HeritageGeometry {
     public static void main(String[] args) {
+        ArrayList<Geometry> liste = new ArrayList<>();
 
         Geometry kreis1 = new Circle(5);
         System.out.println("Kreis:");
@@ -41,32 +42,45 @@ public class HeritageGeometry {
         System.out.println("Fläche: " + dreieck.getArea());
         System.out.println();
 
-        Vector<Geometry> liste = new Vector<>();
+        Geometry gleichseitig = new RegularTriangle(5);
+        System.out.println("Dreieck: ");
+        System.out.println("Umfang: " + gleichseitig.getCircumference());
+        System.out.println("Fläche: " + gleichseitig.getArea());
+        System.out.println();
+
+        Geometry nikolaushaus = new SantaHaus(5);
+        System.out.println("Nikolaushäuschen: ");
+        System.out.println("Umfang: " + nikolaushaus.getCircumference());
+        System.out.println("Fläche: " + nikolaushaus.getArea());
+        System.out.println();
+
+        Geometry laurasStern = new NavigationStar(7);
+        System.out.println("Stern: ");
+        System.out.println("Umfang: " + laurasStern.getCircumference());
+        System.out.println("Fläche: " + laurasStern.getArea());
+        System.out.println();
+
         liste.add(kreis1);
         liste.add(kreis2);
         liste.add(rechteck1);
         liste.add(quadrat1);
         liste.add(parallelogram);
         liste.add(dreieck);
-
-        for (Geometry shape : liste) {
-         //   additionsEskalation(shape);
-        }
+        liste.add(gleichseitig);
+        liste.add(nikolaushaus);
+        additionsEskalation(liste);
     }
 
-//    private static void additionsEskalation(Geometry shape) {
-//        Vector<Integer> areas = new Vector<>();
-//        for (int index = 0;index<areas.size();index++){
-//            areas.get(index) = 0;
-//            for (int value:shape.getArea(index)) {
-//                areas.get(index) +=value;
-//            }
-//            System.out.println(areas);
-//
-//        }
-//    }
+    public static void additionsEskalation(ArrayList<Geometry> shape) {
+        double circumference = 0;
+        double area = 0;
+        for (Geometry geometry : shape) {
+            circumference += geometry.getCircumference();
+            area += geometry.getArea();
+        }
+        System.out.printf("Der Gesamtumfang beträgt %.2f Einheiten, und die Gesamtfläche beträgt %.2f Einheiten! %n", circumference, area);
 
-    //Erstelle eine Methode die den Gesamtumfang und die Gesamtfläche aller Geometry Objekte in der List ausgibt.
-//
-//Teste deine Implementierung ausgiebig
+    }
 }
+
+

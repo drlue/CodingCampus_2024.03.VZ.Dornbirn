@@ -198,4 +198,12 @@ public class Helper {
         System.out.println("\033[H\033[2J");
         System.out.flush();
     }
+
+    public static void sleep (int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
