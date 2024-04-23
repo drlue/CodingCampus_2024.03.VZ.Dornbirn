@@ -36,7 +36,7 @@ public class CaretakerV1 {
         }
     }
     public void simulatedDay(){
-        System.out.printf("%s%s%s start working...%n", ConsoleColors.BLUE, name, ConsoleColors.RESET);
+        System.out.printf("%s%s%s start working...%n", ConsoleColors.CYAN_BOLD_BRIGHT, name, ConsoleColors.RESET);
         for (EnclosureV1 enclosure : enclosureV1TaskList){
             enclosure.doClean(this);
             enclosure.checkOnRandomAnimal(this);

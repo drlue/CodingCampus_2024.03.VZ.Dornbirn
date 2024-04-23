@@ -1,8 +1,5 @@
 package franco.week07.ZooV1Package;
 
-
-import samet.week07.ZooSimulation.Keeper;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -73,6 +70,7 @@ public class ZooV1 {
     }
 
     public void printStructure() {
+        System.out.println("│"+"──".repeat(25));
         System.out.printf("├──Zoo: %s , founded in %d\n", name, establishedYear);
 
         if (enclosureV1List.isEmpty()) {
@@ -83,6 +81,7 @@ public class ZooV1 {
                 enc.printStructure();
             }
         }
+        System.out.print("│"+"──".repeat(25));
     }
     public void simulation(int day){
         System.out.printf("Day %d beginn at 07:00 Morning%n", day);
