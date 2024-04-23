@@ -1,9 +1,6 @@
 package katherina.week08.Geometrie;
 
-import christian.week07.geometrics.GeometryAbstractClass;
-
 import java.util.ArrayList;
-import java.util.Vector;
 
 public class HeritageGeometry {
     public static void main(String[] args) {
