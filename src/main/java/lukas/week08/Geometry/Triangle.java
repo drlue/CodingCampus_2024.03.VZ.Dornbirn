@@ -43,4 +43,11 @@ public class Triangle extends Geometry {
     public String getDimensionString() {
         return String.format("a x b x c = %.1f x %.1f x %.1f", a, b, c);
     }
+
+    @Override
+    public void doubleSize() {
+        a *= 2;
+        b *= 2;
+        c *= 2;
+    }
 }

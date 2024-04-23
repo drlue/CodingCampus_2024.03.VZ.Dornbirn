@@ -26,4 +26,9 @@ public class Rectangle extends Geometry {
         return "a x b = " + width + " x " + height;
     }
 
+    @Override
+    public void doubleSize() {
+        width *= 2;
+        height *= 2;
+    }
 }

@@ -7,4 +7,6 @@ public interface IGeometry {
 
     String getDimensionString();
 
+    void doubleSize();
+
 }
