@@ -4,6 +4,7 @@ public class Car {
     private String hersteller;
     private String modell;
     private int kiloWatt;
+    private int maxTankinhalt;
     private int tankinhalt;
     private int gewicht;
 
@@ -23,5 +24,16 @@ public class Car {
         this.tankinhalt=tankinhalt;
         this.gewicht=gewicht;
         this.antriebsart=antriebsart;
+        this.maxTankinhalt=maxTankinhalt;
+    }
+
+    public int drive(int kilometer){
+//      //  int verfahren = reichweite - kilometer/tankinhalt;
+//        int tankinhalt = maxTankinhalt-(tankinhalt/kilometer*100);
+//        int reichweite = maxTankinhalt*verfahren/tankinhalt;
+//        if (){
+//
+//        }
+        return kilometer;
     }
 }
