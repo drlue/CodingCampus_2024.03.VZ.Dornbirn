@@ -45,28 +45,45 @@ public class HeritageGeometry {
         System.out.println("Fläche: " + dreieck.getArea());
         System.out.println();
 
+        Geometry gleichseitig = new RegularTriangle(5);
+        System.out.println("Dreieck: ");
+        System.out.println("Umfang: " + gleichseitig.getCircumference());
+        System.out.println("Fläche: " + gleichseitig.getArea());
+        System.out.println();
+
+        Geometry nikolaushaus = new SantaHaus(5);
+        System.out.println("Nikolaushäuschen: ");
+        System.out.println("Umfang: " + nikolaushaus.getCircumference());
+        System.out.println("Fläche: " + nikolaushaus.getArea());
+        System.out.println();
+
+        Geometry laurasStern = new NavigationStar(7);
+        System.out.println("Stern: ");
+        System.out.println("Umfang: " + laurasStern.getCircumference());
+        System.out.println("Fläche: " + laurasStern.getArea());
+        System.out.println();
+
         liste.add(kreis1);
         liste.add(kreis2);
         liste.add(rechteck1);
         liste.add(quadrat1);
         liste.add(parallelogram);
         liste.add(dreieck);
-       additionsEskalation(liste);
+        liste.add(gleichseitig);
+        liste.add(nikolaushaus);
+        additionsEskalation(liste);
     }
 
     public static void additionsEskalation(ArrayList<Geometry> shape) {
-    double circumference = 0;
-    double area = 0;
-        for (Geometry geometry : shape){
-           circumference += geometry.getCircumference();
-    area += geometry.getArea();
-            }
-            System.out.printf("Der Gesamtumfang beträgt %f Einheiten, und die Gesamtfläche beträgt %f Einheiten! %n", circumference, area);
-
+        double circumference = 0;
+        double area = 0;
+        for (Geometry geometry : shape) {
+            circumference += geometry.getCircumference();
+            area += geometry.getArea();
         }
-    }
+        System.out.printf("Der Gesamtumfang beträgt %f Einheiten, und die Gesamtfläche beträgt %f Einheiten! %n", circumference, area);
 
-    //Erstelle eine Methode die den Gesamtumfang und die Gesamtfläche aller Geometry Objekte in der List ausgibt.
-//
-//Teste deine Implementierung ausgiebig
+    }
+}
+
 
