@@ -1,4 +1,4 @@
-package katherina.week7.day01.zoo;
+package katherina.zoocopyforexperiments;
 
 public class ZooSim {
 
@@ -74,8 +74,9 @@ public class ZooSim {
 
 
         System.out.println();
-        for (int day = 1; day <= 5; day++) {
+        for (int day = 1; day <= 10; day++) {
             tiergartenAndelsbuch.simulateDay(day);
+            tiergartenAndelsbuch.printStructure();
         }
 
     }

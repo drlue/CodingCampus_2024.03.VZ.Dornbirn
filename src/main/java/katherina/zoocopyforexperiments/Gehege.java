@@ -1,0 +1,140 @@
+package katherina.zoocopyforexperiments;
+
+import java.util.Random;
+import java.util.Vector;
+
+public class Gehege {
+
+    public Random random = new Random();
+
+
+    private String name;
+    private Zoo zoo;
+    private Vector<Tier> tierliste;
+
+    public Gehege(String name) {
+        this.name = name;
+        this.zoo = null;
+        tierliste = new Vector<>();
+
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public Zoo getZoo() {
+        return zoo;
+    }
+
+    public void setZoo(Zoo zoo) {
+        this.zoo = zoo;
+    }
+
+    public void addTier(Tier tier) {
+        if (tier != null) {
+            tier.setGehegeIntern(this);
+        }
+        tierliste.add(tier);
+    }
+
+    public void removeTier(Tier tier) {
+        tierliste.remove(tier);
+    }
+
+    public void printStructure(Vector<Pfleger> angestellte) {
+        System.out.printf("│    ├── Gehege: %s", name);
+        if (!angestellte.isEmpty()) {
+            System.out.print(" (Pfleger: ");
+            for (int index = 0; index < angestellte.size(); index++) {
+                if (index > 0) {
+                    System.out.print(", ");
+                }
+                System.out.print(angestellte.get(index).getName());
+            }
+            System.out.println(")");
+        } else {
+            System.out.println("     \n     (Achtung! Niemand ist für dieses Gehege zuständig. Bitte ändern!)");
+        }
+        for (Tier tierchen : tierliste) {
+            tierchen.printStructure();
+        }
+        if (tierliste.isEmpty()) {
+            System.out.println("│        ├── dieses Gehege enthält keine Tiere. Bitte füge Tiere hinzu!");
+        }
+    }
+
+    public void putzkolonne(Pfleger pfleger) {
+        System.out.printf("%s putzt das Gehege \"%s\" und füttert alle darin lebenden Tiere.%n", pfleger.getName(), name);
+    }
+
+
+    public void zufallstierBegucken(Pfleger pfleger) {
+        //Diese Schleife entfernt alle toten Tiere:
+        for (int index = 0; index < tierliste.size(); index++) {
+            if (!tierliste.get(index).lebendig()) {
+                System.out.printf("Das Tier %s wurde von %s aus dem Gehege entfernt, weil es tot ist!\n", tierliste.get(index).getName(), pfleger.getName());
+                tierliste.remove(index);
+                --index;
+            }
+        }
+        //Diese Abfrage sorgt dafür, dass die Pfleger ein Tier betrachten oder bewundern.
+        if (!tierliste.isEmpty()) {
+            Tier tier = tierliste.get(Zoo.random.nextInt(tierliste.size()));
+            if (tier.getGattung().equals(pfleger.getLiebling())) {
+                System.out.println(pfleger.getName() + " bewundert " + tier.getName() + ".");
+            } else {
+                System.out.println(pfleger.getName() + " beobachtet " + tier.getName() + ".");
+            }
+
+        }
+    }
+
+
+    public void bissSimulator() {
+        if (tierliste.size() != 1) {
+            //Erstmal abfragen, ob überhaupt ausreichend Tiere drin sind, um sich gegenseitig zu beißen.
+            for (int index = 0; index < tierliste.size(); index++) {
+                boolean bissfaktor = Math.random() < 0.4;
+                if (bissfaktor) {
+                    Tier beisser = tierliste.get(index);
+                    Tier opfer = tierliste.get(random.nextInt(tierliste.size()));
+                    if (beisser == opfer || !opfer.lebendig()) {
+                    } else {
+                        beisser.bissBerechnung(beisser, opfer);
+                    }
+                } else {
+                    if (!tierliste.isEmpty()) {
+                        System.out.println("Die Tiere in diesem Gehege sind brav.");
+                        //Wird aktuell so oft gedruckt, wie es Tiere gibt, was NICHT meine Absicht ist.
+                    }
+                    //Ich brauche zwei Tiere. Eins, das mit 40% Wahrscheinlichkeit beißt und ein beliebiges anderes, das gebissen wird.
+                }
+            }
+        } else {
+            System.out.println("In diesem Gehege gibt es keine Tiere, die miteinander kämpfen könnten.");
+        }
+    }
+
+    public Tier kaputtestesTier() {
+        Tier patient = null;
+        for (Tier kaputtesTier : tierliste) {
+            if (patient == null || kaputtesTier.aktuelleGesundheit() < patient.aktuelleGesundheit()) {
+                patient = kaputtesTier;
+            }
+        }
+        return patient;
+    }
+}
+
+
+
+
+
+
+
+
