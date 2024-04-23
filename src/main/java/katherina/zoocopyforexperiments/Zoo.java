@@ -1,4 +1,4 @@
-package katherina.week7.day01.zoo;
+package katherina.zoocopyforexperiments;
 
 import java.util.Random;
 import java.util.Vector;
@@ -85,6 +85,7 @@ public class Zoo {
         System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n%n", day);
         System.out.println("In der Nacht sind die Tiere nicht immer friedlich zu einander.\n");
         for (Gehege gehege : gehegeList) {
+            System.out.printf("***/// %s \\\\\\***%n", gehege.getName());
             gehege.bissSimulator();
             sleep(450);
             System.out.println();

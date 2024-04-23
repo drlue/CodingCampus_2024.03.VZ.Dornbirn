@@ -1,4 +1,4 @@
-package katherina.week7.day01.zoo;
+package katherina.zoocopyforexperiments;
 
 import java.util.Random;
 import java.util.Vector;
@@ -107,9 +107,16 @@ public class Gehege {
                     } else {
                         beisser.bissBerechnung(beisser, opfer);
                     }
+                } else {
+                    if (!tierliste.isEmpty()) {
+                        System.out.println("Die Tiere in diesem Gehege sind brav.");
+                        //Wird aktuell so oft gedruckt, wie es Tiere gibt, was NICHT meine Absicht ist.
+                    }
+                    //Ich brauche zwei Tiere. Eins, das mit 40% Wahrscheinlichkeit beißt und ein beliebiges anderes, das gebissen wird.
                 }
-                //Ich brauche zwei Tiere. Eins, das mit 40% Wahrscheinlichkeit beißt und ein beliebiges anderes, das gebissen wird.
             }
+        } else {
+            System.out.println("In diesem Gehege gibt es keine Tiere, die miteinander kämpfen könnten.");
         }
     }
 

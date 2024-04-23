@@ -1,4 +1,4 @@
-package katherina.week7.day01.zoo;
+package katherina.zoocopyforexperiments;
 
 
 import java.util.Random;

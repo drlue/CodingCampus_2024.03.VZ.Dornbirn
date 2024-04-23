@@ -46,6 +46,11 @@ public class VererbuungExample {
     }
 
     private static void doSomeMagic(LuftFahrtzeug lf){
+        if (lf instanceof Cloneable){
+            System.out.println("Es ist doch zu klonen");
+        } else {
+            System.out.println(lf + " ist einzigartig");
+        }
         if (lf instanceof DuesenJet){
             DuesenJet dj = (DuesenJet)lf;
             System.out.println("Thrust: " + dj.getThrust());
