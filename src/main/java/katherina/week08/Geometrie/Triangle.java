@@ -25,11 +25,4 @@ public class Triangle extends Geometry{
         double area = (a*height)/2;
         return area;
     }
-
-    public static class RegularTriangle extends christian.week07.geometrics.Triangle {
-
-        public RegularTriangle(double length) {
-            super(length);
-        }
-    }
 }
