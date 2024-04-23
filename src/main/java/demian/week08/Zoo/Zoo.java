@@ -11,6 +11,11 @@ public class Zoo {
     private Vector<Gehege> gehegeliste;
     private Vector<zookeeper> zookeeperList;
 
+    /**
+     * Diese Doku sieht der Objektersteller
+     * @param name <-- Steht für den Name des Zoos
+     * @param gruendungsjahr <--- Steht für das Gründungsjahr des Zoos
+     */
     public Zoo(String name, int gruendungsjahr) {
         this.name = name;
         this.gruendungsjahr = gruendungsjahr;
@@ -35,6 +40,7 @@ public class Zoo {
             gehegeliste.add(gehege);
         }
     }
+
 
     public void setGehegeStatusAufUngepflegt() {
         for (Gehege element : gehegeliste) {

@@ -61,7 +61,6 @@ public class MainZooSimulator {
         pflAlina.addResp(gehWies);
 
 
-
         // Pfleger Zoo hinzufügen
 
         zoo1.addPfleger(pflNadine);
