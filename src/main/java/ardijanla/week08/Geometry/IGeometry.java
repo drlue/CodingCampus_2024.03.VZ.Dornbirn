@@ -1,6 +1,6 @@
 package ardijanla.week08.Geometry;
 
-public interface IGeometry {
+interface IGeometry {
 
     double getCircumference();
 
