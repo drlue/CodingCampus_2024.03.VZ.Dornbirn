@@ -45,6 +45,7 @@ public class ZooMain {
 
         Animal skipper = new Animal("Skipper","Dolphin",fish,4f,250,250,50);
         Animal flipper = new Animal("Flipper","Dolphin",fish,4f,250,250,50);
+
         aquarium.addAnimal(skipper);
         aquarium.addAnimal(flipper);
 
@@ -57,14 +58,20 @@ public class ZooMain {
         zoo.addKeeperAndTask(josef, terrarium);
         zoo.addKeeperAndTask(wilma,aquarium);
 
+        AnimalVet sergej = new AnimalVet("Sergej");
+        AnimalVet ivan = new AnimalVet("Ivan");
+        AnimalVet dimitri = new AnimalVet("Dimitri");
+        zoo.addAnimalVet(sergej);
+
+
 
         zoo.printZooStructure();
         zoo.printFoodCost();
-        sleep(1000);
+        sleep(500);
 
 
         System.out.println();
-        for (int day = 1; day <= 3; day++) {
+        for (int day = 1; day <= 14; day++) {
             zoo.simulatedDay(day);
             sleep(1000);
         }

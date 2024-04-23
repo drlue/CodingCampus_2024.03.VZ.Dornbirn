@@ -11,6 +11,7 @@ public class Zoo {
     private int openingYear;
     private List<Enclosure> enclosureList;
     private List<Keeper> keeperList;
+    private List<AnimalVet> vetList;
 
 
     public Zoo(String zooName, int openingYear) {
@@ -18,6 +19,7 @@ public class Zoo {
         this.openingYear = openingYear;
         this.enclosureList = new ArrayList<>();
         this.keeperList = new ArrayList<>();
+        this.vetList = new ArrayList<>();
     }
 
     public void addKeeperAndTask(Keeper keeper, Enclosure enclosure) {
@@ -30,20 +32,9 @@ public class Zoo {
     public void addEnclosure(Enclosure enclosure) {
         enclosureList.add(enclosure);
     }
-
-    public void removeGehege(Enclosure gehege) {
-        enclosureList.remove(gehege);
+    public void addAnimalVet(AnimalVet animalVet){
+        vetList.add(animalVet);
     }
-
-    public void addKeeper(Keeper keeper) {
-        keeperList.add(keeper);
-    }
-
-    //
-    public void removeKeeper(Keeper keeper) {
-        keeperList.remove(keeper);
-    }
-
 
     public float calculateFoodCost(Map<Food, Float> neededFood) {
         float food = 0;
@@ -78,12 +69,26 @@ public class Zoo {
         }
     }
 
-
     public void simulatedDay(int day) {
+        List<Animal> animals = getAnimal();
         System.out.printf("Day %d beginns at 07:00 Morning%n", day);
+        System.out.println();
         for (Keeper keeper : keeperList) {
             keeper.simulatedDay();
         }
+
+        for (AnimalVet vet : vetList) {
+            vet.healAnimal(animals);
+        }
+    }
+
+    private List<Animal> getAnimal(){
+        List<Animal> animals = new ArrayList<>();
+        for (Enclosure enclosure : enclosureList) {
+            animals.addAll(enclosure.getAnimalList());
+        }
+        return animals;
+
     }
 }
 
