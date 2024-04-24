@@ -29,13 +29,13 @@ public class Car {
     public int drive(int kilometer) {
         System.out.printf("START %s %s||%n", hersteller, modell);
         int restKM = kilometer;
-        double verbrauch = verbrauchProKM()/100;
+        double verbrauch = verbrauchProKM() / 100;
         while (restKM > 0) {
             if (tankinhalt > verbrauch) {
                 restKM--;
                 tankinhalt -= verbrauch;
                 System.out.print("=");
-                if ((kilometer - restKM) % 60 == 0){
+                if ((kilometer - restKM) % 60 == 0) {
                     System.out.println();
                 }
             } else {
@@ -50,18 +50,15 @@ public class Car {
 
     public double verbrauchProKM() {
         switch (antriebsart) {
-
-            //Verbrauch setzt sich zusammen aus: 0.3 je 100kg Autogewicht
-            //Benzin: 8.5 kWh pro Liter
             case GAS:
-                return (((((gewicht/100)*0.3)+(kiloWatt * 2.2))/100));
+                return ((gewicht / 100) * 0.3 + kiloWatt * 19.9) / 100;
             case BENZIN:
-                return (((((gewicht/100)*0.3)+(kiloWatt * 8.5))/100));
+                return ((gewicht / 100) * 0.3) + (kiloWatt * 8.5) / 100;
             case DIESEL:
-                return (((((gewicht/100)*0.3)+(kiloWatt * 7.0))/100));
+                return (((gewicht / 100) * 0.3) + (kiloWatt * 7.0) / 100);
             default:
-                return (((((gewicht/100)*0.3)+(kiloWatt))/100));
-                //default ist Strom.
+                return ((((gewicht / 100) * 0.5) + (kiloWatt + 20)) / 100)*30;
+            //default ist Strom.
         }
     }
 
