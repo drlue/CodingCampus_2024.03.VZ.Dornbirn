@@ -25,51 +25,41 @@ public class Car {
         this.antriebsart = antriebsart;
     }
 
-    public void setTankinhalt(double tankinhalt) {
-        this.tankinhalt = tankinhalt;
-    }
 
     public int drive(int kilometer) {
-        System.out.print("START||");
-        double strecke = 0;
-        while (tankinhalt > 0 && kilometer > 0) {
-            verbrauchProKM();
-            //Unterfunktion: Immer wenn ich den nächsten Kilometer gefahren bin, prüfe ich: Kann ich weiterfahren?
-            //Wenn ja: Drucke =
-            //Wenn nein: Drucke [Box]. Tanke auf. Fahre weiter.
-            kilometer--;
-            strecke++;
-            System.out.print("=");
+        System.out.printf("START %s %s||%n", hersteller, modell);
+        int restKM = kilometer;
+        double verbrauch = verbrauchProKM() / 100;
+        while (restKM > 0) {
+            if (tankinhalt > verbrauch) {
+                restKM--;
+                tankinhalt -= verbrauch;
+                System.out.print("=");
+                if ((kilometer - restKM) % 60 == 0) {
+                    System.out.println();
+                }
+            } else {
+                tankinhalt += 25.0;
+                System.out.print("[BOX]");
+            }
         }
-        if (tankinhalt <= 0) {
-            auffuellen(tankinhalt);
-            setTankinhalt(tankinhalt);
-            verbrauchProKM();
-            System.out.print("|[]=[]> ENDE||\n");
-        } else {
-            System.out.printf("|[]=[]> ENDE||\n%nWir sind nach %.2f km angekommen!%n Es sind noch %.2f Liter Kraftstoff übrig.%n", strecke, tankinhalt);
-        }
-
-        return (int) strecke;
+        System.out.printf("|[]=[]> ENDE||%nWir sind nach %d km angekommen!%n Es sind noch %.2f Liter Kraftstoff übrig.%n%n", kilometer - restKM, tankinhalt);
+        return kilometer - restKM;
     }
 
-    public void auffuellen(double fuellung) {
-        System.out.print("[Box]");
-        setTankinhalt(tankinhalt);
-        fuellung = 25;
-        tankinhalt += fuellung;
-        verbrauchProKM();
-    }
 
-    public void verbrauchProKM() {
-        double strecke = 0;
+    public double verbrauchProKM() {
         switch (antriebsart) {
-            case GAS -> tankinhalt -= ((gewicht / kiloWatt) / 1.1) / 100;
-            case BENZIN -> tankinhalt -= ((gewicht / kiloWatt) / 1.2) / 100;
-            case DIESEL -> tankinhalt -= ((gewicht / kiloWatt) / 1.3) / 100;
-            case STROM -> tankinhalt -= ((gewicht / kiloWatt) / 1.6) / 100;
+            case GAS:
+                return ((gewicht / 100) * 0.3 + kiloWatt * 19.9) / 100;
+            case BENZIN:
+                return ((gewicht / 100) * 0.3) + (kiloWatt * 8.5) / 100;
+            case DIESEL:
+                return (((gewicht / 100) * 0.3) + (kiloWatt * 7.0) / 100);
+            default:
+                return ((((gewicht / 100) * 0.5) + (kiloWatt + 20)) / 100)*30;
+            //default ist Strom.
         }
-        System.out.print("=");
     }
 
 }
