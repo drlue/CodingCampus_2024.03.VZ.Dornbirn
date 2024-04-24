@@ -18,12 +18,12 @@ public class Main {
         printGeometryData(geometries);
 
 
-        Vector<Geometry> vec2 = (Vector<Geometry>)geometries.clone();
+        //Vector<Geometry> vec2 = (Vector<Geometry>)geometries.clone();
         Vector<Geometry> vec3 = new Vector<Geometry>(geometries);
 
-        vec2.getFirst().doubleSize();
+        vec3.getFirst().doubleSize();
 
-        printGeometryData(vec2);
+        printGeometryData(vec3);
         System.out.println("============");
         printGeometryData(geometries);
     }
