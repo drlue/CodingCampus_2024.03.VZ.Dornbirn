@@ -23,8 +23,8 @@ public class Enclosure {
 
     //Wird in Zoo aufgerufen
     public void printStructure(Vector<Guardian> workers){
-        System.out.printf("|   ├── Gehege: %s", name);
-        if (!workers.isEmpty()){
+        System.out.printf("|   ├── Gehege: %s", name);          //
+        if (!workers.isEmpty()){                                //
             System.out.print(" (Pfleger: ");
             for (int i = 0; i < workers.size(); i++) {
                 if (i > 0){
