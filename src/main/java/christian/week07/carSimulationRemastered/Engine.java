@@ -1,5 +1,7 @@
 package christian.week07.carSimulationRemastered;
 
+import static christian.week07.carSimulationRemastered.Main.rnd;
+
 public class Engine {
     private double kW;
     private int kilometerCounter;
@@ -8,15 +10,15 @@ public class Engine {
 
     private DriveType driveType;
 
-    enum Status {BROKE, INTACTRUNNING, INTACTSTOP}
+    enum Status {BROKE, INTACTRUNNING, INTACT}
 
     private Status status;
 
     public Engine(double kW, DriveType driveType) {
         this.kW = kW;
         this.kilometerCounter = 0;
-        this.driveType =driveType;
-        this.status = Status.INTACTSTOP;
+        this.driveType = driveType;
+        this.status = Status.INTACT;
     }
     //==================================================================================================================get
 
@@ -24,7 +26,31 @@ public class Engine {
         return kW;
     }
 
-    //==================================================================================================================set
-    //==================================================================================================================alter
-    //==================================================================================================================simulate
+    public Status getStatus() {
+        return status;
+    }
+
+    //=======================================================================set
+    //===========================================================================alter
+    public void incrKmCounter() {
+        kilometerCounter++;
+    }
+
+    public void repair() {
+        status = Status.INTACTRUNNING;
+    }
+
+    public void possibleDamage() {
+        if (rnd.nextInt((600000 - kilometerCounter)) < kilometerCounter/1000){
+            status = Status.BROKE;
+        }
+    }
+
+    //============================================================================simulate
+
+    public void start(Tank tank) {
+        if (tank.getTankLevel() > 0) {
+            status = Status.INTACTRUNNING;
+        }
+    }
 }

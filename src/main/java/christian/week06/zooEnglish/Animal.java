@@ -59,10 +59,6 @@ public class Animal {
         return maxHealth;
     }
 
-    public float getBite() {
-        return bite;
-    }
-
     public boolean isAlive() {
         return alive;
     }
@@ -97,11 +93,7 @@ public class Animal {
 
     //==============================================================================================================================Simulation=====================
     public boolean startsFightOrNot() {
-        if (Main.rnd.nextInt(0, 101) <= 40) {
-            return true;
-        } else {
-            return false;
-        }
+        return Main.rnd.nextInt(0, 101) <= 40;
     }
 
     public void bites(Animal victim) {
