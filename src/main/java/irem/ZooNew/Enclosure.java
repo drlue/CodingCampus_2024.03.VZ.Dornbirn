@@ -1,7 +1,9 @@
 package irem.ZooNew;
 
-import java.util.Random;
-import java.util.Vector;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static franco.week02.day05.Array.random;
 
 public class Enclosure {
     Random rand = new Random();
@@ -9,6 +11,7 @@ public class Enclosure {
     private String name;
     Vector<Animal> animalsVector;
     private boolean caredForToday;
+
 
     public Enclosure(String name) {
         this.name = name;
@@ -63,4 +66,20 @@ public class Enclosure {
             }
         }
     }
+    public void animalInteractions() {
+        int animals = 0;
+        Vector<Animal> copyOfAnimals = new Vector<>(animals);
+        for (Animal animal : copyOfAnimals) {
+            if (animal.isAlive()) {
+                Animal target = copyOfAnimals.get(random.nextInt(copyOfAnimals.size()));
+                if (animal != target) {
+                    animal.attemptToBite(target);
+                }
+            }
+        }
+
+        animalsVector.removeIf(a -> !a.isAlive());
+    }
+    //for each schleife überprüft ohne das wir int abfrage amchen ob das gehege leer ist
+
 }
