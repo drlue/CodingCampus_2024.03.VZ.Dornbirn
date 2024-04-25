@@ -1,5 +1,6 @@
 package katherina.zoocopyforexperiments;
 
+import java.util.Map;
 import java.util.Random;
 import java.util.Vector;
 
@@ -94,6 +95,12 @@ public class Gehege {
         }
     }
 
+    public void getFutterBedarf(Map<Tierfutter, Float> futterBedarf) {
+        for (Tier tier : tierliste) {
+            tier.getFutterBedarf(futterBedarf);
+        }
+    }
+
 
     public void bissSimulator() {
         if (tierliste.size() != 1) {
@@ -108,15 +115,22 @@ public class Gehege {
                         beisser.bissBerechnung(beisser, opfer);
                     }
                 } else {
-                    if (!tierliste.isEmpty()) {
-                        System.out.println("Die Tiere in diesem Gehege sind brav.");
-                        //Wird aktuell so oft gedruckt, wie es Tiere gibt, was NICHT meine Absicht ist.
-                    }
-                    //Ich brauche zwei Tiere. Eins, das mit 40% Wahrscheinlichkeit beißt und ein beliebiges anderes, das gebissen wird.
+                    String[] bravesTier = new String[]{
+                            "Manche Tiere gucken lieber zum benachbarten Gehege, als andere Tiere zu beißen.",
+                            "Einige Tiere haben keine Lust aufs Drama und verstecken sich",
+                            "Einige Tiere gucken einfach nur mega niedlich.",
+                            "Manche Tiere versuchen, aus dem Gehege auszubrechen!",
+                            "Hups! Statt ein anderes Tier zu beißen, ist dieses hier über die eigenen Füße gestolpert!",
+                            "Einige Tiere finden die wilden Pflanzen in ihrem Gehege sehr interessant.",
+                            "Dieses Tier spielt lieber mit den Beschäftigungsspielsachen im Gehege.",
+                            "Dieses Tier trinkt erst einmal ein bisschen Wasser."
+                    };
+                    int bravesTierIndex = new Random().nextInt(bravesTier.length);
+                    System.out.println(bravesTier[bravesTierIndex]);
                 }
             }
-        } else {
-            System.out.println("In diesem Gehege gibt es keine Tiere, die miteinander kämpfen könnten.");
+        }else{
+            System.out.println("In diesem Gehege befinden sich keine Tiere, die einander beißen könnten.");
         }
     }
 

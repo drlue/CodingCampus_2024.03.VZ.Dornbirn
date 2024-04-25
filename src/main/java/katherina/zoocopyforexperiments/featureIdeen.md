@@ -1,8 +1,7 @@
-24.04.2024
+25.04.2024
 
 ### **Geplante Features**
 
-- Futterautomatik (Futterverbrauch je Tier, Futtersorten etc. - und Berechnung des Verbrauchs pro Tag bzw. der Kosten.)
 - MOOC-Feature: Von Tag zu Tag soll eine zufällige Anzahl an Besuchenden generiert werden. Diese sollen folgende Eigenschaften aufweisen: Vorname, Nachname, Alter, Kaufkraft, Liebling.
 - Die Besuchenden sollen folgende Dinge tun: Sie sollen die Gehege durchlaufen und Tiere anschauen. Ist das zufällig angeschaute Lieblingstier und haben sie genug Kaufkraft, so sollen sie Tierfutter für 1€ kaufen.
 
