@@ -1,5 +1,7 @@
 package samet.week07.ZooSimulation;
 
+import ardijanla.ConsoleColors;
+
 import java.util.List;
 import java.util.Random;
 
@@ -33,10 +35,9 @@ public class AnimalVet {
             }
         }
         if (weakestAnimal != null) {
-            System.out.println(this.name + " heals " + weakestAnimal.getName() + ". ");
+            System.out.println(this.name + " heals " + ConsoleColors.GREEN + weakestAnimal.getName() + ConsoleColors.RESET + ". ");
             animals.remove(weakestAnimal);
-            double percent = this.random.nextDouble(0.3, 1.0) * this.random.nextDouble();
-            weakestAnimal.heal(percent);
+            weakestAnimal.heal(random.nextDouble(1.3, 2.0));
         }
     }
 }
