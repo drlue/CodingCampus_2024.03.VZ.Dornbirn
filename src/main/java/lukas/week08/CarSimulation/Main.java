@@ -5,6 +5,9 @@ import java.util.Vector;
 
 public class Main {
     public static void main(String[] args) {
+
+        Car car1 = new Car("BMW", "7er", 100, 100, 1500, Car.MotorType.ELECTRIC);
+        TestEnum myEnum = TestEnum.FALL1;
        //MotorTypes
         Car.MotorType[] mTypes = Car.MotorType.values();
 
