@@ -10,7 +10,7 @@ public class Zoo {
     private int foundingYear;
     private Vector<Enclosure> enclosures = new Vector<>();
     private Vector<Keeper> keepers = new Vector<>();
-    private Vector<Animal>animals= new Vector<>();
+    private final Vector animals= new Vector<>();
 
 
     public Zoo(String name, int foundingYear) {
