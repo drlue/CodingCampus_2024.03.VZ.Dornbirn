@@ -9,8 +9,6 @@ package katherina.week08.Schwarzwaldklinik;
 // Aus der Ambulanzen dürfen die Patienten nach kurzer Zeit wieder nach Hause gehen.
 // Patienten die in Stationen behandelt werden, müssen solange da bleiben, bis sie vollständig geheilt sind.
 
-
-import static katherina.week08.Schwarzwaldklinik.Patient.fetchHealth;
 import static katherina.week08.Schwarzwaldklinik.Patient.generatePatient;
 
 public class HospitalSim {
