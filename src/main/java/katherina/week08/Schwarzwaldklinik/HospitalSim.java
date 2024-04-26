@@ -20,9 +20,20 @@ public class HospitalSim {
 
         Krankenhaus schwarzwald = new Krankenhaus("Schwarzwaldklinik", "Montag bis Sonntag, 5:00 bis 22:00", 50);
 
-        Abteilung neuro = new Abteilung("Neurologie");
-        Abteilung herz = new Abteilung("Herzzentrum");
+        Abteilung neuro = new Abteilung("Neurologie",Abteilung.Art.AMBULANZ);
+        schwarzwald.addAbteilung(neuro);
+        Abteilung neuro2=new Abteilung("Langzeit-Neurologie",Abteilung.Art.STATION);
+        schwarzwald.addAbteilung(neuro2);
+        Abteilung herz = new Abteilung("Herz-Ambulanz",Abteilung.Art.AMBULANZ);
+        schwarzwald.addAbteilung(herz);
+        Abteilung herz2 = new Abteilung("Herzzentrum",Abteilung.Art.STATION);
+        schwarzwald.addAbteilung(herz2);
+        Abteilung niere = new Abteilung("Nierenambulanz",Abteilung.Art.AMBULANZ);
+        schwarzwald.addAbteilung(niere);
+        Abteilung niere1 = new Abteilung("Nierenstation",Abteilung.Art.STATION);
+        schwarzwald.addAbteilung(niere1);
 
+        schwarzwald.printStructure();
         System.out.println(generatePatient());
         System.out.println();
     }

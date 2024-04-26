@@ -6,6 +6,7 @@ public class Ambulanz {
     private String open;
     private Warteraum warteraum;
     private Patient patient;
+    private int platz;
 
     public Ambulanz(String open){
         this.open=open;

@@ -4724,7 +4724,8 @@ public class Patient {
 //    Zyndi
     };
 
-    private static final String[] nachname = new String[]{"Schmidt", "Grabher", "Cecil", "Kraus", "Kofler", "Pirker", "Wagner", "Gruber", "Winkler", "Weber", "Huber"};
+    private static final String[] nachname = new String[]{"Schmidt", "Grabher", "Cecil", "Kraus", "Kofler", "Pirker", "Wagner", "Gruber", "Winkler", "Weber", "Huber","Bauer","Wimmer","Müller","Wallner","Wolf","Steiner","Pichler","Moser","Mayer","Hofer","Leitner","Berger"+
+    "Fuchs","Eder","Fischer","Schmid","Weiss","Wieser","Schwarz","Maier","Schneider","Reiter","Winter","Mayr","Egger"};
     private static final int[] alter = (createRandomAge(random.nextInt(18, 100)));
     private static final String[] krankheit = new String[]{"Herzkrankheit", "neurologische Krankheit", "Nierenkrankheit"};
     private static final int[] maxHP = (createRandomMaxHealth(random.nextInt(50, 150)));
