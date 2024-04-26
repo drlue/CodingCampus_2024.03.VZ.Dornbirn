@@ -21,7 +21,7 @@ public class FinalZoo {
         this.allVetenary = new Vector<>();
     }
 
-    //====================================================================================================================================================add/removeMethods====================================
+    //============================================================================================add/removeMethods====================================
     public void addEnclousureToList(Enclousure enc) {
         if (!allEncVector.contains(enc)) {
             allEncVector.add(enc);
@@ -46,7 +46,7 @@ public class FinalZoo {
         }
     }
 
-    //======================================================================================================================================================printMethods=======================================================
+    //===========================================================================================printMethods=======================================================
     public void printStructure() {
         System.out.printf("Zoo: %s, founded in %d\n", name, foundingYear);
         for (Enclousure enc : allEncVector) {
@@ -80,7 +80,7 @@ public class FinalZoo {
         System.out.printf("-".repeat(21) + "%sEndOfStatistics%s" + "-".repeat(26) + "\n", ConsoleColors.GREEN, ConsoleColors.RESET);
     }
 
-    //==================================================================================================================================================create and get methods==============================
+    //======================================================================================create and get methods==============================
     public Vector<Guardian> createCopyAllGua() {
         Vector<Guardian> copy = new Vector<>(allGuardianVector);
         return copy;
@@ -101,7 +101,7 @@ public class FinalZoo {
         return remainingEnc;
     }
 
-    //==============================================================================================================================================================Simulation=========================================================
+    //=============================================================================================Simulation=========================================================
     public void animalActivities() {
         for (Enclousure enc : allEncVector) {
             enc.animalActivitiesInEnc();
