@@ -12,7 +12,9 @@ public class Car {
     private String manufacturer;
     private String model;
     private int kW;
+    private Engine engine;
     private int tankCapacity;
+    private Tank tank;
     private int weight;
     private MotorType motorType;
 
