@@ -13,7 +13,7 @@ public class Car {
 
     enum FuelType {
         PETROL, DIESEL, GAS, ELECTRIC{
-        }
+        };
     }
     public <fuelType> Car(String manufacturer, String model, int power, FuelType fuelType, double fuelTankCapacity, double weight) {
         this.manufacturer = manufacturer;
