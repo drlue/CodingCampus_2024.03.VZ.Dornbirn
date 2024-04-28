@@ -1,14 +1,16 @@
 package samet.week08.Hospital;
 
+import java.util.ArrayList;
 import java.util.List;
 
-abstract class Department {
+public abstract class Department implements ITask {
 
-     protected String name;
-     protected List<Patient> patients;
+    private String name;
+    private List<Patient> patients;
 
     public Department(String name) {
         this.name = name;
+        this.patients = new ArrayList<>();
     }
 
     public String getName() {
@@ -23,9 +25,13 @@ abstract class Department {
         this.patients = patients;
     }
 
-    public abstract void addPatient(Patient patient);
+    public void addPatient(Patient patient) {
+        patients.add(patient);
+    }
 
-
+    public void removePatient(Patient patient) {
+        patients.remove(patient);
+    }
 }
 
 

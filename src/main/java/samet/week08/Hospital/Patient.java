@@ -7,12 +7,13 @@ public class Patient {
     private String illness;
 
 
-     public enum PatientStatus {
-        Mild , Moderate, Serious
+    public enum PatientStatus {
+        Mild, Moderate, Serious
     }
+
     private PatientStatus status;
 
-    public Patient(String name, int age, String illness,PatientStatus status) {
+    public Patient(String name, int age, String illness, PatientStatus status) {
         this.name = name;
         this.age = age;
         this.illness = illness;
