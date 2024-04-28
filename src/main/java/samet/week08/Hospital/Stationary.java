@@ -25,7 +25,7 @@ public class Stationary extends Department {
 
     public void addPatient(Patient patient) {
         super.addPatient(patient);
-        System.out.println(patient.getName() + " wurde in die " + super.getName() + " aufgenommen. ");
+        System.out.println(patient.getName() + " kommt mit " + patient.getIllness() + " ins Sacred Heart Hospital und wurde in die " + super.getName() + " aufgenommen. ");
     }
 
     public void medicate(Patient patient) {
@@ -34,7 +34,7 @@ public class Stationary extends Department {
             for (Bed bed : room.getBedsList()) {
                 if (!bed.isOccupied()){
                     bed.setPatient(patient);
-                    System.out.printf("Patient %s is being treated in the Room %s  in Bed %s%n", patient.getName(), room.getRoomNumber(), bed.getBednumber());
+                    System.out.printf("Patient %s wurde stationär in Raum %s im Bett %s behandelt %n", patient.getName(), room.getRoomNumber(), bed.getBednumber());
                     patientIsAssigned = true;
                     break;
                 }

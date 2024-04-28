@@ -34,7 +34,7 @@ public class Ambulance extends Department {
     }
 
     public void medicate(Patient patient) {
-        System.out.println("Patient " + patient.getName() + " treated in the ambulance department.");
+        System.out.println("Patient " + patient.getName() + " wurde ambulant behandelt ");
     //    this.removePatient(patient);
     }
 }

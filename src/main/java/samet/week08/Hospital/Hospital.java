@@ -26,9 +26,9 @@ public class Hospital {
     }
 
     private Ambulance findAmbulanceDepartment() {
-        for (Department dep : departments) {
-            if (dep instanceof Ambulance)
-                return (Ambulance) dep;
+        for (Department department : departments) {
+            if (department instanceof Ambulance)
+                return (Ambulance) department;
 
         }
         return null;
@@ -52,10 +52,9 @@ public class Hospital {
     }
 
     public void treat(){
-        for (Department dep : departments) {
-            for (Patient pat: dep.getPatients()) {
-                dep.medicate(pat);
-
+        for (Department department : departments) {
+            for (Patient pat: department.getPatients()) {
+                department.medicate(pat);
             }
         }
     }
