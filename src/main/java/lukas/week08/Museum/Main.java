@@ -1,7 +1,7 @@
 package lukas.week08.Museum;
 
 import christian.week04.day03.SearchForWordInText;
-import lukas.week08.Museum.Art.Painting;
+//import lukas.week08.Museum.Art.Painting;
 import lukas.week08.Museum.Rooms.Corridor;
 import lukas.week08.Museum.Rooms.ExhibitionRoom;
 import lukas.week08.Museum.Rooms.Room;
@@ -39,7 +39,7 @@ public class Main {
 
 
 
-            room.addArtwork(new Painting("Painting 1", "Artist 1", 200, 10));
+            //room.addArtwork(new Painting("Painting 1", "Artist 1", 200, 10));
 
 
 
@@ -58,11 +58,11 @@ public class Main {
 
         //Artwork
         //--------------------
-        Vector<Painting> paintings = new Vector<>();
-        paintings.add(new Painting("Mona Lisa", "Leonardo Da Vinci",800000000, 1512));
-        paintings.add(new Painting("Salvador Mundi", "Leonardo Da Vinci",450000000, 1510));
-        paintings.add(new Painting("Shot Sage Blue Marilyn", "Warhol",195000000, 1964));
-        paintings.add(new Painting("Les femmes d'Aiger", "Warhol",195000000, 1964));
+       // Vector<Painting> paintings = new Vector<>();
+       // paintings.add(new Painting("Mona Lisa", "Leonardo Da Vinci",800000000, 1512));
+      //  paintings.add(new Painting("Salvador Mundi", "Leonardo Da Vinci",450000000, 1510));
+        //paintings.add(new Painting("Shot Sage Blue Marilyn", "Warhol",195000000, 1964));
+      //  paintings.add(new Painting("Les femmes d'Aiger", "Warhol",195000000, 1964));
 
         for(ExhibitionRoom er : tmpRooms) {
 

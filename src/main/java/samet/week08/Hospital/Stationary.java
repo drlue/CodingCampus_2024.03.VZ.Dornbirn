@@ -15,7 +15,6 @@ public class Stationary extends Department {
         this.rooms = new ArrayList<>();
         super.patients = new ArrayList<>();
 
-
     }
     public void addPatient(Patient patient){
         patients.add(patient);

@@ -11,6 +11,10 @@ abstract class Department {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public List<Patient> getPatients() {
         return patients;
     }
@@ -21,7 +25,8 @@ abstract class Department {
 
     public abstract void addPatient(Patient patient);
 
-    }
+
+}
 
 
 
