@@ -1,7 +1,10 @@
 package samet.week09;
 
-public class Student {
+import java.util.Random;
 
+
+public class Student {
+    Random random = new Random();
     private String name;
 
 
@@ -12,6 +15,11 @@ public class Student {
 
     public String getName() {
         return name;
+    }
+
+    public boolean toLate(){
+        return random.nextDouble() < 0.05;
+
     }
 
 }

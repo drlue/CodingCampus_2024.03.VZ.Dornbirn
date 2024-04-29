@@ -15,14 +15,12 @@ public class School {
     private List<SchoolClass> classes;
     private Direktor direktor;
 
-
     public School(String name) {
         this.name = name;
         this.rooms = new ArrayList<>();
         this.teachers = new ArrayList<>();
         this.classes = new ArrayList<>();
         this.direktor = new Direktor("Herr Beckenbauer Direktor der HTL Dornbirn");
-
     }
 
     public void addTeacher(Teacher teacher) {
@@ -37,17 +35,10 @@ public class School {
         classes.add(schoolClass);
     }
 
-    public List<SchoolClass> getClasses() {
-        return classes;
-    }
-
     public List<Room> getRooms() {
         return rooms;
     }
 
-    public List<Teacher> getTeachers() {
-        return teachers;
-    }
 
     public void startDay() {
         System.out.println(ConsoleColors.GREEN + "---- Morgen in der Schule beginnt----\n" + ConsoleColors.RESET);
@@ -58,7 +49,7 @@ public class School {
         for (SchoolClass schoolClass : classes) {
             for (Student student : schoolClass.getStudentList()) {
                 System.out.println(student.getName() + " kommt in die Schule.");
-                if (random.nextBoolean()) {
+                if (student.toLate()) {
                     System.out.println(ConsoleColors.RED + student.getName() + ConsoleColors.RESET + " ist zu spät und muss zum Direktor gehen.");
                     direktor.schimpfen(student);
                 }

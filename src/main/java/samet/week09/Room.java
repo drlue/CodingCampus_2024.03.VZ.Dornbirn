@@ -7,13 +7,13 @@ public class Room {
 
     private String name;
     private List<Student> students;
-
+    private List<TimeTable> timeTables;
 
 
     public Room(String name){
         this.name = name;
         this.students = new ArrayList<>();
-
+        this.timeTables = new ArrayList<>();
     }
 
     public String getName() {
@@ -28,4 +28,7 @@ public class Room {
         students.add(student);
     }
 
+    public void addTimeTable(TimeTable timeTable){
+        timeTables.add(timeTable);
+    }
 }
