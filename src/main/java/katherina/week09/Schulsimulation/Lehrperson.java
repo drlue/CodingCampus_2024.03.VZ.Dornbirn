@@ -1,24 +1,24 @@
 package katherina.week09.Schulsimulation;
 
+import static katherina.zoocopyforexperiments.Zoo.sleep;
+
 public class Lehrperson extends Person {
-        private Fach fach;
+        private String fach;
 
-    enum Fach{
-        DEUTSCH,
-        LATEIN,
-        MATHE,
-        TURNEN,
-        INFORMATIK,
-        KUNST,
-    };
-
-    public Lehrperson(String name, Fach fach) {
+    public Lehrperson(String name, String fach) {
         super(name);
         this.fach = fach;
     }
 
-    public Fach getFach() {
+    public String getFach() {
         return fach;
+    }
+
+    @Override
+    public void unterricht(){
+        System.out.printf("%s betritt das Klassenzimmer, und beginnt den Unterricht in %s.%n", name,fach);
+        sleep(450);
+        System.out.println();
     }
 
 }

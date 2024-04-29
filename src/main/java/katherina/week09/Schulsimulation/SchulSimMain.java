@@ -27,12 +27,12 @@ public class SchulSimMain {
 
         borgandelsbuch.addRaum(turnhalle);
 
-        Person lehrperson = new Lehrperson("Professor Wagner", Lehrperson.Fach.DEUTSCH);
-        Person lehrperson2 = new Lehrperson("Professor Auer", Lehrperson.Fach.MATHE);
-        Person lehrperson3 = new Lehrperson("Professor Eder", Lehrperson.Fach.LATEIN);
-        Person lehrperson4 = new Lehrperson("Professor Aigner", Lehrperson.Fach.TURNEN);
-        Person lehrperson5 = new Lehrperson("Professor Bauer", Lehrperson.Fach.INFORMATIK);
-        Person lehrperson6 = new Lehrperson("Professor Wolf",Lehrperson.Fach.KUNST);
+        Person lehrperson = new Lehrperson("Professor Wagner", "Deutsch");
+        Person lehrperson2 = new Lehrperson("Professor Auer", "Mathe");
+        Person lehrperson3 = new Lehrperson("Professor Eder", "Latein");
+        Person lehrperson4 = new Lehrperson("Professor Aigner", "Turnen");
+        Person lehrperson5 = new Lehrperson("Professor Bauer", "Informatik");
+        Person lehrperson6 = new Lehrperson("Professor Wolf","Kunst");
         borgandelsbuch.addPerson(lehrperson);
         borgandelsbuch.addPerson(lehrperson2);
         borgandelsbuch.addPerson(lehrperson3);
@@ -60,7 +60,7 @@ public class SchulSimMain {
         Person lernt16 = new Lernende("Fernando Müller",Lernende.Klasse.DREI);
         Person lernt17 = new Lernende("Emirhan Maier",Lernende.Klasse.VIER);
         Person lernt18 = new Lernende("Dick Huber",Lernende.Klasse.EINS);
-        Person lernt19 = new Lernende("Anil SchusterWalter",Lernende.Klasse.ZWEI);
+        Person lernt19 = new Lernende("Anil Schuster-Walter",Lernende.Klasse.ZWEI);
         //Nur eine Person in der dritten Schulstufe ^^. Zum Testen tut es schon, aber auf lange Sicht muss ich meine Random-Namenslisten etc. eh überarbeiten.
         borgandelsbuch.addPerson(lernt);
         borgandelsbuch.addPerson(lernt1);
@@ -85,25 +85,37 @@ public class SchulSimMain {
 
 
         System.out.println();
-        for (int day = 1; day <= 3; day++) {
+        for (int day = 1; day <= 1; day++) {
+            for (int fifteen = 0;fifteen<=22;fifteen++){
+                for (int index = 0; index <6 ; index++) {
+
+                }
+            }
             borgandelsbuch.simulateDay(day);
         }
     }
 
+    //        for (int day = 1; day <= 10; day++) {
+    //            System.out.printf("Day %d begin:%n", day);
+    //            for (int hour = 0; hour < 24; hour++) {
+    //                for (int i = 0; i < d.length; i++) {
+    //                    d[i].activity(hour);
+    //                }
+    //                sleep(250);
+    //            }
+    //Eine Schulstunde = 3*fifteen -> 18 für 6 Schulstunden
+    //Pause = fifteen ->4 Pausen
+    //Ein Schultag = 22 fifteens
+
     //Stundenplan:
-    //Montag: 1. Stunde - Schulleiterstunden.
-    //        2. Stunde - Mathe (erste Klasse)
-    //                    Deutsch(zweite Klasse)
-    //                    Latein(dritte Klasse)
-    //                    Turnen(vierte Klasse)
-    //        3. Stunde - Mathe (erste Klasse)
-    //                    Turnen(zweite Klasse)
-    //                    Kunst(dritte Klasse)
-    //                    Informatik(vierte Klasse)
-    //        4. Stunde - Deutsch (erste Klasse)
-    //                    Turnen(zweite Klasse)
-    //                    Kunst(dritte Klasse)
-    //                    Informatik(vierte Klasse)
+    //Montag: Erste Klasse:
+    //Deutsch, Latein, Kunst, Turnen, Informatik
+    //        Zweite Klasse:
+    //Latein, Kunst, Turnen, Informatik, Deutsch
+    //        Dritte Klasse:
+    //Kunst, Turnen, Informatik, Deutsch, Latein
+    //        Vierte Klasse:
+    //Turnen, Informatik, Deutsch, Latein, Kunst
 
 
 
