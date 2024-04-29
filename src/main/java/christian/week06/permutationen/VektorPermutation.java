@@ -26,7 +26,6 @@ public class VektorPermutation {
 
             permutate2(newPermVector, newRemainingLetters, prefix + "    ");
         }
-
     }
 
 
