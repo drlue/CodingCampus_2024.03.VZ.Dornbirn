@@ -86,23 +86,15 @@ public class SchulSimMain {
 
         System.out.println();
         for (int day = 1; day <= 1; day++) {
-            for (int fifteen = 0;fifteen<=22;fifteen++){
-                for (int index = 0; index <6 ; index++) {
-
-                }
-            }
+//            for (int fifteen = 0;fifteen<=22;fifteen++){
+//                for (int index = 0; index <personenliste.size() ; index++) {
+//                   personenliste(index).activity(fifteen);
+//                }
+//            }
             borgandelsbuch.simulateDay(day);
         }
     }
 
-    //        for (int day = 1; day <= 10; day++) {
-    //            System.out.printf("Day %d begin:%n", day);
-    //            for (int hour = 0; hour < 24; hour++) {
-    //                for (int i = 0; i < d.length; i++) {
-    //                    d[i].activity(hour);
-    //                }
-    //                sleep(250);
-    //            }
     //Eine Schulstunde = 3*fifteen -> 18 für 6 Schulstunden
     //Pause = fifteen ->4 Pausen
     //Ein Schultag = 22 fifteens

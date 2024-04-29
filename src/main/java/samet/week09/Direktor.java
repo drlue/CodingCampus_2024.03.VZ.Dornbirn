@@ -6,7 +6,6 @@ public class Direktor {
 
     private String name;
 
-
     public Direktor(String name){
         this.name = name;
     }
@@ -20,6 +19,5 @@ public class Direktor {
 
     public void schimpfen(Student student){
         System.out.println(ConsoleColors.CYAN_BOLD + name + ConsoleColors.RESET + " schimpft mit " + student.getName() + " und ermahnt ihn in Zukunft pünklicht zu sein.");
-
     }
 }
