@@ -11,4 +11,7 @@ public class Person {
     public String getName() {
         return this.name;
     }
+    public void unterricht(Person lehrperson){
+        System.out.printf("%s betritt das Klassenzimmer, und beginnt den Unterricht.%n",lehrperson.getName());
+    }
 }
