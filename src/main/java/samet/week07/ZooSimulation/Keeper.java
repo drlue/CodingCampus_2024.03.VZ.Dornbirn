@@ -36,7 +36,7 @@ public class Keeper {
     }
 
     public void printZooStructure() {
-        System.out.println("|   |-- Keeper: " + ConsoleColors.PURPLE + name + ConsoleColors.RESET);
+        System.out.println("|   |-- Keeper: " + ConsoleColors.BLUE + name + ConsoleColors.RESET);
         for (int i = 0; i < tasks.size(); i++) {
             if (i == 0) {
                 System.out.print("|       |Responsible for: ");
@@ -56,6 +56,9 @@ public class Keeper {
         for (Enclosure enclosure : tasks) {
             enclosure.doClean(this);
             enclosure.watchRandomAnimal(this);
+            enclosure.biteAnimal();
+            enclosure.printHpOfAnimals();
+            enclosure.removeDeadAnimals(this);
         }
     }
 }

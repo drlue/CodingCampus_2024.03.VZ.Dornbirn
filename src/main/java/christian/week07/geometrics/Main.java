@@ -14,6 +14,7 @@ public class Main {
         list.add(square);
         list.add(tri);
         printAllAreaAndCircum(list);
+        System.out.println(square.getCircumference());
     }
 
 
@@ -24,6 +25,6 @@ public class Main {
             circum += geo.getCircumference();
             area += geo.getArea();
         }
-        System.out.printf("Umfang: %f %n Fläche: %f %n", circum, area);
+        System.out.printf("Umfang: %f %nFläche: %f %n", circum, area);
     }
 }

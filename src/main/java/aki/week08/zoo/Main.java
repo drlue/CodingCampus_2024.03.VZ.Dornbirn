@@ -22,7 +22,7 @@ public class Main {
 
 
         //Pfleger
-        Guardian lama = new Guardian("Stefan-Sigfried");
+        Guardian lama = new Guardian("Stefan-Siegfried");
         zoo.addGuardianAndTask(lama, pentagon);
 
 

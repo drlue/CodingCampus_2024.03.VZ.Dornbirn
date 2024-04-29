@@ -82,11 +82,11 @@ public class Enclousure {
             if (ani.isAlive()) {
                 if (ani.startsFightOrNot()) {
                     int rndIndex = Main.rnd.nextInt(0, animalVector.size());
-                    while(animalVector.get(rndIndex).getName().equals(ani.getName()) ){
-                         rndIndex = Main.rnd.nextInt(0, animalVector.size());
+                    while (animalVector.get(rndIndex).getName().equals(ani.getName())) {
+                        rndIndex = Main.rnd.nextInt(0, animalVector.size());
                     }
                     ani.bites(animalVector.get(rndIndex));
-                    System.out.printf("%s%s%s bites %s%s%s\n",ConsoleColors.GREEN,ani.getName(),ConsoleColors.RESET,ConsoleColors.RED,animalVector.get(rndIndex).getName(),ConsoleColors.RESET);
+                    System.out.printf("%s%s%s bites %s%s%s\n", ConsoleColors.GREEN, ani.getName(), ConsoleColors.RESET, ConsoleColors.RED, animalVector.get(rndIndex).getName(), ConsoleColors.RESET);
                 }
             }
         }
@@ -98,7 +98,8 @@ public class Enclousure {
                 if (!ani.getFed() && ani.isAlive()) {
                     ani.eatfood(gua);
                 } else {
-                    System.out.printf("%s%s%s recognized that %s%s%s is %sdead%s. He removes the carcass!\n", ConsoleColors.BLUE,gua.getName(), ConsoleColors.RESET,ConsoleColors.GREEN,ani.getName(),ConsoleColors.RESET,ConsoleColors.RED,ConsoleColors.RESET);
+                    System.out.printf("%s%s%s recognized that %s%s%s is %sdead%s. He removes the carcass!\n", ConsoleColors.BLUE, gua.getName(), ConsoleColors.RESET, ConsoleColors.GREEN, ani.getName(), ConsoleColors.RESET, ConsoleColors.RED, ConsoleColors.RESET);
+                    animalVector.remove(ani);
                 }
             }
         }

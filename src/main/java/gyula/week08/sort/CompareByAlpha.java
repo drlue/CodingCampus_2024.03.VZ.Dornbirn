@@ -9,6 +9,6 @@ public class CompareByAlpha implements IComp {
 
     @Override
     public int compare(String a, String b) {
-        return ascending ? a.compareTo(b) : -1 * a.compareTo(b);
+        return a.compareTo(b) * (ascending ? 1 : -1);
     }
 }

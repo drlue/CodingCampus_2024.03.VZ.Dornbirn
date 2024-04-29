@@ -1,5 +1,7 @@
 package katherina.zoocopyforexperiments;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import java.util.Vector;
 
@@ -81,6 +83,24 @@ public class Zoo {
         return patient;
     }
 
+    public void printFutterKosten() {
+        Map<Tierfutter, Float> futterBedarfMap = new HashMap<>();
+        for (Gehege gehege : gehegeList) {
+            gehege.getFutterBedarf(futterBedarfMap);
+        }
+        System.out.printf("\n\nDie täglichen Ausgaben für Tierfutter belaufen sich auf: %5.2f €/Tag\n", calculateFutterKosten(futterBedarfMap));
+    }
+
+    public float calculateFutterKosten(Map<Tierfutter, Float> futterbedarf) {
+        float futterKosten = 0;
+        for (Map.Entry<Tierfutter, Float> entry : futterbedarf.entrySet()) {
+           // System.out.printf("\nFutter: %16.16s    ;    Futtermenge: %5.2f    ;    Kosten: %6.2f €/Tag", entry.getKey().getBezeichnung(), entry.getValue(), entry.getValue() * entry.getKey().getPreisProUnit());
+            //Auskommentiert, statt gelöscht, falls ich aus irgendeinem Grund kontrollieren muss, ob das schon so stimmt, was bei der Summe rauskommt.
+            futterKosten += entry.getValue() * entry.getKey().getPreisProUnit();
+        }
+        return futterKosten;
+    }
+
     public void simulateDay(int day) {
         System.out.printf("\nDer Tag Nummer %d beginnt in unserem Zoo!%n~*~ ~*~ ~*~%n%n", day);
         System.out.println("In der Nacht sind die Tiere nicht immer friedlich zu einander.\n");
@@ -102,7 +122,7 @@ public class Zoo {
                 tierarzt.heal(patient);
             }
         }
-        System.out.println("Alle Menschen sind nun wieder gegangen. Der Tag ist zu Ende und ein neuer Morgen wird neue Erlebnisse bringen.");
+        System.out.println("Alle Menschen sind nun wieder gegangen. Der Tag ist zu Ende und ein neuer Morgen wird neue Erlebnisse bringen.\n");
     }
 
     public void printStructure() {
@@ -119,6 +139,7 @@ public class Zoo {
             }
             gehege.printStructure(pflegerImGehege);
         }
+        printFutterKosten();
     }
 
     public static void sleep(long milis) {

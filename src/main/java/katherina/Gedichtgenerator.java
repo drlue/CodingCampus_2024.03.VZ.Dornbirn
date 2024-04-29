@@ -13,7 +13,7 @@ public class Gedichtgenerator {
                 "Stark vereinfacht gesagt: Eine ursprünglich malaiische Gedichtform, die aus mindestens vier Strophen zu je vier Zeilen bestehen.\n" +
                 "Ganz streng genommen besteht jede Zeile aus acht bis zwölf Silben.\n" +
                 "Ausserdem kann ein Pantun unendlich lang sein, mindestens aber hat das Gedicht vier Strophen. Dieser Baukasten hilft, diese Mindestlänge in der korrekten Reihenfolge zusammenzusetzen.\n" +
-                        "Bitte vergiss nicht, dein Gedicht aus der Konsole zu kopieren, sobald es fertig ist. Sonst ist es hinterher weg! Auf nimmerwiedersehen! Futsch!");
+                "Bitte vergiss nicht, dein Gedicht aus der Konsole zu kopieren, sobald es fertig ist. Sonst ist es hinterher weg! Auf nimmerwiedersehen! Futsch!");
         System.out.println();
         System.out.println();
         String text9 = getTextFromConsole("Bitte gib die Überschrift deines Gedichtes ein:");
@@ -51,7 +51,6 @@ public class Gedichtgenerator {
         System.out.println();
 
 
-
         try {
             FileOutputStream file = new FileOutputStream("C:\\Users\\DCV\\IdeaProjects\\CodingCampus_2024.03.VZ.Dornbirn\\src\\main\\java\\katherina\\week02\\day02\\GenerierteGedichte\\pantunfile.txt", true);
             PrintStream printedStream = new PrintStream(file);
@@ -80,8 +79,7 @@ public class Gedichtgenerator {
             printedStream.println();
 
 
-        }
-        catch (FileNotFoundException fnfe){
+        } catch (FileNotFoundException fnfe) {
             System.out.println("Dein Text konnte nicht gespeichert werden. Die Datei wurde nicht erstellt.");
         }
     }

@@ -50,7 +50,7 @@ public class Guardian {
             }
 
             case WORKING -> {
-                hourForWork--;
+                hourForWork--;//TODO: gyula fragen hier war eine java.util.ConcurrentModificationException
                 if (hourForWork == 0) {
                     workingEnc.feedAllAnimals(this);
                     workingEnc.watchRndAnimal(this);

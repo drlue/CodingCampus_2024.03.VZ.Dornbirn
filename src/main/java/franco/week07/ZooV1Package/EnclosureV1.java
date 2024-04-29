@@ -49,13 +49,14 @@ public class EnclosureV1 {
                 message = "wondering";
             }
             System.out.printf("%s%s%s %s %s%s%s%n",
-                    ConsoleColors.BLUE, carer.getName(), ConsoleColors.RESET,
+                    ConsoleColors.PURPLE_BOLD, carer.getName(), ConsoleColors.RESET,
                     message,
                     ConsoleColors.RED, animal.getName(), ConsoleColors.RESET);
         }
     }
     public void doClean(CaretakerV1 caretakerV1) {
-        System.out.printf("%s%s%s cleans the %s%s%s enclosure and feed the animals.%n", ConsoleColors.BLUE, caretakerV1.getName(), ConsoleColors.RESET, ConsoleColors.GREEN, name, ConsoleColors.RESET);
+        System.out.printf("%s%s%s cleans the %s%s%s enclosure and feed the animals.%n", ConsoleColors.BLUE,
+                caretakerV1.getName(), ConsoleColors.RESET, ConsoleColors.GREEN, name, ConsoleColors.RESET);
 
     }
     public void printStructure() {

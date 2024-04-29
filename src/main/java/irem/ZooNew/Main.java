@@ -13,11 +13,11 @@ public class Main {
         Feed grass = new Feed("Grass", "kg");
         Feed fish = new Feed("Fish", "kg");
 
-        Animal Cow= new Animal("Law", "Cow", grass, 5.0);
-        Animal Stork = new Animal("Sanji", "Stork", fish, 1);
-        Animal Bear = new Animal("Zoro", "Bear", fish, 1);
-        Animal Bison = new Animal("Brook", "Stork", fish, 1);
-        Animal Reindeer = new Animal("Chopper", "Reindeer", grass, 1);
+        Animal Cow= new Animal("Law", "Cow",  grass, 5.0, 100,20);
+        Animal Stork = new Animal("Sanji", "Stork", fish, 1,100,20);
+        Animal Bear = new Animal("Zoro", "Bear", fish, 1,100,20);
+        Animal Bison = new Animal("Brook", "Stork", fish, 1,100,20);
+        Animal Reindeer = new Animal("Chopper", "Reindeer", grass, 1,100,20);
 
 
         zoo.findEnclosure("Wild").addAnimal(Cow);
