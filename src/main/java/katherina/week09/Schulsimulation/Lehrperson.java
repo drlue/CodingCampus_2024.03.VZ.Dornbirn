@@ -8,7 +8,8 @@ public class Lehrperson extends Person {
         LATEIN,
         MATHE,
         TURNEN,
-        INFORMATIK
+        INFORMATIK,
+        KUNST,
     };
 
     public Lehrperson(String name, Fach fach) {

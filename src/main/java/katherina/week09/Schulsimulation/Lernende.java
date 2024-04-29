@@ -1,9 +1,16 @@
 package katherina.week09.Schulsimulation;
 
 public class Lernende extends Person {
-    private String klasse;
+    private Klasse klasse;
 
-    public Lernende(String name, String fach) {
+    enum Klasse {
+        EINS,
+        ZWEI,
+        DREI,
+        VIER,
+    };
+
+    public Lernende(String name, Klasse klasse) {
         super(name);
         this.klasse = klasse;
     }
