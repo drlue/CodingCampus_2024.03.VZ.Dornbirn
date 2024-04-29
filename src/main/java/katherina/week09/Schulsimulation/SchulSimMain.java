@@ -14,10 +14,23 @@ public class SchulSimMain {
         Raum turnhalle = new Turnhalle("Allgemeine Turnhalle 1-2", 62);
         //Das Anlegen von Konferenzzimmern und Turnhallen als spezielle Raumtypen erlaubt
         //Erweiterungen, wie beispielsweise das Anlegen von Kustodiaten oder Gymnastikräumen.
+
         borgandelsbuch.addRaum(klassenzimmer1);
         borgandelsbuch.addRaum(klassenzimmer2);
         borgandelsbuch.addRaum(edv);
+
         borgandelsbuch.addRaum(konferenzzimmer);
+
         borgandelsbuch.addRaum(turnhalle);
+
+        Person lehrperson = new Lehrperson("Professor Wagner", Lehrperson.Fach.DEUTSCH);
+        Person lehrperson2 = new Lehrperson("Professor Auer",Lehrperson.Fach.MATHE);
+        Person lehrperson3 = new Lehrperson("Professor Eder",Lehrperson.Fach.LATEIN);
+        Person lehrperson4 = new Lehrperson("Professor Aigner",Lehrperson.Fach.TURNEN);
+        Person lehrperson5 = new Lehrperson("Professor Bauer",Lehrperson.Fach.INFORMATIK);
+
+
+
+
     }
 }

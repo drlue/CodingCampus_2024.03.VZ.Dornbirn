@@ -6,13 +6,7 @@ public class Person {
     public Person(String name) {
         this.name=name;
     }
-//    private Funktion funktion;
-//
-//    private enum Funktion{
-//        LERNT,
-//        LEHRT,
-//        DIREKTIERT
-//    };
+
 
 
 
