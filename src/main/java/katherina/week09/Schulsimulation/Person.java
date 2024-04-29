@@ -7,11 +7,20 @@ public class Person {
         this.name=name;
     }
 
-
     public String getName() {
         return this.name;
     }
-    public void unterricht(Person lehrperson){
-        System.out.printf("%s betritt das Klassenzimmer, und beginnt den Unterricht.%n",lehrperson.getName());
+
+    public void unterricht(){
     }
+
+    public void ankunft(){
+    }
+
+    public void strafe(){
+    }
+
+    public void oeffnen(){}
+
+    public void schliessen(){}
 }

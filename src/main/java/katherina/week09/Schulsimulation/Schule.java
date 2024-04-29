@@ -1,13 +1,6 @@
 package katherina.week09.Schulsimulation;
 
-import katherina.zoocopyforexperiments.Gehege;
-import katherina.zoocopyforexperiments.Pfleger;
-import katherina.zoocopyforexperiments.Tier;
-import katherina.zoocopyforexperiments.Tierarzt;
-
 import java.util.Vector;
-
-import static katherina.zoocopyforexperiments.Zoo.sleep;
 
 public class Schule {
     private String name;
@@ -45,12 +38,15 @@ public class Schule {
 
     public void simulateDay(int day) {
         System.out.printf("\nSchultag Nummer %d!%n~*~ ~*~ ~*~%n%n", day);
-        oeffnen(this.personenliste.firstElement());
-        for (Person lehrperson : personenliste) {
-            lehrperson.unterricht(lehrperson);
-            sleep(450);
-            System.out.println();
-        }
+        personenliste.forEach(person -> {
+            person.oeffnen();
+            person.unterricht();
+            person.ankunft();
+            person.strafe();
+
+            person.schliessen();
+        });
+
     }
 
 }
