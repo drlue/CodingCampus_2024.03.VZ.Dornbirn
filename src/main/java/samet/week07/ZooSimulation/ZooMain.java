@@ -61,18 +61,18 @@ public class ZooMain {
         AnimalVet sergej = new AnimalVet("Sergej");
         AnimalVet ivan = new AnimalVet("Ivan");
         AnimalVet dimitri = new AnimalVet("Dimitri");
-        zoo.addAnimalVet(sergej);
-        //zoo.addAnimalVet(ivan);
+        //zoo.addAnimalVet(sergej);
+        zoo.addAnimalVet(ivan);
 
 
 
         zoo.printZooStructure();
         zoo.printFoodCost();
-        sleep(1000);
+        sleep(10);
 
 
         System.out.println();
-        for (int day = 1; day <= 30; day++) {
+        for (int day = 1; day <= 90; day++) {
             zoo.simulatedDay(day);
             sleep(1000);
         }
