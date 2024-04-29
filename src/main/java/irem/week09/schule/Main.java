@@ -8,19 +8,21 @@ public class Main {
         Raum direktorenzimmer = new Raum(RaumTyp.DIREKTORZIMMER, "Direktorenzimmer");
 
 
+
         Schueler schueler = new Schueler("Karamel");
         Lehrer lehrer = new Lehrer("Herr Görkem");
         Schuldirektor direktor = new Schuldirektor("Frau Sinem", direktorenzimmer);
+
 
         schueler.setRaum(lehrerzimmer);
         schueler.setRaum(klassenraum);
         lehrer.setRaum(lehrerzimmer);
         direktor.setRaum(direktorzimmer);
 
-
         Stundenplan stundenplan = new Stundenplan(lehrer, "Mathematik", klassenraum);
         stundenplan.druckeDetails();
         SchuleSimulation simulation = new SchuleSimulation();
         simulation.starteTagesablauf();
+
     }
 }
