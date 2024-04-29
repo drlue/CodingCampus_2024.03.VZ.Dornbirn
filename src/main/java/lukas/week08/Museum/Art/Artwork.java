@@ -15,6 +15,6 @@ public abstract class Artwork {
 
     @Override
     public String toString() {
-        return String.format("%s (%s - %d years, %d EUR", name,getClass().getSimpleName(), year, value);
+        return String.format("%s (%s - %d, %d EUR", name,getClass().getSimpleName(), year, value);
     }
 }

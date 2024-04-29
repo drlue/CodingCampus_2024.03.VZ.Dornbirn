@@ -41,9 +41,7 @@ public abstract class Room {
     }
 
     public String printRoom(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(String.format("%s (Neighbors: %s)%n", name, neighborString()));
-        return sb.toString();
+        return String.format("%s (Neighbors: %s)%n", name, neighborString());
     }
 
     @Override

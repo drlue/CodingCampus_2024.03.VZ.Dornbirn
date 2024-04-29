@@ -2,10 +2,12 @@ package lukas.week08.Museum;
 
 import lukas.week08.Museum.Rooms.Room;
 
+import java.util.Random;
 import java.util.Vector;
 
 public class Museum {
 
+    public static Random random = new Random();
     private String name;
     private int openingHour;
     private int closingHour;
