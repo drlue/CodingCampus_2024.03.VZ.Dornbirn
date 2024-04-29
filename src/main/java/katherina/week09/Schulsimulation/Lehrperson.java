@@ -16,4 +16,9 @@ public class Lehrperson extends Person {
         super(name);
         this.fach = fach;
     }
+
+    public Fach getFach() {
+        return fach;
+    }
+
 }
