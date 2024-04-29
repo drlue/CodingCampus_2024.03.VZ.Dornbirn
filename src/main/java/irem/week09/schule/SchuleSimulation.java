@@ -1,5 +1,7 @@
 package irem.week09.schule;
 
+import ardijanla.ConsoleColors;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +39,7 @@ public class SchuleSimulation {
     public void starteTagesablauf() {
         String[] wochentage = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"};
         for (String tag : wochentage) {
+            System.out.print(ConsoleColors.GREEN);
             System.out.println(tag + " beginnt die Schule.");
 
             if (tag.equals("Montag")) {
@@ -46,32 +49,40 @@ public class SchuleSimulation {
             } else {
                 normalerSchultag();
             }
-
+            System.out.println(ConsoleColors.RED);
             System.out.println(tag + " endet die Schule.\n");
+            System.out.println(ConsoleColors.RESET);
         }
+
     }
 
     private void montagsRoutine() {
+        System.out.print(ConsoleColors.PURPLE);
         System.out.println("\nMontagmorgen: Lehrerversammlung im Lehrerzimmer.");
         for (Stundenplan stundenplan : stundenplaene) {
             stundenplan.druckeDetails();
         }
+        System.out.println(ConsoleColors.RESET);
     }
 
     private void mittwochsRoutine() {
+        System.out.println(ConsoleColors.PURPLE);
         System.out.println("Mittwoch ist Projekttag.");
         for (Person person : personen) {
             if (person instanceof Schueler) {
                 System.out.println(person.getName() + " arbeitet am Projekt.");
             }
         }
+        System.out.println(ConsoleColors.RESET);
     }
 
     private void normalerSchultag() {
+        System.out.println(ConsoleColors.YELLOW);
         System.out.println("Normaler Schultag mit Unterricht und Pausen.");
         for (Stundenplan stundenplan : stundenplaene) {
             stundenplan.druckeDetails();
             System.out.println("Pause zwischen den Stunden.");
         }
+        System.out.println(ConsoleColors.RESET);
     }
 }

@@ -1,5 +1,6 @@
 package irem.week09.schule;
 
+
 class Stundenplan {
     private Lehrer lehrer;
     private String thema;

@@ -9,9 +9,6 @@ class Schuldirektor extends Person {
         this.setRaum(direktorenzimmer);
     }
 
-    public Raum getDirektorenzimmer() {
-        return direktorenzimmer;
-    }
 
     @Override
     public void setRaum(Raum neuerRaum) {
