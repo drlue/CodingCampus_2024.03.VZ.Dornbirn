@@ -1,13 +1,14 @@
 package katherina.week09.Schulsimulation;
 
 public class Person {
-    private String name;
+    String name;
 
     public Person(String name) {
         this.name=name;
     }
 
 
-
-
+    public String getName() {
+        return this.name;
+    }
 }

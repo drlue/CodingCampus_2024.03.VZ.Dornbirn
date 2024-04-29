@@ -12,15 +12,15 @@ public class Main {
 //            System.out.println();
 //        }
 
-                for (int index = 0; index <10 ; index++) {
-            System.out.println(generateLehrperson());
-            System.out.println();
-        }
-
-//        for (int index = 0; index <10 ; index++) {
-//            System.out.println(generateStudent());
+//                for (int index = 0; index <10 ; index++) {
+//            System.out.println(generateLehrperson());
 //            System.out.println();
 //        }
+
+        for (int index = 0; index <10 ; index++) {
+            System.out.println(generateStudent());
+            System.out.println();
+        }
 
 
     }

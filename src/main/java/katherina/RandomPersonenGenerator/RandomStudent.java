@@ -4492,7 +4492,7 @@ public class RandomStudent {
         };
 
         private static final String[] nachname = new String[]{"Schmidt", "Grabher", "Cecil", "Kraus", "Kofler", "Pirker", "Wagner", "Gruber", "Winkler", "Weber", "Huber","Bauer","Wimmer","Müller","Wallner","Wolf","Steiner","Pichler","Moser","Mayer","Hofer","Leitner","Berger"+
-                "Fuchs","Eder","Fischer","Schmid","Weiss","Wieser","Schwarz","Maier","Schneider","Reiter","Winter","Mayr","Egger","Baumgartner","Lang","Brunner","Auer","Lechner","Binder","Aigner","Weiß","Ebner","Koller","Zimmermann","Wiesinger","Lehner","Thaler","Haas","Zauner", "Schuster"+
+                "Fuchs","Eder","Fischer","Schmid","Weiss","Wieser","Schwarz","Maier","Schneider","Reiter","Winter","Mayr","Egger","Baumgartner","Lang","Brunner","Auer","Lechner","Binder","Aigner","Weiß","Ebner","Koller","Zimmermann","Wiesinger","Lehner","Thaler","Haas","Zauner", "Schuster",
                 "Walter","Holzer"    };
         private static final String[] klasse = new String[]{"Lernende.Klasse.EINS", "Lernende.Klasse.ZWEI", "Lernende.Klasse.DREI", "Lernende.Klasse.VIER"};
 

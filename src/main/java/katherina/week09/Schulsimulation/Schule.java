@@ -1,5 +1,10 @@
 package katherina.week09.Schulsimulation;
 
+import katherina.zoocopyforexperiments.Gehege;
+import katherina.zoocopyforexperiments.Pfleger;
+import katherina.zoocopyforexperiments.Tier;
+import katherina.zoocopyforexperiments.Tierarzt;
+
 import java.util.Vector;
 
 public class Schule {
@@ -15,7 +20,7 @@ public class Schule {
         this.ort = ort;
         this.gruendung = gruendung;
         raumliste = new Vector<>();
-        personenliste =new Vector<Person>();
+        personenliste = new Vector<>();
     }
 
     public void addRaum(Raum raum) {
@@ -31,4 +36,14 @@ public class Schule {
             personenliste.add(person);
         }
     }
+
+    public void oeffnen(Person direx) {
+        System.out.printf("%s schließgt die Schule auf. Der Tag beginnt.%n", direx.getName());
+    }
+
+    public void simulateDay(int day) {
+        System.out.printf("\nSchultag Nummer %d!%n~*~ ~*~ ~*~%n%n", day);
+        oeffnen(this.personenliste.firstElement());
+    }
+
 }
