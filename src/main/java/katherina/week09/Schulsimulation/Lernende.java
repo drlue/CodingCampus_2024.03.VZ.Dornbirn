@@ -30,7 +30,7 @@ public class Lernende extends Person {
         Random random = new Random();
         if (random.nextBoolean()) {
             System.out.println(name+ " ist zu spät und muss zum Direktor gehen.");
-            strafe(name);
+            strafe();
         }else {
         System.out.printf("%s geht in den Unterricht.%n", name);}
         sleep(450);
