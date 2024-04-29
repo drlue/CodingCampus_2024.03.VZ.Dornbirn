@@ -7,7 +7,7 @@ public class Schule {
     private String ort;
     private int gruendung;
     private Vector<Raum> raumliste;
-    private Vector<Person> personenliste;
+    protected Vector<Person> personenliste;
 
 
     public Schule(String name, String ort, int gruendung) {
@@ -30,10 +30,6 @@ public class Schule {
         if (!personenliste.contains(person)) {
             personenliste.add(person);
         }
-    }
-
-    public void oeffnen(Person direx) {
-        System.out.printf("%s schließgt die Schule auf. Der Tag beginnt.%n", direx.getName());
     }
 
     public void simulateDay(int day) {
