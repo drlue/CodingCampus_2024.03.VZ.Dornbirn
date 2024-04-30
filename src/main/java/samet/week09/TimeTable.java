@@ -25,9 +25,12 @@ public class TimeTable {
         return rooms;
     }
 
+
    // public List<SchoolClass> getClasses() {
      //   return classes;
     }
+
+
 
    // public List<Teacher> getTeachers() {
    //     return teachers;

@@ -42,7 +42,6 @@ public class School {
 
     public void startDay() {
         System.out.println(ConsoleColors.GREEN + "---- Morgen in der Schule beginnt----\n" + ConsoleColors.RESET);
-        Random random = new Random();
         for (Teacher teacher : teachers) {
             System.out.println(ConsoleColors.BLUE + teacher.getName() + ConsoleColors.RESET + " kommt in die Schule.");
         }

@@ -42,22 +42,25 @@ public class PrimitiveDatenTypen {
         }
     }
 
-    public static void countTo100InSteps(float value) {
-        for (double d = 0; d <= 100; d += value) {
-            System.out.printf(" %5.1f\n", d, d);
+    public static float countTo100InSteps(float value) {
+        float d = 0;
+        while (d <= 100) {
+            System.out.printf(" %5.1f\n", d);
+            d += value;
         }
 
 
-        for (int i = 900; i < 1000; i++) {
-            System.out.println(i / 10.0);
-        }
+//        for (int i = 900; i < 1000; i++) {
+//            System.out.println(i / 10.0);
+//        }
 
-        for (int i = 0; i <= 20; i++) {
-            System.out.println("---");
-            System.out.println("i: " + i);
-            System.out.println(i / 5);
-            System.out.println(i / 5.0);
-        }
+//        for (int i = 0; i <= 20; i++) {
+//            System.out.println("---");
+//            System.out.println("i: " + i);
+//            System.out.println(i / 5);
+//            System.out.println(i / 5.0);
+//        }
+        return d;
     }
 
     public static double calculatePi(double precision){
