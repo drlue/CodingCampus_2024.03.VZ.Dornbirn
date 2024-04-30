@@ -4497,7 +4497,7 @@ public class RandomStudent {
         private static final String[] klasse = new String[]{"Lernende.Klasse.EINS", "Lernende.Klasse.ZWEI", "Lernende.Klasse.DREI", "Lernende.Klasse.VIER"};
 
         public static String generateStudent() {
-            return "Person lernt = new Lernende(\"" + (vorname[random.nextInt(vorname.length)]) +" "+
+            return "Lernende lernt = new Lernende(\"" + (vorname[random.nextInt(vorname.length)]) +" "+
                       nachname[random.nextInt(nachname.length)] + "\","
                      + klasse[random.nextInt(klasse.length)] + ");"
                     ;

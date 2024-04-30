@@ -15,6 +15,12 @@ public class AufgabePrimitiveDateitypen {
     }
 
     public static long faktorial1(int zahl) {
+        if (zahl < 0) {
+            throw new RuntimeException("Es ist ein Fehler aufgetreten!");
+        }
+        if (zahl > 20) {
+            return -1;
+        }
         if (zahl <= 1) {
             return 1;
         } else {
@@ -24,6 +30,12 @@ public class AufgabePrimitiveDateitypen {
 
     public static long faktorial2(int zahl) {
         long teilErgebnis = 1;
+        if (zahl < 0) {
+            throw new RuntimeException("Es ist ein Fehler aufgetreten!");
+        }
+        if (zahl > 20) {
+            return -1;
+        }
         if (zahl > 1) {
             teilErgebnis = faktorial2(zahl - 1) * zahl;
         }
@@ -46,12 +58,13 @@ public class AufgabePrimitiveDateitypen {
 
     public static void kleineSchrittchen(float zahl) {
         for (float startwert = 0; startwert <= zahl; startwert += 0.100000f) {
-            System.out.print(startwert);
-            System.out.printf(" %5.1f", startwert);
+            //  System.out.print(startwert);
+            //   System.out.printf(" %5.1f", startwert);
+            //Auskommentiert, um nur noch die cleane Ausgabe in der fori-Schleife zu behalten.
             System.out.println();
         }
 
-        for (int i = 900; i < 1000; i++) {
+        for (int i = 0; i < 1000; i++) {
             System.out.println(i / 10.0);
         }
     }

@@ -1,4 +1,4 @@
-25.04.2024
+30.04.2024
 
 ### **Geplante Features**
 
@@ -16,6 +16,7 @@ Am Ende soll ausgegeben werden, ob der Zoo rote oder schwarze Zahlen geschrieben
 
 #### **Weitere Möglichkeiten, die Komplexität des Zoos zu erhöhen:**
 
+- Finegraining ("Tier" und "Gehege" jeweils als Superklassen für Unterklassen wie "Süßwasserfisch" oder für einzelne Biotope innerhalb eines Geheges), das es erlaubt, nur Tiere in ein Gehege zu setzen, die dort auch leben können und Gehege in mehrere Bereiche zu teilen, die beobachtet werden können. Mehr Gewusel!
 - Events (beispielsweise: Eine Schulklasse besucht den Zoo und gibt 300€ aus! oder "Aufgrund einer Unwetterwarnung muss der Zoo heute geschlossen bleiben. Es gibt an diesem Tag keine Besuchenden").
 - Automatisierter Anbau von Gehegen (beispielsweise "Sobald der Zoo 10.000 Euro Gewinn gemacht hat, wird ein Affenhaus gebaut und automatisch mit so und so vielen Affen gefüllt, die wiederum bestimmte Bedürfnisse haben. Leute, deren Lieblingstier ein Affe ist, geben nun mehr Geld aus.)
 - Gehalt für die Pflegenden und Honorar für den Tierarzt, sofern der Tierarzt ein Tier heilen musste. (also fast jeden Tag)
@@ -28,5 +29,4 @@ Am Ende soll ausgegeben werden, ob der Zoo rote oder schwarze Zahlen geschrieben
 
 #### **Verbesserungen**
 
-- "Die Tiere in diesem Gehege sind brav." soll nur noch einmal ausgegeben werden, nämlich für den Fall, dass kein einziger Biss im Gehege ausgelöst wird.
 - die Ausgabe bei leeren Gehegen fehlt.

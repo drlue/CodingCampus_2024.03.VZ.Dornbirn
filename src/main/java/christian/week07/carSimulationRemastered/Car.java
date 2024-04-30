@@ -33,34 +33,43 @@ public class Car {
     //======================================================================================set
     //====================================================================================alter
     public int drive(int kmRest, double fuelForKm) {
-        tank.burnFuel(fuelForKm);
-        engine.possibleDamage();
-        return --kmRest;
+        if (engine == null || tank == null) {
+            System.out.println("Important Components of the car (engine or tank) are missing!");
+            return -1;
+        } else if (kmRest > 0 && fuelForKm>0) {
+            tank.burnFuel(fuelForKm);
+            engine.possibleDamage();
+            return --kmRest;
+        } else {
+            System.out.println("Either kilometers or fuelconsumption/km is below zero!");
+            return -2;
+        }
+
     }
     //==================================================================================simulate
 
     public void drivingSimulation(int kmRest, GasStation gasStation, Repairstation repairstation) {
         int kmDriven = 0;
-        double fuelused=0;
+        double fuelused = 0;
 
         double fuelForKm = fuelUsagePerKilometer();
         engine.start(tank);
         while (kmRest > 0) {
-            if (tank.getTankLevel()<fuelForKm){
+            if (tank.getTankLevel() < fuelForKm) {
                 tank.refillTank(gasStation, this, kmDriven);
             }
             if (tank.getTankLevel() > fuelForKm && engine.getStatus() == Engine.Status.INTACTRUNNING) {
                 kmRest = drive(kmRest, fuelForKm);
                 kmDriven++;
                 engine.incrKmCounter();
-                fuelused+=fuelForKm;
+                fuelused += fuelForKm;
             }
             if (engine.getStatus() == Engine.Status.BROKE) {
                 engine.repair();
-                System.out.printf("The Engine broke down  at kilometer %d and had to be repared in %s%s%s%n", kmDriven,ConsoleColors.RED, repairstation.getName(), ConsoleColors.RESET);
+                System.out.printf("The Engine broke down  at kilometer %d and had to be repared in %s%s%s%n", kmDriven, ConsoleColors.RED, repairstation.getName(), ConsoleColors.RESET);
             }
         }
-        System.out.printf("We reached our goal! We drove %d kilometers and used %.2f liters of fuel!%n", kmDriven,fuelused);
+        System.out.printf("We reached our goal! We drove %d kilometers and used %.2f liters of fuel!%n", kmDriven, fuelused);
 
     }
 }
