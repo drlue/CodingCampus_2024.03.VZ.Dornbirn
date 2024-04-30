@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class Enclosure {
+public class Enclosure implements IEnclosure{
     Random rnd = new Random();
     String name;
     private List<Animal> animals;
@@ -18,6 +18,12 @@ public class Enclosure {
         animals = new ArrayList<>();
     }
 
+
+    public void simulateDay(){
+        serviced = false;
+        animalFight();
+        removeDeadAnimals();
+    }
 
     void addAnimal(Animal animal) {
         animals.add(animal);
@@ -58,7 +64,7 @@ public class Enclosure {
     }
 
 
-    void printStructure() {
+    public void printStructure() {
         System.out.println("│   ├── Gehege: " + name);
         if (animals.isEmpty()) {
             System.out.println("│       ├── (leer)");
