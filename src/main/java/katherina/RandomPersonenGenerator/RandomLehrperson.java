@@ -14,7 +14,7 @@ public class RandomLehrperson {
         private static final String[] fach = new String[]{"Deutsch", "Informatik", "Turnen","Latein","Mathe","Kunst"};
 
         public static String generateLehrperson() {
-            return "Person lehrperson = new Lehrperson(\"Professor " + (nachname[random.nextInt(nachname.length)]) + "\","
+            return "Lehrperson lehrperson = new Lehrperson(\"Professor " + (nachname[random.nextInt(nachname.length)]) + "\","
                      +"\""+ fach[random.nextInt(fach.length)] + "\");";
         }
     }

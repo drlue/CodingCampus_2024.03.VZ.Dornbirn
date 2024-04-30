@@ -38,11 +38,8 @@ public class Schule {
             person.oeffnen();
             person.unterricht();
             person.ankunft();
-            person.strafe();
-
-            person.schliessen();
         });
-
+        personenliste.getFirst().schliessen();
     }
 
 }
