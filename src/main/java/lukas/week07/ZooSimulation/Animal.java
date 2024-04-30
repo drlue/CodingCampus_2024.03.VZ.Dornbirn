@@ -47,6 +47,10 @@ public class Animal {
         return currentHealth;
     }
 
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
+    }
+
     public int getMaxHealth() {
         return maxHealth;
     }
