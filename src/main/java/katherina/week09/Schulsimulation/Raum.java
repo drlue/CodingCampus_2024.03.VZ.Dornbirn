@@ -3,6 +3,7 @@ package katherina.week09.Schulsimulation;
 public class Raum {
     private String name;
     private int capacity;
+    private Lehrperson lehrperson;
 
     public Raum(String name, int capacity){
         this.name=name;
@@ -14,5 +15,13 @@ public class Raum {
         return this.name;
     }
 
+
+    public Lehrperson getLehrperson() {
+        return lehrperson;
+    }
+
+    void setLehrpersonIntern(Lehrperson lehrperson) {
+        this.lehrperson = lehrperson;
+    }
 
 }

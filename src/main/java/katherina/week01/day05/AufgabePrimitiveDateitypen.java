@@ -15,6 +15,12 @@ public class AufgabePrimitiveDateitypen {
     }
 
     public static long faktorial1(int zahl) {
+        if (zahl < 0) {
+            throw new RuntimeException("Es ist ein Fehler aufgetreten!");
+        }
+        if (zahl > 20) {
+            return -1;
+        }
         if (zahl <= 1) {
             return 1;
         } else {
@@ -24,6 +30,12 @@ public class AufgabePrimitiveDateitypen {
 
     public static long faktorial2(int zahl) {
         long teilErgebnis = 1;
+        if (zahl < 0) {
+            throw new RuntimeException("Es ist ein Fehler aufgetreten!");
+        }
+        if (zahl > 20) {
+            return -1;
+        }
         if (zahl > 1) {
             teilErgebnis = faktorial2(zahl - 1) * zahl;
         }
