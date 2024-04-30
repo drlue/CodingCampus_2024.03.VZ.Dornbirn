@@ -1,9 +1,5 @@
 package katherina.week08.Schwarzwaldklinik;
 
-import katherina.zoocopyforexperiments.Gehege;
-import katherina.zoocopyforexperiments.Pfleger;
-import katherina.zoocopyforexperiments.Tierarzt;
-
 import java.util.Vector;
 
 public class Krankenhaus {
@@ -17,6 +13,7 @@ public class Krankenhaus {
         this.openHours = openHours;
         this.maxBelegung = maxBelegung;
         abteilungsliste = new Vector<>();
+
     }
 
     public void addAbteilung(Abteilung abteilung) {
@@ -26,6 +23,7 @@ public class Krankenhaus {
             System.out.printf("Dieses Krankenhaus enthält bereits eine Abteilung für \" %s\" enthält bereits das Gehege namens %s!", abteilung.getName());
         }
     }
+
 
     public void printStructure() {
         System.out.printf("├── Krankenhaus: %s%n", name);
