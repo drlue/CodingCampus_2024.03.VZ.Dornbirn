@@ -1,33 +1,32 @@
 package christian.week08.schoolSimulationV2;
 
-import christian.week08.schoolSimulationV2.humans.Human;
+import christian.week08.schoolSimulationV2.humans.SchoolClass;
+import christian.week08.schoolSimulationV2.humans.Teacher;
 import christian.week08.schoolSimulationV2.rooms.Room;
 
-import java.util.ArrayList;
-
-public class School {
+public class Timetable {
     private String name;
-    private ArrayList<Room>listOfRooms;
-    private ArrayList<Human>listOfHumans;
-
+    private SchoolClass[] classArray = new SchoolClass[8];
+    private Teacher[] teacherArray = new Teacher[8];
     //======================================================================================================get=========
-
+ public SchoolClass getSchoolClassAtIndex(int index){
+     if(classArray[index]!=null){
+         return classArray[index];
+     } else{
+         return null;
+     }
+ }
+ public Teacher getTeacherAtIndex(int index){
+     if(teacherArray[index]!=null){
+         return teacherArray[index];
+     } else{
+         return null;
+     }
+ }
     //======================================================================================================set=========
     //======================================================================================================create======
     //==================================================================================================add/remove======
     //==================================================================================================alter===========
     //==================================================================================================simulate========
 
-    public void simulateDay(){
-        for (int day = 0; day < 10; day++) {
-            for (int hour = 0; hour < 23; hour++) {
-                System.out.println(hour + ":00");
-                if(hour >= 8 && hour <= 16){
-                    for(Room room : listOfRooms){
-                        room.simulateHour(hour);
-                    }
-                }
-            }
-        }
-    }
 }
