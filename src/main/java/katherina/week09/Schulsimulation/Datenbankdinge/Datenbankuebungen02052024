@@ -29,6 +29,8 @@ order by country.name;
 
 use Mondial;
 
+use Mondial;
+
 SELECT Name, Population FROM mondial.country WHERE Name = 'Austria';
 #Wie viele Einwohner hat Österreich? - 8023244
 
@@ -39,3 +41,20 @@ where continent.name = 'Europe'
 group by continent.name; #Im Prinzip: Gucken, welche Tabellen hier "angefasst" werden und diese mittels join verbinden. Semikolon steht nur nach der fertigen Anweisung.
 #Einwohnerzahl von ganz Europa
 
+select distinct country.Name as 'country name', river.name as 'river' from country
+inner join geo_river on country.code = geo_river.country #Wenn ich sehen will, was ich mit was verknüpfen will, dann entweder "Tables" ausklappen oder Grafik im Wiki
+inner join River on geo_river.river = river.Name #Eigentlich ist der Fluss nur über die Provinz erreichbar. (Uneigentlich haben wir es so irgendwie hingekriegt.)
+#Province.name = geo_river.province
+where country.name = 'Austria';
+#Welche Flüsse fließen durch Österreich?
+
+select distinct continent.name as 'continent', river.name as 'river' from continent #select distinct entfernt Dupletten.
+inner join encompasses on continent.name = encompasses.continent
+inner join country on encompasses.country = country.code
+inner join province on country.code = province.country #Ebenenverschachtelung - das Land ist im Kontinent, die Provinz im Land ...
+inner join geo_river on Province.name = geo_river.province #... und der Fluss fließt durch die Provinz.
+inner join River on geo_river.river = river.Name
+where continent.name = 'Europe';
+#Welche Flüsse fließen durch Europa (nur den Flussnamen)?
+
+#Wie viel Prozent der Menschen leben im Kontinent Europa?
