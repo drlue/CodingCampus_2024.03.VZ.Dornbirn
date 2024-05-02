@@ -11,15 +11,12 @@ public class Room {
     private Teacher activeTeacher;
     private Timetable timetable;
 
-    public Room(String name,Timetable timetable){
+    public Room(String name, Timetable timetable) {
         this.name = name;
         this.timetable = timetable;
     }
 
     //======================================================================================================get=========
-    public Teacher getActiveTeacher() {
-        return activeTeacher;
-    }
 
     public SchoolClass getActiveClass() {
         return activeClass;
@@ -44,14 +41,15 @@ public class Room {
     //==================================================================================================alter===========
     //==================================================================================================simulate========
 
-    public void simulateLesson(){
-        if(Main.rnd.nextInt(0,101)<=5){
-            System.out.printf("Pupil %s comes to late to class!\n",activeClass.getRandomPupil());
-        }
-        if(activeClass!=null && activeTeacher != null){
-            System.out.printf("Teacher %s works with %s in %s\n",activeTeacher.getName(),getActiveClass().getName(),name);
-        } else{
-            System.out.printf("Room %s is empty!\n",name);
+    public void simulateLesson() {
+        if (activeClass != null && activeTeacher != null) {
+            if (Main.rnd.nextInt(0, 101) <= 5) {
+                System.out.printf("Pupil %s comes to late to class!\n", activeClass.getRandomPupil().getName());
+            }
+
+            System.out.printf("Teacher %s works with %s in %s\n", activeTeacher.getName(), getActiveClass().getName(), name);
+        } else {
+            System.out.printf("Room %s is empty!\n", name);
         }
     }
 

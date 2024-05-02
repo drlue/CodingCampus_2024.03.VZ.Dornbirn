@@ -36,6 +36,7 @@ public class Timetable {
         for (int i = 0; i < classArray.length; i++) {
             if(classArray[i]==null){
                 classArray[i] = schoolClass;
+                break;
             }
         }
     }
@@ -43,6 +44,7 @@ public class Timetable {
         for (int i = 0; i < teacherArray.length; i++) {
             if(teacherArray[i]==null){
                 teacherArray[i]=teacher;
+                break;
             }
         }
     }
