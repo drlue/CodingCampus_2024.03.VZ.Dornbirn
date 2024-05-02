@@ -1,6 +1,10 @@
 package christian.week08.schoolSimulationV2.humans;
 
-public class Pupil {
+public class Pupil extends Human{
+
+    public Pupil(String name){
+        super(name);
+    }
     //======================================================================================================get=========
 
     //======================================================================================================set=========

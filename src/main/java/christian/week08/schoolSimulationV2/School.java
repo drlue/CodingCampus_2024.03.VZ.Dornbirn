@@ -10,6 +10,10 @@ public class School {
     private ArrayList<Room>listOfRooms;
     private ArrayList<Human>listOfHumans;
 
+    public School (String name){
+        this.name = name;
+    }
+
     //======================================================================================================get=========
 
     //======================================================================================================set=========
@@ -24,7 +28,8 @@ public class School {
                 System.out.println(hour + ":00");
                 if(hour >= 8 && hour <= 16){
                     for(Room room : listOfRooms){
-                        room.simulateHour(hour);
+                        room.takeDataFromTimetable(hour);
+//                        room.simulateLesson();
                     }
                 }
             }
