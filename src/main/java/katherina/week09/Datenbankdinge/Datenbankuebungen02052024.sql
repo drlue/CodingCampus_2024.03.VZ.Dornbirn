@@ -2,7 +2,7 @@ Beispiele, gezeigt von Lukas:
 
 use Mondial;
 
-use Mondial;select Name, Population from country order by Name asc;select country.Name, city.name from country, city
+select Name, Population from country order by Name asc;select country.Name, city.name from country, city
 where country.code = city.country
 AND country.Name like 'Aust%'
 order by country.Name;select country.Name , city.name from country
@@ -60,3 +60,4 @@ inner join encompasses on continent.name = encompasses.continent #verbindet cont
 inner join country on encompasses.country = country.code #Alle drei sind verknüpft.
 group by continent.name; #Im Prinzip: Gucken, welche Tabellen hier "angefasst" werden und diese mittels join verbinden. Semikolon steht nur nach der fertigen Anweisung.
 #Wie viel Prozent der Menschen leben im Kontinent Europa?
+
