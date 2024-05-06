@@ -2,25 +2,37 @@ Beispiele, gezeigt von Lukas:
 
 use Mondial;
 
-select Name, Population from country order by Name asc;select country.Name, city.name from country, city
+select Name, Population from country order by Name asc;
+
+select country.Name, city.name from country, city
 where country.code = city.country
 AND country.Name like 'Aust%'
-order by country.Name;select country.Name , city.name from country
+order by country.Name;
+
+select country.Name , city.name from country
 inner join city on country.code = city.country
 where country.Name like 'Aust%'
-order by country.name;#country - Province - geo_mountain- Mountain
+order by country.name;
+
+#country - Province - geo_mountain- Mountain
 select country.Name as 'country name', province.Name as 'province', mountain.Height from country, geo_mountain, mountain
 where coutry.code = province.country
 AND province.name = geo_mountain.province
 AND geo_mountain.mountain = mountain.name
 and country.name = 'Austria'
-order by mountain.heigh desc;select country.Name as 'country name', province.Name as 'province', mountain.Height from country
+order by mountain.heigh desc;
+
+select country.Name as 'country name', province.Name as 'province', mountain.Height from country
 inner join province on country.code = province.country
 inner join geo_mountain on province.name = geo_mountain.province
 inner join mountain on go_mountain.mountain = mountain.name
 where country.name = 'Austria'
-order by montain.height desc;select * from province
-left join geo_mountain on province.name = geo_mountain.province;select country.name,count(*), min (city.population) as 'min', max(city.population) as 'max', sum(city.population) from country
+order by montain.height desc;
+
+select * from province
+left join geo_mountain on province.name = geo_mountain.province;
+
+select country.name,count(*), min (city.population) as 'min', max(city.population) as 'max', sum(city.population) from country
 inner join city on country.code = city.country
 group by country.name
 order by country.name;
