@@ -6,6 +6,9 @@ public class Rectangle extends Geometry {
     private double height;
 
     public Rectangle(double width, double height) {
+        if (width <=0 || height <= 0) {
+            throw new IllegalArgumentException("width and height must be greater than 0");
+        }
         this.width = width;
         this.height = height;
 

@@ -19,7 +19,6 @@ public class AnimalVet {
     }
 
     public void healAnimal(List<Animal> animals) {
-
         double min = 1.0;
         Animal weakestAnimal = null;
         for (Animal animal : animals) {

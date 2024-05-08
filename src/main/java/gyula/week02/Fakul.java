@@ -10,6 +10,12 @@ public class Fakul {
     }
 
     public static long fakul(int num){
+        if (num < 0){
+            throw new RuntimeException("Hello Wolrd!");
+        }
+        if (num > 20){
+            return -1;
+        }
         long n = 1;
         for (int i = 1; i <= num; i++) {
             n = (n * i);

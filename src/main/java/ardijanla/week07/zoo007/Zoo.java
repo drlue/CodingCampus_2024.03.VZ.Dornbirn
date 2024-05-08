@@ -6,8 +6,8 @@ import java.util.List;
 public class Zoo {
     String name;
     int foundingYear;
-    List<Enclosure> enclosures = new ArrayList<>();
-    List<Keeper> keepers;
+    List<IEnclosure> enclosures = new ArrayList<>();
+    List<IKeeper> keepers;
 
     private static int tag = 1;
 
@@ -17,37 +17,37 @@ public class Zoo {
         this.foundingYear = foundingYear;
     }
 
-    void addEnclosure(Enclosure enclosure) {
-        enclosures.add(enclosure);
+    void addEnclosure(IEnclosure enclosure) {
+        if (!enclosures.contains(enclosure)) {
+            enclosures.add(enclosure);
+        }
     }
 
-    void removeEnclosure(Enclosure enclosure) {
+    void removeEnclosure(IEnclosure enclosure) {
         enclosures.remove(enclosure);
     }
 
-    void addKeeper(Keeper keeper) {
+    void addKeeper(IKeeper keeper) {
         keepers.add(keeper);
     }
 
     void simulateDay() {
         System.out.println("Tag: " +  tag);
         tag++;
-        for (Enclosure enclosure : enclosures) {
-            enclosure.serviced = false;
-            enclosure.animalFight();
-            enclosure.removeDeadAnimals();
+        for (IEnclosure enclosure : enclosures) {
+            enclosure.simulateDay();
         }
-        for (Keeper keeper : keepers) {
+        for (IKeeper keeper : keepers) {
             keeper.performDuties();
         }
     }
 
     void printStructure() {
         System.out.println("├── Zooo: " + name + ", gegründet " + foundingYear);
-        for (Enclosure enclosure : enclosures) {
+        for (IEnclosure enclosure : enclosures) {
             enclosure.printStructure();
         }
-        for (Keeper keeper : keepers) {
+        for (IKeeper keeper : keepers) {
             keeper.printStructure();
         }
     }

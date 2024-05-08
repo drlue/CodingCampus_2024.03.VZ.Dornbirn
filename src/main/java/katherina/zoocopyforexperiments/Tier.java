@@ -1,6 +1,7 @@
 package katherina.zoocopyforexperiments;
 
 
+import java.util.Map;
 import java.util.Random;
 
 public class Tier {
@@ -13,6 +14,9 @@ public class Tier {
     private int maxGesundheit;
     private int biss;
 
+    private float futtermenge;
+    private Tierfutter futter;
+
 
     private Status status;
 
@@ -21,13 +25,15 @@ public class Tier {
         TOT
     }
 
-    public Tier(String name, String gattung, int gesundheit, int maxGesundheit, int biss) {
+    public Tier(String name, String gattung, Tierfutter futter, float futtermenge, int gesundheit, int maxGesundheit, int biss) {
         this.name = name;
         this.gattung = gattung;
         this.gesundheit = gesundheit;
         this.maxGesundheit = maxGesundheit;
         this.biss = biss;
         this.status = Status.LEBENDIG;
+        this.futter=futter;
+        this.futtermenge=futtermenge;
     }
 
     public boolean lebendig() {
@@ -73,6 +79,13 @@ public class Tier {
         }
     }
 
+    public void getFutterBedarf(Map<Tierfutter, Float> futterBedarf) {
+        if (futterBedarf.containsKey(futter)) {
+            futterBedarf.put(futter, futterBedarf.get(futter) + futtermenge);
+        } else {
+            futterBedarf.put(futter, futtermenge);
+        }
+    }
 
     public void printStructure() {
         System.out.printf("│        ├── %s, %s %n", name, gattung);

@@ -5,7 +5,7 @@ import ardijanla.ConsoleColors;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Keeper {
+public class Keeper implements IKeeper {
     private String name;
     private List<Enclosure> responsibilities;
     private Animal favoriteAnimal;
@@ -23,7 +23,7 @@ public class Keeper {
         this.favoriteAnimal = favoriteAnimal;
     }
 
-    void performDuties() {
+    public void performDuties() {
         for (Enclosure enclosure : responsibilities) {
             enclosure.performService(this);
         }
@@ -42,7 +42,7 @@ public class Keeper {
         }
     }
 
-    void printStructure() {
+    public void printStructure() {
         System.out.print("│   ├── Pfleger: " + name + " - Zuständig für: ");
         for (Enclosure enclosure : responsibilities) {
             System.out.print(enclosure.name + ", ");

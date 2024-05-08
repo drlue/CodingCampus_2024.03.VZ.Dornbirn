@@ -15,47 +15,55 @@ public class ZooSim {
         Gehege aquarium = new Gehege("Aquarium");
         tiergartenAndelsbuch.addGehege(aquarium);
 
-        Tier kuh1 = new Tier("Rijska", "Kuh", 1000, 1000, 200);
+        Tierfutter heu = new Tierfutter("Heu", "Kilogramm", 0.03f);
+        Tierfutter karottenuss = new Tierfutter("Karotte-Nuss-Mix", "Kilogramm", 8);
+        Tierfutter eintagskueken = new Tierfutter("Eintagskueken", "Kilogramm", 7.59f);
+        Tierfutter insektenmix = new Tierfutter("Insektenmix", "Kilogramm", 14.99f);
+        Tierfutter teichfischmix = new Tierfutter("Teichfischmix", "Kilogramm", 7.56f);
+        Tierfutter noriflocken = new Tierfutter("Noriflocken", "Gramm", 0.30f);
+        Tierfutter mineralstein = new Tierfutter("Mineralstein", "Stück", 2.99f);
+
+        Tier kuh1 = new Tier("Rijska", "Kuh", heu, 20, 1000, 1000, 200);
         alpenwiese.addTier(kuh1);
-        Tier kuh2 = new Tier("Baldrian", "Kuh", 1200, 1200, 150);
+        Tier kuh2 = new Tier("Baldrian", "Kuh", heu, 20, 1200, 1200, 150);
         alpenwiese.addTier(kuh2);
-        Tier murmeli = new Tier("Pfiffikus", "Murmeltier", 250, 250, 30);
+        Tier murmeli = new Tier("Pfiffikus", "Murmeltier", karottenuss, 1.2f, 250, 250, 30);
         alpenwiese.addTier(murmeli);
-        Tier murmeli2 = new Tier("Whistle", "Murmeltier", 250, 250, 30);
+        Tier murmeli2 = new Tier("Whistle", "Murmeltier", karottenuss, 1.2f, 250, 250, 30);
         alpenwiese.addTier(murmeli2);
-        Tier murmeli3 = new Tier("Beerenschreck", "Murmeltier", 250, 250, 30);
+        Tier murmeli3 = new Tier("Beerenschreck", "Murmeltier", karottenuss, 1.2f, 250, 250, 30);
         alpenwiese.addTier(murmeli3);
-        Tier steinbock = new Tier("Böckli", "Steinbock", 500, 500, 300);
+        Tier steinbock = new Tier("Böckli", "Steinbock", heu, 5, 500, 500, 300);
         alpenwiese.addTier(steinbock);
-        Tier schaf1 = new Tier("Lisa", "Schaf", 150, 150, 25);
+        Tier schaf1 = new Tier("Lisa", "Schaf", heu, 3, 150, 150, 25);
         alpenwiese.addTier(schaf1);
 
-        Tier storch1 = new Tier("Garmond", "Storch", 300, 300, 50);
+        Tier storch1 = new Tier("Garmond", "Storch", eintagskueken, 0.6f, 300, 300, 50);
         ried.addTier(storch1);
-        Tier storch2 = new Tier("Hugo", "Storch", 250, 250, 45);
+        Tier storch2 = new Tier("Hugo", "Storch", eintagskueken, 0.6f, 250, 250, 45);
         ried.addTier(storch2);
-        Tier storch3 = new Tier("Idaxis", "Storch", 350, 350, 55);
+        Tier storch3 = new Tier("Idaxis", "Storch", eintagskueken, 0.6f, 350, 350, 55);
         ried.addTier(storch3);
-        Tier storch4 = new Tier("Adelina", "Storch", 350, 350, 55);
+        Tier storch4 = new Tier("Adelina", "Storch", eintagskueken, 0.6f, 350, 350, 55);
         ried.addTier(storch4);
-        Tier kiebitz = new Tier("Piepmatz", "Kiebitz", 50, 50, 5);
+        Tier kiebitz = new Tier("Piepmatz", "Kiebitz", insektenmix, 0.1f, 50, 50, 5);
         ried.addTier(kiebitz);
-        Tier kiebitz2 = new Tier("Matzepiep", "Kiebitz", 50, 50, 5);
+        Tier kiebitz2 = new Tier("Matzepiep", "Kiebitz", insektenmix, 0.1f, 50, 50, 5);
         ried.addTier(kiebitz2);
-        Tier kiebitz3 = new Tier("Flauschepiep", "Kiebitz", 50, 50, 5);
+        Tier kiebitz3 = new Tier("Flauschepiep", "Kiebitz", insektenmix, 0.1f, 50, 50, 5);
         ried.addTier(kiebitz3);
 
         //Hier könnte außerdem unser Terrariumstier stehen! Aktuell haben wir noch keins.
 
-        Tier koi1 = new Tier("Yamato", "Koi-Karpfen", 400, 400, 15);
+        Tier koi1 = new Tier("Yamato", "Koi-Karpfen", teichfischmix, 0.02f, 400, 400, 15);
         aquarium.addTier(koi1);
-        Tier koi2 = new Tier("Makoto", "Koi-Karpfen", 450, 450, 15);
+        Tier koi2 = new Tier("Makoto", "Koi-Karpfen", teichfischmix, 0.02f, 450, 450, 15);
         aquarium.addTier(koi2);
-        Tier koi3 = new Tier("Hotaru", "Koi-Karpfen", 450, 450, 15);
+        Tier koi3 = new Tier("Hotaru", "Koi-Karpfen", teichfischmix, 0.02f, 450, 450, 15);
         aquarium.addTier(koi3);
-        Tier seeigel = new Tier("Stachelus", "Seeigel", 250, 250, 50);
+        Tier seeigel = new Tier("Stachelus", "Seeigel", noriflocken, 2, 250, 250, 50);
         aquarium.addTier(seeigel);
-        Tier flussschnecke = new Tier("Schnecki", "Flussschnecke", 145, 145, 5);
+        Tier flussschnecke = new Tier("Schnecki", "Flussschnecke", mineralstein, 1 / 14f, 145, 145, 5);
         aquarium.addTier(flussschnecke);
 
         Pfleger paul = new Pfleger("Paul Rossmann", "Murmeltier");
@@ -71,13 +79,11 @@ public class ZooSim {
         tiergartenAndelsbuch.printStructure();
 
 
-
-
         System.out.println();
-        for (int day = 1; day <= 10; day++) {
+        for (int day = 1; day <= 1; day++) {
             tiergartenAndelsbuch.simulateDay(day);
-            tiergartenAndelsbuch.printStructure();
         }
-
     }
+
 }
+
