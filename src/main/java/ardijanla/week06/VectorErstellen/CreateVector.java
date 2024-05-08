@@ -25,7 +25,7 @@ public class CreateVector {
         System.out.println(mergeVectors(sortByAsc(vec), sortByAsc(vec1)));
     }
 
-    public static Vector<Integer> createVector(int size){
+    public static Vector<Integer> createVector(int size) {
         Vector<Integer> vec = new Vector<>();
         for (int i = 0; i < size; i++) {
             vec.add(rnd.nextInt(0, 100));
@@ -34,6 +34,9 @@ public class CreateVector {
     }
 
     public static int getEvenNumbers(Vector<Integer> vec) {
+        if (vec == null) {
+            return -1;
+        }
         int counter = 0;
         for (Integer x : vec) {
             if (x % 2 == 0) {
@@ -66,7 +69,7 @@ public class CreateVector {
 
     public static Vector<Integer> sortByAsc(Vector<Integer> vec) {
         for (int i = 0; i < vec.size(); i++) {
-            for (int j = 0; j < vec.size() - i  -1; j++) {
+            for (int j = 0; j < vec.size() - i - 1; j++) {
                 if (vec.get(j) > vec.get(j + 1)) {
                     Integer temp = vec.set(j, vec.get(j + 1));
                     vec.set(j + 1, temp);
@@ -102,7 +105,7 @@ public class CreateVector {
 
 
     // TODO: merge of two Vector. See as merge sort by arrays tasks...
-    public static Vector<Integer> combineVectors(Vector<Integer> vec,Vector<Integer>vec1){
+    public static Vector<Integer> combineVectors(Vector<Integer> vec, Vector<Integer> vec1) {
         Vector<Integer> newVec = new Vector<>();
         newVec.addAll(vec);
         newVec.addAll(vec1);
@@ -110,25 +113,24 @@ public class CreateVector {
         return newVec;
     }
 
-    public static Vector<Integer> mergeVectors(Vector<Integer> a,Vector<Integer>b){
+    public static Vector<Integer> mergeVectors(Vector<Integer> a, Vector<Integer> b) {
         Vector<Integer> c = new Vector<>();
 
-        while(!a.isEmpty() && !b.isEmpty()){
-            if (a.firstElement() < b.firstElement()){
+        while (!a.isEmpty() && !b.isEmpty()) {
+            if (a.firstElement() < b.firstElement()) {
                 c.add(a.firstElement());
                 a.removeFirst();
-            }
-            else{
+            } else {
                 c.add(b.firstElement());
                 b.removeFirst();
             }
         }
-        while(!a.isEmpty()){
+        while (!a.isEmpty()) {
             c.add(a.firstElement());
             a.removeFirst();
         }
 
-        while(!b.isEmpty()){
+        while (!b.isEmpty()) {
             c.add(b.firstElement());
             b.removeFirst();
         }

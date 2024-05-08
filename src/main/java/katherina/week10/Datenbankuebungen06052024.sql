@@ -16,3 +16,11 @@ where encompasses.Continent = 'Europe' AND encompasses.Percentage >= 50
 order by river.Length DESC;
 
 #Tipp: Immer wieder zwischendurch Tabellen ausgeben lassen mit Select * Tabelle. Dann gucken, ob es verknüpfbare Parts gibt. 
+
+#Wie viel Prozent der Menschen leben im Kontinent Europa?
+select continent.name as 'Kontinent', (sum(country.Population)/(select sum(country.Population) from country))*100 AS 'percentage of world population'
+ from continent
+join encompasses on continent.name = encompasses.continent #Füge zur Tabelle "Encompasses" den Namen des Kontinents hinzu.
+join country on encompasses.country = country.code #füge zur Tabelle "Country" die Reihe "country" aus der Encompasses-Tabelle hinzu.
+where encompasses.Continent = 'Europe' AND encompasses.Percentage >= 50
+group by continent.name;
