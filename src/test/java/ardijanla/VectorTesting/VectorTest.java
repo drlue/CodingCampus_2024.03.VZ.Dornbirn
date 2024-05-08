@@ -59,7 +59,7 @@ public class VectorTest {
     public void testSortByAscEmptyVector(){
         Vector<Integer> vector = new Vector<>();
 
-        assertEquals(,sortByAsc(vector));
+        assertEquals(0,sortByAsc(vector));
 
 
     }
