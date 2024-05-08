@@ -1,72 +1,31 @@
 package katherina.week10.objectOrientationAndMySQL;
 
+import java.util.Vector;
+
 public class Country {
     private String name;
     private String code;
-    private String capital;
-    private String province;
+    private City capital;
     private float area;
     private int population;
 
-    public Country(String name, String code, String capital, String province, float area, int population) {
+    private Vector<City> cities;
+
+    public Country(String name, String code, City capital, float area, int population) {
         this.name = name;
         this.code = code;
         this.capital = capital;
-        this.province = province;
         this.area = area;
         this.population = population;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCapital(String capital) {
-        this.capital = capital;
-    }
-
-    public String getCapital() {
-        return capital;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setArea(float area) {
-        this.area = area;
-    }
-
-    public float getArea() {
-        return area;
-    }
-
-    public void setPopulation(int population) {
-        this.population = population;
-    }
-
-    public int getPopulation() {
-        return population;
+        cities = new Vector<>();
     }
 
     public void printStructure() {
-        System.out.printf("│        ├── %s, %s, %s, %s, %f, %d %n", name, code, capital, province,area,population);
+        System.out.printf("│        ├── %s, %s, %s, %f, %d %n", name, code, capital, area, population);
+    }
+
+    public void printObject() {
+        System.out.printf("Country %s = new country(\"%s\",\"%s\", %d);%n", code.toLowerCase(), name, code, population);
     }
 
 }
