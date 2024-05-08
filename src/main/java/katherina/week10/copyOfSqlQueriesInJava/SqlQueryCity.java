@@ -31,15 +31,16 @@ public class SqlQueryCity {
                         metaData.getColumnDisplaySize(col)
                         );
             }
-            System.out.print("Stadt           |");
+            System.out.print("Stadt                               |");
             System.out.print("Einwohnerzahl|");
-            System.out.println("\n------------------------------");
+            System.out.println("\n---------------------------------------------------");
             while (rs.next()){
                 String name = rs.getString(1);
                 int population = rs.getInt(4);
-                System.out.printf("|%15.25s| %11d |%n", name, population);
+                System.out.printf("|%35.25s| %11d |%n", name, population);
+                //35, weil laut Tabelle die maximale Char-Anzahl in "City" bei 35 liegt.
             }
-            System.out.print("------------------------------");
+            System.out.print("---------------------------------------------------");
 
         } catch (SQLException sqle){
             sqle.printStackTrace();
