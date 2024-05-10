@@ -223,5 +223,19 @@ left join geo_sea on country.code = geo_sea.country
 where geo_sea.sea is null;
 
 
+select * from city
+where city.country like'A';
 
+insert into city (name,Country,province,population)
+values ('Dornbirn','A', 'Vorarlberg',42000);
+
+insert into city
+values('Bludenz', 'A','Vorarlberg',26000,null,null);
+
+update city c
+set c.population = 30000
+where c.name = 'Bregenz';
+
+delete from city
+where city.name like 'Blud%';
 
