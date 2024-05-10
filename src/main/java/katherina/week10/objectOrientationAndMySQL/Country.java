@@ -19,9 +19,9 @@ public class Country {
         cities = new Vector<>();
     }
 
-    public City searchAndCreateCityByName(String name){
-        for (City c: cities){
-            if (c.getName().equals(name)){
+    public City searchAndCreateCityByName(String name) {
+        for (City c : cities) {
+            if (c.getName().equals(name)) {
                 return c;
             }
         }
@@ -32,7 +32,7 @@ public class Country {
     }
 
     public void printStructure() {
-        for (City city : cities){
+        for (City city : cities) {
             city.printObject();
             city.printStructure();
         }
@@ -56,8 +56,12 @@ public class Country {
                 String name = resultSet.getString(1);
                 String code = resultSet.getString(2);
                 int population = resultSet.getInt(6);
+                //Ein ResultSet ist kein Container, der Daten speichert (der gibt die nur aus).
+                // Aus diesem Grund implementiert ResultSet auch nicht die Schnittstelle Serializable.
                 System.out.printf("Country %s = new country(\"%s\",\"%s\", %d);%n", code.toLowerCase(), name, code, population);
             }
+//Zur Implementierung hier lang: https://openbook.rheinwerk-verlag.de/java8/21_009.html Punkt 21.9.2
+
 
         } catch (SQLException sqle) {
             sqle.printStackTrace();
@@ -81,7 +85,6 @@ public class Country {
                 }
             }
         }
-
 
 
     }

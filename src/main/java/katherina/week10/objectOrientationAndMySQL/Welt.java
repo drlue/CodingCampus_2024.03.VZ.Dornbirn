@@ -14,6 +14,7 @@ public class Welt {
       public void addCountry(Country country) {
             if (!countrylist.contains(country)) {
                 countrylist.add(country);
+                country.printObject();
             }
         }
 

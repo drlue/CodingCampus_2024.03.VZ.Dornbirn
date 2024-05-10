@@ -6,6 +6,7 @@ public class MainClass {
         Welt earth = new Welt("Erde");
 
         earth.printStructure();
+
     }
 
 
