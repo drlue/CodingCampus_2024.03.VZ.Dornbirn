@@ -25,6 +25,7 @@ public class Welt {
             country.printObject();
             country.printStructure();
         }
+
     }
 
 }

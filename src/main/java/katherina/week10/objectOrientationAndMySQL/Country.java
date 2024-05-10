@@ -7,22 +7,36 @@ public class Country {
     private String name;
     private String code;
     private City capital;
-    private float area;
     private int population;
 
     private Vector<City> cities;
 
-    public Country(String name, String code, City capital, float area, int population) {
+    public Country(String name, String code, String nameOfCapital, int population) {
         this.name = name;
         this.code = code;
-        this.capital = capital;
-        this.area = area;
+        this.capital = searchAndCreateCityByName(nameOfCapital);
         this.population = population;
         cities = new Vector<>();
     }
 
+    public City searchAndCreateCityByName(String name){
+        for (City c: cities){
+            if (c.getName().equals(name)){
+                return c;
+            }
+        }
+        City c = new City(name);
+        c.setCountry(this);
+        cities.add(c);
+        return c;
+    }
+
     public void printStructure() {
-        System.out.printf("│        ├── %s, %s, %s, %f, %d %n", name, code, capital, area, population);
+        for (City city : cities){
+            city.printObject();
+            city.printStructure();
+        }
+        System.out.printf("│        ├── %s, %s, %s, %d %n", name, code, capital, population);
     }
 
     public void printObject() {
@@ -71,6 +85,4 @@ public class Country {
 
 
     }
-//        System.out.printf("Country %s = new country(\"%s\",\"%s\", %d);%n", code.toLowerCase(), name, code, population);
-    //nur für den Fall, dass ich das doch noch brauche.
 }
