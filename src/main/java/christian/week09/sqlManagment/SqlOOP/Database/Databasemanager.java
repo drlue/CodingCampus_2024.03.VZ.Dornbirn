@@ -7,17 +7,17 @@ import christian.week09.sqlManagment.SqlOOP.model.World;
 import java.sql.*;
 
 public class Databasemanager {
-    private static Databasemanager _Instance=null;
+    private static Databasemanager _Instance = null;
     private Connection conn = null;
 
-    private Databasemanager(){
+    private Databasemanager() {
 
     }
 
     //================================================================================================get=========
 
-    public static Databasemanager getInstance(){
-        if(_Instance == null){
+    public static Databasemanager getInstance() {
+        if (_Instance == null) {
             _Instance = new Databasemanager();
         }
         return _Instance;
@@ -28,31 +28,35 @@ public class Databasemanager {
     //================================================================================================remove=========
     //================================================================================================SQL=========
 
-    public void getConnection(){
-        if(conn==null){
-            try{
+    public void getConnection() {
+        if (conn == null) {
+            try {
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Mondial?user=root&password=Zmamk_243567");
-            }catch (SQLException sex){
+            } catch (SQLException sex) {
                 sex.printStackTrace();
             }
         }
     }
-    public void readContinentFromDB (World world){
-        try{
+
+    public void readContinentFromDB(World world) {
+        try {
             PreparedStatement prep = conn.prepareStatement("Select * from Continent");
             ResultSet rs = prep.executeQuery();
 
-            while(rs.next()){
+            while (rs.next()) {
                 Continent c = new Continent(
                         rs.getString("name"),
-                        rs.getInt("population")
+                        rs.getInt("area")
                 );
                 world.addContinentToList(c);
-            }
-        }catch (SQLException sex){
 
+            }
+        } catch (SQLException sex) {
+            sex.printStackTrace();
         }
     }
 
+    public void readCountryFromDB(){
 
+    }
 }
