@@ -1,8 +1,10 @@
 package christian.week09.sqlManagment.SqlOOP.Database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import christian.week09.sqlManagment.SqlOOP.model.Continent;
+import christian.week09.sqlManagment.SqlOOP.model.World;
+
+
+import java.sql.*;
 
 public class Databasemanager {
     private static Databasemanager _Instance=null;
@@ -11,12 +13,21 @@ public class Databasemanager {
     private Databasemanager(){
 
     }
+
+    //================================================================================================get=========
+
     public static Databasemanager getInstance(){
         if(_Instance == null){
             _Instance = new Databasemanager();
         }
         return _Instance;
     }
+    //================================================================================================set=========
+    //================================================================================================create=========
+    //================================================================================================alter=========
+    //================================================================================================remove=========
+    //================================================================================================SQL=========
+
     public void getConnection(){
         if(conn==null){
             try{
@@ -24,6 +35,22 @@ public class Databasemanager {
             }catch (SQLException sex){
                 sex.printStackTrace();
             }
+        }
+    }
+    public void readContinentFromDB (World world){
+        try{
+            PreparedStatement prep = conn.prepareStatement("Select * from Continent");
+            ResultSet rs = prep.executeQuery();
+
+            while(rs.next()){
+                Continent c = new Continent(
+                        rs.getString("name"),
+                        rs.getInt("population")
+                );
+                world.addContinentToList(c);
+            }
+        }catch (SQLException sex){
+
         }
     }
 
