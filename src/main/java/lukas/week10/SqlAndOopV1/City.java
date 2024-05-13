@@ -1,4 +1,4 @@
-package lukas.week10.SqlAndOop;
+package lukas.week10.SqlAndOopV1;
 
 public class City {
 

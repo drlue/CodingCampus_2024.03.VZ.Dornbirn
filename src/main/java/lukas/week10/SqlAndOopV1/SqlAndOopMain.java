@@ -1,6 +1,4 @@
-package lukas.week10.SqlAndOop;
-
-import java.sql.*;
+package lukas.week10.SqlAndOopV1;
 
 public class SqlAndOopMain {
 
@@ -8,6 +6,8 @@ public class SqlAndOopMain {
         World myWorld = new World();
         myWorld.readCountriesFromDb();
         myWorld.readCitiesFromDb();
+
+
     }
 
 

@@ -1,4 +1,4 @@
-package lukas.week10.SqlAndOop;
+package lukas.week10.SqlAndOopV1;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,15 +10,15 @@ public class World {
     private List<Country> countries;
     private List<City> cities;
 
-    public World (){
-        countries= new Vector<>();
+    public World() {
+        countries = new Vector<>();
         cities = new Vector<>();
     }
 
 
-    public void readCountriesFromDb()  {
+    public void readCountriesFromDb() {
         ResultSet rs = DbFunctions.getRsFromDb("Select * from Country");
-        while(true){
+        while (true) {
             try {
                 if (!rs.next()) break;
                 else {
@@ -28,9 +28,10 @@ public class World {
                             rs.getString("Capital"),
                             rs.getString("Province"),
                             rs.getFloat("Area"),
-                            rs.getInt("FLoat")
+                            rs.getInt("Population")
                     );
                     countries.add(country);
+                    country.setCitiesOfCountry();
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -39,9 +40,9 @@ public class World {
         }
     }
 
-    public void readCitiesFromDb()  {
+    public void readCitiesFromDb() {
         ResultSet rs = DbFunctions.getRsFromDb("Select * from City");
-        while(true){
+        while (true) {
             try {
                 if (!rs.next()) break;
                 else {
@@ -61,5 +62,6 @@ public class World {
 
         }
     }
+
 
 }
