@@ -1,6 +1,7 @@
 package christian.week09.sqlManagment.SqlOOP.Database;
 
 import christian.week09.sqlManagment.SqlOOP.model.Continent;
+import christian.week09.sqlManagment.SqlOOP.model.Country;
 import christian.week09.sqlManagment.SqlOOP.model.World;
 
 
@@ -49,14 +50,30 @@ public class Databasemanager {
                         rs.getInt("area")
                 );
                 world.addContinentToList(c);
-
+                readCountryFromDB(c);
             }
         } catch (SQLException sex) {
             sex.printStackTrace();
         }
     }
 
-    public void readCountryFromDB(){
+    public void readCountryFromDB(Continent continent){
+        try {
+            PreparedStatement prep = conn.prepareStatement("Select * from Country join encompasses on country.code = encompasses.country where encompasses.continent = ?");
+            prep.setString(1,continent.getName());
+            ResultSet rs = prep.executeQuery();
 
+            while (rs.next()) {
+                Country c = new Country(
+                        rs.getString("name"),
+                        rs.getInt("population"),
+                        rs.getString("code")
+                );
+                continent.addCountryToList(c);
+
+            }
+        } catch (SQLException sex) {
+            sex.printStackTrace();
+        }
     }
 }

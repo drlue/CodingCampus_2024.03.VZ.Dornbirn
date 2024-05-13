@@ -6,7 +6,7 @@ public class Country {
     private String name;
     private int population;
     private String code;
-    private int printcounter = 0;
+    private static int printcounter = 0;
 
     private ArrayList<City> listOfCities;
 
@@ -27,10 +27,10 @@ public class Country {
     //================================================================================================print=========
     public void printStructure() {
         printcounter++;
-        int counterTimesTen = 10 * printcounter;
-        if (printcounter == 5) {
+        int counterTimesTen = 9 * printcounter;
+        if (printcounter == 3) {
             printcounter = 0;
-        } else if (printcounter > 3) {
+        } else if (printcounter > 1) {
             System.out.printf("%" +counterTimesTen+ "s (%d pop),%n", name,population);
         } else {
             System.out.printf("%" +counterTimesTen+ "s (%d pop),", name,population);

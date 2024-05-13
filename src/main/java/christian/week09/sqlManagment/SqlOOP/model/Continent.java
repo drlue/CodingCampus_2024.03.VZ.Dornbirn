@@ -18,6 +18,11 @@ public class Continent {
 
 
     //================================================================================================get=========
+
+    public String getName() {
+        return name;
+    }
+
     //================================================================================================set=========
     //================================================================================================create=========
     public void addCountryToList(Country country){
@@ -34,6 +39,8 @@ public class Continent {
         System.out.printf("%sContinent:%20s (%.0f km² area)%n%s", ConsoleColors.RED,name,area,ConsoleColors.RESET);
         for (Country country:listOfCountries) {
             country.printStructure();
+
         }
+        System.out.println();
     }
 }
