@@ -21,6 +21,7 @@ public class BankMain {
 
         Customer customer2 = new Customer("Mozart Amadeus", 54,"Paradiesgasse 5 6890 Lustenau");
         bank.addCustomer(customer2);
+        customer1.withdraw(account1,400);
 
 
         bank.printStructure();

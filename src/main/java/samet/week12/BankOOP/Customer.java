@@ -24,9 +24,17 @@ public class Customer {
         if (!accountList.contains(account)){
             accountList.add(account);
         }
-
-
     }
+    public void deposit(Account account, double amount){
+        account.deposit(amount);
+    }
+
+    public void withdraw(Account account, double amount){
+        account.withdraw(amount);
+    }
+
+
+
 
     public void printStructure(){
         System.out.printf("|    |--- Customer: %s %s %s %n" ,name, age, address);

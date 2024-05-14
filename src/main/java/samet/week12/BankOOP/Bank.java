@@ -19,7 +19,9 @@ public class Bank {
     }
 
     public void addCustomer(Customer customer){
-        customerList.add(customer);
+        if (!customerList.contains(customer)){
+            customerList.add(customer);
+        }
     }
 
     public void printStructure(){
