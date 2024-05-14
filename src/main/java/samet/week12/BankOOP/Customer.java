@@ -29,7 +29,7 @@ public class Customer {
     }
 
     public void printStructure(){
-        System.out.printf("|   |--- Customer: %s%s%s" ,name, age, address);
+        System.out.printf("|    |--- Customer: %s %s %s %n" ,name, age, address);
         for (Account account : accountList){
             account.printStructure();
         }

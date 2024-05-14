@@ -23,7 +23,7 @@ public class Bank {
     }
 
     public void printStructure(){
-        System.out.println("|-- Bank:" + name + ", established " + opening);
+        System.out.println("|--- Bank:" + name + ", established " + opening);
         for (Customer customer : customerList){
             customer.printStructure();
         }
