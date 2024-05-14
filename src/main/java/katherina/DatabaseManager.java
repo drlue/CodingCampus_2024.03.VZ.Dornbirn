@@ -71,10 +71,10 @@ public class DatabaseManager {
     }
 
     public void readCustomer(Bank bank){
-        getConnection();
+        getConnection2();
         if (conn != null) {
             try {
-                PreparedStatement ps = conn.prepareStatement("Select * FROM country");
+                PreparedStatement ps = conn.prepareStatement("Select * FROM customer");
                 ResultSet rs = ps.executeQuery();
 
                 while (rs.next()) {
