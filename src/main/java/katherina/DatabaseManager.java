@@ -2,6 +2,8 @@ package katherina;
 
 import katherina.week10.objectOrientationAndMySQL.Country;
 import katherina.week10.objectOrientationAndMySQL.Welt;
+import katherina.week11.sqlBank.Bank;
+import katherina.week11.sqlBank.Customer;
 
 import java.sql.*;
 
@@ -31,6 +33,18 @@ public class DatabaseManager {
         return conn;
     }
 
+    public Connection getConnection2(){
+        if (conn == null){
+            try {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank?useUnicode=true&characterEncoding=utf8", "root", "3v4n3sC4");
+            } catch (SQLException sqle){
+                sqle.printStackTrace();
+                conn = null;
+            }
+        }
+        return conn;
+    }
+
     public void readCountry(Welt w){
         getConnection();
         if (conn != null) {
@@ -44,6 +58,31 @@ public class DatabaseManager {
                     country.setCode(rs.getString("Code"));
                     country.setPopulation(rs.getInt("Population"));
                     w.addCountry(country);
+                }
+                rs.close();
+                ps.close();
+            } catch (SQLException sqle){
+                try {
+                    conn.close();
+                } catch (SQLException e){}
+                conn = null;
+            }
+        }
+    }
+
+    public void readCustomer(Bank bank){
+        getConnection();
+        if (conn != null) {
+            try {
+                PreparedStatement ps = conn.prepareStatement("Select * FROM country");
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    Customer customer = new Customer();
+                    customer.setName(rs.getString("Name"));
+                    customer.setSurname(rs.getString("Surname"));
+                    customer.setBalance(rs.getInt("Balance"));
+                    bank.addCustomer(customer);
                 }
                 rs.close();
                 ps.close();
