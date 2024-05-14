@@ -19,6 +19,7 @@ public class Country {
         cities = new Vector<>();
     }
 
+
     public City searchAndCreateCityByName(String name) {
         for (City c : cities) {
             if (c.getName().equals(name)) {
@@ -87,5 +88,17 @@ public class Country {
         }
 
 
+    }
+
+    public void setName(String name) {
+        this.name=name;
+    }
+
+    public void setCode(String area) {
+        this.code=code;
+    }
+
+    public void setPopulation(int population) {
+        this.population=population;
     }
 }
