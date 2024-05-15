@@ -1,4 +1,4 @@
-package samet.week12.BankOOP;
+package samet.week12.BankOOP.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +21,7 @@ public class DbManager {
     public Connection getConn() {
         if (conn == null) {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Mondial?user=samet&password=samet");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank?user=samet&password=samet");
             } catch (SQLException sqle) {
                 sqle.printStackTrace();
                 conn = null;

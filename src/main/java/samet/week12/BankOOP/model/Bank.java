@@ -1,4 +1,4 @@
-package samet.week12.BankOOP;
+package samet.week12.BankOOP.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,22 +11,22 @@ public class Bank {
     private List<Customer> customerList;
 
 
-    public Bank (String name, int opening){
+    public Bank(String name, int opening) {
 
         this.name = name;
         this.opening = opening;
         this.customerList = new ArrayList<>();
     }
 
-    public void addCustomer(Customer customer){
-        if (!customerList.contains(customer)){
+    public void addCustomer(Customer customer) {
+        if (!customerList.contains(customer)) {
             customerList.add(customer);
         }
     }
 
-    public void printStructure(){
+    public void printStructure() {
         System.out.println("|--- Bank:" + name + ", established " + opening);
-        for (Customer customer : customerList){
+        for (Customer customer : customerList) {
             customer.printStructure();
         }
     }
