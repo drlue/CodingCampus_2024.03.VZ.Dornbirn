@@ -1,4 +1,4 @@
-package katherina.week11.sqlBank;
+package katherina.week11.sqlBank.struktur;
 
 import java.util.List;
 

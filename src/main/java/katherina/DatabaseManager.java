@@ -2,8 +2,8 @@ package katherina;
 
 import katherina.week10.objectOrientationAndMySQL.Country;
 import katherina.week10.objectOrientationAndMySQL.Welt;
-import katherina.week11.sqlBank.Bank;
-import katherina.week11.sqlBank.Customer;
+import katherina.week11.sqlBank.struktur.Bank;
+import katherina.week11.sqlBank.struktur.Customer;
 
 import java.sql.*;
 
