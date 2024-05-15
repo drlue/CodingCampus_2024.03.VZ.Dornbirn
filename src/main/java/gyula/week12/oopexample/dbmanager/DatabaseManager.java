@@ -1,7 +1,7 @@
-package gyula.week12.dbmanager;
+package gyula.week12.oopexample.dbmanager;
 
-import gyula.week12.model.Continent;
-import gyula.week12.model.World;
+import gyula.week12.oopexample.model.Continent;
+import gyula.week12.oopexample.model.World;
 
 import java.sql.*;
 

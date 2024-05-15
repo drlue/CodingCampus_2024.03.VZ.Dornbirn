@@ -1,7 +1,7 @@
-package gyula.week12;
+package gyula.week12.oopexample;
 
-import gyula.week12.dbmanager.DatabaseManager;
-import gyula.week12.model.World;
+import gyula.week12.oopexample.dbmanager.DatabaseManager;
+import gyula.week12.oopexample.model.World;
 
 
 public class DB_OOP_Example {

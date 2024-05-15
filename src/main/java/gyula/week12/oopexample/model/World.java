@@ -1,6 +1,4 @@
-package gyula.week12.model;
-
-import gyula.week12.dbmanager.DatabaseManager;
+package gyula.week12.oopexample.model;
 
 import java.util.Vector;
 

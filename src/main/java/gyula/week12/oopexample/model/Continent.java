@@ -1,4 +1,4 @@
-package gyula.week12.model;
+package gyula.week12.oopexample.model;
 
 public class Continent {
     private String name;
