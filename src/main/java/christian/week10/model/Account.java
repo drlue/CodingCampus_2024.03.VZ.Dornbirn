@@ -1,8 +1,11 @@
 package christian.week10.model;
 
+import java.util.ArrayList;
+
 public class Account {
     private int account_ID;
     private float assets;
+    private ArrayList<Customer>listOfCustomers;
 
     //================================================================================================get=========
     //================================================================================================set=========
