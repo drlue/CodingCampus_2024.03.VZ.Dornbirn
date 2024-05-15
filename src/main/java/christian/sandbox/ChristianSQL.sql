@@ -239,3 +239,7 @@ where c.name = 'Bregenz';
 delete from city
 where city.name like 'Blud%';
 
+select * from province
+
+;
+
