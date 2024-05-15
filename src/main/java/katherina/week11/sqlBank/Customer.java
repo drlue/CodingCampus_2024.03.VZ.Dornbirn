@@ -10,8 +10,7 @@ public class Customer {
     private float balance;
     private List<Customer> customerList;
 
-    public Customer(){
-    }
+    public Customer(){}
 
     public Customer(String name, String surname,float balance){
         this.name=name;

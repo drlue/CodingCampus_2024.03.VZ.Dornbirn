@@ -78,7 +78,7 @@ public class DatabaseManager {
                 ResultSet rs = ps.executeQuery();
 
                 while (rs.next()) {
-                    Customer customer = new Customer();
+                    Customer customer = new Customer("name", "surname", 0);
                     customer.setName(rs.getString("Name"));
                     customer.setSurname(rs.getString("Surname"));
                     customer.setBalance(rs.getInt("Balance"));
