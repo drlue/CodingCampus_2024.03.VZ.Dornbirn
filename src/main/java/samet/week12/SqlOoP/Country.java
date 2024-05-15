@@ -1,6 +1,8 @@
 package samet.week12.SqlOoP;
 
 
+import java.util.List;
+
 public class Country {
 
     private String countryName;
@@ -10,6 +12,7 @@ public class Country {
     private float area;
     private int population;
     private World world;
+    private List<City> cityList;
 
 
     public Country(){
@@ -50,10 +53,19 @@ public class Country {
         this.world = world;
     }
 
+    public void addCity(City city) {
+        if (!cityList.contains(city)) {
+            cityList.add(city);
+        }
+        city.setCountry(this);
+    }
+
+
+
 
 
     public void printStructure() {
-        System.out.printf("    Country: %-35s %-8s %-25s %-35s (%8.0f km²) %15d %n", countryName, code, capital, province, area, population);
+        System.out.printf("|---Country: %-35s %-8s %-25s %-35s (%8.0f km²) %15d %n", countryName, code, capital, province, area, population);
 
     }
 
