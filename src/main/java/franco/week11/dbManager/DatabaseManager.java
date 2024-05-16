@@ -22,7 +22,7 @@ public class DatabaseManager {
     public Connection getConnectionToDB() {
         if (conn == null) {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Mondial?" +
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Mondial?"+
                         "user=franco&password=franco");
             } catch (SQLException sqle) {
                 System.out.println("Connection failed...");

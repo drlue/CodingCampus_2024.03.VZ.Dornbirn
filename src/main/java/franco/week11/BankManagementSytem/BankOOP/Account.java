@@ -1,4 +1,4 @@
-package samet.week12.BankOOP;
+package franco.week11.BankManagementSytem.BankOOP;
 
 
 
@@ -10,6 +10,7 @@ public class Account {
     private String accountNumber;
     private String accountType;
     private int openingYear;
+
     private double accountBalance;
     private List<Customer> customerList;
 
@@ -23,7 +24,9 @@ public class Account {
         this.accountBalance = accountBalance;
         this.customerList = new ArrayList<>();
     }
-
+    public double getAccountBalance() {
+        return accountBalance;
+    }
     public void deposit(double amount){
         if (amount > 0){
             accountBalance += amount;
@@ -38,11 +41,12 @@ public class Account {
             accountBalance -= amount;
             System.out.println("Withdrawn: " + amount);
         } else {
-            System.out.println("Invalid withdrawl amount.");
+            System.out.println("Something went wrong");
         }
     }
 
     public void printStructure(){
+
         System.out.printf("|         |---Account: %s | %s| %d | %.2f %n" ,accountNumber, accountType, openingYear, accountBalance);
 
     }

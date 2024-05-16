@@ -20,6 +20,6 @@ class Hauptkellner extends Kellner {
     }
 
     public Kellner ermittleTopKellnerNachAnzahlGaste() {
-        return kellnerListe.stream().max((k1, k2) -> Integer.compare(k1.bedienteGäste, k2.bedienteGäste)).orElse(null);
+        return kellnerListe.stream().max((k1, k2) -> Integer.compare(k1.bedienteGaste, k2.bedienteGaste)).orElse(null);
     }
 }
