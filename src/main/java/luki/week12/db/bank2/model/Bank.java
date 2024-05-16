@@ -27,4 +27,8 @@ public class Bank {
     public void setBankID(int bankID) {
         this.bankID = bankID;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

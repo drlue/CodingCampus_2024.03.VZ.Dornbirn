@@ -92,4 +92,43 @@ public class BankServiceTest {
             connection.setAutoCommit(true);
         }
     }
+
+    @Test
+    public void findByIdTest() {
+        for (int i = 0; i < 100; i++) {
+            try {
+                service.addBank(new Bank("BlackRocK" + i));
+            } catch (SQLException e) {
+                Assertions.fail("Bank could not be inserted");
+            }
+        }
+
+        Bank bank = null;
+        try {
+            bank = service.findById(10);
+        } catch (SQLException e) {
+            Assertions.fail("Bank with id 10 could not be found!", e);
+        }
+        Assertions.assertNotNull(bank, "Bank should not be null!");
+        Assertions.assertEquals("BlackRocK9", bank.getName());
+    }
+
+    @Test
+    public void updateTest() throws SQLException {
+        //Create one bank
+        Bank b = new Bank("Blackrock");
+        service.addBank(b);
+
+        Assertions.assertEquals("Blackrock", service.findById(b.getBankID()).getName());
+
+        //Retrieve bank
+        Bank bank = service.findById(b.getBankID());
+        bank.setName("ÖkoFairBank");
+        //Update it
+        int affectedRows = service.update(bank);
+        Assertions.assertEquals(1, affectedRows);
+
+        Assertions.assertEquals("ÖkoFairBank", service.findById(bank.getBankID()).getName());
+
+    }
 }
