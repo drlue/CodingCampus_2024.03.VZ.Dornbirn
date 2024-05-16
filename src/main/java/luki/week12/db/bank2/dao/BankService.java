@@ -25,6 +25,37 @@ public class BankService {
         stmt.close();
     }
 
+    public Bank findById(int id) throws SQLException {
+        //query SELECT bankID, name FROM bank WHERE bankID = 4
+        PreparedStatement stmt = this.connection.prepareStatement("SELECT bankID, name FROM bank WHERE bankID = ?");
+        stmt.setInt(1, id);
+        ResultSet resultSet = stmt.executeQuery();
+
+        if (resultSet.next()) {
+            String name = resultSet.getString("name");
+            int bankID = resultSet.getInt("bankID");
+
+            Bank bank = new Bank(name);
+            bank.setBankID(bankID);
+
+            return bank;
+        } else {
+            return null;
+        }
+    }
+
+    public int update(Bank bank) throws SQLException {
+        //UPDATE bank SET name = 'ÖkoFairBank123' WHERE bankID = 4;
+        PreparedStatement stmt = this.connection.prepareStatement("UPDATE bank SET name = ? WHERE bankID = ?");
+        try {
+            stmt.setString(1, bank.getName());
+            stmt.setInt(2, bank.getBankID());
+            return stmt.executeUpdate();
+        } finally {
+            stmt.close();
+        }
+    }
+
     public List<Bank> getAllBanks() throws SQLException {
         Statement stmt = this.connection.createStatement();
         try {
