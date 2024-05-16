@@ -9,13 +9,13 @@ public class Customer {
     private String name;
     private List<Account> listOfAccounts;
 
-    public Customer(String name){
+    public Customer(String name) {
         this.name = name;
         listOfAccounts = new ArrayList<>();
     }
 
-    public void addAccToList(Account account){
-        if(!listOfAccounts.contains(account)){
+    public void addAccToList(Account account) {
+        if (!listOfAccounts.contains(account)) {
             listOfAccounts.add(account);
         }
     }
