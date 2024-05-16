@@ -17,8 +17,8 @@ public class RestaurantMain {
         tisch1.zuweisenKellner(kellner1);
         tisch2.zuweisenKellner(kellner2);
 
-        Speise speise1 = new Speise("Schnitzel", 15.50, 8.00);
-        Speise speise2 = new Speise("Pommes", 4.00, 1.50);
+        Speise speise1 = new Speise("Sarma", 15.50, 8.00);
+        Speise speise2 = new Speise("Kisir", 4.00, 1.50);
 
 
         kellner1.aufnehmenBestellung(tisch1);
@@ -35,6 +35,6 @@ public class RestaurantMain {
         System.out.println("Top Kellner nach Umsatz: " + topKellner.name + " mit einem Umsatz von " + topKellner.gesamtumsatz + " Euro");
 
         Kellner Gaste = hauptkellner.ermittleTopKellnerNachAnzahlGaste();
-        System.out.println("Top Kellner nach bedienten Gästen: " + Gaste.name + " mit " + Gaste.bedienteGäste + " Gästen");
+        System.out.println("Top Kellner nach bedienten Gästen: " + Gaste.name + " mit " + Gaste.bedienteGaste + " Gästen");
     }
 }
