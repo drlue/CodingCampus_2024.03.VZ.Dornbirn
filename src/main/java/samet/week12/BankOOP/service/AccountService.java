@@ -11,36 +11,5 @@ import java.sql.SQLException;
 
 public class AccountService {
 
-    public void readAccountFromDb(Bank bank) {
-        Connection conn = DbManager.getInstance().getConn();
-        if (conn != null) {
-            try {
-                PreparedStatement ps = conn.prepareStatement("select ID, Customer_name, Customer_age, Customer_address from customer");
-                ResultSet rs = ps.executeQuery();
-
-                while (rs.next()) {
-                    Account account = new Account();
-                    customer.setIdCustomer(rs.getInt("ID"));
-                    customer.setName(rs.getString("Customer_name"));
-                    customer.setAge(rs.getInt("Customer_age"));
-                    customer.setAddress(rs.getString("Customer_address"));
-                    bank.addCustomer(customer);
-                }
-                rs.close();
-                ps.close();
-            } catch (SQLException sqle) {
-                sqle.printStackTrace();
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                }
-                conn = null;
-            }
-        }
-    }
 
 }
-
-
-    }
-            }
