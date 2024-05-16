@@ -1,4 +1,4 @@
-package samet.week12.BankOOP;
+package franco.week11.BankManagementSytem.BankOOP;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,7 +21,8 @@ public class DbManager {
     public Connection getConn() {
         if (conn == null) {
             try {
-                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Mondial?user=samet&password=samet");
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/francobank?"+
+                        "user=franco&password=franco");
             } catch (SQLException sqle) {
                 sqle.printStackTrace();
                 conn = null;

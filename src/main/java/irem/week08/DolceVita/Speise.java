@@ -4,11 +4,13 @@ public class Speise {
     String name;
     double preis;
     double selbstkosten;
+    double berechneGewinn;
 
     public Speise(String name, double preis, double selbstkosten) {
         this.name = name;
         this.preis = preis;
         this.selbstkosten = selbstkosten;
+        this.berechneGewinn = berechneGewinn;
     }
 
     public String getName() {
@@ -20,7 +22,7 @@ public class Speise {
     public double getSelbstkosten() {
         return selbstkosten;
     }
-    public double berechneGewinn() {
-        return preis - selbstkosten;
+    public double getBerechneGewinn() {
+        return preis - berechneGewinn;
     }
 }
