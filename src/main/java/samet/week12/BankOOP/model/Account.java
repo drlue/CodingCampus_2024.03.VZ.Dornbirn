@@ -6,16 +6,51 @@ import java.util.List;
 
 public class Account {
 
+    private int Id;
     private String accountNumber;
     private String accountType;
     private int openingYear;
     private double accountBalance;
     private List<Customer> customerList;
+    private List<Account> accountList;
 
 
     public Account() {
 
         this.customerList = new ArrayList<>();
+        this.accountList = new ArrayList<>();
+    }
+
+    public void setId(int id) {
+        this.Id = id;
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public int getOpeningYear() {
+        return openingYear;
+    }
+
+    public double getAccountBalance() {
+        return accountBalance;
+    }
+
+    public List<Customer> getCustomerList() {
+        return customerList;
+    }
+
+    public List<Account> getAccountList() {
+        return accountList;
     }
 
     public void setAccountNumber(String accountNumber) {
@@ -54,6 +89,12 @@ public class Account {
 
     public void printStructure() {
         System.out.printf("|         |---Account: %s | %s| %d | %.2f %n", accountNumber, accountType, openingYear, accountBalance);
+    }
 
+    public void addAccount(Account account) {
+        if (!accountList.contains(account)) {
+            accountList.add(account);
+        }
     }
 }
+

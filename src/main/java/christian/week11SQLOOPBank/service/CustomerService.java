@@ -6,7 +6,7 @@ public class CustomerService {
 
     private CustomerDAO customerDAO;
 
-    public CustomerService(){
+    public CustomerService() {
         this.customerDAO = new CustomerDAO();
     }
 }
