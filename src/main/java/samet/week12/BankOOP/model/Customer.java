@@ -36,11 +36,11 @@ public class Customer {
         this.address = address;
     }
 
-    public void addAccount(Account account) {
-        if (!accountList.contains(account)) {
-            accountList.add(account);
-        }
-    }
+//    public void addAccount(Account account) {
+//        if (!accountList.contains(account)) {
+//            accountList.add(account);
+//        }
+//    }
 
     public void deposit(Account account, double amount) {
         account.deposit(amount);
