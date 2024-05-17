@@ -1,0 +1,41 @@
+h1 {
+    font-size: larger;
+    text-align: center;
+    background-color: beige
+}
+
+body {
+    background-color: antiquewhite;
+
+}
+
+
+img {
+    width: 150px;
+}
+
+.backgroundcolor {
+    background-color: beige;
+}
+
+.ueberschrift {
+    text-transform: uppercase;
+    text-decoration: solid;
+    color: grey;
+    font-style: italic;
+}
+
+.link {
+    text-transform: uppercase;
+    text-align: right;
+}
+
+/* AUS DEM INTERNET KOPIERT: */
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* Horizontal zentrieren */
+    align-items: center;
+    /* Vertikal zentrieren */
+}
