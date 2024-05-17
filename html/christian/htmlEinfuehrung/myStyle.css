@@ -1,0 +1,27 @@
+body {
+  background-color: aqua;
+}
+.meinTeil {
+  background-color: antiquewhite;
+}
+.bildbeschreibung {
+  background-color: azure;
+}
+.kleinesBild {
+  width: 600px;
+  border-radius: 300px;
+}
+h1 {
+  background-color: blueviolet;
+}
+img {
+  width: 300px;
+  border-radius: 20px;
+}
+em {
+  color: chocolate;
+  font-style: normal;
+}
+ul {
+  left: auto;
+}
