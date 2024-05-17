@@ -18,6 +18,64 @@ h4{color: darkblue;
 a{background-color: cyan;
 color: crimson;
 }
+img, audio, video {max-width: 75% 
+}
+caption{font-style: oblique;
+    font-weight: bold;
+    font-size: larger;
+    background-color: rgb(0, 132, 255);
+    border: 3px;
+border-color: darkgreen;
+border-style: double;
+padding: 4px;
+}
+table,tr,td{background-color: darkseagreen;
+border: 4px;
+border-color: darkgreen;
+border-style: double;
+padding: 2px;
+border-collapse: separate;
+}
+tfoot{background-color: cadetblue;
+    border: 3px;
+    border-style: double;
+    border-color: darkgreen;
+    padding: 5px;
+}
+forenbutton styled{background-color: paleturquoise;
+  border: 3px;
+  border-style: dashed;
+  line-height: 3.5px;
+  padding: 5px;
+  font-size: larger;
+  text-align: center;
+  color: #4900a3;
+  text-shadow: 2px 2px 2px #19062b;
+  border-radius: 10px;
+}
+
+.styled:hover {
+  background-color: rgb(161, 30, 255);
+  font-size: xx-large;
+}
+
+
+seltsamerBrunnen styled{background-color: rgb(0, 84, 84);
+  border: 5px;
+  border-style: dashed;
+  line-height: 3.5;
+  padding: 5px;
+  font-size: larger;
+  text-align: center;
+  color: #085300;
+  text-shadow: 2px 2px 2px #19062b;
+  border-radius: 10px;
+}
+
+.styled:hover {
+  background-color: rgb(223, 177, 255);
+  font-size: xx-large;
+}
 
 
     </style>
@@ -68,9 +126,58 @@ color: crimson;
 <h2>Online-Communitys</h2>
 
 <h3>Mein Forum</h3>
-<img src="C:\Users\DCV\HTML\CodingCampus_2024.03.VZ.Dornbirn\html\katherina\week11\pictures\ScreenshotAntiKreaTief.png" alt="Screenshot meines Forums für ausgeloggte Leute. Es sind einige eingeklappte Hauptkategorien (Organisatorisches, Eigene Geschichten & Fanfiction, Gedichte, Clubs, Rezensionen und Diskussionen, A.K.T.iv in den Tag - die Ecke für Off-Topic) zu erkennen. Außerdem ein ziemlich riesiger Header mit dem Titel 'Anti-KreaTief' und eine kleine Navigationsleiste. Das Forum ist in Blautönen gehalten.">
-<p></p>
+<img src="hobbys_files/ScreenshotAntiKreaTief.png" alt="Screenshot meines Forums für ausgeloggte Leute. Es sind einige eingeklappte Hauptkategorien (Organisatorisches, Eigene Geschichten & Fanfiction, Gedichte, Clubs, Rezensionen und Diskussionen, A.K.T.iv in den Tag - die Ecke für Off-Topic) zu erkennen. Außerdem ein ziemlich riesiger Header mit dem Titel 'Anti-KreaTief' und eine kleine Navigationsleiste. Das Forum ist in Blautönen gehalten.">
+<p>Ich habe es im Februar 2006 gegründet, als ich ... ganze fünfzehn Jahre alt war. Damals war die Logik: "Foren sind cool, ich will auch so eins haben", aber ich hatte kein Konzept dafür, was ich damit anfangen will. Also habe ich alles reingeworfen, was mich zu dem Zeitpunkt interessiert hat.</p>
+<p>Die Struktur als "messy" zu bezeichnen, wäre noch ein Kompliment gewesen.</p>
+<p>Im Laufe der Jahre habe ich das Ganze allerdings verfeinert. Ungefähr seit 2011 führe ich es recht zielgerichtet als Schreibforum mit einem Schwerpunkt an Vor-Ort-Textarbeit. Zu den wenigen Bereichen, die nicht nur von Anfang an (wenn auch größtenteils nicht in dieser Form) existiert haben, sondern auch nach wie vor öffentlich einsehbar sind, gehört das Unterforum für allerlei Rezensionen. Der Rest ist größtenteils versteckt.</p>
+<p>Ihr könnt es euch gern selbst anschauen:</p> 
+    
+<button class="forenbutton styled" type="button"> <a href="https://antikreatief.de" target="_blank">Das Anti-KreaTief - eins der ältesten noch aktiven Foren übers Schreiben</a></button>
 
+<p>Mir ist erst zu spät aufgefallen, dass das als URL nicht direkt das aussagt, was ich aussagen will ...</p>
+
+<table>
+<tr>
+    <thead>
+        <caption>Vorteile und Nachteile eines (nicht selbst gehosteten) Forums</caption>
+    <tr>
+        <th>Vorteile</th>
+        <th>Nachteile</th>
+    </tr>
+</thead>
+<tr>
+    <td>Unabhängigkeit von Facebook und anderen Metadiensten</td>
+    <td>Abhängigkeit von meinem Hoster bleibt - wenn dessen Server down sind, komme ich auch nicht ins Forum.</td>
+    </tr>
+<tr>
+    <td>Datensicherheit - ich bin bei einem Hoster mit Sitz in der EU</td>
+    <td>Kein Nachteil.</td>
+</tr>
+<tr>
+    <td>Ich muss mich um sehr viele Aspekte nicht kümmern - mein Hoster ist dafür zuständig, dass mein Forum z.B. den Anforderungen der DSGVO genügt </td>
+    <td>Wenn der Hoster nicht in die Puschen kommt, stehe aber trotzdem ich im Impressum.</td>
+</tr>
+<tr>
+    <td>Die Domain ist relativ günstig.</td>
+    <td>Leider ist mir der Tarif, der Werbefreiheit garantieren würde, derzeit zu teuer.</td>
+</tr>
+<tr>
+    <td>Ich kann mich um die schönen Aspekte kümmern, wie die einzelnen Kategorien oder die Kreativarbeit.</td>
+    <td>Um allerdings Features einzubauen, die vom Hoster nicht eingebaut wurden, muss ich entweder Geld für einen Auftrag in die Hand nehmen, oder aber selbst mit PHP herumspielen.</td>
+</tr>
+<tfoot>
+    <tr>
+      <td colspan="2"><br>Fazit: Ich würde mein Forum trotz aller Widrigkeiten nicht hergeben. Ich habe es schließlich mehr als mein halbes Leben!<br></td>
+    </tr>
+</tfoot>
+</table>
+<p>Ich nutze das Forum auerdem, um dort Back-Ups meiner Romane, Kurzgeschichten und Ideen mit Zeitstempel anzufertigen. Das dient auch als Schutz, falls ich mal plagiiert werde.</p>
+
+<h3>Strangewell - mein Text-RPG-Server</h3>
+
+<p>Okay, streng genommen gehört der nicht mir. Ich spiele dort nur. Aber es ist trotzdem eine mir wichtige Gemeinschaft, daher ... "mein" Server.</p>
+
+<button class="seltsamerBrunnen styled" type="button"> <a href="http://www.strangewell.de/" target="_blank">Die Gemeinschaft des Brunnens.</a></button>
 
 </body>
 </html>
