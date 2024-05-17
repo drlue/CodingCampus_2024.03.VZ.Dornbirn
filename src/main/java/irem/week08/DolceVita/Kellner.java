@@ -5,19 +5,19 @@ import java.util.Date;
 public class Kellner{
     String name;
     int id;
-    int bedienteGäste;
+    int bedienteGaste;
     double gesamtumsatz;
 
     public Kellner(String name, int id) {
         this.name = name;
         this.id = id;
-        this.bedienteGäste = 0;
+        this.bedienteGaste = 0;
         this.gesamtumsatz = 0.0;
     }
 
     public void aufnehmenBestellung(Tisch tisch) {
         System.out.println(name + " nimmt Bestellung auf bei Tisch " + tisch.tischNummer);
-        bedienteGäste++;
+        bedienteGaste++;
     }
 
     public void servierenBestellung(Tisch tisch) {

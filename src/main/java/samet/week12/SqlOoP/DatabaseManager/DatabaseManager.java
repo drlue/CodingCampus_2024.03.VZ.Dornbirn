@@ -1,4 +1,4 @@
-package samet.week12.DatabaseManager;
+package samet.week12.SqlOoP.DatabaseManager;
 
 import samet.week12.SqlOoP.City;
 import samet.week12.SqlOoP.Country;

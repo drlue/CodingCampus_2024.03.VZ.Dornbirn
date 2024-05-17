@@ -2,6 +2,7 @@ package irem.week09.schule;
 
 import ardijanla.ConsoleColors;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,5 +85,6 @@ public class SchuleSimulation {
             System.out.println("Pause zwischen den Stunden.");
         }
         System.out.println(ConsoleColors.RESET);
+
     }
 }
