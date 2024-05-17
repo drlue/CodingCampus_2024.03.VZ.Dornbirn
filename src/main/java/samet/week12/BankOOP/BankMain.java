@@ -1,6 +1,7 @@
 package samet.week12.BankOOP;
 
 import samet.week12.BankOOP.model.Bank;
+import samet.week12.BankOOP.service.AccountService;
 import samet.week12.BankOOP.service.CustomerService;
 
 public class BankMain {
@@ -9,6 +10,7 @@ public class BankMain {
         Bank bank = new Bank(" Blackrock", 2019);
 
         new CustomerService().readCustomersFromDB(bank);
+        new AccountService().readAccountFromDb(bank);
         
 /*
         Account account = new Account("123456789", "Privat", 2019, 4500.54);
@@ -31,6 +33,7 @@ public class BankMain {
 */
 
         bank.printStructure();
+
     }
 
 
