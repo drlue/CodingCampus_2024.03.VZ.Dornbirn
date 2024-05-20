@@ -14,6 +14,10 @@ public class Account {
         listOfCustomers = new ArrayList<>();
     }
 
+    public int getAccount_ID() {
+        return account_ID;
+    }
+
     public void depositAssets(int amount) {
         assets = assets + amount;
     }

@@ -38,4 +38,12 @@ public class Bank {
             listOfCustomers.add(customer);
         }
     }
+    public Account getAccountByID(int id){
+        for(Account acc:listOfAccounts){
+            if(acc.getAccount_ID() == id){
+                return acc;
+            }
+        }
+        return null;
+    }
 }
