@@ -11,10 +11,6 @@ public class Banksystem {
     private static List<Bank> listOfBanks;
 
 
-    public static void main(String[] args) {
-
-    }
-
     public Banksystem() {
         listOfBanks = new ArrayList<>();
     }

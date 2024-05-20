@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ConnectionManagar {
+class ConnectionManagar {
     private static Connection conn;
 
     public static Connection getConnection() {

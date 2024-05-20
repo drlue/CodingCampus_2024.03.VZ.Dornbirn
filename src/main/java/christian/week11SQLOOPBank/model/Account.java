@@ -13,4 +13,12 @@ public class Account {
         this.assets = assets;
         listOfCustomers = new ArrayList<>();
     }
+
+    public void depositAssets(int amount) {
+        assets = assets + amount;
+    }
+
+    public void withdrawAssets(int amount) {
+        assets = assets - amount;
+    }
 }
