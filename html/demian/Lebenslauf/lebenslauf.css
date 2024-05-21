@@ -1,0 +1,70 @@
+h1 {
+    font-size: larger;
+    text-align: center;
+    background-color: beige
+}
+
+body {
+    background-color: antiquewhite;
+
+}
+
+
+img {
+    width: 150px;
+}
+
+.backgroundcolor {
+    background-color: beige;
+}
+
+.ueberschrift {
+    text-transform: uppercase;
+    text-decoration: solid;
+    color: grey;
+    font-style: italic;
+}
+
+
+/* AUS DEM INTERNET KOPIERT: */
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* Horizontal zentrieren */
+    align-items: center;
+    /* Vertikal zentrieren */
+}
+
+.rightcentered{
+    text-align: right;
+}
+
+/* LINK FARBEN */
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+  text-transform: uppercase;
+
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+
+}
