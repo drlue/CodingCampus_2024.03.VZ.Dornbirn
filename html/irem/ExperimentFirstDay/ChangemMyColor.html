@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willkommen!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            transition: background-color 0.5s;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            background-color: #008CBA;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function changeBackgroundColor() {
+            var colors = ['#ff6347', '#4682b4', '#3cb371', '#ffa500', '#6a5acd',];
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</head>
+<body>
+    <h1>Willkommen auf meiner Webseite!</h1>
+    <p>Klicke auf den Button, und lass was Fancy stuff machen:</p>
+    <button onclick="changeBackgroundColor()">Farbe ändern</button>
+</body>
+</html>

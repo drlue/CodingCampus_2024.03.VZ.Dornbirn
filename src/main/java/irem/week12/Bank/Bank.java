@@ -1,20 +1,33 @@
 package irem.week12.Bank;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bank {
 
-    private CustomerService customerService;
-    private AccountService accountService;
+    private String name;
 
-    public Bank() {
-        this.customerService = new CustomerService();
-        this.accountService = new AccountService();
+    private int opening;
+    private List<Customer> customerList;
+
+
+    public Bank (String name, int opening){
+
+        this.name = name;
+        this.opening = opening;
+        this.customerList = new ArrayList<Customer>();
     }
 
-    public CustomerService getCustomerService() {
-        return customerService;
+    public void addCustomer(Customer customer){
+        if (!customerList.contains(customer)){
+            customerList.add(customer);
+        }
     }
 
-    public AccountService getAccountService() {
-        return accountService;
+    public void printStructure(){
+        System.out.println("|--- Bank:" + name + ", established " + opening);
+        for (Customer customer : customerList){
+            customer.printStructure();
+        }
     }
 }
