@@ -45,4 +45,25 @@ public class AccountDAO {
         }
         return accountList;
     }
+    public void updateAssets(int assets,int id){
+
+        String query = "UPDATE account set assets = ? where account_id = ?";
+        try (PreparedStatement prep = conn.prepareStatement(query)) {
+            prep.setInt(1,assets);
+            prep.setInt(2,id);
+            prep.execute();
+        } catch (SQLException sex) {
+            sex.printStackTrace();
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException sex) {
+                sex.printStackTrace();
+            }
+        }
+
+    }
+
 }
