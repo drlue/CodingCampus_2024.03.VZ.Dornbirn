@@ -25,10 +25,6 @@ img {
     font-style: italic;
 }
 
-.link {
-    text-transform: uppercase;
-    text-align: right;
-}
 
 /* AUS DEM INTERNET KOPIERT: */
 
@@ -38,4 +34,37 @@ img {
     /* Horizontal zentrieren */
     align-items: center;
     /* Vertikal zentrieren */
+}
+
+.rightcentered{
+    text-align: right;
+}
+
+/* LINK FARBEN */
+
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: pink;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+  text-transform: uppercase;
+
+}
+
+a:active {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: underline;
+
 }
