@@ -76,7 +76,7 @@ ol {
 }
 
 div {
-    width: 45%;
+    width: 65%;
     margin: auto;
     background: #1f53ffa3;
     border: #19062b;
@@ -100,4 +100,13 @@ a {
 #inhaltsverzeichnis li > a {
     background-color: var(--magic-background-1);
     color: var(--magic-font-1);
+}
+
+#schlussdiv {
+    width: 45%;
+    margin: auto;
+    background: #1f53ffa3;
+    border: #19062b;
+    border-style: groove;
+    font-size: larger;
 }

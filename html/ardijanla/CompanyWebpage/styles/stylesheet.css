@@ -1,0 +1,51 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #18a7d3;
+    overflow: auto;
+    position: fixed;
+    height: 100%;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+    background-color: #a3a3a3;
+    color: white;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    /* Aktiviert Flexbox */
+    align-items: center;
+    /* Zentriert den Inhalt vertikal */
+}
+
+.text {
+    margin-left: 20px;
+    /* Abstand zwischen Bild und Text */
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #18a7d3;
+  }
+  
+  .flex-container > div {
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+  }
