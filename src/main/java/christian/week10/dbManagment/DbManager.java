@@ -39,24 +39,7 @@ public class DbManager {
     //================================================================================================SQL-Get=========
 
     //================================================================================================SQL=========
-    public void readBankFromDB(){
-        getConnection();
-        try{
-            PreparedStatement prep = conn.prepareStatement("Select * from bank");
-            ResultSet rs = prep.executeQuery();
-            while(rs.next()){
-                Bank bank = new Bank (
-                        rs.getInt("bank_id"),
-                        rs.getString("name"),
-                        rs.getInt("established"),
-                        rs.getFloat("assets")
-                );
-            }
 
-        }catch (SQLException sex){
-            sex.printStackTrace();
-        }
-    }
 
 
     //================================================================================================print=========

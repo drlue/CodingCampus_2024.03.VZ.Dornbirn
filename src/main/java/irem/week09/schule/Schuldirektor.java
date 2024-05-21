@@ -1,5 +1,6 @@
 package irem.week09.schule;
 
+
 class Schuldirektor extends Person {
     private Raum direktorenzimmer;
 
