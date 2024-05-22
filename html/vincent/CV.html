@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - Vincent Franco</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      header {
+        text-align: center;
+        background: linear-gradient(to right, #4caf50, #81c784);
+        color: #fff;
+        padding: 20px 0;
+        margin-bottom: 30px;
+        position: relative;
+      }
+      header::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 20px;
+        background: #7592d4;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      .contact-info {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+        background: #0581ee;
+        color: #fff;
+        padding: 10px 0;
+        border-radius: 5px;
+      }
+      .section {
+        margin-bottom: 30px;
+      }
+      .section h2 {
+        background: #81c784;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1.5em;
+        margin: 0 -20px 20px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      .job-title {
+        font-weight: bold;
+        font-size: 1.2em;
+        color: #4caf50;
+      }
+      .job-date {
+        font-style: italic;
+        color: #888;
+      }
+      .skill {
+        background: #4caf50;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 20px;
+        display: inline-block;
+        margin: 5px 5px 5px 0;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #4caf50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Vincent Franco</h1>
+        <div class="contact-info">
+          <div>
+            <p><strong>Email:</strong> vincentjb@hotmail.com</p>
+          </div>
+          <div>
+            <p><strong>Phone:</strong> +43 660 8606440</p>
+          </div>
+          <div>
+            <p><strong>Address:</strong> 23 Mariahilfstrasse, 6900 Bregenz</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h2>Professional Summary</h2>
+        <p>bin i sehr gut</p>
+      </section>
+
+      <section class="section">
+        <h2>Work Experience</h2>
+        <ul>
+          <li>
+            <span class="job-title"
+              >Regional Manager - Michael Scott Paper Company</span
+            ><br />
+            <span class="job-date">03.2012 - 05.2021</span>
+            <p>Management of management</p>
+          </li>
+          <li>
+            <span class="job-title">CEO - Dunder Mifflin Paper Company</span
+            ><br />
+            <span class="job-date">20.02.2000 - 20.02.2012</span>
+            <p>Managing manager of management</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>Education</h2>
+        <table>
+          <tr>
+            <th>Degree</th>
+            <th>Michael Scoot Business School</th>
+            <th>1993</th>
+          </tr>
+          <tr>
+            <td>Bachelor</td>
+            <td>School of Hard Knock</td>
+            <td>1978</td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2>Skills</h2>
+        <div>
+          <span class="skill">Managing</span>
+          <span class="skill">Management of Community</span>
+          <span class="skill">Reaction of Reaction</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Certifications</h2>
+        <ul>
+          <li>Michael Scott Business Major</li>
+          <li>First Aid</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>References</h2>
+        <p>Contact my manager</p>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Künstlerwahl: Drake oder Kendrick Lamar</title>
+    <style>
+        body {
+        
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        button {
+            background-color: #6f4caf;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        iframe {
+            margin-top: 20px;
+            width: 560px;
+            height: 315px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wen wählst du?</h1>
+    <button onclick="showVideo('Drake')">Drake</button>
+    <button onclick="showVideo('Kendrick')">Kendrick Lamar</button>
+
+    <div id="videoContainer"></div>
+
+    <script>
+        function showVideo(artist) {
+            var videoContainer = document.getElementById('videoContainer');
+            videoContainer.innerHTML = ""; 
+            var iframe = document.createElement('iframe');
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allowfullscreen", "");
+
+            if (artist === 'Drake') {
+                iframe.setAttribute("src", "https://www.youtube.com/embed/DRS_PpOrUZ4");
+            } else if (artist === 'Kendrick') {
+                iframe.setAttribute("src", "https://www.youtube.com/embed/NLZRYQMLDW4");
+            }
+
+            videoContainer.appendChild(iframe);
+        }
+    </script>
+</body>
+</html>
