@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alles, was du nie über Buchsatz wissen wolltest, ich dir jetzt aber trotzdem verrate. Ätsch.</title>
+    <link rel="icon" type="image/x-icon" href="hobbys_files/FaviconExample.ico">
+    <link rel="stylesheet" href="hobbys_files/stylefile.css">
+</head>
+
+<body>
+    <header><img src="hobbys_files/header.png" width="95%"
+            alt="Von einem Banner schaut eine graubraun-getigerte Katze mit grünen Augen und brauner Nase direkt zu dir, im Hintergrund ein bepflanzter blauer Blumenkübel. Ein weißer Balken ungefähr in der Mitte steht rechts neben zwei Texten. Text 1 besteht nur aus 'Buchsatz!'. Darunter steht kleiner: 'Und was ich dazu zu sagen habe. Katze dient der Aufmerksamkeit'. Beim Foto handelt es sich um ein von PhotoPea zur Verfügung gestelltes Bild.">
+        <h1>Denn Buchsatz ist mehr als einfach nur "Word in PDF umwandeln und drucken lassen".</h1>
+    </header>
+    <nav><a href="hobbys.html" target="_blank">Meine Hobbys</a>
+        <a href="books.html" target="_blank">Meine Bücher</a>
+        <a href="https://schreibblogg.de/spbuchsatz/" target="_blank">Fremdlink: SPBuchsatz</a>
+    </nav>
+    <section>
+        <h2>Warum Buchsatz mit MS-Word oder Libre-Office keine gute Idee ist</h2>
+        <p>Der Grund dafür ist eigentlich: Alle guten Dinge sind einfach. Und glaubt mir, Layout mit einem Programm, das
+            nicht fürs Buchlayout geschaffen wurde, ist alles Mögliche, aber einfach ist es nicht.</p>
+        <p>Auch wenn MS-Word unbedingt die eierlegende Wollmilchsau ist, ist das Programm ganz grundsätzlich nur bedingt
+            für kreative Zwecke zu gebrauchen. (Es ist im Bereich Lektorat/Korrektorat dennoch Standard in der Buchwelt,
+            weil die "Änderungen nachverfolgen"-Funktion dafür ziemlich gut geeignet ist! Aber: Das ist ein spezieller
+            Unterbereich der kreativen Arbeit.)</p>
+        <p>Woher ich das weiß? Weil ich alt genug bin, dass Word mal gratis zum Windows-PC dazugeschmissen wurde und
+            daher als Kind/Teenie meine ersten Romane genau damit geschrieben habe.</p>
+        <p>Unabhängig vom Buchsatzthema, sind gängige Officeprogramme weder darauf ausgelegt, Texte wesentlich länger
+            als 50.000 Wörter zu verarbeiten, noch sind sie dabei besonders schnell. Man kann zwar mit Hilfe der
+            integrierten Word-Formatierungen in der Sidebar klickbare Überschriften und ein automatisches
+            Inhaltsverzeichnis erzeugne, aber dennoch ist das Navigieren und Durchwurschteln eher ... mühsam.</p>
+        <p>Ich bevorzuge daher grundsätzlich Programme, die es mir erlauben, einen längeren Prosatext in mehrere
+            Segmente (Kapitel und Szenen) zu unterteilen. Falls ihr eine kostenlose Lösung dafür wollt, gibt es den <a
+                href="https://spacejock.com/yWriter.html" target="_blank">yWriter</a>.</p>
+        <p>Und dann seid ihr irgendwann mit eurem Buch so weit, dass ihr es veröffentlichen wollt. Und ihr habt diese
+            Word-Datei oder OpenOffice-Datei, weil dies das Format ist, mit dem ihr nach Lektorat und Korrektorat eben
+            dasteht. Was nun?</p>
+        <h3>Wie setze ich ein eBook?</h3>
+        <p>Unpopular Opinion: So wenig wie möglich.</p>
+        <p>Ein eBook ist im Grunde genommen einfach nur eine aufgemotzte HTML-Datei, wobei die einzelnen Kapitel (sofern
+            ein Buch in solche aufgeteilt ist) jeweils eine Unterseite darstellen, die über ein Inhaltsverzeichnis
+            annavigiert werden können.</p>
+        <p>Wollt ihr unbedingt, dass die Lesenden euer Buch mit all den fancy Schriftarten lesen, die ihr euch
+            vorgestellt habt?</p>
+        <p>Vergesst es.</p>
+        <p>So ziemlich alle Leute stellen sich lokal ein, wie das eBook dargestellt werden soll. Ich lese z.B. am
+            liebsten "Dunkelbraun auf Sepia, Schriftgröße XL, Schriftart Garamond". Andere werden euer Buch in Comic
+            Sans lesen wollen. Und es gibt nichts, was ihr dagegen tun könnt.</p>
+        <p>Somit gilt wie bei jeder HTML-Seite auch: Weniger ist mehr. Am besten hardcoded ihr einfach gar nichts
+            (bezüglich Style-Elementen) und lasst das lokale Layout machen. Grafiken sollten einen transparenten oder -
+            sofern es sich um Schwarz-Weiß-Grafiken handelt - semi-transparenten Hintergrund haben, um bei möglichst
+            vielen Client-Layouts trotzdem gut auszusehen. Ansonsten, wie gesagt: So wenige Style-Anweisungen wie
+            möglich. Am besten komplett ohne.</p>
+        <p>Nutzt einen Epub-Validator eures Vertrauens (z.B. <a href="https://www.bookmarketing.pro/epub-validator.html"
+                target="_blank">diesen da</a>), um sicherzustellen, dass eure Datei alles enthält, was reingehört und
+            idealerweise nichts, was nicht reingehört. Manche Schreibprogramme machen es euch da einfach und generieren
+            auf Knopfdruck ein relativ valides Epub. Andere nicht. Ich empfehle <a
+                href="https://sigil-ebook.com/">SIGIL</a> für manuelles Nachbearbeiten oder direkt für die Erstellung.
+        </p>
+        <h3>Wie setze ich ein gedrucktes Buch?</h3>
+        <p>Zunächst einmal solltest du dich für das Format entscheiden, das ein Buch am Ende haben soll. Oder mit
+            anderen Worten: Wie groß du das physische Objekt "Buch" haben möchtest.</p>
+        <p>Was überhaupt in Frage kommt, hängt natürlich davon ab, was für ein Buch du geschrieben hast. A4 ist ziemlich
+            unüblich - es sei denn ...</p>
+        <ul>
+            <li>... es handelt sich um ein populäres Sachbuch mit Hardcoverbindung über ein spezifisches Thema,
+                beispielsweise "Ökologie". Die alten "Was ist was?"-Bücher sind in A4 gesetzt gewesen.</li>
+            <li>... es sich um Kinderbuch mit ganzseitigen und anderen großen Illustrationen handelt. Beispielsweise
+                waren viele meiner Begleitbücher zu Cartoons in A4 gesetzt, ich erinnere mich an eins aus der Welt von
+                <a href="https://de.wikipedia.org/wiki/Blinky_Bill_(Fernsehserie)" target="_blank">"Blinky Bill"</a>,
+                mit zahlreichen Abbildungen aus dem Cartoon. Auch gekürzte und illustrierte Ausgaben von Klassikern für
+                Kinder sind manchmal in A4 gesetzt, z.B. "Die Drei Musketiere". (Ich finde die Ausgaben leider nicht
+                online, daher hier kein Link)</li>
+            <li>... es sich um eine Großdruck-Ausgabe für Sehbehinderte handelt.</li>
+        </ul>
+        <p>Wichtig ist auch zu wissen, wo du überhaupt drucken lässt und welche Formate dort zur Verfügung stehen. Bei
+            Tolino Media sind beispielsweise nur exakt sieben verschiedene Abmessungen für dein Druckbuch erlaubt, du
+            findest sie in <a href="https://www.tolino-media.de/hilfe/faq/print/" target="_blank">der verlinkten Sektion
+                der FAQ</a>. </p>
+        <p>Epubli hat 12 Formate (ich rate allerdings aufgrund der geringen Verfügbarkeit im Buchhandel von A6 ab!), die
+            sich auf <a href="https://www.epubli.com/buch/drucken" target="_blank">dieser Übersichtsseite </a>finden,
+            unter der Überschrift "In welchem Format kann ich mein Buch drucken lassen?", die leider nicht
+            klickbar/ansteuerbar ist.</p>
+        <p>Bei anderen Anbietern kannst du dich praktisch beliebig austoben, aber wie gesagt: Du solltest überlegen, was
+            für dein konkretes Projekt ein sinnvolles Format ist.</p>
+        <p>Je nach Anbieter kann es außerdem sein, dass du weitere Dinge beachten musst. So schreibt jeder Anbieter
+            einen anderen Mindest-<a href="https://www.typolexikon.de/beschnitt/" target="_blank">Beschnittrand</a> vor.
+            Wenn der nicht eingehalten wird, kann das Buch dort nicht gedruckt werden (oder kommt fehlerhaft bei dir und
+            bei deinen Lesenden an), der ist also wichtig.</p>
+        <p>Manche Anbieter haben auch sehr spezifische Anforderungen daran, wo welches Element sitzen muss (z.B.
+            "Impressum zwingend auf Seite 2") und egal wie viele Seiten du am Ende hast, die gedruckten Seiten müssen
+            immer durch 4 teilbar sein.</p>
+        <p>So weit, so Grundwissen.</p>
+        <p>Wie der Satzprozess im Einzelnen verläuft, hängt anschließend stark von der Software eures Vertrauens ab. Ob
+            ihr doch Word und Co. nutzt (macht es nicht, es ist eine Landplage!), die von mir verlinkte
+            Open-Source-Lösung verwendet oder euch für kommerzielle Programme wie InDesign entscheidet, entscheidet über
+            die notwendigen Arbeitsschritte.</p>
+            <aside>
+                <h4>Wusstest du schon ...</h4>
+                <ul>
+                    <li>... dass "Buchsatz" ursprünglich etwas war, das Leute physisch getan haben, indem sie Letter für Letter
+                        in einen Rahmen einspannten, um eine Druckseite zu erzeugen?</li>
+                    <li>... dass es einen eigenen Begriff dafür gibt, wenn Leute versehentlich einzelne Lettern im falschen
+                        Layout eingespannt haben und der Text daher verschiedene Schriftarten hatte? Das ist dann ein
+                        Zwiebelfisch. </li>
+                    <li>... dass eine Setzerei, die analog dazu schlampig mit ihren Lettern umging und daher häufig solche
+                        Fehler verbrochen hat, als "Zwiebelfischbude" bezeichnet.</li>
+                    <li>... dass das beispielsweise passieren konnte, indem Lettern nach dem Druck in die falschen Kästchen
+                        einsortiert wurden?</li>
+                    <p>Heutzutage setzen die meisten Leute digital. Auch digital können Zwiebelfische entstehen, wenn ich
+                        beispielsweise unbedingt in einer Schriftart setzen will, die keine Umlaute hat, den Umlaut aus einer
+                        anderen Schriftart importieren muss und der optische Unterschied ausreichend groß ist.</p>
+                </ul>
+            </aside>
+            <article>
+                <h3>What you see is what you get oder Editor?</h3>
+                <p>Je nach Programm gibt es beides.</p>
+                <p>"What you see is what you get" bedeutet im Prinzip, dass "am offenen Herzen" gearbeitet werden kann. Ich sehe
+                    sofort die Auswirkungen meines Gewurschtels und somit auch, ob etwas genau so geworden ist, wie ich es mir
+                    gedacht habe. In den meisten Office-Programmen (Word, Open Office, Libre) gilt generell das Prinzip, sofern
+                    wir von Prosa ohne Kinkerlitzchen reden.</p>
+                <p>Andere Programme müssen erstmal rödeln und rendern, um das Ergebnis anzuzeigen. Das gilt sowohl für das
+                    Satz-Tool in den meisten szenenbasierten Schreibprogrammen (die "bauen" aus den einzelnen Kapiteln dann die
+                    Vorschau eines Prints und können anschließend am lebenden Objekt angepasst werden), als auch für
+                    LaTeX-basierte Satztools (wie z.B. "SPBuchsatz"). Bei letzterem wird ähnlich wie bei einer HTML-Datei der
+                    Fließtext mit Befehlen ausgestattet und dann das Ergebnis auf Knopfdruck gerendert. Jede Änderung bedeutet
+                    also, dass der Rendervorgang neu angeworfen werden muss. Das ... dauert dann etwas.</p>
+                <p>Hier gibt es kein "das eine ist besser als das andere". Welche Ausgabeform besser passt, ist höchst
+                    individuell.</p>
+                <p>Mir persönlich ist das Satztool von Patchwork zu langsam, das Einstellen von Sonderformatseiten bei Word zu
+                    mühsam. Dass ich bei SPBuchsatz einen Knopf drücken und dann kurz warten und was anderes machen muss, passt
+                    zu meiner Arbeitsweise. Aber andere finden das ziemlich nervig. Es ist also wie immer individuell.</p>
+            </article>
+            <article>
+                <h3>Programme und ihre Einordnung auf der Achse</h3>
+                <ol>
+                    <li>Word, Libre Office und Co. - oder "das übliche Officeprogramm deines Vertrauens"</li>
+        
+                    <p>In der Regel sehen diese Programme weder Registerhaltigkeit, noch besondere optische Schönheit oder
+                        Ligaturen vor. Je nach Schriftart können Ligaturen über die Sonderzeichentabelle annavigiert werden und
+                        müssen dann von Hand die üblichen Zeichen ersetzen (viel Spaß beim Pfriemeln).</p>
+                    <p>Word erlaubt das Segmentieren von Dokumenten in mehrere Teile, in denen dann die Seiten nicht oder nicht
+                        aufeinanderfolgend gezählt werden. Ob die anderen das erlauben, weiß ich nicht.</p>
+                    <p>Ich habe noch nie mit Textverarbeitung gesetzt, daher kann ich sonst nichts dazu sagen.</p>
+                    <br>
+                    <p>Aufwand Geld: Je nach Programm zwischen 0 und 10€ im Monat.</p>
+                    <p> Aufwand Zeit: Hoch, sehr hoch, gerade Word zerschießt gerne Seite 50, weil auf Seite 3 was geändert
+                        wurde.</p>
+                    <p>Aufwand Vorwissen: Dadurch, dass es das Programm ist, in dem du eh viel machst, ist welches vorhanden.
+                        Aber um daraus einen Buchblock zu machen, sind zusätzliche Programmbereiche zu erschließen.</p>
+        
+                    <li>InDesign und andere grafisch basierte Satzprogramme</li>
+        
+                    <p>Das Problem an InDesign ist, dass es eigentlich für sowas vergleichsweise Simples wie ein Buch eher
+                        overpowert ist. Die meisten Layout-Programme wurden für (drucktechnisch) komplexe Medien wie Flyer,
+                        Broschüren, Programmhefte, Zeitungslayouts geschrieben und die Fülle der Tools und Befehle ist für
+                        vergleichbar simpleren Fließtext schlicht überwältigend.</p>
+                    <p> Etwas besser wird es bei Programmen wie Vellum (nur für Mac), die explizit für das Erstellen von eBooks
+                        und Prints geschrieben wurden. Damit habe ich allerdings bisher keine Erfahrungen gesammelt. (Vielleicht
+                        kann hier wer ergänzen).</p>
+                    <br>
+                    <p> Aufwand Geld: Je nach Abo ab 24€ im Monat (InDesign), oder einmalig ca. 200-250€ (Vellum), Scribus
+                        (gratis, allerdings fehleranfällig und frickelig)</p>
+                    <p> Aufwand Zeit: InDesign erfordert ein Einarbeiten und ein Selektieren, was überhaupt relevant für ein
+                        Prosabuch ist und verleitet zu Spielereien. Vellum verspricht einen automatischen Import und sieht von
+                        der Vorschau her recht intuitiv aus, habe es aber mangels Mac nicht getestet. Von Scribus weiß ich auch
+                        nur, dass es relativ hakelig ist und ungefähr auf der Stufe wie GIMP, was Usability angeht.</p>
+                    <p> Aufwand Vorwissen: Dürfte tatsächlich einfacher als Word sein für grafisch veranlagte Leute.</p>
+        
+                    <li>Papyrus, Patchwork und Co.</li>
+        
+                    <p>Das Gute ist, dass ähnlich wie bei Word kein extra Programm gekauft werden muss, wenn der Satz mit dem
+                        gemacht wird, was sowieso auf dem Rechner vorhanden ist. Außerdem entfällt auch hier der Export/Import,
+                        wenn das Buch im selben Programm gesetzt wird. Allerdings sieht der Satz laut Leuten, die mit Papyrus
+                        arbeiten, optisch nicht gut aus und meine Erfahrung mit Patchwork ist: Es ist okay. Es sieht
+                        einigermaßen aus. Aber dieses Interface ist im Vergleich zum Rest sehr langsam und dadurch ist es enorm
+                        mühsam, daran irgendwas zu prüfen und zu machen. Es dauert einfach EWIG.</p>
+                    <br>
+                    <p>Aufwand Geld: Scrivener ab ca. 40€, Papyrus ab 169€, Patchwork ab 99,00€. Bei Papyrus und Patchwork
+                        kommen noch Update-Kosten hinzu, bei Patchwork nach einem "Pay what you want"-Prinzip ab 15€ pro
+                        Quartal, bei den anderen weiß ich es gerade nicht.</p>
+                    <p>Aufwand Zeit: Je nach Programm mehr oder weniger hoch. Gerade bei Patchwork VIEL.</p>
+                    <p> Aufwand Vorwissen: Da die Programme nicht primär dafür da sind, Wissen über häufige Fehler zwecks
+                        "finden und Eliminieren"</p>
+        
+                    <li>LaTeX-Builds</li>
+        
+                    Ich kann hier nur von SPBuchsatz reden, das extra für das Setzen von Prosa gemacht wurde, aber einige
+                    dürften LaTeX aus der Studienzeit kennen, gerade in der Informatik wird damit gern die eine oder andere
+                    Abschlussarbeit geschrieben. Aber damit habe ich keine Erfahrungen gemacht.</p>
+                    Es erfordert erstmal ein Einfrickeln und es dauert ewig, das Grundprogramm zu installieren. Danach wird es
+                    recht flott.</p>
+                    <br>
+                    Aufwand Geld: LaTeX ist gratis, ebenso wie SPBuchsatz.</p>
+                    Aufwand Zeit: Gerade beim allerersten Mal enorm, mit Gewöhnung wird es allmählich besser.</p>
+                    Aufwand Vorwissen: Wenn ihr wie ich das absolut erste Mal überhaupt mit LaTeX arbeitet ... Oh kid, ist das
+                    mühsam. Ich habe es gemeistert, weil ich stur bin und Dinge gern im Alleingang löse. (Und weil ich ungern
+                    Fehlermeldungen schreibe, seit ich immer wieder schlechte Erfahrungen damit gemacht habe, dass mir sofort
+                    jegliches Technikverständnis abgesprochen wird) </p>
+                </ol>
+            </article>
+   
+        </section>
+    <footer><p>Falls ihr mit mir über Buchsatz reden wollt - ihr wisst, wo ihr mich findet!</p></footer>
+</body>
+
+</html>
