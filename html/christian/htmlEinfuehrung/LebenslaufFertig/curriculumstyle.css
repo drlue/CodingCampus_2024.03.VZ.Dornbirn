@@ -1,0 +1,35 @@
+:root {
+  --farbeSalmon: lightcoral;
+}
+.Kopfzeile {
+  background-color: var(--farbeSalmon);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  border: 2px solid black;
+}
+.Hauptseite {
+  margin-top: 1px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+.Inhaltsverzeichnis {
+  word-wrap: break-word;
+  font-size: x-small;
+  position: fixed;
+  text-align: start;
+  margin-left: 3px;
+}
+.Daten {
+  font-size: small;
+  background-color: lightblue;
+  width: 75, 5vw;
+  border-radius: 5px;
+  border: 2px solid black;
+  margin-left: 1px;
+  text-align: center;
+}
+.Tabelle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
