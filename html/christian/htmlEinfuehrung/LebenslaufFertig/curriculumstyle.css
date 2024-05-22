@@ -16,7 +16,8 @@
 .Inhaltsverzeichnis {
   word-wrap: break-word;
   font-size: x-small;
-  position: fixed;
+  position: sticky;
+  top: 0;
   text-align: start;
   margin-left: 3px;
 }
@@ -32,4 +33,28 @@
 .Tabelle {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+.Portfolio {
+  text-align: center;
+  background-color: bisque;
+  width: 100%;
+  height: 100%;
+}
+.InhaltPortfolio {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-auto-flow: row;
+  background-color: aqua;
+  border: 1px solid black;
+  height: 15vw;
+  width: 15vw;
+}
+a:hover {
+  background-color: rgb(231, 173, 86);
+}
+.Tabelle2 {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(10, 1fr);
+  column-gap: 40px;
 }
