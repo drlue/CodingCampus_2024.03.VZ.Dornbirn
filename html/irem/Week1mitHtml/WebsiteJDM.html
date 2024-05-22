@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meomories Will Die</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="glitter">
+        <h1>MemoriesWillDie</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="parallax"></div>
+
+        <section id="home" class="container">
+            <h2>Willkommen</h2>
+            <p>Willkommen auf <strong>Memories Will Die</strong>, dem Ort, wo Ihre schönsten Erinnerungen ewig Bestand haben.</p>
+        </section>
+        <section id="about" class="container">
+            <h2>Über uns</h2>
+            <p>Erfahren Sie mehr über unsere Mission und unsere Werte.</p>
+        </section>
+        <section id="contact" class="container">
+            <h2>Kontakt</h2>
+            <p>Kontaktieren Sie uns für weitere Informationen.</p>
+        </section>
+        <section id="gallery" class="container">
+            <h2>Galerie</h2>
+            <div class="gallery-grid">
+                <img src="JDM.jpg">
+                <img src="JDM2.webp">
+            </div>
+        </section>
+        <form id="contact-form" action="submit_form.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="message">Nachricht:</label>
+            <textarea id="message" name="message" required></textarea>
+        
+            <button type="submit">Senden</button>
+        </form>
+        <footer>
+            <p>Folgen Sie uns auf Social Media:</p>
+            <a href="https://facebook.com" target="_blank">Facebook</a>
+            <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </footer>
+        <footer>
+            <p>&copy; 2024 MemoriesWillDie. Alle Rechte vorbehalten.</p>
+        </footer>
+        <svg class="interactive-svg" width="100" height="100">
+          </svg>    
+    </main>

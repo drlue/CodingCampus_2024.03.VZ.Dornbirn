@@ -1,0 +1,206 @@
+header {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    flex-direction: column; 
+}
+
+header h1 {
+    font-family: 'Great Vibes', cursive; 
+    font-size: 48px; 
+    margin-bottom: 20px; 
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+header nav ul li {
+    padding: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.container {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ccc;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, textarea, button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+footer a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+.container {
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+#home {
+    background-color: #e9ecef;
+}
+
+#gallery .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.1);
+}
+
+
+@keyframes glitter {
+    0%, 100% {
+        background-position: -100% 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+}
+gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.2s ease-in-out;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+.glitter {
+    animation: glitter 8s linear infinite;
+    background-image: linear-gradient(
+        to right,
+        rgba(159, 77, 235, 0.512) 7%,
+        rgba(16, 50, 124, 0.8) 50%,
+        rgba(49, 145, 201, 0) 100%
+    );
+    background-size: 200% 100%;
+}
+@media (max-width: 600px) {
+    header, main {
+        flex-direction: column;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+    .parallax {
+        background-image: url('background-image.jpg');
+        min-height: 400px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .image-effect:hover {
+        transform: scale(1.1);
+        transition: transform .2s;
+      }
+      
+      .image-effect {
+        overflow: hidden;
+        display: inline-block;
+      }
+      
+      .image-effect img {
+        transition: transform .2s, filter .2s ease-in-out;
+        display: block;
+      }
+      
+      .image-effect:hover img {
+        transform: scale(1.1);
+        filter: brightness(75%);
+      }
+      .glow {
+        font-size: 2em;
+        color: #fff;
+        text-align: center;
+        animation: glow 1s ease-in-out infinite alternate;
+      }
+      
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px #6c9fd6, 0 0 20px #670b6d, 0 0 30px #df7af8, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+        }
+        to {
+          text-shadow: 0 0 20px #d99898, 0 0 30px #ff4da6, 0 0 40px #392d85, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+        }
+      }
+      .fadeIn {
+        opacity: 0;
+        transform: translateY(20px);
+        visibility: hidden;
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out, visibility 0.6s;
+      }
+      
+      .fadeIn.active {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+      .interactive-svg:hover {
+        fill: rgb(101, 143, 228);
+      }   
+}
