@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="files/Favicon.ico">
+    <link rel="stylesheet" href="files/stylefile.css">
+
+    <title>Document</title>
+    <style>
+        /*Vielleicht kommt hier was rein. Vielleicht auch nicht.*/
+   </style>
+</head>
+<body>
+    <div>
+    <div class="head">
+        <div>Forschung</div>
+        <div>Bildung</div>
+        <div>Bergbau</div>
+        <div>Nahrung</div>
+        <div>Unterhaltung</div>
+        <div style="flex-grow: 4", allign="center">Herzlich Willkommen!</div>
+    </div>
+    <div class="slideshow">
+
+ <div class="mySlides fade">
+    <div class="numbertext">1 / 5</div>
+    <img src="files/bergbau.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 5</div>
+    <img src="files/Bildung.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 5</div>
+    <img src="files/Forschung.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 5</div>
+    <img src="files/nahrung.png" style="width:100%">
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 5</div>
+    <img src="files/Unterhaltung.png" style="width:100%">
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentSlide(4)"></span> 
+  <span class="dot" onclick="currentSlide(5)"></span> 
+
+    </div>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+        
+        function showSlides() {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slideIndex++;
+          if (slideIndex > slides.length) {slideIndex = 1}    
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+          setTimeout(showSlides, 4000); 
+        }
+        </script>
+        <div><h1>28F braucht dich - stelle deine Arbeitskraft der Gemeinschaft zur Verfügung!</h1>
+        <p>Uns ist wichtig, dass unsere fleißigen Arbeitsdrohnen in dem Bereich arbeiten, der ihrem Wesen am nächsten kommt. Daher empfehlen wir allen, die über dieses Portal nach Informationen über Karrierewege suchen, sich zunächst einmal einem hauptamtlichen Persönlichkeitstest zu unterziehen.</p>
+        <p>Die Ergebnisse sind zur Berufsberatung in unserem Zentrum mitzubringen.</p>
+        <p>Zum <a href="https://www.testedich.at/persoenlichkeitstests/stars-figuren/buecher/andere-buecher/quiz63/1578904348/welches-ressort-auf-dem-planeten-motis-ist-das-richtige-fuer-dich">Persönlichkeitstest.</a></p>
+        </div>
+</div>
+</body>
+</html>
