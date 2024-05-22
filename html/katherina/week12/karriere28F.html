@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="files/Favicon.ico">
+    <link rel="stylesheet" href="files/stylefile.css">
+
+    <title>Document</title>
+    <style>
+        /*Vielleicht kommt hier was rein. Vielleicht auch nicht.*/
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="head">
+            <div>Forschung</div>
+            <div>Bildung</div>
+            <div>Bergbau</div>
+            <div>Nahrung</div>
+            <div>Unterhaltung</div>
+            <div style="flex-grow: 4" , allign="center">Herzlich Willkommen!</div>
+        </div>
+        <div class="slideshow">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 5</div>
+                <img src="files/bergbau.png" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 5</div>
+                <img src="files/Bildung.png" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 5</div>
+                <img src="files/Forschung.png" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 5</div>
+                <img src="files/nahrung.png" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">5 / 5</div>
+                <img src="files/Unterhaltung.png" style="width:100%">
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+
+        </div>
+        <script>
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 4000);
+            }
+        </script>
+        <div>
+            <h1>28F braucht dich - stelle deine Arbeitskraft der Gemeinschaft zur Verfügung!</h1>
+            <p>Uns ist wichtig, dass unsere fleißigen Arbeitsdrohnen in dem Bereich arbeiten, der ihrem Wesen am
+                nächsten kommt. Daher empfehlen wir allen, die über dieses Portal nach Informationen über Karrierewege
+                suchen, sich zunächst einmal einem hauptamtlichen Persönlichkeitstest zu unterziehen.</p>
+            <p>Die Ergebnisse sind zur Berufsberatung in unserem Zentrum mitzubringen.</p>
+            <p>Zum <a
+                    href="https://www.testedich.at/persoenlichkeitstests/stars-figuren/buecher/andere-buecher/quiz63/1578904348/welches-ressort-auf-dem-planeten-motis-ist-das-richtige-fuer-dich">Persönlichkeitstest.</a>
+            </p>
+        </div>
+        <div>
+            <h2>Unser Berufsberatungsteam steht zu deiner Verfügung!</h2>
+            <div>
+                <h3>Unterhaltung</h3>
+                <img src="files/business-woman-2756210_1280.jpg" style="width: 300px; float:left; padding: 25px;"
+                    alt="Weiße Frau im Blazer, mit dunkler Kurzhaarfrisur und Brille in der Hand. Sie sieht dich lächelnd an.">
+            </div>
+            <ul>
+                <li>Name: Fauna Gaétane</li>
+                <li>Alter: 28</li>
+                <li>Berufserfahrung: Fernsehschauspielerin, seit sie 14 ist.</li>
+                <li>Anmerkung von Fauna persönlich: "Falls du einen künstlerischen Beruf anstrebst, ist eine passende
+                    Portfoliomappe mit Arbeitsproben vorzubereiten."</li>
+                <li>Fauna über sich: Ich habe durch meine Arbeit an unzähligen Fernsehproduktionen nicht nur selbst viel Erfahrung gesammelt, sondern habe auch mit allen anderen Unterabteilungen zusammengearbeitet. Ob also Sport, Kunst, Malerei oder die Arbeit vor und hintr der Kamera: Ich kann dir helfen, den besten Platz in der Gesellschaft zu finden.</li>
+            </ul>
+            <div>
+                <h3>Nahrung</h3><img src="files/call-center-8643475_1280.jpg" style="width: 300px;float:left; padding: 25px;"
+                    alt="Frau mit olivfarbener Haut, einem hellbraunen Zopf, braunen Augen. Auf dem Kopf hat sie ein Headset und trägt eine blaue Bluse. Sie schaut dich hinter einem Monitor hervor an.">
+                </div>
+                    <ul>
+                        <li>Name: Viktoria Yeong-Su</li>
+                        <li>Alter: 25</li>
+                        <li>Berufserfahrung: 7 Jahre in der Nahrungsmittelproduktion.</li>
+                        <li>Anmerkung von Viktoria persönlich: "Du solltest nicht mit der Erwartung zu mir kommen, du könntest im Alleingang die Nahrungsversorgung auf Motis revolutionieren. Dann wirst du ziemlich enttäuscht werden. Aber wenn du dabei helfen willst, zu sorgen, dass wir genug Algen für alle haben und diese nicht ganz so neutral schmecken, bist du bei mir richtig."</li>
+                        <li>Viktoria über sich: Ich liebe es zu essen! Und ich liebe es, aus dem Wenigen, das wir auf diesem Planeten zur Verfügung haben, etwas Gutes zu zaubern. Wenn du mir ein Törtchen mitbringst, bin ich auf alle Fälle besonders gewillt, mir dein Anliegen anzuhören. Ansonsten werde ich mein bestes tun, um in meinem Ressort einen guten Platz für dich zu finden!</li>
+                    </ul>
+            <div>
+                <h3>Bildung</h3><img src="files/call-center-8643477_1280.jpg" style="width: 300px;float:left; padding: 25px;"
+                    alt="Mann mit olivfarbener Haut, kurzen braunen Wellenhaaren und braunen Augen. Er trägt ein Headset auf dem Kopf, ein blaues Hemd und lächelt dich schief an.">
+            </div>
+            <ul>
+                <li>Name: Temir Zuzana</li>
+                <li>Alter: 38</li>
+                <li>Berufserfahrung: 15 Jahre an der Berufsschule.</li>
+                <li>Anmerkung von Temir persönlich: "Das Problem am Lehrerdasein sind nicht die Kinder. Die sind super. Das Problem sind größtenteils die Eltern. Du brauchst starke Nerven, um dich auch gegen die zu wehren, die der festen Meinung sind, du hättest ihre Sprösslinge ungerecht behandelt."</li>
+                <li>Temir über sich: Für mich ist dieser Beruf perfekt, weil ich auf diese Weise ein bisschen in alle Ressorts reinschauen kann. Unterrichtsfächer wie Mathematik werden schließlich ressort-übergreifend, wenn auch in verschiedenen Leistungsstufen unterrichtet. Wer auch immer groß rauskommt und berühmt ist - ich kann imemr sagen: "Die Person kenne ich doch". Ich werde dich realistisch beraten.</li>
+            </ul>
+            <div>
+                <h3>Bergbau</h3><img src="files/mentor-2494673_1280.jpg" style="width: 300px; float:left; padding: 25px;"
+                    alt="Älterer Mann mit brauner Haut, grauen Haaren, Teilglatze, Bart und Brille. Er sitzt an einem Tisch, trägt Anzug und Hemd und lächelt freundlich.">
+                </div>
+                    <ul>
+                        <li>Name: Ramazan Yermolai</li>
+                        <li>Alter: 68</li>
+                        <li>Berufserfahrung: Langjähriger Mitarbeiter, der sich vom Maschinenassistenten zum Bohrungsaufsichtsrat hochgearbeitet hat. Seit kurzem im Ruhestand.</li>
+                        <li>Anmerkung von Ramazan persönlich: "Ich habe keinerlei Skrupel, dir zu sagen, dass du nicht in unsere Abteilung passt. Das kann Fluch und Segen zugleich sein. Fluch, falls du dein Selbstbild darauf aufgebaut hast, im Bergbau zu arbeiten. Segen, weil ich dich vielleicht vor der falschen Karriere bewahren kann."</li>
+                        <li>Ramazan über sich: Ich habe meine Arbeit immer schon geliebt, aber das liegt auch daran, dass ich von Kindesbeinen an lieber mit Steinen geredet habe als mit Menschen. Im Rahmen der Berufsberatung mache ich für dich eine Ausnahme und hoffe, du weißt meinen Erfahrungsschatz und mein zahlreiches Wissen über Geologie, Maschinenbau und Einsamkeit zu schätzen.</li>
+                    </ul>
+            <div>
+                <h3>Forschung</h3><img src="files/woman-868534_1280.jpg" style="width: 300px;float:left; padding: 25px;"
+                    alt="Junge, Schwarze Frau mit braunen, schulterlangen Locken. Sie trägt weiße Bluse und Blazer und lächelt dich an, während sie etwas notiert.">
+            </div>
+            <ul style="padding-bottom: 75px;">
+                <li>Name: Glykeria Simon</li>
+                <li>Alter: 24</li>
+                <li>Berufserfahrung: Jüngste Forscherin des Planeten.</li>
+                <li>Anmerkung von Glykeria persönlich: "Wenn du nach einem Weg suchst, um die Lebensumstände auf Motis zu verbessern, dann bist du hier genau richtig. Nichts ist besser dafür geeignet, als der Forschungsressort. Wir arbeiten eng mit den anderen Bereichen zusammen und unsere Arbeit durchdringt jeden Aspekt deines Alltags."</li>
+                <li>Glykeria über sich: Als jüngstes Mitglied der Gruppe musste ich lernen, mich durchzusetzen und dafür zu sorgen, dass meine Kompetenz gesehen und anerkannt wird. Ich weiß also, wie es ist, sich durchzubeißen und werde dir Strategien an die Hand geben, mit denen auch du dein Potential voll entfalten kannst.</li>
+            </ul>
+        </div>
+        <div>Nähere Informationen erhältst du, wenn du den Links im Dropdown-Menü folgst. (Sobald das Dropdown-Menü gecodet ist.)</div>
+    </div>
+</body>
+
+</html>
