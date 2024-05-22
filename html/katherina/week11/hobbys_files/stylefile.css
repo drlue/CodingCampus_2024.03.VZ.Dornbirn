@@ -3,6 +3,7 @@
     --magic-background-1: #1f53ff;
     --magic-font-1: rgb(218, 235, 249);
 }
+
 body {
     background-color: rgb(173, 255, 255);
 }
@@ -89,17 +90,26 @@ a {
     color: crimson;
 }
 
-#inhaltsverzeichnis h4{
+#inhaltsverzeichnis h4 {
     color: rgb(169, 203, 255);
 }
 
 #inhaltsverzeichnis ul {
     background-color: var(--magic-background-1);
-   color: var(--magic-font-1);
+    color: var(--magic-font-1);
 }
-#inhaltsverzeichnis li > a {
+
+#inhaltsverzeichnis li>a {
     background-color: var(--magic-background-1);
     color: var(--magic-font-1);
+}
+
+nav>a {
+    color: #001353;
+    border: 3px;
+    border-color: darkblue;
+    border-style: double;
+    padding: 5px;
 }
 
 #schlussdiv {
@@ -109,4 +119,23 @@ a {
     border: #19062b;
     border-style: groove;
     font-size: larger;
+}
+
+article {
+    width: 75%;
+
+}
+
+aside {
+    width: 22%;
+    border-color: #001353;
+    border-style: dotted;
+    border-width: 5px;
+    font-style: italic;
+    padding: 5px;
+    background-color: aqua;
+    float: right;
+}
+footer{
+    background-color: aquamarine;
 }
