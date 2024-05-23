@@ -1,0 +1,245 @@
+:root {
+    --farbe1: #e4660d;
+    --farbe2: #a6a9aa;
+    --bgfarbe1: #fdfdfd;
+    --bgfarbe2: #ededed;
+    --textfarbe1: #222222;
+    --textfarbe2: #666;
+}
+
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+a {
+    font-size: 18px;
+}
+
+input {
+    padding-left: 10px;
+}
+
+
+
+input:focus {
+
+    outline: 2px solid var(--farbe1);
+    /* Rote Outline beim Fokus */
+}
+
+
+.centerV {
+    padding: 5px 0px;
+}
+
+.centerH {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+    padding-left: 5px;
+}
+
+.right {
+    text-align: right;
+    padding-right: 5px;
+}
+
+.main {
+    background-color: var(--bgfarbe1);
+    color: var(--textfarbe1);
+    height: 100vh;
+
+}
+
+.headerLogo {
+    width: 200px;
+}
+
+.headerFlagIcon {
+    width: 50px;
+}
+
+
+
+.headerRow {
+    background-color: var(--bgfarbe1);
+    display: grid;
+    grid-template-columns: 1fr 1fr 5fr 1fr;
+    color: var(--farbe1);
+    align-items: center;
+    border: 1px solid var(--farbe2);
+    font-size: 18px;
+}
+
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+}
+
+.nav {
+    border: 1px;
+    border-color: var(--farbe1);
+    border-style: solid;
+    text-align: center;
+
+
+}
+
+.nav>a {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0px;
+    color: var(--farbe1);
+    text-decoration: none;
+
+
+}
+
+.nav>a:hover {
+    color: var(--textfarbe1);
+    background-color: var(--farbe2);
+}
+
+.nav>a:active {
+    color: white;
+    background-color: var(--farbe1);
+}
+
+
+
+.headerImageRow {
+    display: grid;
+    grid-template-rows: 5fr 1fr;
+    background-color: var(--farbe1);
+    height: 400px;
+    background-image: url('images/job_search.jpeg');
+    background-size: cover;
+    /* Skaliert das Bild, um das gesamte Div zu bedecken */
+    background-position: center;
+    /* Zentriert das Bild innerhalb des Divs */
+    background-repeat: no-repeat;
+    /* Verhindert, dass das Bild wiederholt wird */
+    border: 1px solid #fff;
+
+}
+
+.searchRow {
+    margin: -40px 20px 40px 20px;
+    border: 1px solid var(--farbe2);
+
+}
+
+.searchContainer {
+    display: grid;
+    grid-template-columns: 4fr 2fr 1fr;
+    color: var(--farbe1);
+    height: 40px;
+    margin: 0 100px;
+
+
+}
+
+.searchBox {
+    display: grid;
+    align-items: center;
+
+}
+
+
+#searchItem {
+    width: 90%;
+    height: 90%;
+}
+
+#searchPlace {
+    width: 90%;
+    height: 90%;
+}
+
+
+
+.searchButton {
+    display: inline-block;
+    background-color: var(--bgfarbe1);
+    color: var(--farbe1);
+    font-size: large;
+    text-decoration: none;
+    width: 90%;
+    height: 90%;
+    align-content: center;
+    text-align: center;
+}
+
+.searchButton:hover {
+    background-color: var(--farbe1);
+    color: white;
+}
+
+.categoriesContainer {
+    background-color: var(--farbe1);
+    margin: 20px 100px;
+    padding: 10px;
+    border: 1px solid var(--farbe2);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+}
+
+.category {
+    display: grid;
+    width: 200px;
+    height: 30px;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid white;
+    align-content: center;
+    justify-items: left;
+    color: white;
+}
+
+.companyContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 20px 100px;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+.companyBox {
+    border: 1px solid var(--farbe1);
+    color: var(--farbe1);
+    padding: 5px;
+}
+
+
+.greyContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 100px;
+    align-items: center;
+    gap: 5px;
+    height:200px;
+}
+
+.span2Rows {
+    grid-row: span 2; /* Spanning over two rows */   
+}
+
+.greyBox {
+    background-color: var(--bgfarbe2);
+    color: var(--farbe2);
+    font-size: 25px;
+    border: 1px solid var(--farbe2);
+    text-align: center;
+    height: 100%;
+    
+    
+}
