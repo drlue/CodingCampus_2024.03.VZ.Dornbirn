@@ -41,6 +41,16 @@ body{
 .fade {
   display: none;
 }
+.grid-container {
+  display: flex;
+  background-color: #8ea5b9e6;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
+}
+
 }
 
 
