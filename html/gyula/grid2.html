@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .left {
+            background-color: beige;
+        }
+        .right {
+            background-color: lightblue;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    </style>
+</head>
+<body id="body">
+    <div>
+        <h1>Headline</h1>
+    </div>
+    <div class="container">
+        <div class="left">
+            <p>left</p>
+        </div>
+        <div class="right">
+            <p>right</p>
+        </div>
+        <div>
+            <p>A 1</p>
+        </div>
+        <div>
+            <p>A 2</p>
+        </div>
+        <div>
+            <p>A 3</p>
+        </div>
+        <div>
+            <p>A 4</p>
+        </div>
+        <div>
+            <p>A 5</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Footer</p>
+    </div>
+
+    <script>
+        console.log('Hello World!')
+        let body = document.getElementById('body')
+        for (let index = 0; index < 10; index++) {
+            let p = document.createElement('p')
+            p.innerText = 'Hello World! ' + (index + 1)
+            body.appendChild(p)
+        }
+    </script>
+</body>
+</html>

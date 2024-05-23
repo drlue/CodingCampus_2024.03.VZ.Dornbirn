@@ -11,10 +11,18 @@ ul {
   background: #ff4b33;
 }
 .Tabelle {
-  text-align: center;
-  height: 48%;
-  width: 48%;
-  border: solid #000000;
-  margin: auto;
-  float: left;
+  background-color: lightcoral;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+.Headline {
+  display: grid;
+  grid-template-columns: 70% 29%;
+  background-color: lightcoral;
+  border-radius: 5px;
+}
+.hauptseite {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background-color: lightsalmon;
 }
