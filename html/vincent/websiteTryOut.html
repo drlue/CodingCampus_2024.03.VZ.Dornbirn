@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: box;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-self: center;
+    }
+    .container {
+      width: auto;
+      display: grid;
+      grid-template-columns: 200px auto 200px;
+      grid-gap: 10px;
+      height: 100%;
+    }
+    .header {
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      background: rgb(219, 216, 198);
+      background-color: rgb(189, 184, 157);
+      grid-column: 1/4;
+    }
+    .left {
+      background-color: antiquewhite;
+      border-bottom-left-radius: 50px 50px;
+      border-bottom-right-radius: 50px 50px;
+      grid-column: 1/2;
+    }
+    .box {
+      box-sizing: content-box;
+      width: auto;
+      border: solid black 10px;
+      float: bottom center;
+      border-radius: 20px;
+    }
+    .center {
+      background-color: aliceblue;
+      border-radius: 50px;
+      border-color: aqua;
+      grid-column: 2/3;
+    }
+    .right {
+      background-color: antiquewhite;
+      border-bottom-left-radius: 50px 50px;
+      border-bottom-right-radius: 50px 50px;
+      grid-column: 3/4;
+    }
+    .footer {
+      background-color: rgb(46, 66, 59);
+      grid-column: 1/4;
+    }
+    @media screen and (max-width: 600px) {
+      .left,
+      .center,
+      .right {
+        grid-column: 1/4;
+      }
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="header">
+        header
+        <p>Lets see waht happen when if i write something down</p>
+        <div class="box">
+          <p>the menue tool bar content should be more span</p>
+          <a href="">menu tool bar</a>
+          <a href="">About us</a>
+
+          <a href="">Projekte</a>
+          <a href="">Carriere</a>
+        </div>
+      </div>
+      <div class="left">left</div>
+      <div class="center">
+        center
+        <p>let see what happen</p>
+        <p>i want everything to be writen down or up</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis,
+          quisquam explicabo tempore aliquid dolorum laborum dolorem, dolores
+          culpa saepe ipsa animi, eius soluta quidem vero totam eum amet
+          dignissimos. Doloremque!
+        </p>
+      </div>
+      <div class="right">right</div>
+      <div class="footer">footer</div>
+    </div>
+  </body>
+</html>
