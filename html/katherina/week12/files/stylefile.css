@@ -17,6 +17,32 @@ body{
     padding-right: 50px;
 }
 
+@media screen and (max-width: 480px) {
+.head{
+  flex-wrap: wrap;
+  text-align: left;
+  font-size: small;
+  margin: hidden;
+  padding: hidden;
+}
+.slideshow{
+  display: none;
+}
+.mySlides{
+  display: none;
+}
+.dot{
+  display: none;
+}
+.active, .dot:hover{
+  display: none;
+}
+
+.fade {
+  display: none;
+}
+}
+
 
 .menu:hover {
   background-color: rgba(195, 167, 215, 0.731);
