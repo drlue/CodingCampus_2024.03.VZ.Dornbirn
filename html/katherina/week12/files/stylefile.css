@@ -13,9 +13,10 @@ body {
 .head>div {
   margin: 10px;
   font-size: 20px;
+display: flex;
 }
 
-p{font-size: large;
+p{font-size: 1.3em;
 
 }
 
@@ -32,6 +33,7 @@ img.portrait {
 .menu {
   position: relative;
   display: inline-block;
+  padding-right: 5vw;
 }
 
 .dropdown {
@@ -64,8 +66,10 @@ img.portrait {
   border: 1px;
   border-color: black;
   border-style: solid;
-  padding: 0%;
+  padding: 5%;
   margin: 3px;
+  box-sizing: content-box;
+  width: 100%;
 }
 
 div {
