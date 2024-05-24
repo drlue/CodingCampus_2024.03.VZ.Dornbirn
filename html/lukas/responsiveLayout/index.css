@@ -1,0 +1,24 @@
+:root {
+--bgColor1: rgb(18, 87, 110);
+}
+
+* {
+    margin-block: 0px;
+}
+
+body {
+    margin: 0px;
+    font-size: clamp(20px, 5vw, 96px);
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bgColor1);
+    justify-content: center;
+    align-items: center;
+}
