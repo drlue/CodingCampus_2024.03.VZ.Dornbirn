@@ -1,0 +1,89 @@
+/* mittels "." kann man eine Klasse erstellen... wenn man keinen "." verwendet ändert man den Tag */
+/* mit "justify-content: space between" kann man  */
+
+html{
+    height: 100vp;
+}
+
+body{
+    height: 100vp;
+}
+
+.layout{
+    display: flex;
+    flex-direction: column;
+    height: 100vp;
+    background-color: aquamarine;
+
+}
+
+.header{
+    height: 100px;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerLeft{
+    background-color: blue;
+    height: 50%;
+    width: 20vw;
+    border-radius: 10px;
+}
+
+.headerRight{
+    background-color: brown;
+    width: 50vw;
+    justify-self:flex-end;
+    justify-self: last baseline;
+}
+
+.navigation{
+    height: 50px;
+    background-color: beige;
+}
+
+.content{
+    flex-grow: 10;
+    background-color:black;
+    display: flex;
+    height: 500px;
+    border-radius: 5px;
+}
+
+
+/* Das Parent wurde als Flexbox definiert, deshalb kann man hier flex-grow verwenden (1=10% .. 10=100%)  */
+.contentLeft{
+    display: flex;
+    overflow-y: scroll;
+    background-color: aqua;
+   flex-grow: 3;
+
+   border-radius: 10px;
+}
+
+
+.contentRight{
+    flex-grow: 2;
+    background-color: rebeccapurple;
+    border-radius: 20px;
+    text-align: center;
+    text-justify: ;
+}
+
+.footer{
+    background-color: antiquewhite;
+}
+
+/* ab 1000px breite soll die Farbe des ".headerRight" auf blau geändert werden */
+@media screen and (max-width: 1000px) {
+    .headerRight {
+        background-color: blue;
+    }
+
+    .header{
+        background-color: aliceblue;
+    }
+}
+
