@@ -185,17 +185,25 @@ h1 {
     margin-bottom: 0.5em;
 }
 
-.rating-form p {
-    margin-top: 0;
-    margin-bottom: 1em;
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f4f4f4;
 }
 
-/* Sterne-Bewertung */
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    text-align: center;
+}
+
 .star-rating {
     direction: rtl;
     font-size: 40px;
-    line-height: 1;
-    margin-bottom: 1em;
+    color: #ccc;
 }
 
 .star-rating input[type="radio"] {
@@ -203,29 +211,12 @@ h1 {
 }
 
 .star-rating label {
-    color: #ccc;
     cursor: pointer;
-    transition: color 0.2s ease-in-out;
 }
 
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input[type="radio"]:checked ~ label {
     color: gold;
-}
-
-/* Button */
-.submit-btn {
-    background-color: #440c99;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #0056b3;
 }
 }
