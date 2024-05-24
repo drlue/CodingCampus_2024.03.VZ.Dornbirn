@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main{
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .left {
+            display: none;
+        }
+
+        .foto{
+            width: 60%;
+        }
+
+        @media screen and (min-width: 600px) {
+            main{
+                grid-template-columns: 2fr 8fr 2fr;
+            }
+
+            .left {
+            display: block;
+        }
+
+            .foto{
+            width: 100%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>Header</header>
+    <main>
+        <div class="left">left</div>
+        <div class="center">
+            <section>
+                <h2>Kapitel 1</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque, tempora atque pariatur ipsam reprehenderit architecto nostrum corrupti magni iure eos, maxime aperiam illum doloribus dignissimos porro non dolor eveniet nam?</p>
+                <p>Perspiciatis magnam facere ea nam, aliquam repellendus iure fugiat consectetur mollitia assumenda earum ratione molestias debitis optio, accusamus qui minima? Cupiditate aliquid esse excepturi adipisci accusamus et deserunt, iste qui.</p>
+                <p>Placeat eum labore corrupti ea, sapiente iusto animi tenetur, veniam, sunt molestiae modi magnam autem vel totam et? Facere dicta corporis fugiat quasi esse neque quia totam distinctio minima officiis!</p>
+            </section>
+            <section>
+                <h2>Kapitel 2</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam harum suscipit, quo ab atque rerum corporis cupiditate vero beatae. Adipisci explicabo nesciunt cum deleniti totam reprehenderit illo architecto veniam dolorem?</p>
+                <p>Labore veritatis molestias corporis inventore laudantium vel consectetur fugiat consequuntur unde a ipsa nisi illum cumque magnam architecto ducimus earum eos eius, et non ipsam cum? Accusantium exercitationem maiores natus?</p>
+                <p>Fuga ratione obcaecati fugiat veritatis enim incidunt temporibus optio ipsam consequatur, neque ipsum rem, unde alias ducimus est? Tempora animi quo hic molestias! Nesciunt dolorum, ad eos impedit veniam non?</p>
+            </section>
+            <section>
+                <h2>Kapitel 3</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod facere facilis veritatis cupiditate, itaque maxime cum voluptates reiciendis, exercitationem iste reprehenderit quas dignissimos quaerat explicabo harum quasi laborum ea.</p>
+                <p>Tenetur corrupti, praesentium cumque doloremque libero fuga nihil eos explicabo veniam vel quasi officiis temporibus facilis, nam placeat nemo ut itaque dolorum minima, voluptatem quia exercitationem ipsum alias? Enim, voluptates?</p>
+                <p>Perspiciatis ex et distinctio non esse culpa at debitis natus amet neque! Dicta perspiciatis architecto omnis molestias, nemo quisquam repellat ipsam beatae. Nostrum perferendis soluta, eligendi ipsa quod ipsam cupiditate?</p>
+            </section>
+            <section>
+                <h2>Kapitel 4</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi voluptate fuga culpa nostrum. Illo reiciendis aspernatur delectus distinctio saepe hic sed, praesentium expedita nam officiis, dolore voluptas iste, ducimus labore!</p>
+                <p>Hic temporibus autem explicabo minus veniam beatae, esse eum consequuntur vel officiis asperiores, dolor libero, dignissimos excepturi dolore quas! Ducimus provident optio libero dolorum repudiandae exercitationem? Aliquam quod ipsum doloremque?</p>
+                <p>Iure doloribus, nesciunt aliquid possimus quis consectetur quod distinctio voluptate, debitis aliquam porro quisquam enim architecto tenetur nostrum molestiae, sapiente cumque sequi. Tempore doloremque nesciunt ab ut culpa necessitatibus dolor!</p>
+            </section>
+        </div>
+        <div class="right">
+            <img class="foto" src="https://www.digitalcampusvorarlberg.at/fileadmin/_processed_/c/d/csm_ansprechpartner-gyula-horvath_1fd64bba2c.jpg" alt="Gyula">
+        </div>
+    </main>
+    <footer>Footer</footer>
+</body>
+</html>
