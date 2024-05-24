@@ -13,37 +13,17 @@ body {
 .head>div {
   margin: 10px;
   font-size: 20px;
+display: flex;
 }
 
-@media screen and (max-width: 480px) {
-  .head {
-    flex-wrap: wrap;
-    text-align: left;
-    font-size: small;
-    margin: hidden;
-    padding: hidden;
-  }
+p{font-size: 1.3em;
 
-  .slideshow {
-    display: none;
-  }
+}
 
-  .mySlides {
-    display: none;
-  }
-
-  .dot {
-    display: none;
-  }
-
-  .active,
-  .dot:hover {
-    display: none;
-  }
-  .fade {
-    display: none;
-  }
-
+img.portrait {
+  width: 25vb;
+  float: left;
+  padding: 25px;
 }
 
 .menu:hover {
@@ -53,9 +33,10 @@ body {
 .menu {
   position: relative;
   display: inline-block;
+  padding-right: 5vw;
 }
 
-.dropdown{
+.dropdown {
   background-color: rgba(171, 171, 171, 0.877);
   padding: 16px;
   border: none;
@@ -79,6 +60,16 @@ body {
 .menu:hover .dropdown-content {
   display: block;
 
+}
+
+.entry{
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  padding: 5%;
+  margin: 3px;
+  box-sizing: content-box;
+  width: 100%;
 }
 
 div {
@@ -162,4 +153,109 @@ h4>div {
   padding: 20px;
   font-size: 30px;
   text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: x-large;
+    margin: 0px;
+  }
+
+  .head {
+    flex-wrap: wrap;
+    text-align: left;
+    font-size: small;
+    margin: hidden;
+    padding: hidden;
+  }
+
+  .slideshow {
+    display: none;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .dot {
+    display: none;
+  }
+
+  .active,
+  .dot:hover {
+    display: none;
+  }
+
+  .fade {
+    display: none;
+  }
+
+  img.portrait {
+    padding: 5px;
+  }
+
+}
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  head {
+    display: none;
+  }
+
+  .slideshow {
+    display: none;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .dot {
+    display: none;
+  }
+
+  .active,
+  .dot:hover {
+    display: none;
+  }
+
+  .fade {
+    display: none;
+  }
+
+  img.portrait {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .dropdown-content {
+    display: none;
+  }
+
+  .head {
+    display: none;
+  }
+  h3{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  h1{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
 }
