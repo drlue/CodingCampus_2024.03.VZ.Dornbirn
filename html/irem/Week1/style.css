@@ -1,3 +1,7 @@
+:root{
+    --irem-rosa: rgb(127, 34, 146);
+}
+
 header {
     display: flex;
     justify-content: center; 
@@ -28,6 +32,12 @@ header nav ul li a {
     color: white;
     text-decoration: none;
 }
+header nav ul li a:hover {
+    color: var(--irem-rosa);
+    transition: color 250ms linear;
+}
+
+
 main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -129,15 +139,19 @@ gallery-grid {
     transform: scale(1.05);
 }
 .glitter {
-    animation: glitter 8s linear infinite;
+    animation: glitter 9s linear infinite;
     background-image: linear-gradient(
         to right,
-        rgba(159, 77, 235, 0.512) 7%,
-        rgba(16, 50, 124, 0.8) 50%,
-        rgba(49, 145, 201, 0) 100%
+        rgba(92, 8, 105, 0.512) 7%,
+        rgba(94, 71, 189, 0.8) 50%,
+        rgba(54, 25, 149, 0.521) 60%,
+        rgba(28, 20, 60, 0.522) 70%
+        
     );
     background-size: 200% 100%;
 }
+
+
 @media (max-width: 600px) {
     header, main {
         flex-direction: column;
@@ -147,11 +161,71 @@ gallery-grid {
         grid-template-columns: 1fr;
     }
     .parallax {
-        background-image: url('background-image.jpg');
-        min-height: 400px;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+        background-image: url('JDM.jpg');
       }
-    }
+      /* Basis-Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 0.5em;
+}
+
+.rating-form p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+/* Sterne-Bewertung */
+.star-rating {
+    direction: rtl;
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 1em;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input[type="radio"]:checked ~ label {
+    color: gold;
+}
+
+/* Button */
+.submit-btn {
+    background-color: #440c99;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+}

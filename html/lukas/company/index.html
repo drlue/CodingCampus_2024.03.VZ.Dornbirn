@@ -4,20 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Company Site</title>
 </head>
 
 <body>
     <div class="main">
         <div class="headerRow">
-            <div class="left centerV">
-                <img class="headerLogo" src="images/logo_header.webp" alt="laendlejob.at">
+            <div class="headerLeft">
+                <div class="left centerV">
+                    <img class="headerLogo" src="images/logo_header.webp" alt="laendlejob.at">
+                </div>
+                <div class="hamIcon centerV right">
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
             </div>
+
+
             <div class="centerH centerV">
                 <p>2.000 Jobs Online</p>
             </div>
-            <div class="menu">
+            <div class="menu" id="menu">
                 <div class="nav"><a href="">Nav 1</a></div>
                 <div class="nav"><a href="">Nav 2</a></div>
                 <div class="nav"><a href="">Nav 3</a></div>
@@ -25,26 +35,23 @@
                 <div class="nav"><a href="">Nav 5</a></div>
             </div>
             <div class="right centerV">
-                <img class="headerFlagIcon" src="images/flagAustria.png" alt="Flag of Austria"">
+                <img class="headerFlagIcon" src="images/flagAustria.png" alt="Flag of Austria">
             </div>
+
         </div>
         <div class=" headerImageRow">
-
-                <div class="placeHolder"></div>
-                <form>
-                    <div class="searchContainer">
-                        <div class="searchBox">
-                            <input type="text" id="searchItem" name="searchItem" placeholder="Jobtitel oder Suchwort">
-                        </div>
-                        <div class="searchBox">
-                            <input type="text" id="searchPlace" name="searchPlace" placeholder="Ort">
-                        </div>
-                        <div class="searchBox">
-                            <a class="searchButton" href="">Suche</a>
-                        </div>
-                </form>
-            </div>
-
+            <div class="placeHolder"></div>
+            <form class="searchContainer">
+                <div class="searchBox">
+                    <input type="text" id="searchItem" name="searchItem" placeholder="Jobtitel oder Suchwort">
+                </div>
+                <div class="searchBox">
+                    <input type="text" id="searchPlace" name="searchPlace" placeholder="Ort">
+                </div>
+                <div class="searchBox">
+                    <a class="searchButton" href="">Suche</a>
+                </div>
+            </form>
         </div>
 
         <div class="categoriesContainer">
@@ -190,7 +197,18 @@
 
     </div>
 
-
+    <script>
+        function myFunction() {
+          var x = document.getElementById("menu");
+          if (window.getComputedStyle(x).display === "none") {
+            x.style.display = "grid";
+          } else {
+            x.style.display = "none";
+          }
+        }
+        </script>
+        
+        
 </body>
 
 </html>

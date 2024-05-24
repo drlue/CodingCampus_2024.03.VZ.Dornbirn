@@ -51,6 +51,8 @@ input:focus {
     background-color: var(--bgfarbe1);
     color: var(--textfarbe1);
     height: 100vh;
+    max-width: 1200px;
+    margin: auto;
 
 }
 
@@ -72,8 +74,19 @@ input:focus {
     align-items: center;
     border: 1px solid var(--farbe2);
     font-size: 18px;
+
 }
 
+.headerLeft{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon {
+    display: none;
+    color: var(--farbe1);
+    font-size: 30px;
+}
 
 .menu {
     display: grid;
@@ -101,13 +114,13 @@ input:focus {
 }
 
 .nav>a:hover {
-    color: var(--textfarbe1);
-    background-color: var(--farbe2);
+    color: white;
+    background-color: var(--farbe1);
 }
 
 .nav>a:active {
-    color: white;
-    background-color: var(--farbe1);
+    color: var(--textfarbe1);
+    background-color: var(--farbe2);
 }
 
 
@@ -128,51 +141,39 @@ input:focus {
 
 }
 
-.searchRow {
-    margin: -40px 20px 40px 20px;
-    border: 1px solid var(--farbe2);
 
-}
 
 .searchContainer {
     display: grid;
+    gap: 5px;
     grid-template-columns: 4fr 2fr 1fr;
     color: var(--farbe1);
-    height: 40px;
     margin: 0 100px;
-
-
 }
 
 .searchBox {
     display: grid;
     align-items: center;
+    margin: 2px 0px;
 
 }
 
-
-#searchItem {
-    width: 90%;
-    height: 90%;
+/*input see top*/
+.searchBox>input {
+    height: 40px;
 }
-
-#searchPlace {
-    width: 90%;
-    height: 90%;
-}
-
 
 
 .searchButton {
     display: inline-block;
     background-color: var(--bgfarbe1);
     color: var(--farbe1);
+    border: 1px solid var(--farbe1);
     font-size: large;
     text-decoration: none;
-    width: 90%;
-    height: 90%;
     align-content: center;
     text-align: center;
+    height: 44px;
 }
 
 .searchButton:hover {
@@ -194,7 +195,7 @@ input:focus {
 
 .category {
     display: grid;
-    width: 200px;
+    width: 20vw;
     height: 30px;
     margin: 5px;
     padding: 5px;
@@ -226,11 +227,12 @@ input:focus {
     margin: 20px 100px;
     align-items: center;
     gap: 5px;
-    height:200px;
+    height: 200px;
 }
 
 .span2Rows {
-    grid-row: span 2; /* Spanning over two rows */   
+    grid-row: span 2;
+    /* Spanning over two rows */
 }
 
 .greyBox {
@@ -240,6 +242,61 @@ input:focus {
     border: 1px solid var(--farbe2);
     text-align: center;
     height: 100%;
+
+
+}
+
+
+/* ========== MEDIA QUERY ================== */
+
+@media screen and (max-width: 700px) {
+
+    .headerRow,
+    .menu,
+    .companyContainer,
+    .searchContainer {
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .categoriesContainer {
+        display: none;
+    }
+
+    .greyContainer {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
     
-    
+    .companyBox {
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    .headerImageRow {
+        grid-template-rows: 3fr 1fr;
+    }
+
+    .searchContainer {
+        padding-bottom: 5px;
+    }
+
+    .searchBox {
+        width: 90%;
+        margin: auto;
+    }
+
+    .headerRow>div:not(:first-child) {
+        display: none;
+    }
+
+    .icon {
+        /* float: right; */
+        display: block;
+    }
+
+
 }

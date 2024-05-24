@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    * {
+        margin-block: 0;
+    }
+    body{
+        margin: 0;
+    }
+    .container{
+        display: grid;
+        width: 100vw;
+        height: 100vh;
+        background-color: bisque;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        font-size: clamp(24px, 10.5vw, 96px);
+    }
+
+    @media only screen and (min-width: 600px) {
+        .container{
+            background-color: lightcoral;
+        }
+    }
+
+    @media only screen and (min-width: 800px) {
+        .container{
+            background-color: lightblue;
+        }
+    }
+    @media only screen and (min-width: 1000px) {
+        .container{
+            background-color: black;
+            color: lightpink;
+        }
+    }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <p>Hello World!</p>
+    </div>    
+</body>
+</html>
