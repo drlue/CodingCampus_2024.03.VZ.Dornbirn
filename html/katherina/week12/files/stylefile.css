@@ -15,35 +15,14 @@ body {
   font-size: 20px;
 }
 
-@media screen and (max-width: 480px) {
-  .head {
-    flex-wrap: wrap;
-    text-align: left;
-    font-size: small;
-    margin: hidden;
-    padding: hidden;
-  }
+p{font-size: large;
 
-  .slideshow {
-    display: none;
-  }
+}
 
-  .mySlides {
-    display: none;
-  }
-
-  .dot {
-    display: none;
-  }
-
-  .active,
-  .dot:hover {
-    display: none;
-  }
-  .fade {
-    display: none;
-  }
-
+img.portrait {
+  width: 25vb;
+  float: left;
+  padding: 25px;
 }
 
 .menu:hover {
@@ -55,7 +34,7 @@ body {
   display: inline-block;
 }
 
-.dropdown{
+.dropdown {
   background-color: rgba(171, 171, 171, 0.877);
   padding: 16px;
   border: none;
@@ -79,6 +58,14 @@ body {
 .menu:hover .dropdown-content {
   display: block;
 
+}
+
+.entry{
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  padding: 0%;
+  margin: 3px;
 }
 
 div {
@@ -162,4 +149,109 @@ h4>div {
   padding: 20px;
   font-size: 30px;
   text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: x-large;
+    margin: 0px;
+  }
+
+  .head {
+    flex-wrap: wrap;
+    text-align: left;
+    font-size: small;
+    margin: hidden;
+    padding: hidden;
+  }
+
+  .slideshow {
+    display: none;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .dot {
+    display: none;
+  }
+
+  .active,
+  .dot:hover {
+    display: none;
+  }
+
+  .fade {
+    display: none;
+  }
+
+  img.portrait {
+    padding: 5px;
+  }
+
+}
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  head {
+    display: none;
+  }
+
+  .slideshow {
+    display: none;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .dot {
+    display: none;
+  }
+
+  .active,
+  .dot:hover {
+    display: none;
+  }
+
+  .fade {
+    display: none;
+  }
+
+  img.portrait {
+    display: none;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .dropdown {
+    display: none;
+  }
+
+  .dropdown-content {
+    display: none;
+  }
+
+  .head {
+    display: none;
+  }
+  h3{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  h1{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
 }
