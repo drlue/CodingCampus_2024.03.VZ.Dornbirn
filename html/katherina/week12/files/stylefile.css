@@ -8,6 +8,7 @@ body {
   flex-direction: row-reverse;
   flex-wrap: nowrap;
   color: rgb(0, 56, 112);
+  justify-content: space-between;
 }
 
 .head>div {
@@ -18,6 +19,9 @@ display: flex;
 
 p{font-size: 1.3em;
 
+}
+li{
+  font-size: 1.3em;
 }
 
 img.portrait {
@@ -34,6 +38,10 @@ img.portrait {
   position: relative;
   display: inline-block;
   padding-right: 5vw;
+  border-left: 1px;
+  border-right: 1px;
+  border-color: rgba(0, 0, 0, 0.573);
+  border-style: solid;
 }
 
 .dropdown {
@@ -41,6 +49,9 @@ img.portrait {
   padding: 16px;
   border: none;
   cursor: pointer;
+  flex-wrap: wrap;
+  overflow: inherit;
+
 }
 
 .dropdown-content {
@@ -51,6 +62,7 @@ img.portrait {
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  overflow: inherit;
 }
 
 .dropdown-content a:hover {
@@ -67,9 +79,8 @@ img.portrait {
   border-color: black;
   border-style: solid;
   padding: 5%;
-  margin: 3px;
-  box-sizing: content-box;
   width: 100%;
+
 }
 
 div {
