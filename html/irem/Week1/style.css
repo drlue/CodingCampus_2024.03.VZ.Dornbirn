@@ -129,12 +129,14 @@ gallery-grid {
     transform: scale(1.05);
 }
 .glitter {
-    animation: glitter 8s linear infinite;
+    animation: glitter 9s linear infinite;
     background-image: linear-gradient(
         to right,
-        rgba(159, 77, 235, 0.512) 7%,
-        rgba(16, 50, 124, 0.8) 50%,
-        rgba(49, 145, 201, 0) 100%
+        rgba(92, 8, 105, 0.512) 7%,
+        rgba(94, 71, 189, 0.8) 50%,
+        rgba(54, 25, 149, 0.521) 60%,
+        rgba(28, 20, 60, 0.522) 70%
+        
     );
     background-size: 200% 100%;
 }
@@ -147,11 +149,12 @@ gallery-grid {
         grid-template-columns: 1fr;
     }
     .parallax {
-        background-image: url('background-image.jpg');
+        background-image: url('stars.jpg');
         min-height: 400px;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
       }
+      
     }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox Layout</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    .main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh; /* Höhe des Viewports */
+    }
+    .header, .footer {
+        flex: 0 1 20%; /* 20% der Höhe für Header und Footer */
+        background-color: #f1f1f1;
+    }
+    .content {
+        display: flex;
+        flex: 1 1 60%; /* 60% der Höhe für den Inhalt */
+        height: 60%;
+    }
+    .left-content {
+        flex: 0 1 80%; /* 80% der Breite für linken Inhalt */
+        background-color: #e1e1e1;
+        overflow-y: auto; /* Vertikales Scrollen erlauben */
+    }
+    .right-content {
+        flex: 0 1 20%; /* 20% der Breite für rechten Inhalt */
+        background-color: #d1d1d1;
+    }
+</style>
+</head>
+<body>
+<div class="main">
+    <div class="header">Header</div>
+    <div class="content">
+        <div class="left-content">
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+            <p>                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque at accumsan nisi, non vestibulum felis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse potenti. Ut auctor metus id lacus dignissim, eget consectetur magna scelerisque. Integer mollis odio eu dui suscipit, in fringilla nisl hendrerit. Pellentesque id gravida est. Nullam efficitur magna et sem ultricies, sed consectetur magna tempus. Suspendisse potenti.</p>
+        </div>
+        <div class="right-content">Right Content</div>
+    </div>
+    <div class="footer">Footer</div>
+</div>
+</body>
+</html>
