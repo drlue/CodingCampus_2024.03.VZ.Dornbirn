@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" href="OverviewCSS.css" />
     <title>Fuchsmann Enteprise</title>
   </head>
@@ -19,12 +21,51 @@
         </header>
 
         <nav>
-          <div class="navElement">hallo</div>
-          <div class="navElement">hallo</div>
+          <div class="navElement">
+            <a href="#portfolio"> Portfolio</a>
+          </div>
+          <div class="navElement">
+            <a href="/html/christian/htmlEinfuehrung/website1.1/Lebenslauf.html"
+              >Lebenslauf</a
+            >
+          </div>
           <div class="navElement">hallo</div>
           <div class="navElement">hallo</div>
         </nav>
       </div>
+      <p class="PortfolioHeader">Portfolio und Persönliches</p>
+      <div id="portfolio" class="Portfolio">
+        <div class="portfolioErfahrung">
+          <p>Erfahrungen mit Software-Entwicklung</p>
+          <ul>
+            <li>C#</li>
+            <li>Java</li>
+            <li>SQL und Anbindung <br />an Java mit JDBC</li>
+            <li>
+              p5.js library für grafische<br />
+              und interaktive Programme
+            </li>
+            <li>HTML und CSS</li>
+          </ul>
+        </div>
+        <div class="portfolioErfahrung">
+          <p>
+            Über mich <br />
+            Name: Christian Schmid <br />
+            Geburtsdatum: 13.02.1991
+          </p>
+        </div>
+        <script>
+          let number1 = 0;
+          var number2 = 1;
+          const number3 = 2;
+
+          let calc = 2 + 2;
+          console.log(calc);
+        </script>
+      </div>
+      <script src="sketch.js"></script>
+      <script src="Star.js"></script>
     </div>
   </body>
 </html>
