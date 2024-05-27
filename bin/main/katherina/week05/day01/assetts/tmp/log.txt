@@ -1,0 +1,10 @@
+2024.04.04. 15:15:25 WARNING: Vorsicht, mies gelaunte Katze!
+
+2024.04.04. 15:17:12 ERROR: Ich habe nicht genug Gummibärchen auf meinem Schreibtisch!
+
+2024.04.04. 15:17:53 INFO: Das ist jetzt keine Aufforderung, mir welche zu bringen!
+
+2024.04.04. 15:19:58 INFO: Ich fordere die Leute hier zu Quatsch auf :D
+
+2024.04.04. 15:33:10 INFO: Aus die Maus, ich geh nach Haus!
+
