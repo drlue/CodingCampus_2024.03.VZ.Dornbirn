@@ -129,7 +129,7 @@ input:focus {
     display: grid;
     grid-template-rows: 5fr 1fr;
     background-color: var(--farbe1);
-    height: 400px;
+    height: clamp(200px, 57vw, 400px);
     background-image: url('images/job_search.jpeg');
     background-size: cover;
     /* Skaliert das Bild, um das gesamte Div zu bedecken */
@@ -195,7 +195,7 @@ input:focus {
 
 .category {
     display: grid;
-    width: 20vw;
+    width: 90%;
     height: 30px;
     margin: 5px;
     padding: 5px;
@@ -203,6 +203,7 @@ input:focus {
     align-content: center;
     justify-items: left;
     color: white;
+    overflow: hidden;
 }
 
 .companyContainer {
@@ -261,6 +262,27 @@ input:focus {
         margin-right: 0;
     }
 
+    /* .headerRow>div:not(:first-child) {
+        display: none;
+    } */
+
+    .headerDetail{
+        display: none;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu.responsive {
+        display: grid;
+    }
+
+    .icon {
+        /* float: right; */
+        display: block;
+    }
+
     .categoriesContainer {
         display: none;
     }
@@ -289,14 +311,8 @@ input:focus {
         margin: auto;
     }
 
-    .headerRow>div:not(:first-child) {
-        display: none;
-    }
+    
 
-    .icon {
-        /* float: right; */
-        display: block;
-    }
 
 
 }

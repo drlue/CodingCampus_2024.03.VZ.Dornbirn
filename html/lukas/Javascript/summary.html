@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Javascript Test</title>
+</head>
+
+<body>
+
+    <button onclick="
+        alert('hallo');
+        ">Button 1</button>
+
+    <button class="js-button">Button 2</button>
+    <div id="dateDiv">
+        <script>
+            document.write(Date());
+        </script>
+    </div>
+    <div id="testDiv">
+
+    </div>
+
+
+    <script>
+
+        //wieder verwendbare Variable, scope bezogen
+        let number1 = 1;
+        //wie let, jedoch nicht auf scope bezogen, sondern auf Dokument
+        //besser let verwenden!
+        var number2 = 2;
+        //konstatnte, die nie geändert wird
+        const number3 = 3;
+
+        let calculation = 2 + 2;
+
+        //Ausgabe in Konsole
+        console.log(number1);
+        console.log(calculation);
+        console.log(number1 + number2);
+
+        //Text bzw. gemischte Ausgabe
+        let test = 'Hallo' + 123;
+        console.log(test);
+
+        console.log(typeof test); //--> string
+
+
+        //logische operatoren
+        console.log(3 < 5); //--> true
+        console.log(5 == '5.00'); //--> true, weil automatisch konvertiert
+        console.log(5 === '5.00'); //--> false, weil hier auch typ geprüft, entspricht "==" in Java
+
+        //if Abfrage
+        if (true) {
+            console.log('Hallo');
+        }
+
+        //0 = false
+        if (0) {
+            console.log('Ich werde nicht geprintet, da 0 = false');
+        }
+
+        //jede andere Zahl = true
+        if (1) {
+            console.log('Ich werde geprintet, da Zahl > 0 = true');
+        }
+
+
+        //COUNTER
+        let counter = 2;
+        if (counter) {
+            console.log('counter has started and is ' + counter);
+        }
+
+
+        //ALLERT
+        //alert("Button wurde gedrückt!")
+
+
+        //=================================================================================
+        //Function
+        print();
+
+        function print() {
+            //let x = document.getElementsByTagName(body);
+            console.log('hello ');
+            console.log('World');
+        }
+
+
+        //Funktion mit Parameter
+        function calculate(cost, tax) {
+            console.log(cost * tax);
+        }
+
+        calculate(2000, 0.1); //--> 200
+        calculate(5000); //--> NaN
+
+        function calculate2(cost, tax = 0.3) {
+            console.log(cost * tax);
+        }
+        calculate2(5000); //--> 1500
+
+        //=================================================================================
+        //Objekte
+        const product = {
+            name: 'Shirt',
+            price: 12,
+        }
+
+        //Properties ändern
+        product.name = 'Socks';
+        product.price = 10;
+        //Neue Properties erstellen
+        product.newProperty = true;
+
+        console.log(product);
+        console.log(product.name);
+        console.log(product.price);
+        console.log(typeof product);
+
+        const product2 = {
+            name: 'Pullover',
+            'delivery-time': '2days',  //Atribut mit "Minus" müssen unter Anführungseichen definiert werden
+            fun: function print() {
+                console.log('hallo ich bin product2');
+
+            }
+        }
+
+        console.log(product2);
+        console.log(typeof product2);
+        product2.fun();
+
+
+        //JSON
+        //--------------
+        console.log(JSON.stringify(product2)) //function fun wird nicht gespeichert!
+
+        //JSON STRING
+        const jsonString = JSON.stringify(product2);
+        console.log(typeof jsonString);
+        console.log(jsonString);
+        //JSON PARSE -> wandelt string wieder in Objekt um
+        console.log(JSON.parse(jsonString));
+
+        const obj1 = {
+            name: 'sandro',
+        }
+
+        const obj2 = obj1; //referenz auf obj1 -> selber speicherplatz
+
+        const obj3 = {
+            name: 'sandro',
+        }
+
+        console.log(obj1 === obj2); //--> true
+        console.log(obj1 === obj3); //--> false
+
+        //===============================================================================
+
+        // D O M    
+
+        //VERÄNDERN EINER SEITE (HTML CODE) MIT JAVASCRIPT
+
+        /*
+        document.body.innerHTML = 'Hello Lukas';
+        document.title = 'Super Seite!';
+        
+        console.log(document.body);
+
+        document.body.innerHTML = '<button> press me </button>';
+        */
+
+        document.querySelector('button').innerHTML = 'test';
+        document.querySelector('.js-button').innerHTML = 'newBotton';
+
+        const buttonElement = document.querySelector('.js-button');
+        console.log(buttonElement);
+
+        //Change all buttons
+        /*
+        let buttonList = document.querySelectorAll('button');
+        for (let b of buttonList) {
+            b.innerHTML = "HAHA";
+        }
+        */
+
+        const myDiv = document.getElementById("testDiv");
+        myDiv.innerHTML = "Text mit Javascript generiert!"
+        myDiv.style.background = 'red'
+
+
+
+        //================================================================================
+        //
+        //ARRAY
+
+        const arr = [10,20,30,40,50,60];
+        console.log(arr);
+        console.log(arr[0]);
+
+        const allinArray =  [1, 'hello', true, {name: 'lukas' }, [1,2,3]]
+        console.log(typeof [1,2]); //--> object
+        console.log(Array.isArray([1,2])) //--> true
+        console.log(arr.length);
+
+        arr.push(100); //insert a value
+        console.log(arr);
+
+        arr.splice(0, 1); //fang bei index 0 an und lösche 1 element --> löscht [0]
+        console.log(arr);
+        arr.splice(1, 2) //fang bei index 1 an und lösche 2 elemente --> löscht[1] und [2]
+        console.log(arr);
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
