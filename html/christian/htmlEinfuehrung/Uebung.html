@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>hello</button>
+
+    <script>
+      document.body.innerHTML = "hallo";
+      document.title = "DocDoc";
+      console.log(document.body);
+    </script>
+    <button>button1</button>
+    <button class="jsButton">button2</button>
+    <script>
+      document.querySelector("button1").innerHTML = "test";
+      document.querySelector(".jsButton").innerHTML = "newButton";
+    </script>
+  </body>
+</html>
