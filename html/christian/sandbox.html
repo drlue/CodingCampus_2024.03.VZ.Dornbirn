@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #dataRoot > .row {
+        background-color: white;
+        color: black;
+      }
+      #dataRoot > .row:first-child {
+        background-color: darkmagenta;
+        color: white;
+        font-weight: 900;
+      }
+      #dataRoot > .row:nth-child(2n) {
+        background-color: hsl(300, 100%, 95%);
+        color: black;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 8px 0;
+      }
+      .row.ready {
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Generate Values from Array of Objects</h1>
+    <div id="dataRoot">
+      <div class="row">
+        <div>Name</div>
+        <div>Wohnort</div>
+        <div>Größe</div>
+      </div>
+    </div>
+
+    <script>
+      const magicArray = [
+        {
+          name: "Christian",
+          address: "Lustenau",
+          height: 174,
+          ready: false,
+        },
+        {
+          name: "Lukas",
+          address: "Hohenems",
+          height: 186,
+          ready: false,
+        },
+        {
+          name: "Aki",
+          address: "Götzis",
+          height: 165,
+          ready: false,
+        },
+      ];
+
+      console.log(magicArray);
+      generateElements(magicArray);
+      magicArray.push({
+        name: "Samet",
+        address: "Dornbirn",
+        height: 176,
+      });
+      generateElements(magicArray);
+      let lastCount = 1;
+      setInterval(() => {
+        magicArray.push({
+          name: "Samet-" + lastCount,
+          address: "Dornbirn",
+          height: 176,
+        });
+        ++lastCount;
+        generateElements(magicArray);
+      }, 5000);
+
+      function generateElements(array) {
+        let dataRoot = document.getElementById("dataRoot");
+        Array.from(document.getElementsByClassName("userRow")).forEach(
+          (oldRow) => {
+            dataRoot.removeChild(oldRow);
+          }
+        );
+
+        array.forEach((element) => {
+          let rowElement = document.createElement("div");
+          rowElement.classList.add("row", "userRow");
+          if (element.ready) {
+            rowElement.classList.add("ready");
+          }
+          rowElement.addEventListener("click", () => {
+            element.ready = !element.ready;
+            rowElement.classList.toggle("ready");
+          });
+
+          let nameElement = document.createElement("div");
+          nameElement.innerText = element.name;
+          nameElement.addEventListener("click", () => {
+            window.alert("My name is Bond. " + element.name + " Bond. :-)");
+          });
+          rowElement.appendChild(nameElement);
+
+          let addressElement = document.createElement("div");
+          addressElement.innerText = element.address;
+          rowElement.appendChild(addressElement);
+
+          let heightElement = document.createElement("div");
+          heightElement.innerText = element.height;
+          rowElement.appendChild(heightElement);
+
+          dataRoot.appendChild(rowElement);
+        });
+      }
+    </script>
+  </body>
+</html>
