@@ -24,7 +24,7 @@
             </div>
 
 
-            <div class="centerH centerV">
+            <div class="headerDetail centerH centerV">
                 <p>2.000 Jobs Online</p>
             </div>
             <div class="menu" id="menu">
@@ -34,12 +34,12 @@
                 <div class="nav"><a href="">Nav 4</a></div>
                 <div class="nav"><a href="">Nav 5</a></div>
             </div>
-            <div class="right centerV">
+            <div class="headerDetail right centerV">
                 <img class="headerFlagIcon" src="images/flagAustria.png" alt="Flag of Austria">
             </div>
 
         </div>
-        <div class=" headerImageRow">
+        <div class="headerImageRow">
             <div class="placeHolder"></div>
             <form class="searchContainer">
                 <div class="searchBox">
@@ -200,10 +200,10 @@
     <script>
         function myFunction() {
           var x = document.getElementById("menu");
-          if (window.getComputedStyle(x).display === "none") {
-            x.style.display = "grid";
+          if (x.className === "menu") {
+            x.className += " responsive";
           } else {
-            x.style.display = "none";
+            x.className = "menu";
           }
         }
         </script>
