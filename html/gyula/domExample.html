@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .limeBG{
+        background-color: lime;
+    }
+    .bigText{
+        font-size: 2em;
+    }
+</style>
+</head>
+<body>
+    <h1 id="mainTitle" onclick="showAlert('Oh Nooooooo!')"></h1>
+    <div id="liste"></div>
+
+<script>
+    document.getElementById('mainTitle').innerText = 'Hello World!'
+
+    let listeElement = document.getElementById('liste')
+    for (let index = 1; index <= 10; index++) {
+        let pElement = document.createElement('p')
+        pElement.innerText = 'Paragraph ' + index
+        if (index % 3 == 0){
+            pElement.classList.add('limeBG')
+        }
+        pElement.id = 'p-' + index
+        pElement.addEventListener('click', () => { 
+            pElement.classList.toggle('bigText')
+        })
+        
+        listeElement.appendChild(pElement)
+    }
+
+    function showAlert(message){
+        window.alert(message)
+    }
+</script>
+</body>
+</html>
