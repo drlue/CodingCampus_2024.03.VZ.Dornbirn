@@ -1,0 +1,35 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: lightslategrey;
+}
+
+.header {
+  color: black;
+  text-align: center;
+}
+
+.input-container {
+  display: grid;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+th {
+  background-color: #bd1c1c;
+}
+
+img {
+  width: 32px;
+  height: 32px;
+}

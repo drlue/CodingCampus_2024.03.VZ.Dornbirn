@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kryptowährungsdaten</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1 class="header">Kryptowährungsdaten</h1>
+    <div class="input-container">
+      <label for="crypto-input"
+        >Kryptowährung eingeben (z.B. bitcoin, ethereum):</label
+      >
+      <input type="text" id="crypto-input" placeholder="bitcoin" />
+      <button onclick="fetchCryptoData()">Abrufen</button>
+    </div>
+    <table id="crypto-table" style="display: none">
+      <thead>
+        <tr>
+          <th>Logo</th>
+          <th>Name</th>
+          <th>Kürzel</th>
+          <th>Preis (USD)</th>
+          <th>Marktkapitalisierung</th>
+        </tr>
+      </thead>
+      <tbody id="crypto-table-body"></tbody>
+    </table>
+  </body>
+</html>
