@@ -95,7 +95,7 @@ function computerMove(){
 
     }else if(randomNr >= 1/3 && randomNr <2/3){
         aiMove = 'paper'
-        console.log('Paper' +randomNr);
+        console.log('Paper' + randomNr);
     }else if(randomNr >=2/3 && randomNr <1){
         aiMove = 'scissor'
         console.log('Scissors');
