@@ -1,0 +1,10 @@
+body{
+    background-color:rgb(29,42,53,255);
+    color: aliceblue;
+    font-family: Arial, sans-serif;
+}
+
+.gallery-item img {
+    width: 500px;
+    height: auto;
+}
