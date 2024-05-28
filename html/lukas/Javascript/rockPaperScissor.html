@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="rockPaperScissorsJS.js" defer></script>
+    <title>Rock Stone Scissor</title>
+
+    <style>
+
+        body {
+            font-family: sans-serif;
+            font-size: 16px;
+        }
+
+
+        .mainContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 800px;
+            border: 1px solid red;
+            margin:auto
+        }
+
+        #resultMessage {
+            display: flex;
+            width: 70%;
+            height: 100px;
+            border: 1px solid black;
+            margin: auto;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .js-move, .js-result{
+            text-align: center;
+        }
+
+        .counterContainer {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 70%;
+            height: 100px;
+            border: 1px solid black;
+            margin: auto;
+        }
+
+        .counter {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            border: 1px solid blue;
+            justify-items: center;
+            align-items: center;
+            font-size: 2em;
+
+
+        }
+
+        .greenBox {
+            background-color: lightgreen;
+            color: darkgreen
+        }
+
+        .grayBox {
+            background-color: lightgray;
+            color: rgb(109, 109, 109);
+        }
+
+        .redBox {
+            background-color: rgb(251, 123, 123);
+            color: darkred;
+        }
+
+
+        
+    </style>
+
+</head>
+
+<body>
+    <div class="mainContainer">
+
+
+        <h1>Schere - Stein - Papier</h1>
+
+        <div class="buttonContainer">
+            <button onclick="playGame('rock')">Rock</button>
+            <button onclick="playGame('paper')">Paper</button>
+            <button onclick="playGame('scissors')">Scissors</button>
+            <button onclick="resetScore()">Reset</button>
+        </div>
+        <div id="resultContainer">
+            <p class = "js-move"></p>
+            <p class = "js-result"></p>
+        </div>
+        <div class="counterContainer">
+            <div class="counter greenBox">Wins: <span id="counterWins"></span></div>
+            <div class="counter grayBox">Ties: <span id="counterTies"></span></div>
+            <div class="counter redBox">Losses: <span id="counterLosses"></span> </div>
+        </div>
+
+    </div>
+
+    <script>
+
+
+
+    </script>
+
+</body>
+
+</html>
