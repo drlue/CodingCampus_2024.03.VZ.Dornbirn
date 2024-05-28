@@ -50,7 +50,7 @@
   ul li.checked::before {
     content: '';
     position: absolute;
-    border-color: #fff;
+    border-color: #000000;
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 10px;
@@ -76,7 +76,7 @@
   
   .header {
     /* background-color: #605c97; */
-    background-image: linear-gradient(to right, red, yellow , green, blue, indigo);
+    background-image: linear-gradient(to right, yellow , blue, indigo);
     padding: 30px 40px;
     color: white;
     text-align: center;
@@ -84,7 +84,7 @@
     
   }
   .header:hover{
-    background-image: linear-gradient(to left, red, yellow , green, blue, indigo);
+    background-image: linear-gradient(to left, yellow , blue, indigo);
   }
   
   
@@ -135,6 +135,7 @@
   
   .addBtn:hover {
     background-color: #bbb;
-    background-image: linear-gradient(to left, red, yellow , green, blue, indigo);
+    background-image: linear-gradient(to left, red, yellow , green
+    );
     transition: all,0.3s ease;
   }
