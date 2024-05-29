@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>macht nichts</button>
+    <button class="js-button">macht auch nichts</button>
+
+    <div id="testDiv"></div>
+
+    <script>
+        let testDivElement = document.getElementById('testDiv')
+        testDivElement.innerText = 'Hallo Aki'
+
+        let counter = 0;
+        setInterval(() => {
+            testDivElement.innerText = 'Hallo Aki ' + counter
+            
+            ++counter
+        }, 1000)
+    </script>
+</body>
+</html>
