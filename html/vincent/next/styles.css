@@ -176,7 +176,7 @@
 
  }
  .main_container{
-    display: grid;
+    display:grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-self: center;
@@ -263,6 +263,7 @@
     text-align: center;
     image-rendering:crisp-edges;
     filter: drop-shadow(0 0 0.95rem crimson);
+   
     /* background: #ffff;
     border-radius: 6px; */
     

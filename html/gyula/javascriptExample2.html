@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #errorMessage{
+        background-color: red;
+        color:white;
+        font-weight: 900;
+        padding: 0.3em 1.5em;
+        border-radius: 16px;
+    }
+
+    .right{
+        text-align: right;
+    }
+</style>
+</head>
+<body>
+    <h1 id="title">Aki</h1>
+    <button onclick="generateErrorMessage('Ich habe gesagt, nicht drücken!!!')">Bitte nicht drücken!!!</button>
+    <div id="errorMessage">
+        <p>!!! Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+    </div>
+<script>
+    console.log('Hello World')
+    let count = 0
+  
+    for (let i = 0; i < 10; ++i){
+        if (i % 3 == 0){
+            console.log(i)
+        }
+    }
+
+    console.log('add(3, 2): ' + add(3, 2))
+    let akiFunc = add
+    console.log('akiFunc(3, 2): ' + akiFunc(3, 2))
+    let minus = (a, b) => { return a - b }
+    console.log('minus(3, 2): ' + minus(3, 2))
+
+    setTimeout(printTime, 4000)
+    generateErrorMessage('Aki kann alles entwickeln !!!')
+
+    setInterval(() => {
+        let titleElement = document.getElementById('title')
+        titleElement.classList.toggle('right')
+        if (titleElement.classList.contains('right')){
+            titleElement.innerText = 'Gyula'
+        } else {
+            titleElement.innerText = 'Aki'
+        }
+    }, 3000)
+
+    names = ['Apfelsaftladen', 'Cii', 'Aki', 'Irem', 'Franco', 'Samet']
+    names.forEach(element => {
+        generateErrorMessage('Hallo ' + element + '!')
+    });
+    let shortest = names.reduce((a, b) => {
+        console.log('compare', a, b)
+        if (a.length <= b.length) {
+            return a
+        } else {
+            return b
+        }
+    })
+    console.log('shortest: ' + shortest)
+
+function printTime(){
+    console.log(new Date())
+}
+
+function add(a, b){
+    return a + b
+}
+
+function generateErrorMessage(message){
+    let errorMessageRoot = document.getElementById('errorMessage')
+    let newMessage = document.createElement('p')
+    newMessage.innerText = '#' + count + ' ' + message
+    ++count
+    errorMessageRoot.appendChild(newMessage)
+
+    setTimeout(() => {
+        errorMessageRoot.removeChild(newMessage)
+    }, 3000)
+}
+
+</script>
+</body>
+</html>

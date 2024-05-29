@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TO DO List</title>
+    <title>To-Do Liste</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>TO DO List</h1>
-    <input type="text" id="taskInput" placeholder="Aufgabe hinzufügen">
-<button onclick="addTask()">Hinzufügen</button>
-<ul id = "taskListe"></ul>
-<script>src= "TODo.js"</script>
+    <div class="container">
+        <h1>To-Do Liste</h1>
+        <input type="text" id="taskInput" placeholder="Neue Aufgabe...">
+        <input type="date" id="dueDate" placeholder="Fälligkeitsdatum...">
+        <button onclick="addTask()">Hinzufügen</button>
+        <button id="clearAllBtn" style="background-color: red; margin-top: 5px;" onclick="deleteAllToDoItems()">Alles löschen</button>
+        <ul id="taskList"></ul>
+    </div>
+    <script src="ToDo.js"></script>
 </body>
 </html>
