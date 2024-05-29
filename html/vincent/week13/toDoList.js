@@ -24,6 +24,7 @@ function addNewElement(){
           }
         }
 }
+
 document.addEventListener('DOMContentLoaded', function(){
 let list = document.getElementById('myUL');
 list.addEventListener("click", function(ev){
@@ -41,6 +42,8 @@ list.addEventListener("click", function(ev){
 
     
 // }
+
+//close function
 var myNodelist = document.getElementsByTagName("LI");
 var i;
 for (i = 0; i < myNodelist.length; i++) {
@@ -50,6 +53,8 @@ for (i = 0; i < myNodelist.length; i++) {
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
 }
+
+//create the close button
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {

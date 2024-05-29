@@ -80,10 +80,12 @@
     padding: 30px 40px;
     color: white;
     text-align: center;
-    border-radius: 10px 100px / 120px;;
+    border-radius: 10px 100px / 120px;
     
   }
   .header:hover{
+    border:solid;
+    color: #000000;
     background-image: linear-gradient(to left, yellow , blue, indigo);
   }
   
@@ -97,8 +99,8 @@
   
   input {
     margin: 0;
-    border: none;
-    border-radius: 0;
+    border:transparent;
+    border-radius: 10px 100px / 120px;
     width: 75%;
     padding: 10px;
     float: left;
@@ -111,8 +113,8 @@
    /* background-color: #1178ee; */
    background-image: linear-gradient(to right, red, yellow );
    cursor:pointer;
-   border: solid;
-   color: black;
+   /* border: solid;
+   color: black; */
    padding: 10px;
    text-align: center;
    font-size: 16px;
@@ -138,4 +140,6 @@
     background-image: linear-gradient(to left, red, yellow , green
     );
     transition: all,0.3s ease;
+    border:solid;
+    color: #000000;
   }
