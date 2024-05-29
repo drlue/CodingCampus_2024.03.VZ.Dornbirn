@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="toDoListJS.js" defer></script>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="toDoList.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>To Do List - Javascript</title>
+
+</head>
+
+<body>
+    <div class="mainContainer">
+
+        <h1>To Do List</h1>
+        <form class="inputContainer">
+            <input type="date" id="inputDate" name="inputDate" value="javascript: new Date()">
+            <input type="text" class="inputBox" name="inputBox" id="inputBox" placeholder="Insert ToDo Here">
+            <button class="addButton" onclick="addItem()">Add</button>
+            <button class="updateButton" onclick="updateItem()">Update</button>
+        </form>
+        <div class="rowHeaderContainer">
+            <div class="rowHeader">
+                <div class="rowHeaderItem flexCenter">
+                    <div><i class="fa-solid fa-sort iconBlue" onclick="sortItemsStatus()"></i></div>
+                    <div><input type="checkbox" class="checkBoxWhite"></div>
+                </div>
+                <div class="rowHeaderItem flexLeft">
+                    <div><i class="fa-solid fa-sort iconBlue" onclick="sortItemsDate()"></i></div>
+                    <div>Date</div>
+                </div>
+                <div class="rowHeaderItem flexLeft">
+                    <div><i class="fa-solid fa-sort iconBlue" onclick="sortItemsText()"></i></div>
+                    <div>Task</div>
+                </div>
+                <div class="rowHeaderItem center colSpan2">Actions</div>
+            </div>
+        </div>
+        <div class="toDoListContainer" id="toDoList">
+            <div class="toDoListItem">
+                <div class="toDoListCheckBox">
+                    <input type="checkbox" class="checkBox" onclick="changeItemStatus(i)">
+                    <span class="checkmark"></span>
+                    <div class="toDoListDate">Date</div>
+                    <div class="toDoListText">Text</div>
+                    <div><button class="deleteButton" onclick="removeItem(0)">Delete</button></div>
+                    <div><button class="editButton" onclick="editItem(0)">Delete</button></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+</body>
+
+</html>

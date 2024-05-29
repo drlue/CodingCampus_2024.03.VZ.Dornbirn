@@ -1,0 +1,75 @@
+:root {
+  --farbeSalmon: lightcoral;
+}
+.Kopfzeile {
+  background-color: var(--farbeSalmon);
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  border: 2px solid black;
+}
+.Fußzeile {
+  background-color: aquamarine;
+}
+.Hauptseite {
+  margin-top: 1px;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+.Inhaltsverzeichnis {
+  word-wrap: break-word;
+  font-size: x-small;
+  position: sticky;
+  top: 0;
+  text-align: start;
+  margin-left: 3px;
+}
+.Daten {
+  font-size: small;
+  background-color: lightblue;
+  width: 75, 5vw;
+  border-radius: 5px;
+  border: 2px solid black;
+  margin-left: 1px;
+  text-align: center;
+}
+.Tabelle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.Portfolio {
+  text-align: center;
+  background-color: bisque;
+}
+.InhaltPortfolio {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-auto-flow: row;
+  background-color: aqua;
+  border: 1px solid black;
+}
+.hobbies {
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.hobbyElement {
+  text-align: center;
+  align-content: center;
+}
+a:hover {
+  background-color: rgb(231, 173, 86);
+}
+.portfolioElement {
+  background-color: blue;
+  height: 15vw;
+  width: 15vw;
+  text-align: center;
+  align-content: center;
+}
+.Tabelle2 {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(10, 1fr);
+  column-gap: 40px;
+}

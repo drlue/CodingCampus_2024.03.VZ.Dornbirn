@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="(() => {console.log('AAAAAAA')})()">Hello World!</h1>
+<script>
+    console.log('Hello 1')
+    arr = [myFunc, myFunc2]
+
+    for (let i = 0; i < arr.length; ++i){
+        doMagic(arr[i])
+    }
+
+    setTimeout(myFunc, 4000)
+    /*
+    setTimeout(() => {
+        alert('STOP !!!')
+    }, 4000)
+    */
+
+function myFunc(){
+    console.log('Hello 2 A')
+}
+function myFunc2(){
+    console.log('Hello 2 B')
+}
+
+
+function doMagic(fun){
+    fun()
+}
+</script>
+
+</body>
+</html>

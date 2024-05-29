@@ -1,0 +1,4 @@
+    Das    ist ein Logfile!
+2024.04.04. 02:09:28: INFO: Guten Morgen!
+2024.04.04. 02:09:28: WARNING: Keine passende Aufgabe gefunden
+2024.04.04. 02:09:28: ERROR: Fataler Crash

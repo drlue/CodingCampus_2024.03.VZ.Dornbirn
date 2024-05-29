@@ -1,0 +1,28 @@
+img {
+  width: 20vw;
+  border-radius: 20%;
+}
+
+ul {
+  margin: 0px;
+  width: 200px;
+  height: 200px;
+  border-radius: 15%;
+  background: #ff4b33;
+}
+.Tabelle {
+  background-color: lightcoral;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+.Headline {
+  display: grid;
+  grid-template-columns: 70% 29%;
+  background-color: lightcoral;
+  border-radius: 5px;
+}
+.hauptseite {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background-color: lightsalmon;
+}

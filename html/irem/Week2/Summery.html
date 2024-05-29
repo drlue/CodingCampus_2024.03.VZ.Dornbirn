@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang ="en">
+   <head>
+    <meta charset=" UTF-8">
+    <meta name = "viewport" content="widt=device-width, initial-scale=1.0">
+    <title>Summery</title>
+   </head> 
+
+   <body>
+
+
+    <button>Button1</button>
+    <button>class= "js-button">button2</button>
+
+    <script>
+        document.querySelector( 'button').innerHTML= 'test';
+        document.querySelector( 'js-button').innerHTML= 'new Button';
+        const buttonElement = document.querySelector('.js-button');
+        console.log(buttonElement);
+
+
+
+
+
+        document.body.innerHTML = 'Hello';
+        document.title = 'Document Übung';
+
+        console.log(document.body);
+        document.body.innerHTML = '<button> press me </button>';
+
+
+
+
+        let number1 = 0;
+        var number2 = 0;
+        const number3 = 0;
+
+        let calculation = 2 + 2;
+        console.log(number1),
+        console.log (calculation);
+        let test = 'Hallo' + 123
+        console.log(test);
+
+
+
+        let product = {
+            name: 'Shirt',
+            price: 12,
+        }
+        product.name = 'Socks';
+        product.name
+
+        console.log(product);
+        console.log(product.name);
+        console.log(product.price);
+
+        const product2 = {
+            name: 'Pullover',
+            'delivery-time': '2Days',
+            fun: function print (){
+                console.log('Hallo');
+            }
+
+        }
+        console.log(product2);
+
+        product2.fun();
+
+        console.log(typeof product);
+
+        console.log(JSON.stringify(product2))
+
+        const jsonString = (JSON.stringify(product2));
+       
+        console.log(JSON.stringify(product));
+
+        console.log(JSON.parse(jsonString));
+
+        const obj1 = {
+            name: 'irem',
+        }
+
+        const obj2 = obj1;
+
+        const obj3 = {
+            name: 'irem',
+        }
+        console.log(obj1 ===obj3);
+        console.log(obj1 === obj2);
+
+    </script>
+   </body>
