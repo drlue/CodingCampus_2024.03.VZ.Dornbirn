@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Countries</h1>
+    <div id="countryList"></div>
+
+<script>
+    loadData()
+
+async function loadData(){
+    let response = await fetch('/api/country')
+    let data = await response.json()
+
+    let namen = document.getElementById('countryList')
+    data.forEach(line => {
+        let par = document.createElement('p')
+        par.innerText = line.Name
+        namen.appendChild(par)
+    });    
+}
+</script>
+</body>
+</html>
