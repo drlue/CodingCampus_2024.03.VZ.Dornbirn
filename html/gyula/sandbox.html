@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.box{
+    background-color: red;
+    width: 400px;
+    height: 200px;
+    border-radius: 100%;
+    animation-name: akis-first-animation;
+    animation-duration: 4000ms;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.box2 {
+    animation: akis-second-animation 700ms linear infinite;
+}
+
+@keyframes akis-first-animation {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    75%  {background-color: green;}
+    100% {background-color: red;}
+}
+
+@keyframes akis-second-animation {
+    0%   {transform: rotate(360deg);}
+    100% {transform: rotate(0deg);}
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="box2">
+    <div class="box"></div>
+    </div>
+</body>
+</html>

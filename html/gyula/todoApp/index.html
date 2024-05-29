@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .todoList>div, .createToDo>div{
+        display: grid;
+        grid-template-columns: auto 5vw;
+        column-gap: 1em;
+        align-items: center;
+    }
+    .createToDo {
+        margin-bottom: 2em;
+    }
+    .inputContainer{
+        border: solid black 2px;
+        border-radius: 999px;
+        padding: 0.5em;
+        
+    }
+    .inputContainer>input{
+        width: 100%;
+        border: none;
+    }
+    .inputContainer>input:focus{
+        outline: none;
+    }
+    .addButton{
+        border: solid black 2px;
+        border-radius: 999px;
+        padding: 0.5em;
+        text-align: center;
+    }
+    .addButton:hover{
+        background-color: #DDD;
+    }
+    .deleteButton{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Gyula's Todo App</h1>
+    <section class="createToDo">
+        <div>
+            <div class="inputContainer">
+                <input type="text" name="newToDoText" id="newToDoText" placeholder="Write a new ToDo">
+            </div>
+            <div class="addButton" onclick="addTodo()">Add</div>
+        </div>
+    </section>
+    <section id="rootToDo" class="todoList">
+    </section>
+
+    <script>
+function generateUUID() { // Public Domain/MIT
+    var d = new Date().getTime();//Timestamp
+    var d2 = ((typeof performance !== 'undefined') && performance.now && (performance.now()*1000)) || 0;//Time in microseconds since page-load or 0 if unsupported
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16;//random number between 0 and 16
+        if(d > 0){//Use timestamp until depleted
+            r = (d + r)%16 | 0;
+            d = Math.floor(d/16);
+        } else {//Use microseconds since page-load if supported
+            r = (d2 + r)%16 | 0;
+            d2 = Math.floor(d2/16);
+        }
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+    });
+}
+
+function addTodo(){
+    let text = document.getElementById('newToDoText').value
+    let newId = 'todo-' + generateUUID()
+
+    let todoDiv = document.createElement('div')
+    let todoText = document.createElement('div')
+    todoText.innerText = text
+    todoText.classList.add('todoText')
+    todoDiv.appendChild(todoText)
+
+    let todoDelete = document.createElement('div')
+    todoDelete.innerText = 'X'
+    todoDelete.classList.add('deleteButton')
+    todoDelete.addEventListener('click', () => {
+        let divToDelete = document.getElementById(newId)
+        document.getElementById('rootToDo').removeChild(divToDelete)
+    })
+    todoDiv.appendChild(todoDelete)
+
+    todoDiv.id = newId;
+    document.getElementById('rootToDo').appendChild(todoDiv)
+}
+    </script>
+</body>
+</html>
