@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>This is my first self hosted HTML</h1>
+    <div class="container" id="namen"></div>
+
+    <script>
+        loadData();
+
+        async function loadData() {
+            const response = await fetch('/api/test');
+            const data = await response.json();
+
+            console.log(data);
+            updateHtml(data);
+
+        }
+
+        function updateHtml(data) {
+            let namen = document.getElementById('namen')
+            data.forEach(line => {
+                let par = document.createElement('p');
+                par.innerHTML = line.name;
+                namen.appendChild(par);
+            });
+        }
+    </script>
+</body>
+
+</html>
