@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="files/Favicon.ico">
+    <link rel="stylesheet" href="files/stylefile.css">
+    <title>Praktische Checkliste</title>
+</head>
+
+<div>
+    <h1>Erstelle deine praktische Checkliste zum Ausdrucken hier</h1>
+
+    <h2>Hast du alles dabei, was du brauchst, wenn du deinen Termin bei der Berufsberatung wahrnimmst?</h2>
+
+    <div>
+        <p>Gib deine Checkliste Punkt für Punkt ein.</p>
+        <form target="_self">
+            <label for="toDo">Stichpunkt:</label><br>
+            <input type="textarea" id="toDo" name="toDo"><br>
+            <input type="submit" value="Absenden">
+        </form>
+
+        <p id="checkliste"></p>
+    </div>
+
+    <div id="liste">
+
+    </div>
+
+</div>
+
+<script>
+    function checkliste(){
+        const checkliste = [];
+        let cLen = checkliste.length;
+
+        if (typeof (Storage) !== "undefined") {
+
+        localStorage.setItem("element", FormData);
+        document.getElementById("liste").innerHTML = localStorage.getItem("element");
+     } else {
+         document.getElementById("liste").innerHTML = "Web Storage wird von deinem Browser nicht unterstützt.";
+     }
+
+        let text = "<ul>";
+        for (let i = 0; i < cLen; i++) {
+            text += "<li>" + checkliste[i] + "</li>";
+        }
+        text += "</ul>";
+
+        document.getElementById("liste").innerHTML = text;
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>

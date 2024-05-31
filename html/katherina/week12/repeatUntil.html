@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+        background-color: #111;
+        color: #aaa;
+    }
+    h1 {
+        color: turquoise;
+    }
+    .error{
+        background-color: red;
+        color: white;
+        font-weight: 900;
+    }
+    .info{
+        background-color: lightgreen;
+        color: black;
+        font-weight: 500;
+    }
+    .errorContainer {
+        display: grid;
+        grid-template-columns: auto 1em;
+        padding: 0.75em;
+        border-radius: 0.5em;
+        margin-bottom: 4px;
+    }
+    .errorContainer > p {
+        margin-block: 0;
+    }
+    .deleteX{
+        text-align: right;
+    }
+    .deleteX:hover{
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div id="status"></div>
+    <h1 onclick="sayHello()">Wiederholung++</h1>
+    <div>
+        <p id="countParagraph">Count:</p>
+        <button onclick="showErrorMessage('error', 'Bitte den Tasten nicht drücken')">Click</button>
+    </div>
+<script>
+    console.log('Hello World')
+    let value = 5
+    console.log('value:', value)
+
+    for (let i = 0; i < 10; ++i){
+        if (i % 4 == 0){
+            console.log('i:', i)
+            var x = 73 // Please ... don't overuse
+        }
+    }
+    //console.log(i)
+    console.log('x:', x)
+    console.log(new Date())
+
+    function sayHello(){
+        console.log('Helloooooooooooooooooooooooooooo!')
+        //window.location.href = 'nahrung.html'
+        showErrorMessage('info', 'Hellooooooooooooooooooooooooooo!')
+    }
+
+    let countValue = 0
+    function incr(){
+        ++countValue
+        document.getElementById('countParagraph').innerText = "Count: " + countValue
+    }
+
+
+    function showErrorMessage(severity, msg){
+        let divE = document.getElementById('status')
+        let childDiv = document.createElement('div')
+        childDiv.classList.add('errorContainer', severity)
+
+        let pE = document.createElement('p')
+        pE.innerText = msg
+        childDiv.appendChild(pE)
+
+        let xE = document.createElement('p')
+        xE.classList.add('deleteX')
+        xE.innerText = 'X'
+        xE.addEventListener('click', () => {
+            divE.removeChild(childDiv)
+        })
+        childDiv.appendChild(xE)
+
+        divE.appendChild(childDiv)
+        /*
+        setTimeout(() => {
+            divE.removeChild(pE)
+        }, 8000)
+        */
+    }
+
+    setInterval(() => {
+        incr()
+    }, 40);
+</script>
+</body>
+</html>
