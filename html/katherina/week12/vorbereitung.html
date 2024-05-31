@@ -38,7 +38,7 @@
 
         if (typeof (Storage) !== "undefined") {
 
-        localStorage.setItem("element", "und außerdem ein Mittagessen");
+        localStorage.setItem("element", FormData);
         document.getElementById("liste").innerHTML = localStorage.getItem("element");
      } else {
          document.getElementById("liste").innerHTML = "Web Storage wird von deinem Browser nicht unterstützt.";
