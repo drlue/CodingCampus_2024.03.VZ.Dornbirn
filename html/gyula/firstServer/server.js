@@ -19,10 +19,12 @@ app.get('/api/test', (req, res) => {
 })
 
 app.get('/api/country', async (req, res) => {
+    let searchParam = req.query.name + "%"
     let connection = await connectToDatabase()
     try {
         const [results, fields] = await connection.query(
-          'SELECT * FROM country'
+          'SELECT * FROM country WHERE name like ?',
+          searchParam
         );
         
         res.send(results)
