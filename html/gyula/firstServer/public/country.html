@@ -13,7 +13,7 @@
     loadData()
 
 async function loadData(){
-    let response = await fetch('/api/country')
+    let response = await fetch('/api/country?name=H')
     let data = await response.json()
 
     let namen = document.getElementById('countryList')
