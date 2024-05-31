@@ -166,6 +166,18 @@ h4>div {
   text-align: center;
 }
 
+#sportarten{background-color: rgba(255, 255, 255, 0.479);
+    padding: 1.5vw;
+}
+
+form{
+  font-size: larger;
+}
+label{
+  font-style: oblique;
+
+}
+
 @media screen and (max-width: 480px) {
   body {
     font-size: x-large;
@@ -269,4 +281,6 @@ h4>div {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
   }
+
+
 }
