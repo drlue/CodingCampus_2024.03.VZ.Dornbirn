@@ -170,6 +170,14 @@ h4>div {
     padding: 1.5vw;
 }
 
+form{
+  font-size: larger;
+}
+label{
+  font-style: oblique;
+
+}
+
 @media screen and (max-width: 480px) {
   body {
     font-size: x-large;
