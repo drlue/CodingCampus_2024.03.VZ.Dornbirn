@@ -7,24 +7,33 @@
     --farbe5: #040D08;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: var(--farbe1);
-    background: linear-gradient(135deg, var(--farbe2), var(--farbe3));
+    background: linear-gradient(135deg, var(--farbe3), var(--farbe2));
     overflow: hidden;
+    margin-top: 5px;
     /* width: 100vw;
     height: 100vh; */
 }
 
-h1{
-    
+h1 {
+    font-size: 1.8em;
+    font-weight: bold;
 }
 
 .fa-solid {
     margin-right: 5px;
 }
+
 
 .centeredContent {
     display: flex;
@@ -62,23 +71,96 @@ h1{
     width: 80vw;
     gap: 10px;
     margin-bottom: 10px;
+    font-family: Helvetica, 'FontAwesome', sans-serif;
 
 }
 
-.searchContainer>* {
+/* .searchContainer>* {
     height: 40px;
     box-sizing: border-box;
     font-size: 1.0em;
-    
-}
 
-.searchInput {
-    color:var(--farbe1);
-}
+} */
+
+/* ----------------------Input Feld formatieren -------------------------------*/
+
+.custom-field {
+    position: relative;
+    font-size: 14px;
+    border-top: 5px solid transparent;
+    display: inline-block;
+    --field-padding: 12px;
+  }
+  
+  .custom-field input {
+    border: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #f2f2f2;
+    padding: var(--field-padding);
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    
+  }
+
+  .custom-field input:focus,
+  .custom-field input:valid {
+    border-color: var(--farbe4);
+  }
+  
+  .custom-field .placeholder {
+    position: absolute;
+    /* display: inline-block; */
+    background: #f2f2f2;
+    left: var(--field-padding);
+    /* width: calc(100% - (var(--field-padding) * 2)); */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    top: 22px;
+    line-height: 1.5em;
+    transform: translateY(-50%);
+    color: #aaa;
+    padding: 0px 2px;
+    transition: 
+      top 0.3s ease,
+      color 0.3s ease,
+      font-size 0.3s ease,
+      left 0.3s ease;
+  }
+  
+  .custom-field input:focus + .placeholder,
+  .custom-field input:valid + .placeholder {
+    top: 0px;
+    font-size: 10px;
+    color:var(--farbe4);
+    
+    border-radius: 5px;
+  }
+
+/* -----------------------ENDE SEARCHBOX---------------------------------- */
 
 .searchButton {
+
+    background-color: var(--farbe2);
+    color: var(--farbe4);
+    margin-top: 5px;
+    border: 1px solid var(--farbe4);
+    border-radius: 10px;
+    height: 42px;
+    font-size: 16px;
+
+}
+
+.searchButton:hover {
     background-color: var(--farbe4);
-    color:var(--farbe2);
+    color: var(--farbe2);
 }
 
 
@@ -105,14 +187,15 @@ h1{
 .scrollContainer {
     overflow: auto;
     scroll-behavior: auto;
-    height: calc(100vh - (8px + 38px + 40px + 10px + 28px + 100px));
-    
+    height: calc(100vh - (5px + 38px + 42px + 10px + 28px));
+
 }
 
 .countryContainer {
     background-color: var(--farbe2);
     color: var(--farbe4);
-    border: 1px solid var(--farbe4)
+    border: 1px solid var(--farbe4);
+    padding: 5px 0px
 }
 
 .countryContainer:nth-child(even) {
@@ -141,6 +224,12 @@ h1{
     .headerContainer {
         display: none;
     }
+
+    .searchContainer {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
     .countryContainer {
         display: grid;
         grid-template-columns: 1fr 3fr 1fr;
@@ -151,24 +240,26 @@ h1{
     }
 
     .flagCell {
-      grid-row: span 4;
-      align-self: self-start;
+        grid-row: span 4;
+        align-self: self-start;
     }
 
     .nameCell {
         font-size: 1.5em;
     }
 
-    .capitalCell, .areaCell, .populationCell {
+    .capitalCell,
+    .areaCell,
+    .populationCell {
         grid-column: span 2;
         text-align: left;
     }
 
-    .capitalCell::before{
+    .capitalCell::before {
         content: "Capital: ";
     }
 
-    .areaCell::before{
+    .areaCell::before {
         content: "Area: ";
     }
 
@@ -176,12 +267,12 @@ h1{
         content: " km²";
     }
 
-    .populationCell::before{
+    .populationCell::before {
         content: "Population: ";
     }
 
 
-   
+
 
 
 
