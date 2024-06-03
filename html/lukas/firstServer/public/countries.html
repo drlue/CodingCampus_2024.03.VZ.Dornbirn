@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="countries.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.2/css/all.css">
     <script src="countries.js"></script>
     <title>Countries - Node JS API MySQL</title>
 </head>
@@ -13,14 +14,21 @@
 
     <div class="mainContainer">
         <h1>Countries of the world</h1>
+        <div class="searchContainer">
+            <input class="searchInput" type="text" name="searchValue" id="searchInput" placeholder="Place your search string here!">
+            <button class="searchButton" type="submit" onclick="loadData()">Search</button>
+        </div>
+        <div class="infoContainer">
+            <div class="infoText"></div>
+        </div>
         <div class="countryGrid">
             <div class="headerContainer gridLayout">
                 <div class="centeredContent">Flag</div>
-                <div class="leftContent">Name</div>
-                <div class="centeredContent">Code</div>
-                <div class="leftContent">Capital</div>
-                <div class="rightContent">Area</div>
-                <div class="rightContent">Population</div>
+                <div class="leftContent"><i class="fa-solid fa-sort" onclick="sortByName()"></i><span>Name</span></div>
+                <div class="centeredContent"><i class="fa-solid fa-sort"  onclick="sortByCode()"></i><span>Code</span></div>
+                <div class="leftContent"><i class="fa-solid fa-sort" onclick="sortByCapital()"></i><span>Capital</span></div>
+                <div class="rightContent"><i class="fa-solid fa-sort" onclick="sortByArea()"></i><span>Area</span></div>
+                <div class="rightContent"><i class="fa-solid fa-sort" onclick="sortByPopulation()"></i><span>Population</span></div>
             </div>
             
             <div class="scrollContainer">
@@ -36,7 +44,7 @@
             </div>
         </div>
     </div>
-    <script>loadData()</script>
+    <script>initPage()</script>
 </body>
 
 </html>

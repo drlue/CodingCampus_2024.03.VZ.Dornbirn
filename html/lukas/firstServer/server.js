@@ -55,20 +55,23 @@ app.get('/api/test', (req, res) => {
 })
 
 app.get('/api/country', async (req, res) => {
-    console.log(req)
-    console.log(req.query.name)
-    let connection = await connectToDatabase()
+    //console.log(req)
+    console.log("req.query.name: " + req.query.name);
+    let searchParam = req.query.name + "%";
+    let connection = await connectToDatabase();
     try {
         const [results, fields] = await connection.query(
-            'SELECT * FROM country ORDER BY name'
+            'SELECT * FROM country WHERE name like ? ORDER BY name',
+            searchParam
         );
-        console.log(results);
-        console.log(fields);
+        //console.log(results);
+        //console.log(fields);
         res.send(results)
     }
 
     catch (err) {
-        console.log(err)
+        console.log(err);
+        res.sendStatus(404);
     }
 
 })

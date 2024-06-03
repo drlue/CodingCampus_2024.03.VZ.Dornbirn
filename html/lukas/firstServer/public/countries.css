@@ -11,11 +11,19 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    color: var(--farbe2);
-    background: linear-gradient(135deg, var(--farbe1), var(--farbe4));
+    color: var(--farbe1);
+    background: linear-gradient(135deg, var(--farbe2), var(--farbe3));
     overflow: hidden;
     /* width: 100vw;
     height: 100vh; */
+}
+
+h1{
+    
+}
+
+.fa-solid {
+    margin-right: 5px;
 }
 
 .centeredContent {
@@ -25,9 +33,9 @@ body {
 }
 
 .leftContent {
-        display: flex;
-        justify-content: left;
-        align-items: center;
+    display: flex;
+    justify-content: left;
+    align-items: center;
 }
 
 .rightContent {
@@ -36,13 +44,43 @@ body {
     align-items: center;
 }
 
+
 .mainContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
-    width: 1000px;
+    width: 90vw;
+    max-width: 1000px;
+    height: 100vh;
 }
+
+
+.searchContainer {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    width: 80vw;
+    gap: 10px;
+    margin-bottom: 10px;
+
+}
+
+.searchContainer>* {
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 1.0em;
+    
+}
+
+.searchInput {
+    color:var(--farbe1);
+}
+
+.searchButton {
+    background-color: var(--farbe4);
+    color:var(--farbe2);
+}
+
 
 .countryGrid {
     width: 80vw;
@@ -51,7 +89,7 @@ body {
 
 .gridLayout {
     display: grid;
-    grid-template-columns: 2fr 5fr 1fr 5fr 2fr 2fr;
+    grid-template-columns: minmax(65px, 2fr) 5fr minmax(65px, 2fr) 5fr minmax(90px, 2fr) minmax(100px, 2fr);
     align-items: center;
 }
 
@@ -61,12 +99,14 @@ body {
 
 .headerContainer {
     background-color: var(--farbe4);
+    color: var(--farbe2);
 }
 
 .scrollContainer {
     overflow: auto;
     scroll-behavior: auto;
-    height: 100vw;
+    height: calc(100vh - (8px + 38px + 40px + 10px + 28px + 100px));
+    
 }
 
 .countryContainer {
@@ -77,12 +117,10 @@ body {
 
 .countryContainer:nth-child(even) {
     background-color: var(--farbe2a);
-    
+
 }
 
-.flagCell {
- 
-}
+.flagCell {}
 
 .flag {
     height: 40px;
@@ -97,4 +135,54 @@ body {
 .areaCell,
 .populationCell {
     text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+    .headerContainer {
+        display: none;
+    }
+    .countryContainer {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    .gridLayout>div {
+        padding: 1px 0px 1px 5px;
+    }
+
+    .flagCell {
+      grid-row: span 4;
+      align-self: self-start;
+    }
+
+    .nameCell {
+        font-size: 1.5em;
+    }
+
+    .capitalCell, .areaCell, .populationCell {
+        grid-column: span 2;
+        text-align: left;
+    }
+
+    .capitalCell::before{
+        content: "Capital: ";
+    }
+
+    .areaCell::before{
+        content: "Area: ";
+    }
+
+    .areaCell::after {
+        content: " km²";
+    }
+
+    .populationCell::before{
+        content: "Population: ";
+    }
+
+
+   
+
+
+
 }

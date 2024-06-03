@@ -1,20 +1,24 @@
+let sqlData;
+let restData;
+
+function initPage() {
+    let searchInput = document.getElementById('searchInput');
+    searchInput.value = '';
+
+    let rootElement = document.querySelector(".scrollContainer");
+    rootElement.innerHTML = '';
+
+}
+
 async function loadData() {
     //localStorage.clear();
     try {
         // Data from local MySQL DB
-        let sqlData = localStorage.getItem('sqlData');
-        console.log(sqlData);
-        if (sqlData === null) {
-            sqlData = await getDataFromSql();
-            console.log(sqlData);
-            localStorage.setItem('sqlData', JSON.stringify(sqlData));
-        } else {
-            sqlData = JSON.parse(sqlData);
-        }
-        console.log(sqlData);
+        sqlData = await getDataFromSql();
+        //console.log(sqlData);
 
-        // Data from restcountries.com
-        let restData = localStorage.getItem('restData');
+        // Data from localstorage or from restcountries.com/api if not stored
+        restData = localStorage.getItem('restData');
         if (restData === null) {
             restData = await getDataFromRestCountries();
             console.log(restData);
@@ -22,7 +26,7 @@ async function loadData() {
         } else {
             restData = JSON.parse(restData);
         }
-        console.log(restData);
+        //console.log(restData);
 
         updateHtml(sqlData, restData);
 
@@ -34,7 +38,10 @@ async function loadData() {
 async function getDataFromSql() {
     try {
         // Get data from local MySQL
-        const response = await fetch('/api/country');
+        let valueToSearch = document.getElementById('searchInput').value
+        //let valueToSearch ="Belgium";
+
+        const response = await fetch('/api/country?name=' + valueToSearch);
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
@@ -64,9 +71,17 @@ async function getDataFromRestCountries() {
 function updateHtml(sqlData, restData) {
 
     let rootElement = document.querySelector(".scrollContainer");
-    //rootElement.innerHTML = '';
+    rootElement.innerHTML = '';
 
+    let i = 0;
     for (line of sqlData) {
+        
+        let line = sqlData[i];
+
+        //check empty Capital
+        if(line.Capital === null) {
+            sqlData[i].Capital = '';
+        }
 
         //row
         let divCountryContainer = document.createElement('div')
@@ -76,15 +91,15 @@ function updateHtml(sqlData, restData) {
 
         //flag image
         let divFlagCell = document.createElement('div')
-        divFlagCell.classList.add('flagCell')
+        divFlagCell.classList.add('flagCell', 'centeredContent')
         divCountryContainer.appendChild(divFlagCell)
 
         let imgFlag = document.createElement('img')
         imgFlag.classList.add('flag')
-        console.log("try to get flag from dataRest")
+        //console.log("try to get flag from dataRest")
         let imgReturn = getFlagFromDataImgRest(line, restData)
         //let imgReturn = imgNotFound()
-        console.log(`Pfad zum Bild: ${imgReturn}`)
+        //console.log(`Pfad zum Bild: ${imgReturn}`)
         imgFlag.src = imgReturn
         //imgFlag.src = `https://flagsapi.com/${line.Code}/flat/64.png`
         imgFlag.alt = `Flag of ${line.Name}`
@@ -116,23 +131,21 @@ function updateHtml(sqlData, restData) {
         divPopulationCell.innerText = line.Population
         divCountryContainer.appendChild(divPopulationCell)
 
+        i++;
+
     }
 
 }
 
 function getFlagFromDataImgRest(country, restData) {
-    console.log("-----------------")
-    console.log("Country Name = " + country.Name + " Country Code = " + country.Code);
+    //console.log("-----------------")
+    //console.log("Country Name = " + country.Name + " Country Code = " + country.Code);
 
     //loop over dataRest 
     for (dataRestRow of restData) {
 
-        console.log("DataRestRowName = " + dataRestRow.name + " alpha2Code = " + dataRestRow.alpha2Code + " alpha3Code = " + dataRestRow.alpha3Code);
-        if (country.Name === dataRestRow.name ||
-            country.Code === dataRestRow.alpha2Code ||
-            country.Code === dataRestRow.alpha3Code 
-            
-        ) {
+        //console.log("DataRestRowName = " + dataRestRow.name + " alpha2Code = " + dataRestRow.alpha2Code + " alpha3Code = " + dataRestRow.alpha3Code);
+        if (country.Name === dataRestRow.name) {
             let flagImgPath = dataRestRow.flags.png;
             console.log(flagImgPath);
             return flagImgPath;
@@ -147,4 +160,84 @@ function getFlagFromDataImgRest(country, restData) {
 
 function imgNotFound() {
     return 'https://upload.wikimedia.org/wikipedia/commons/b/b9/No_photo_%282067963%29_-_The_Noun_Project.svg';
+}
+
+function sortByName() {
+    console.log("sortByName")
+    let sortDirection = localStorage.getItem('SortDirection');
+    if (sortDirection === 'asc') {
+
+        sqlData.sort((a, b) => a.Name.localeCompare(b.Name))
+        sortDirection = 'desc';
+    } else {
+        sqlData.sort((a, b) => b.Name.localeCompare(a.Name))
+        sortDirection = 'asc'
+    }
+    console.log(sortDirection);
+    localStorage.setItem('SortDirection', sortDirection);
+    updateHtml(sqlData, restData);
+}
+
+function sortByCode() {
+    console.log("sortByCode")
+    let sortDirection = localStorage.getItem('SortDirection');
+    if (sortDirection === 'asc') {
+
+        sqlData.sort((a, b) => a.Code.localeCompare(b.Code))
+        sortDirection = 'desc';
+    } else {
+        sqlData.sort((a, b) => b.Code.localeCompare(a.Code))
+        sortDirection = 'asc'
+    }
+    console.log(sortDirection);
+    localStorage.setItem('SortDirection', sortDirection);
+    updateHtml(sqlData, restData);
+}
+
+function sortByCapital() {
+    console.log("sortByCapital")
+    let sortDirection = localStorage.getItem('SortDirection');
+    if (sortDirection === 'asc') {
+
+        sqlData.sort((a, b) => a.Capital.localeCompare(b.Capital))
+        sortDirection = 'desc';
+    } else {
+        sqlData.sort((a, b) => b.Capital.localeCompare(a.Capital))
+        sortDirection = 'asc'
+    }
+    console.log(sortDirection);
+    localStorage.setItem('SortDirection', sortDirection);
+    updateHtml(sqlData, restData);
+}
+
+function sortByArea() {
+    console.log("sortByArea")
+    let sortDirection = localStorage.getItem('SortDirection');
+    if (sortDirection === 'asc') {
+
+        sqlData.sort((a, b) => a.Area - b.Area)
+        sortDirection = 'desc';
+    } else {
+        sqlData.sort((a, b) => b.Area - a.Area)
+        sortDirection = 'asc'
+    }
+    console.log(sortDirection);
+    localStorage.setItem('SortDirection', sortDirection);
+    updateHtml(sqlData, restData);
+}
+
+function sortByPopulation() {
+    console.log("sortByArea")
+    let sortDirection = localStorage.getItem('SortDirection');
+    if (sortDirection === 'asc') {
+
+        sqlData.sort((a, b) => a.Population - b.Population)
+        sortDirection = 'desc';
+    } else {
+        sqlData.sort((a, b) => b.Population - a.Population)
+        sortDirection = 'asc'
+    }
+    console.log(sortDirection);
+    localStorage.setItem('SortDirection', sortDirection);
+    updateHtml(sqlData, restData);
 }
