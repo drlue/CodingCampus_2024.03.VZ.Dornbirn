@@ -12,6 +12,8 @@ function updateUI(data) {
 
     let rootElement = document.querySelector(".cardContainer");
     rootElement.innerHTML = '';
+    rootElement.classList.add(data.gender);
+    
 
     let divImgContainer = document.createElement('div');
     divImgContainer.classList.add('imgContainer');

@@ -28,10 +28,12 @@ async function loadData() {
         }
         //console.log(restData);
 
+        updateInfoText(sqlData);
         updateHtml(sqlData, restData);
 
     } catch (error) {
         console.error('There was a problem loading the data:', error);
+        showErrorText('There was a problem loading the data: '+ error);
     }
 }
 
@@ -49,6 +51,7 @@ async function getDataFromSql() {
         return data;
     } catch (error) {
         console.error('There was a problem with the fetch operation for SQL data:', error);
+        showErrorText('There was a problem loading the data: '+ error);
         return null; // Return null or handle it in a way that makes sense for your application
     }
 }
@@ -58,15 +61,19 @@ async function getDataFromRestCountries() {
         // Get data from restcountries.com
         const responseRest = await fetch('https://restcountries.com/v2/all');
         if (!responseRest.ok) {
+            showErrorText('Network response was not ok ' + responseRest.statusText);
             throw new Error('Network response was not ok ' + responseRest.statusText);
+            
         }
         const dataRest = await responseRest.json();
         return dataRest;
     } catch (error) {
         console.error('There was a problem with the fetch operation for REST countries data:', error);
+        showErrorText('There was a problem with the fetch operation for REST countries data: ' + error);
         return null; // Return null or handle it in a way that makes sense for your application
     }
 }
+
 
 function updateHtml(sqlData, restData) {
 
@@ -240,4 +247,28 @@ function sortByPopulation() {
     console.log(sortDirection);
     localStorage.setItem('SortDirection', sortDirection);
     updateHtml(sqlData, restData);
+}
+
+function updateInfoText(sqlData) {
+    console.log(sqlData);
+    let resultCount = sqlData.length;
+    let infoText = document.getElementById('infoText');
+    infoText.innerText = resultCount + " results found";
+}
+
+function showErrorText(txt) {
+    let errorContainer = document.getElementById('errorContainer');
+    errorContainer.style.display = 'inherit';
+
+    let errorText = document.getElementById('errorText');
+    errorText.innerText = txt;
+
+}
+
+function closeErrorContainer() {
+    let errorContainer = document.getElementById('errorContainer');
+    errorContainer.style.display = 'none';
+
+    let errorText = document.getElementById('errorText');
+    errorText.innerText = '';
 }

@@ -70,7 +70,7 @@ h1 {
     grid-template-columns: 5fr 1fr;
     width: 80vw;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
     font-family: Helvetica, 'FontAwesome', sans-serif;
 
 }
@@ -86,7 +86,8 @@ h1 {
 
 .custom-field {
     position: relative;
-    font-size: 14px;
+    font-size: 1.0em;
+    color: var(--farbe4);
     border-top: 5px solid transparent;
     display: inline-block;
     --field-padding: 12px;
@@ -103,7 +104,7 @@ h1 {
     border-radius: 10px;
     outline: none;
     font-size: 14px;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     width: 100%;
     transition: border-color 0.3s ease;
     
@@ -140,7 +141,6 @@ h1 {
     top: 0px;
     font-size: 10px;
     color:var(--farbe4);
-    
     border-radius: 5px;
   }
 
@@ -154,7 +154,7 @@ h1 {
     border: 1px solid var(--farbe4);
     border-radius: 10px;
     height: 42px;
-    font-size: 16px;
+    font-size: 1.0em;
 
 }
 
@@ -163,6 +163,31 @@ h1 {
     color: var(--farbe2);
 }
 
+.infoContainer {
+    display: flex;
+    padding: 5px;
+    width: 80vw;
+    justify-content: left;
+}
+
+#errorContainer {
+   display: flex;
+   align-items: center;
+   color: red;
+
+}
+
+.errorClose{
+    display: none;
+}
+
+.closeButton {
+    background-color: var(--farbe2);
+    color: red;
+    border: 1px solid red;
+    border-radius: 5px;
+    font-size: 0.6em;
+}
 
 .countryGrid {
     width: 80vw;
