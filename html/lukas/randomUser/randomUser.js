@@ -53,7 +53,7 @@ function updateUI(data) {
     divTel.appendChild(iElementPhone)
 
     let spanElement1 = document.createElement('span')
-    spanElement1.innerText = "Phone: " + data.phone;
+    spanElement1.innerText = data.phone;
     divTel.appendChild(spanElement1)
 
     divUserData.appendChild(divTel);
@@ -63,27 +63,35 @@ function updateUI(data) {
     divCell.classList.add('cell');
 
     let iElementCell = document.createElement('i')
-    iElementCell.classList.add('fa-solid', 'fa-phone')
+    iElementCell.classList.add('fa-solid', 'fa-mobile-screen')
     divCell.appendChild(iElementCell)
 
     let spanElement2 = document.createElement('span')
-    spanElement2.innerText = "Cellphone: " + data.cell;
-    divTel.appendChild(spanElement2)
+    spanElement2.innerText = data.cell;
+    divCell.appendChild(spanElement2)
 
-    
     divUserData.appendChild(divCell);
 
     //Email
     let divMail = document.createElement('div');
     divMail.classList.add('mailContainer');
-    divUserData.appendChild(divMail);
+
+    let iElementMail = document.createElement('div');
+    iElementMail.classList.add('fa-solid', 'fa-envelope');
+    divMail.appendChild(iElementMail);
+
+    let spanElement3 = document.createElement('span');
+    divMail.appendChild(spanElement3);
 
     let mailLink = document.createElement('a');
     mailLink.classList.add('mailLink');
-    mailLink.innerText = "Mail:" + data.email;
+    mailLink.innerText = data.email;
     mailLink.href = "mailto:" + data.email;
-    divMail.appendChild(mailLink);
+    spanElement3.appendChild(mailLink);
 
+    divUserData.appendChild(divMail);
+
+    
 
 
 
