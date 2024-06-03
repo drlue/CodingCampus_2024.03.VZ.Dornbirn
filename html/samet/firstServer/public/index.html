@@ -31,12 +31,12 @@
 
       async function loadData() {
         let valueToSearch = document.getElementById('country-input').value
-        console.log('Search term:', valueToSearch)
+    //    console.log('Search term:', valueToSearch)
 
         let response = await fetch("/api/country?Name=" + valueToSearch);
         let data = await response.json();
 
-        console.log('REST API result:', data)
+    //    console.log('REST API result:', data)
         let tbody = document.getElementById('country-table-body')
         tbody.innerHTML = ''
 
