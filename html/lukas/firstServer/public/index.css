@@ -1,0 +1,87 @@
+/* Color Theme Swatches in Hex */
+:root {
+    --farbe1: #127369;
+    --farbe2: #10403B;
+    --farbe3: #8AA6A3;
+    --farbe4: #4C5958;
+    --farbe5: #BFBFBF;
+}
+
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-size: 16px;
+    font-family: sans-serif;
+    background: linear-gradient(135deg, var(--farbe2), var(--farbe3));
+    height: 100vh;
+    width: 100vm;
+}
+
+a {
+    color: inherit;
+} 
+
+img {
+    border-radius: 15px;
+}
+
+.fa-solid{
+    margin-right: 5px;
+    width:20px;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    min-width:400px;
+    max-width: 500px;
+    align-items: center;
+    justify-content: left;
+    padding: 5px;
+    background-color: var(--farbe3);
+    border-radius: 15px;
+}
+
+.imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userData {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left:10px;
+    padding: 5px;       
+
+}
+
+
+.userData>div {
+    color: var(--farbe2);
+}
+
+.name {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--farbe1);
+    text-align: center;
+
+}

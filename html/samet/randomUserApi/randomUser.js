@@ -1,57 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<style>
-    #randomUser{
-        display: grid;
-        justify-content: center;
-        text-align: center;
-    }
-    .imgContainer{
-        display: grid;
-        justify-content: center;
-    }
-    .userimg{
-        border: 1em solid bisque;
-        border-radius: 999px;
-        width: 250px;
-    }
-    .female {
-        border-color: palevioletred;
-    }
-    .male {
-        border-color: blue;
-    }
-    .name{
-        margin-top: 0.8em;
-        font-size: 2em;
-        font-weight: 900;
-    }
-</style>
-</head>
-<body>
-    <h1>Random User</h1>
-    <div id="randomUser">
-        <div class="imgContainer">
-            <img class="userimg" src="https://randomuser.me/api/portraits/men/26.jpg" alt="Bla bla">
-        </div>
-        <div class="name">Luke Skywalker</div>
-        <div class="email">
-            <a href="mailto:aassdwd@sdsdsdsds">aassdwd@sdsdsdsds</a>
-        </div>
-        <div class="tel">+345 656 65767 4443</div>
 
-
-    </div>
-<script>
 loadData()
 
 
 async function loadData(){
-    const result = await fetch('https://randomuser.me/api/')
+    const result = await fetch('https://randomuser.me/api/?results=10')
     const data = await result.json()
 
     console.log(data.results[0])
@@ -94,7 +46,3 @@ function updateUI(data){
     rootElement.appendChild(divTel)
 
 }
-
-</script>
-</body>
-</html>

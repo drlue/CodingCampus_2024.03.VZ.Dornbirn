@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello Irem :-)</h1>
+    <div id="dataRoot"></div>
+
+    <script>
+loadData()
+
+async function loadData(){
+    let response = await fetch('/api/country')
+    let data = await response.json()
+
+    console.log('data', data)
+    data.forEach(row => {
+       let par = document.createElement('p')
+       par.innerText = row.Name
+       document.getElementById('dataRoot').appendChild(par)
+    });
+
+}
+    </script>
+</body>
+</html>

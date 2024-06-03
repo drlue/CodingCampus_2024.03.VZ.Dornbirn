@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1 class="header">Search for any Country in the World!!</h1>
+    <div class="input-container">
+        <label for="country-input">Put Country Name here:</label>
+        <input type="text" id="country-input" placeholder="Austria" />
+        <button onclick="loadData()">Search</button>
+      </div>
+      <table id="country-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Capital</th>
+            <th>Province</th>
+            <th>Area</th>
+            <th>Population</th>
+          </tr>
+        </thead>
+        <tbody id="country-table-body"></tbody>
+      </table>
+
+    <script>
+
+      async function loadData() {
+        let valueToSearch = document.getElementById('country-input').value
+    //    console.log('Search term:', valueToSearch)
+
+        let response = await fetch("/api/country?Name=" + valueToSearch);
+        let data = await response.json();
+
+    //    console.log('REST API result:', data)
+        let tbody = document.getElementById('country-table-body')
+        tbody.innerHTML = ''
+
+        data.forEach(row => {
+            let tr = document.createElement('tr')
+            let tdName = document.createElement('td')
+            tdName.innerText = row.Name
+            tr.appendChild(tdName)
+            tbody.appendChild(tr)
+
+            let code = document.createElement('tr')
+            let tdCode = document.createElement('td')
+            tdCode.innerText = row.Code
+            tr.appendChild(tdCode)
+            tbody.appendChild(tr)
+
+            let capital = document.createElement('tr')
+            let tdCapital = document.createElement('td')
+            tdCapital.innerText = row.Capital
+            tr.appendChild(tdCapital)
+            tbody.appendChild(tr)
+
+            let province = document.createElement('tr')
+            let tdProvince = document.createElement('td')
+            tdProvince.innerText = row.Province
+            tr.appendChild(tdProvince)
+            tbody.appendChild(tr)
+
+            let area = document.createElement('tr')
+            let tdArea = document.createElement('td')
+            tdArea.innerText = row.Area
+            tr.appendChild(tdArea)
+            tbody.appendChild(tr)
+
+            let population = document.createElement('tr')
+            let tdPopulation = document.createElement('td')
+            tdPopulation.innerText = row.Population
+            tr.appendChild(tdPopulation)
+            tbody.appendChild(tr)
+        });
+      }
+    </script>
+  </body>
+</html>

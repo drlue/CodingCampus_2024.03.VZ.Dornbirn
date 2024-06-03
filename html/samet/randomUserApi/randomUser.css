@@ -1,0 +1,32 @@
+#randomUser{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    text-align: center;
+    background-color: brown;
+}
+.imgContainer{
+    display: grid;
+    justify-content: center;
+}
+.userimg{
+    border: 1em solid bisque;
+    border-radius: 999px;
+    width: 250px;
+}
+.female {
+    border-color: palevioletred;
+}
+.male {
+    border-color: blue;
+}
+.name{
+    margin-top: 0.8em;
+    font-size: 2em;
+    font-weight: 900;
+}
+
+.bigContainer{
+    background-color: aquamarine;
+    display: flex;
+}

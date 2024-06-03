@@ -1,0 +1,100 @@
+:root {
+    --farbe1: #071A40;
+    --farbe2: #EBEDF2;
+    --farbe2a: #cfd3df;
+    --farbe3: #8B8B8C;
+    --farbe4: #223440;
+    --farbe5: #040D08;
+}
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: var(--farbe2);
+    background: linear-gradient(135deg, var(--farbe1), var(--farbe4));
+    overflow: hidden;
+    /* width: 100vw;
+    height: 100vh; */
+}
+
+.centeredContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftContent {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+}
+
+.rightContent {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 1000px;
+}
+
+.countryGrid {
+    width: 80vw;
+    /*max-width: 1000px;*/
+}
+
+.gridLayout {
+    display: grid;
+    grid-template-columns: 2fr 5fr 1fr 5fr 2fr 2fr;
+    align-items: center;
+}
+
+.gridLayout>div {
+    padding: 5px;
+}
+
+.headerContainer {
+    background-color: var(--farbe4);
+}
+
+.scrollContainer {
+    overflow: auto;
+    scroll-behavior: auto;
+    height: 100vw;
+}
+
+.countryContainer {
+    background-color: var(--farbe2);
+    color: var(--farbe4);
+    border: 1px solid var(--farbe4)
+}
+
+.countryContainer:nth-child(even) {
+    background-color: var(--farbe2a);
+    
+}
+
+.flagCell {
+ 
+}
+
+.flag {
+    height: 40px;
+    max-width: 60px;
+    border-radius: 10px;
+}
+
+.codeCell {
+    text-align: center;
+}
+
+.areaCell,
+.populationCell {
+    text-align: right;
+}

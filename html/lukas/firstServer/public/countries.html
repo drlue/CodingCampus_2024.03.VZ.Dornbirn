@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="countries.css">
+    <script src="countries.js"></script>
+    <title>Countries - Node JS API MySQL</title>
+</head>
+
+<body>
+
+    <div class="mainContainer">
+        <h1>Countries of the world</h1>
+        <div class="countryGrid">
+            <div class="headerContainer gridLayout">
+                <div class="centeredContent">Flag</div>
+                <div class="leftContent">Name</div>
+                <div class="centeredContent">Code</div>
+                <div class="leftContent">Capital</div>
+                <div class="rightContent">Area</div>
+                <div class="rightContent">Population</div>
+            </div>
+            
+            <div class="scrollContainer">
+                <div class="countryContainer gridLayout">
+                    <div class="flagCell"><img class="flag" src="https://flagcdn.com/w320/at.png" alt="Flag of Austria">
+                    </div>
+                    <div class="nameCell">Austria</div>
+                    <div class="codeCell">A</div>
+                    <div class="capitalCell">Vienna</div>
+                    <div class="areaCell">83850</div>
+                    <div class="populationCell">8023244</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>loadData()</script>
+</body>
+
+</html>
