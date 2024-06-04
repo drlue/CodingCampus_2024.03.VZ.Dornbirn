@@ -28,7 +28,7 @@ function populateTable(coin) {
 
   const imageCell = document.createElement("td");
   const img = document.createElement("img");
-  img.src = coin.image.small; // Kleine Bild-URL
+  img.src = coin.image.small;
   img.alt = coin.name;
   imageCell.appendChild(img);
   row.appendChild(imageCell);

@@ -1,37 +1,19 @@
-import { ACTIONS, Action } from "../App";
+import { OparationButtonInterface } from "../App";
+import { ACTIONS } from "../App";
 
-interface OprationInt {
-  dispatch: (action: Action) => void;
-  operation: string;
-}
+export function OperationButton({ operation, dispatch }: OparationButtonInterface) {
+  const handleClick = () => {
+    dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation } });
+  };
 
-export default function OperationButton({ dispatch, operation }: OprationInt) {
+  const styleOperations = ["=", "+", "-", "*", "/"];
+  const orangeButtons = styleOperations.includes(operation)? "styled-operation" : "";
+  const styleDel = ["AC", "DEL", "%"];
+  const greyButtons = styleDel.includes(operation)? "styled-del" : "";
+
   return (
-    <button
-      onClick={() =>
-        dispatch({
-          type: ACTIONS.CHOOSE_OPERATION,
-          payload: { digit: operation },
-        })
-      }
-    >
+    <button onClick={handleClick} className={orangeButtons || greyButtons}>
       {operation}
     </button>
   );
 }
-
-/*
-interface OperationButtonProps {
-  digit: string;
-  onClick: (digit: string) => void;
-}
-
-const OparationButton: React.FC<OperationButtonProps> = ({
-  digit,
-  onClick,
-}) => {
-  return <button onClick={() => onClick(digit)}>{digit}</button>;
-};
-
-export default OparationButton;
-*/

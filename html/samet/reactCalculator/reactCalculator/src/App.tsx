@@ -1,5 +1,7 @@
 import { useReducer } from "react";
 import "./App.css";
+import { DigitButton } from "./components/DigitButton";
+import { OperationButton } from "./components/OparationButton";
 
 export enum ACTIONS {
   ADD_DIGIT = "add-digit",
@@ -120,20 +122,14 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-interface DigitButtonInterface {
+export interface DigitButtonInterface {
   digit: string;
   handleClick: (digit: string) => void;
 }
 
-function DigitButton({ digit, handleClick }: DigitButtonInterface) {
-  return (
-    <button
-      onClick={() => handleClick(digit)}
-      className={digit === "0" ? "zero " : ""}
-    >
-      {digit}
-    </button>
-  );
+ export interface OparationButtonInterface {
+  dispatch: (action: Action) => void;
+  operation: string;
 }
 
 function App() {
@@ -147,11 +143,6 @@ function App() {
   const handleDigitClick = (digit: string) => {
     dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit } });
     console.log(digit);
-  };
-
-  const handleOperationClick = (operation: string) => {
-    dispatch({ type: ACTIONS.CHOOSE_OPERATION, payload: { operation } });
-    console.log(operation);
   };
 
   const handleClearClick = () => {
@@ -174,35 +165,30 @@ function App() {
         </div>
         <div className="current-operand">{state.currentOperand}</div>
       </div>
-      <button className="span-two" onClick={handleClearClick}>
-        AC
-      </button>
-      <button onClick={handleDeleteClick}>DEL</button>
-      <DigitButton digit="+/-" handleClick={handleDigitClick}></DigitButton>
-      <button onClick={() => handleOperationClick("/")}>/</button>
+      <div className="buttons-grid">
+      <div className="buttons">
+      <OperationButton operation= "AC" dispatch= {handleClearClick}></OperationButton>
+      <OperationButton operation= "DEL" dispatch= {handleDeleteClick}></OperationButton>
+      <OperationButton operation= "%" dispatch= {handleDeleteClick}></OperationButton>
+      <OperationButton operation="/" dispatch={dispatch}></OperationButton>
+      <DigitButton digit="7" handleClick={handleDigitClick}></DigitButton>
+      <DigitButton digit="8" handleClick={handleDigitClick}></DigitButton>
+      <DigitButton digit="9" handleClick={handleDigitClick}></DigitButton>
+      <OperationButton operation="*" dispatch={dispatch}></OperationButton>
+      <DigitButton digit="4" handleClick={handleDigitClick}></DigitButton>
+      <DigitButton digit="5" handleClick={handleDigitClick}></DigitButton>
+      <DigitButton digit="6" handleClick={handleDigitClick}></DigitButton>
+      <OperationButton operation="-" dispatch={dispatch}></OperationButton>
       <DigitButton digit="1" handleClick={handleDigitClick}></DigitButton>
-      {/* <button onClick={() => handleDigitClick("1")}>1</button>  */}
-      <button onClick={() => handleDigitClick("2")}>2</button>
-      <button onClick={() => handleDigitClick("3")}>3</button>
-      <button onClick={() => handleOperationClick("*")}>*</button>
-      <button onClick={() => handleDigitClick("4")}>4</button>
-      <button onClick={() => handleDigitClick("5")}>5</button>
-      <button onClick={() => handleDigitClick("6")}>6</button>
-      <button onClick={() => handleOperationClick("-")}>-</button>
-      <button onClick={() => handleDigitClick("7")}>7</button>
-      <button onClick={() => handleDigitClick("8")}>8</button>
-      <button onClick={() => handleDigitClick("9")}>9</button>
-      <button onClick={() => handleOperationClick("+")}>+</button>
+      <DigitButton digit="2" handleClick={handleDigitClick}></DigitButton>
+      <DigitButton digit="3" handleClick={handleDigitClick}></DigitButton>
+      <OperationButton operation="+" dispatch={dispatch}></OperationButton>
       <DigitButton digit="0" handleClick={handleDigitClick}></DigitButton>
-      <button onClick={() => handleDigitClick(".")}>.</button>
-      {/* <button className="zero" onClick={() => handleDigitClick("0")}>
-        0
-  </button> */}
-      <button className="span-two" onClick={handleEqualClick}>
-        =
-      </button>
+      <DigitButton digit="." handleClick={handleDigitClick}></DigitButton>
+      <OperationButton operation= "=" dispatch= {handleEqualClick}></OperationButton>
+      </div>
+      </div>
     </div>
   );
 }
-
 export default App;

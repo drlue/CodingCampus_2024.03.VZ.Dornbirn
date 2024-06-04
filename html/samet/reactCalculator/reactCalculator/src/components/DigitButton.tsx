@@ -1,31 +1,18 @@
-import { ACTIONS, Action } from "../App";
+import { DigitButtonInterface } from "../App";
 
-interface DigitInt {
-  dispatch: (action: Action) => void;
-  digit: string;
-}
+export function DigitButton({ digit, handleClick }: DigitButtonInterface) {
+  const styleDigits = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "."];
+  const digitsGrey = styleDigits.includes(digit)? "styled-digits" : "";
+  const styleZero = ["0"];
+  const zeroGrey = styleZero.includes(digit)? "styled-zero" : "";
 
-export default function DigitButton({ dispatch, digit }: DigitInt) {
+
   return (
     <button
-      onClick={(event) => {
-        console.log("event: ", event);
-        dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit } });
-      }}
+      onClick={() => handleClick(digit)}
+      className={digitsGrey || zeroGrey}
     >
       {digit}
     </button>
   );
 }
-
-/*
-interface DigitButtonProps {
-  digit: string;
-  onClick: (digit: string) => void;
-}
-
-const DigitButton: React.FC<DigitButtonProps> = ({ digit, onClick }) => {
-  return <button onClick={() => onClick(digit)}>{digit}</button>;
-};
-export default DigitButton;
-*/
