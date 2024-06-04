@@ -1,0 +1,18 @@
+Stack        
+    NextJS + TailWindCSS
+    React
+    TypeScript
+    JavaScript
+    HTML, CSS
+
+
+1. Kennenlernen
+2. Javascript Array Bearbeitung
+3. Javascript Array Functions
+4. JavaScript Modules
+5. React Components (Aufbau, Integration)
+6. Parameter Übergabe an Comnponent
+7. Event Handling
+8. Routing / Links
+9. NextJS Daten aus Datenbank generieren
+n
