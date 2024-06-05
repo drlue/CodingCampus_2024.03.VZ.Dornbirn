@@ -1,5 +1,5 @@
 Stack        
-    NextJS + TailWindCSS
+    NextJS + TailwindCSS
     React
     TypeScript
     JavaScript

@@ -17,11 +17,6 @@ body {
   display: grid;
 }
 
-.calculator-grid > button:hover,
-.calculator-grid > button:focus {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 5rem);
@@ -30,13 +25,20 @@ body {
   row-gap: 8px;
   justify-content: center;
 }
+.buttons > button {
+  border-width: 0;
+}
+
+.buttons > button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
 
 .styled-zero {
   grid-column: span 2;
   border-radius: 999px;
   background-color: #3c3b44;
   color: white;
-  font-size: xx-large;
+  font-size: xx-large;  
 }
 
 .styled-digits {
@@ -80,5 +82,5 @@ body {
 
 .output .current-operand {
   color: white;
-  font-size: 3rem;
+  font-size: 6rem;
 }
