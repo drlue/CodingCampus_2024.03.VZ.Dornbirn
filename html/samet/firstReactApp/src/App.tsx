@@ -1,27 +1,14 @@
-import ListGroup from "./components/ListGroup";
+import Counter from "./components/Counter";
+import { CounterProvider } from "./context/CounterContext";
+import { initState } from "./context/CounterContext";
 
 function App() {
-  let items = [
-    "New York",
-    "San Francisco",
-    "Tokyo",
-    "London",
-    "Paris",
-    "Istanbul",
-  ];
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
-
   return (
-    <div>
-      <ListGroup
-        items={items}
-        heading="Cities"
-        onSelectItem={handleSelectItem}
-      ></ListGroup>
-    </div>
+    <>
+      <CounterProvider count={initState.count} text={initState.text}>
+        <Counter>{(num: number) => <>Current Count: {num}</>}</Counter>
+      </CounterProvider>
+    </>
   );
 }
-
 export default App;

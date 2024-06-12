@@ -3,7 +3,7 @@ import imgRightSecond from "../images/imgRightSecond.webp";
 
 export function MainPaigeRight() {
   return (
-    <div className=" bg-blue-500 col-span-2">
+    <div className="  col-span-2">
       <div className="bg-lime-600">
         <img src={imgRightFirst} />
       </div>

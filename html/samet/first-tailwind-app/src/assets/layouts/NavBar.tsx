@@ -12,7 +12,7 @@ export function NavBar() {
   return (
     <div className="bg-blue-700 grid grid-cols-12">
       <div className="col-span-2"></div>
-      <ul className="col-span-8 flex items-end text-xs text-zinc-50  h-14 justify-around font-semibold font-sans pb-1">
+      <ul className="col-span-8 flex items-end text-xs text-zinc-50  h-14 justify-around font-semibold font-sans pb-1 invisible md:visible">
         <li className="cursor-pointer">News</li>
         <li className="cursor-pointer">CLUB</li>
         <li className="cursor-pointer">BRANCHES</li>
