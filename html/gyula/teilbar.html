@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <div id="teilbar"></div>
+
+    <script>
+teilbarFunc(1, 100, 9, 5)
+
+function teilbarFunc(start, end, teilbar, nichtteilbar){
+    document.getElementById('teilbar').innerHTML = ''
+    for (let i = start; i < end; i++) {
+        if (i % teilbar == 0){
+            if (i % nichtteilbar != 0){
+                showResult(i)
+            }
+        }
+    }
+}
+
+function showResult(zahl){
+    let pElement = document.createElement('p')
+    pElement.innerText = zahl
+    document.getElementById('teilbar').appendChild(pElement)
+}
+
+
+    </script>
+</body>
+</html>
