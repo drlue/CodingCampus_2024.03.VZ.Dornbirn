@@ -10,7 +10,6 @@ interface PokememonCardProps {
 
 export function PokemonGrid({ pokemonList }: PokememonCardProps) {
   const [searchText, setSearchText] = useState("");
-  console.log(pokemonList);
 
   const searchFilter = (pokemonList: any) => {
     return pokemonList.filter((pokemon: any) =>
@@ -23,7 +22,9 @@ export function PokemonGrid({ pokemonList }: PokememonCardProps) {
   return (
     <>
       <div>
-        <h3 className="text-2xl py-6 text-center">Search For Your Pokemon!</h3>
+        <h3 className="text-2xl underline py-6 text-center">
+          Search For Your Pokemon!
+        </h3>
         <div className="grid w-full max-w-sm items-center gap-1.5">
           <Label htmlFor="pokemonName">Pokemon Name</Label>
           <Input
@@ -35,7 +36,9 @@ export function PokemonGrid({ pokemonList }: PokememonCardProps) {
             onChange={(e) => setSearchText(e.target.value)}
           />
         </div>
-        <h3 className="text-3xl pt-12 pb-6 text-center">Pokemon Collection</h3>
+        <h3 className="text-3xl pt-12 pb-6 text-center text-yellow-400">
+          Pokemon Collection
+        </h3>
       </div>
       <div className="mb-32 grid grid-cols-3 text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-3 lg:text-left">
         {filteredPokemonList.map((pokemon: any) => {

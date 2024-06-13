@@ -16,10 +16,7 @@ export default async function PokemonPage({
       <h1 className="text-4xl text-bold pt-4">
         {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
       </h1>
-      <div
-        className="m-4"
-        style={{ position: "relative", width: "300px", height: "300px" }}
-      >
+      <div className="m-4 relative w-72 h-72">
         <PokemonImage
           image={pokemonObject.sprites.other["official-artwork"].front_default}
           name={pokemonName}
@@ -36,7 +33,7 @@ export default async function PokemonPage({
               style={{ width: "500px" }}
               key={statObject.stat.name}
             >
-              <h3 className="p-3 w-2/4">
+              <h3 className=" p-3 w-2/4">
                 {statName}: {statValue}
               </h3>
               <Progress className="w2/4 m-auto" value={statValue} />
