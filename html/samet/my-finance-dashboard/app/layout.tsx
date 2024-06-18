@@ -6,7 +6,6 @@ import React from "react";
 import NavigationBar from "@/components/NavigationBar";
 import CalenderElement from "@/components/CalenderElement";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,8 +23,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <NavigationBar />
-          <CalenderElement />
-            {children}
+          <div className="grid grid-cols-12">
+            <div className="col-span-2">
+              <CalenderElement />
+            </div>
+            <div className="col-span-10">{children}</div>
+          </div>
         </ThemeProvider>
       </body>
     </html>
