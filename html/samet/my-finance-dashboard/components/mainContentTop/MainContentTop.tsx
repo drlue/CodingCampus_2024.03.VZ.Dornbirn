@@ -1,12 +1,16 @@
 import React from "react";
-import TotalNetWorth from "./TotalNetWorth";
-import Income from "./Income";
+
 
 export default function MainContentTop() {
   return (
-    <div className=" bg-green-500 text-center text-xs rounded-3xl pt-6 pb-5 ml-4 mt-4 mr-4 mb-4 w-1/6">
-      <TotalNetWorth />
-      <Income />
+    <div className=" grid grid-cols-4 gap-4 p-4 flex-grow">
+      <div className="bg-red-500 rounded-lg shadow-xl min-h-[50px]"></div>
+      <div className="bg-orange-500 rounded-lg shadow-xl min-h-[50px]"></div>
+      <div className="bg-yellow-500 rounded-lg shadow-xl row-span-2 min-h-[50px]"></div>
+      <div className="bg-green-500 rounded-lg shadow-xl min-h-[50px]"></div>
+      <div className="bg-blue-500 rounded-lg shadow-xl min-h-[50px]"></div>
+      <div className="bg-violet-500 rounded-lg shadow-xl min-h-[50px]"></div>
+      <div className="bg-zinc-500 rounded-lg shadow-xl min-h-[50px]"></div>
     </div>
   );
 }

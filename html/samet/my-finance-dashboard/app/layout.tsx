@@ -6,6 +6,7 @@ import React from "react";
 import NavigationBar from "@/components/navBar/NavigationBar";
 import CalenderElement from "@/components/CalenderElement";
 import MainContentTop from "@/components/mainContentTop/MainContentTop";
+import MainContentBottom from "@/components/mainContentBottom/MainContentBottom";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,22 +21,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className="full-height">
+      <body className={`{inter.className} full-height`}>
+      <div className="container">
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
-          <div>
             <NavigationBar />
-          </div>
-          <div className="bg-yellow-500">
-            <div>
-              <CalenderElement />
+            <div className="flex">
+            <CalenderElement />
+            <MainContentTop />
             </div>
-            <div>
-              <MainContentTop />
+            <div className="flex">
+            <MainContentBottom />
             </div>
-          </div>
+            {children}
         </ThemeProvider>
+        </div>
       </body>
     </html>
   );
