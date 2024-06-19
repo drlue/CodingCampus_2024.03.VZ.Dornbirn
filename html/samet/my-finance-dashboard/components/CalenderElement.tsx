@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function CalenderElement() {
   return (
-    <div className="grid grid-rows-12 gap-5 text-center rounded-3xl pt-6 pb-5 ml-5 mt-12 bg-red-200">
+    <div className="grid grid-rows-12 gap-5 text-center text-xs rounded-3xl pt-6 pb-5 ml-4 mr-4 mb-4 bg-red-200 w-14">
       <Link href="/month/January">JAN</Link>
       <Link href="/month/February">FEB</Link>
       <Link href="/month/March">MAR</Link>

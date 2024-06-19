@@ -1,5 +1,3 @@
-import React, { Children } from "react";
-
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 import {
@@ -10,15 +8,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import NavbarContainer from "./NavbarContainer";
 
-export default function navBar() {
+export default function NavbarRight() {
   return (
-    <div>
-      <NavbarContainer>
-        <div></div>
-      </NavbarContainer>
-      <div className="justify-self-end place-items-center bg-sky-200">
+    <div className="">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>
@@ -31,10 +24,9 @@ export default function navBar() {
           <DropdownMenuItem>Profile</DropdownMenuItem>
           <DropdownMenuItem>Billing</DropdownMenuItem>
           <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
+          <DropdownMenuItem>Settings</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
-    </div>
     </div>
   );
 }
