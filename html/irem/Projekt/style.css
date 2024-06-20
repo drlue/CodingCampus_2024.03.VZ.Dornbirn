@@ -16,6 +16,7 @@ body{
 }
 #search-container{
     margin: 1em 0;
+   
 }
 #search-container input{
     background-color: transparent;
@@ -33,8 +34,22 @@ body{
     color: #ffffff;
     border-radius: 5px;
     margin-top: 0.5em;
+}  
+
+button {          
+    background-color: #6759ff; 
+    color: #110f29; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
 }
-.button-value{
+
+button:hover {
+    background-color: #bcb8eb; 
+}
+
+.button-value {
     border: 2px solid #6759ff;
     padding: 1em 2.2em;
     border-radius: 3em;
@@ -42,6 +57,7 @@ body{
     color: #6759ff;
     cursor: pointer;
 }
+
 .active{
     background-color: #6759ff;
     color: #ffffff;
@@ -59,27 +75,33 @@ body{
     padding: 1em;
     border-radius: 5px;
     box-shadow: 1em 2em 2.5em rgba(1,2,68,0.08);
+    border-radius: 20px;
 }
 .image-container {
     text-align: center;
+    
+   
 }
 img{
     max-width: 100%;
     object-fit: contain;
     height: 15em;
+   
 }
 .container{
-    font-weight: 500;
+    padding-top: 1em;
+    color: #110f29;
+   
 }
 .container h5 {
-    padding-top: 500;
+    font-weight: 500;
 }
 .hide{
     display: none;
 }
 @media screen and (max-width: 720px) {
     img{
-        min-width: 100%;
+        max-width: 100%;
         object-fit: contain;
         height: 10em;
     }

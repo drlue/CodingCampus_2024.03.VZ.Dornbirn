@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width = device-width , initial-scale=1.0" />
-        <title> Product Filter And Search</title>
-        <!--Google Font-->
-<!--Stylesheet-->
-<link rel="stylesheet" href="style.css"/>
-    </head>
-    <body>
-        <div class="wraaper">
-            <div id="search-container">
-                <input
-                 type="search" 
-                 id="search-input" 
-                 placeholder="Search Product Name here..."
-                 />
-                 <button id="serach">Search</button>
-            </div>
-            <div id ="button">
-                <button class="button-value"oneclick="filterProduct('All')">All</button>
-                <button class="button-value"oneclick="filterProduct('Topwear')">Topwear</button>
-                <button class="button-value"oneclick="filterProduct('Bottomwear')">Bottomwear</button>
-                <button class="button-value"oneclick="filterProduct('Jacket')">Jacket</button>
-                <button class="button-value"oneclick="filterProduct('Watch')">Watch</button>
+
+<head>
+    <meta name="viewport" content="width = device-width , initial-scale=1.0" />
+    <title> Product Filter And Search</title>
+    <!--Google Font-->
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body> 
+
+    <div class="wraper">
+        <div id="search-container">
+            <input type="search" id="search-input" placeholder="Search Product Name here..." />
+            <button id="search" onclick="filterProductBySearch()">Search</button>
+        </div>
+        <div id="button">
+            <button class="button-value" onclick="filterProductByCategory('All')">All</button>
+            <button class="button-value" onclick="filterProductByCategory('Topwear')">Topwear</button>
+            <button class="button-value" onclick="filterProductByCategory('Bottomwear')">Bottomwear</button>
+            <button class="button-value" onclick="filterProductByCategory('Jacket')">Jacket</button>
+            <button class="button-value" onclick="filterProductByCategory('Watch')">Watch</button>
         </div>
         <div id="products"></div>
-              </div>
-        <!--Script-->
-        <script src="script.js">
-        </script>
-    </body>
-    </head>
+    </div>
+    <!--Script-->
+    <script src="script.js">
+    </script>
+</body>
+</head>
+
 </html>
