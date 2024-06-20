@@ -1,21 +1,26 @@
 *{
-    padding: 0%;
-    margin: 0%;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    font-family: "Poppins", sans-serif;
+    padding: 0%; /* Innenabstand zwischen inhalt eines Elements und seinem Rand kien Abstand besteht */
+    margin: 0%; /* Ausenabstand*/
+    box-sizing: border-box; /*Gesamtbreite und -höhe eines Elements */
+    border: none; /*Entfernt alle Rahmenlinien von Elementen*/
+    outline: none; /*ntfernt die Umrisse von Elementen*/
+    font-family: "Poppins", sans-serif; /*Schriftart der Textinhalte auf der Webseite*/
 }
 body{
-    background-color: #f5f8ff;
+    background-color: #f5f8ff; /*Hintergrundfarbe des gesamten Dokuments*/
 
 }
-.wrapper{
+.wrapper{ /*Definiert eine umgebende Box*/
     width: 95%;
     margin: 0 auto;
 }
-#search-container{
-    margin: 1em 0;
+
+/* Search,..... */
+/*Gestaltet ein Suchfeld, Hintergrund,Unterstrichlinie,Fokussieren des Eingabefeldes ändert sich die Farbe der Unterstrichlinie,*/                      
+/*Button wird rechts vom Eingabefeld positioniert,abgerundete Ecken, und seine Textfarbe*/
+
+#search-container{                       
+    margin: 1em 0;  
    
 }
 #search-container input{
@@ -36,6 +41,9 @@ body{
     margin-top: 0.5em;
 }  
 
+/*Button, hover...*/
+/*Definiert den Stil für alle Buttons auf der Seite, mit spezifischen Farben, Abständen und ohne Rahmen. Beim Überfahren mit der Maus ändert sich die Hintergrundfarbe*/
+
 button {          
     background-color: #6759ff; 
     color: #110f29; 
@@ -49,6 +57,7 @@ button:hover {
     background-color: #bcb8eb; 
 }
 
+/*Spezieller Button-Sti*/
 .button-value {
     border: 2px solid #6759ff;
     padding: 1em 2.2em;
@@ -57,17 +66,19 @@ button:hover {
     color: #6759ff;
     cursor: pointer;
 }
-
+/*aktiven Status eines Elements zu signalisieren*/
 .active{
     background-color: #6759ff;
     color: #ffffff;
 }
+/* Erstellt ein Grid-Layout für die Produktliste, mit drei Spalten und einem Abstand zwischen den Spalten*/
 #products {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-column-gap: 1.5em;
     padding: 2em 0;
 }
+/*Definiert einen "Karten"-Stil*/
 .card {
     background-color: #ffffff;
     max-width: 18em;
@@ -77,6 +88,9 @@ button:hover {
     box-shadow: 1em 2em 2.5em rgba(1,2,68,0.08);
     border-radius: 20px;
 }
+/*Image,..*/
+/*Zentriert Bilder innerhalb ihrer Container*/
+
 .image-container {
     text-align: center;
     
@@ -88,17 +102,22 @@ img{
     height: 15em;
    
 }
+/*Container fungieren */
 .container{
     padding-top: 1em;
     color: #110f29;
    
 }
+/*Diese Regel zielt auf <h5>-Überschriftenelemente innerhalb eines Elements mit der Klasse .container*/
 .container h5 {
     font-weight: 500;
 }
+/*Elemente aus dem sichtbaren Teil der Webseite zu entfernen*/
 .hide{
     display: none;
 }
+
+/*Passt das Layout für Bildschirme an*/
 @media screen and (max-width: 720px) {
     img{
         max-width: 100%;

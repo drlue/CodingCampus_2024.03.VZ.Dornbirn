@@ -136,7 +136,6 @@ function filterProductByCategory(category) {
         document.getElementById("products").appendChild(card);
     }
 }
-
 //searach button click
 function filterProductBySearch() {
     //initializations
