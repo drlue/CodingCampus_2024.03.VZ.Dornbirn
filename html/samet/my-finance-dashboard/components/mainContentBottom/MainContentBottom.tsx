@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
 
-export default function MainContentBottom () {
+export default function MainContentBottom() {
   return (
-    <div className=" grid grid-cols-3 gap-4 p-4 flex-grow">
-    <div className="bg-red-500 rounded-lg shadow-xl col-span-1 row-span-2 min-h-[50px]"></div>
-    <div className="bg-orange-500 rounded-lg shadow-xl min-h-[50px]"></div>
-    <div className="bg-yellow-500 rounded-lg shadow-xl row-span-2 min-h-[50px]"></div>
+    <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 p-4 flex-grow">
+      <div className="bg-red-500 rounded-lg shadow-xl sm:col-span-1">
+        ASSETS
+      </div>
+      <div className="bg-orange-500 rounded-lg shadow-xl sm:col-span-2">
+        {" "}
+        MONTHLY TRACKING
+      </div>
+      <div className="bg-yellow-500 rounded-lg shadow-xl p-1">        
+        EXPENSES IN DIAGRAM AND CATEGORY
+      </div>
     </div>
-  )
+  );
 }
