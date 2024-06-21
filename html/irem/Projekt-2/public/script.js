@@ -1,3 +1,4 @@
+/*
 let products = {
     data: [{
         productName: "Regualar White T-shirt",
@@ -7,7 +8,7 @@ let products = {
     },
     {
         productName: "Pink Short Skirt",
-        category: "Bottomware",
+        category: "Bottomwear",
         price: "49",
         image: "short-skirt.jpg",
     },
@@ -31,7 +32,7 @@ let products = {
     },
     {
         productName: "Stylish Denim Pants",
-        category: "Bottomwaer",
+        category: "Bottomwear",
         price: "100",
         image: "blue-jeans.jpg",
     },
@@ -47,8 +48,18 @@ let products = {
         price: "50",
         image: "comfy-gray-pants.webp",
     },
-    ],
+  ],
 };
+*/
+
+let products = undefined
+
+async function loadData(searchTerm){
+    const response = await fetch('/api/products/?search=' + searchTerm)
+    const data = await response.json()
+
+    return data;
+}
 
 function createProduct(i) {
     //Creat card
@@ -115,16 +126,16 @@ function filterProductByCategory(category) {
     //         }
     //     }
     // });
-    
+
     const productList = document.getElementById("products")
-    while(productList.firstChild) {
+    while (productList.firstChild) {
         productList.removeChild(productList.firstChild)
-    } 
+    }
 
     const filteredProducts = products.data.filter((product) => {
-        if(category == 'All') {
+        if (category == 'All') {
             return true
-        } else if(product.category == category) {
+        } else if (product.category == category) {
             return true;
         } else {
             return false;
@@ -144,9 +155,9 @@ function filterProductBySearch() {
     let cards = document.querySelectorAll(".card");
     cards.forEach(card => {
         let productName = card.querySelector(".product-name").textContent.toLocaleLowerCase();
-        card.style.disyplay = productName.includes(searchInput)? '' : 'none'; 
+        card.style.disyplay = productName.includes(searchInput) ? '' : 'none';
     });
-  
+
 
     // //loop throug all element
     // elements.fCorEach((element, index) => {
@@ -161,10 +172,11 @@ function filterProductBySearch() {
     //     }
     // })
 
-   //product.productName.indexOf(searchtext) != -1
+    //product.productName.indexOf(searchtext) != -1
 }
 
 //initially display all products
-window.onload = () => {
+window.onload = async () => {
+    products = await loadData('')
     filterProductByCategory("All");
 };
