@@ -11,7 +11,7 @@ import {
 
 export default function NavbarRight() {
   return (
-    <div className="">
+    <div className="hidden sm:grid sm:justify-items-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>

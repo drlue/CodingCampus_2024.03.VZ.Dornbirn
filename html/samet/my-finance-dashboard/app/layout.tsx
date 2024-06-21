@@ -7,6 +7,8 @@ import NavigationBar from "@/components/navBar/NavigationBar";
 import CalenderElement from "@/components/CalenderElement";
 import MainContentTop from "@/components/mainContentTop/MainContentTop";
 import MainContentBottom from "@/components/mainContentBottom/MainContentBottom";
+import { Drawer } from "@/components/ui/drawer";
+import SandwichMenu from "@/components/navBar/SandwichMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,20 +23,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="full-height">
-      <body className={`{inter.className} full-height`}>
-      <div className="container">
-        <ThemeProvider attribute="class" defaultTheme="dark">
+    <html lang="en">
+      <body className={`{inter.className} `}>
+        <div className="min-h-screen flex flex-col">
+          <ThemeProvider attribute="class" defaultTheme="dark">
+            <SandwichMenu />
             <NavigationBar />
-            <div className="flex">
-            <CalenderElement />
-            <MainContentTop />
-            </div>
-            <div className="flex">
-            <MainContentBottom />
+            <div className="flex-1 flex">
+              <CalenderElement />
+              <div className="flex flex-col flex-1">
+                <MainContentTop />
+                <MainContentBottom />
+              </div>
             </div>
             {children}
-        </ThemeProvider>
+          </ThemeProvider>
         </div>
       </body>
     </html>

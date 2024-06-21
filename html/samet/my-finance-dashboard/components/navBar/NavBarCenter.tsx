@@ -8,7 +8,7 @@ import NavMenuItem from "./NavMenuItem";
 
 export default function NavbarCenter() {
   return (
-    <div className="flex flex-row flex-auto justify-center gap-16 md:visible">
+    <div className="sm:flex sm:flex-row sm:flex-auto sm:justify-center sm:gap-10">
       <NavMenuItem title="Overview" href="/overview" icon={faBuildingColumns} />
       <NavMenuItem title="Categories" href="/categories" icon={faChartPie} />
       <NavMenuItem
