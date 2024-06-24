@@ -1,6 +1,4 @@
 
-
-
 let products = {
     data: [{
         productName: "Regualar White T-shirt",

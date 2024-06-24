@@ -61,6 +61,16 @@ async function loadData(searchTerm){
     return data;
 }
 
+function filterProductBySearch() {
+    let searchInput = document.getElementById("search-input").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        let productName = card.querySelector(".product-name").textContent.toLowerCase();
+        card.style.display = productName.includes(searchInput) ? '' : 'none';
+    });
+}
+
 function createProduct(i) {
     //Creat card
     let card = document.createElement("div");
@@ -87,6 +97,14 @@ function createProduct(i) {
     price.innerText = "$" + i.price;
     container.appendChild(price);
 
+    // Löschbutton hinzufügen
+    let deleteButton = document.createElement("button");
+    deleteButton.innerText = "Delete";
+    deleteButton.onclick = function () {
+        deleteProduct(i.productName);
+    };
+    container.appendChild(deleteButton);
+
     card.appendChild(container);
 
     return card;
@@ -105,6 +123,12 @@ function filterProductByCategory(category) {
             button.classList.remove("active");
         }
     });
+
+    function deleteProduct(productName) {
+        products.data = products.data.filter(product => product.productName !== productName);
+        filterProductByCategory("All"); // Dies lädt die Liste mit den verbleibenden Produkten neu
+    }
+    
     // //select all cards 
     // let elements = document.querySelectorAll(".card");
     // //loop through all cards
@@ -177,6 +201,6 @@ function filterProductBySearch() {
 
 //initially display all products
 window.onload = async () => {
-    products = await loadData('')
+    products = await loadData('');
     filterProductByCategory("All");
 };
