@@ -10,6 +10,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function NavbarRight() {
+
+
+  
   return (
     <div className="hidden sm:grid sm:justify-items-center">
       <DropdownMenu>

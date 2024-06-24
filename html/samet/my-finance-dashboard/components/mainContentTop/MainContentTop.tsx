@@ -9,7 +9,7 @@ export default function MainContentTop() {
       </div>
       <div className="bg-orange-500 rounded-lg shadow-xl">INCOME</div>
       <div className="bg-yellow-500 rounded-lg shadow-xl sm:row-span-2 ">
-        SPENDINGS
+        TRANSACTIONS
       </div>
       <div className="bg-green-500 rounded-lg shadow-xl sm:row-span-2 ">
         SAVINGS
