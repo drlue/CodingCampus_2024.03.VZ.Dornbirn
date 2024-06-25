@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import Dialoge from "@/components/dialoge/DialogeFeature";
 
 function transactions() {
   return (
     <main>
-        <h2>Transactions</h2>
+      <div>
+        <Dialoge />
+      </div>
     </main>
-  )
+  );
 }
 
-export default transactions
+export default transactions;
