@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width = device-width , initial-scale=1.0" />
-    <title> Product Filter And Search</title>
-    <!--Google Font-->
-    <!--Stylesheet-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Filter And Search</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-
-<body> 
-    <div class="wraper">
+<body>
+    
+    <div class="wrapper">
         <div id="search-container">
             <input type="search" id="search-input" placeholder="Search Product Name here..." />
             <button id="search" onclick="filterProductBySearch()">Search</button>
@@ -22,12 +20,22 @@
             <button class="button-value" onclick="filterProductByCategory('Jacket')">Jacket</button>
             <button class="button-value" onclick="filterProductByCategory('Watch')">Watch</button>
         </div>
-        <div id="products"></div>
+        <div id="price-filter">
+            <input type="number" id="min-price" placeholder="Min Price" />
+            <input type="number" id="max-price" placeholder="Max Price" />
+            <button onclick="filterProductsByPrice()">Filter</button>
+        </div>
+        <div id="products">
+        </div>
     </div>
-    <!--Script-->
-    <script src="script.js">
-    </script>
+    <footer>
+        <p>Folgen Sie uns auf Social Media:</p>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <p>&copy; 2024 MadeByMeri. Alle Rechte vorbehalten.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
-</head>
 
 </html>

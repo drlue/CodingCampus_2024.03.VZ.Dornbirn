@@ -55,8 +55,19 @@ let products = {
 
 export default function initProducts(app){
     app.get('/api/products', (req, res) => {
-        console.log('/api/products', req.query)
+        console.log('GET', '/api/products', req.query)
         res.send(products)
       })
+
+    app.post('/api/products', (req, res) => {
+        console.log('POST', '/api/products', req.body)
+        products.data.push({
+            productName: req.body.productName,
+            category: req.body.category,
+            price: req.body.price,
+            image: req.body.image,            
+        })
+        res.sendStatus(200)
+    })
 }
 
