@@ -4,11 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/themeProvider";
 import React from "react";
 import NavigationBar from "@/components/navBar/NavigationBar";
-import CalenderElement from "@/components/CalenderElement";
-import MainContentTop from "@/components/mainContentTop/MainContentTop";
-import MainContentBottom from "@/components/mainContentBottom/MainContentBottom";
 import SandwichMenu from "@/components/navBar/SandwichMenu";
-import { DatePickerDemo, MonthLinks } from "@/components/DatePickerdemo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,13 +25,6 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="dark">
             <SandwichMenu />
             <NavigationBar />
-            <div className="flex-1 flex">
-              <CalenderElement />
-              <div className="flex flex-col flex-1">
-                <MainContentTop />
-                <MainContentBottom />
-              </div>
-            </div>
             {children}
           </ThemeProvider>
         </div>

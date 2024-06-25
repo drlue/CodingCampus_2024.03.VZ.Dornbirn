@@ -1,9 +1,12 @@
 import React from "react";
+import Dialoge from "@/components/dialoge/DialogeFeature";
 
 function transactions() {
   return (
-    <main className="flex align-middle">
-      <h2>Transactions</h2>
+    <main>
+      <div>
+        <Dialoge />
+      </div>
     </main>
   );
 }

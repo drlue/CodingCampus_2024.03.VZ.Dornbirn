@@ -1,7 +1,5 @@
 "use client";
 
-//import { Transaction, columns } from "./columns";
-import { DataTable } from "./DataTable";
 import { Transaction } from "@prisma/client";
 import { createTransaction } from "@/service/transaction";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,7 +8,6 @@ import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -18,28 +15,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
-/*
-async function getData(): Promise<Transaction[]> {
-  // Fetch data from your API here.
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    // ...
-  ];
-}
-*/
-/*
-type        String
-  category    String
-  amount      Float
-  description String?
-  date        DateTime
-*/
 
 const formSchema = z.object({
   type: z.string(),
@@ -116,13 +91,10 @@ export default function DemoPage() {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Amount</FormLabel>
                 <FormControl>
-                  <Input placeholder="shadcn" {...field} />
+                  <Input placeholder="€€€€€" {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -133,5 +105,3 @@ export default function DemoPage() {
     </div>
   );
 }
-
-/*      <DataTable columns={columns} data={data} /> */

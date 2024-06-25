@@ -1,14 +1,10 @@
 import React from "react";
-import Dialoge from "../dialoge/DialogeFeature";
-import DemoPage from "@/app/payments/page";
 
 export default function Transactions() {
   return (
-    <div className="bg-yellow-500 rounded-lg shadow-xl sm:row-span-2 text-center ">
+    <div className="bg-yellow-500 rounded-lg shadow-xl sm:row-span-2 text-center p-1 ">
       TRANSACTIONS
-      <div>
-        <Dialoge />
-      </div>
+      <ul>{}</ul>
     </div>
   );
 }

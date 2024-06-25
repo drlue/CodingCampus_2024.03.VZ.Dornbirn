@@ -15,8 +15,11 @@ export default function Dialoge() {
   return (
     <Dialog>
       <DialogTrigger>
-        <div>
-          <FontAwesomeIcon icon={faPlus} className="h-4" />
+        <div className="grid justify-center">
+          Push for new Transactions
+          <div>
+            <FontAwesomeIcon icon={faPlus} className="h-4" />
+          </div>
         </div>
       </DialogTrigger>
       <DialogContent>
