@@ -17,14 +17,16 @@ export default function Dialoge() {
       <DialogTrigger>
         <div className="grid justify-center">
           Push for new Transactions
-          <div>
-            <FontAwesomeIcon icon={faPlus} className="h-4" />
+          <div className="flex justify-center p-10">
+            <FontAwesomeIcon icon={faPlus} className="h-8" />
           </div>
         </div>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>You can put your Transactions here!</DialogTitle>
+          <DialogTitle className="flex justify-center">
+            You can put your Transactions here!
+          </DialogTitle>
           <DialogDescription>
             <DemoPage />
           </DialogDescription>

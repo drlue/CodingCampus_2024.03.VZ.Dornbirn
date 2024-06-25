@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 
 import { ColumnDef } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
@@ -58,3 +58,4 @@ export const columns: ColumnDef<Transaction>[] = [
     },
   },
 ];
+*/

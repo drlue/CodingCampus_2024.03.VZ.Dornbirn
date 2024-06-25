@@ -1,9 +1,5 @@
 "use client";
 
-import { Transaction } from "@prisma/client";
-import { createTransaction } from "@/service/transaction";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -15,24 +11,29 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Transaction } from "@prisma/client";
+import { createTransaction } from "@/service/transaction";
 
-const formSchema = z.object({
-  type: z.string(),
-  category: z.string(),
-  amount: z.number(),
-  description: z.string(),
-  date: z.date(),
-  username: z.string().min(2).max(50),
-});
+interface FormValues {
+  type: string;
+  category: string;
+  amount: number;
+  description: string;
+  date: Date;
+  username: string;
+}
 
 export default function DemoPage() {
   // 1. Define your form.
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
     defaultValues: {
       type: "",
       category: "",
-      amount: 0.0,
+      amount: 0,
       description: "",
       date: new Date(),
       username: "",
@@ -40,9 +41,9 @@ export default function DemoPage() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: FormValues) {
     // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    console.log(values);
     let t: Transaction = {
       id: 0,
       type: values.type,
@@ -56,52 +57,60 @@ export default function DemoPage() {
 
   return (
     <div className="container mx-auto py-10">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="type"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Type</FormLabel>
-                <FormControl>
-                  <Input placeholder="type" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        <div>
+          <label className="block text-sm font-medium">Type</label>
+          <input
+            type="text"
+            {...register("type", { required: "Type is required" })}
+            className={`mt-1 block w-full ${
+              errors.type ? "border-red-500" : "border-gray-300"
+            }`}
+            placeholder="income / expense"
           />
+          {errors.type && (
+            <p className="mt-2 text-sm text-red-600">{errors.type.message}</p>
+          )}
+        </div>
 
-          <FormField
-            control={form.control}
-            name="category"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Category</FormLabel>
-                <FormControl>
-                  <Input placeholder="category" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+        <div>
+          <label className="block text-sm font-medium">Category</label>
+          <input
+            type="text"
+            {...register("category", { required: "Category is required" })}
+            className={`mt-1 block w-full ${
+              errors.category ? "border-red-500" : "border-gray-300"
+            }`}
+            placeholder="category"
           />
+          {errors.category && (
+            <p className="mt-2 text-sm text-red-600">
+              {errors.category.message}
+            </p>
+          )}
+        </div>
 
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Amount</FormLabel>
-                <FormControl>
-                  <Input placeholder="€€€€€" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+        <div>
+          <label className="block text-sm font-medium">Amount</label>
+          <input
+            type="text"
+            {...register("amount", {
+              required: "Amount is required",
+              valueAsNumber: true, // Ensure the value is treated as a number
+              validate: (value) => !isNaN(value) || "Amount must be a number",
+            })}
+            className={`mt-1 block w-full ${
+              errors.amount ? "border-red-500" : "border-gray-300"
+            }`}
+            placeholder="€"
           />
-          <Button type="submit">Submit</Button>
-        </form>
-      </Form>
+          {errors.amount && (
+            <p className="mt-2 text-sm text-red-600">{errors.amount.message}</p>
+          )}
+        </div>
+
+        <Button type="submit">Submit</Button>
+      </form>
     </div>
   );
 }
