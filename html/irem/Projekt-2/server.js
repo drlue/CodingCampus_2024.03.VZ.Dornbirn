@@ -15,8 +15,7 @@ app.use(express.json())
 initProducts(app)
 
 const users = [
-    { name: 'tobi' },
-
+    { name: 'tobi 2' },
     { name: 'loki' },
     { name: 'jane' }
   ];
