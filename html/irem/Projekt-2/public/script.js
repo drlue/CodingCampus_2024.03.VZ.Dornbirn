@@ -53,18 +53,13 @@ let products = {
 */
 
 let products = undefined
-
-async function loadData(searchTerm) {
-    const response = await fetch('/api/products/?search=' + encodeURIComponent(searchTerm));
-    const data = await response.json()
-    return data;
+let state = {
+    category: "All",
+    minPrice: 0,
+    maxPrice: 999,
+    searchTerm: "",
 }
-//----------------------------------------------------------------------------------------------//
 
-function deleteProduct(productName) {
-    products.data = products.data.filter(product => product.productName !== productName);
-    filterProductByCategory("All"); // Dies lädt die Liste mit den verbleibenden Produkten neu
-}
 //----------------------------------------------------------------------------------------------//
 
 function createProduct(i) {
@@ -109,34 +104,6 @@ function createProduct(i) {
 }
 
 //----------------------------------------------------------------------------------------------//
-
-//parameter passed from button (parameter same as category)
-function filterProductByCategory(category) {
-    console.log(category)
-    //button class code 
-    let buttons = document.querySelectorAll("button-value");
-    buttons.forEach(button => {
-        //check if value equals innerText
-        if (value.toUpperCase() == button.innerText.toUpperCase()) {
-            button.classList.add("active");
-        } else {
-            button.classList.remove("active");
-        }
-    });
-    //----------------------------------------------------------------------------------------------//
-
-    const productList = document.getElementById("products");
-    while (productList.firstChild) {
-        productList.removeChild(productList.firstChild);
-    }
-
-    const filteredProducts = products.data.filter(product => (category === 'All' || product.category === category));
-    filteredProducts.forEach(product => {
-        let card = createProduct(product);
-        productList.appendChild(card);
-    });
-}
-//----------------------------------------------------------------------------------------------//
  function showDetails(product) {
     let modal = document.createElement("div");
     modal.style.position = "fixed";
@@ -160,52 +127,30 @@ function filterProductByCategory(category) {
 
 //----------------------------------------------------------------------------------------------//
 
-// //select all cards 
-// let elements = document.querySelectorAll(".card");
-// //loop through all cards
-// elements.forEach((element) => {
-//     //display all cards on cards 'all' button click 
-//     if (value == "all") {
-//         element.classList.remove("hide");
-//     }
-//     else {
-//         //check if elemnt contains catogory class 
-//         if (element.classList.add(value)) {
-//             //dsplay elemnt based on catogory
-//             element.classList.remove("hide");
-//         }
-//         else {
-//             //hide other elements 
-//             element.classList.add("hide");
-
-//         }
-//     }
-// });
-
-//----------------------------------------------------------------------------------------------//
-
-const productList = document.getElementById("products")
-while (productList.firstChild) {
-    productList.removeChild(productList.firstChild)
-}
-
-const filteredProducts = products.data.filter((product) => {
-    if (category == 'All') {
-        return true
-    } else if (product.category == category) {
-        return true;
-    } else {
-        return false;
+function updateContent(){
+    console.log('udateContent: ', state)
+    const productList = document.getElementById("products")
+    while (productList.firstChild) {
+        productList.removeChild(productList.firstChild)
     }
-})
-
-for (let i of filteredProducts) {
-    let card = createProduct(i)
-    document.getElementById("products").appendChild(card);
+    
+    const filteredProducts = products.data.filter(product => 
+        ((state.category == 'All') || (product.category == state.category)) &&
+        (state.searchTerm === '' || product.productName.toLocaleUpperCase().includes(state.searchTerm.toLocaleUpperCase())) &&
+        (state.minPrice === '' || product.price >= state.minPrice) &&
+        (state.maxPrice === '' || product.price <= state.maxPrice) 
+    );
+    for (let i of filteredProducts) {
+        let card = createProduct(i)
+        productList.appendChild(card);
+    }    
 }
+
 function deleteProduct(productName) {
     products.data = products.data.filter(product => product.productName !== productName);
-    filterProductByCategory("All");
+    
+    state.category = "All"
+    updateContent()
 }
 
 function filterProductByCategory(category) {
@@ -218,52 +163,61 @@ function filterProductByCategory(category) {
         }
     });
 
-    const productList = document.getElementById("products");
-    while (productList.firstChild) {
-        productList.removeChild(productList.firstChild);
-    }
 
-    const filteredProducts = products.data.filter(product => (category === 'All' || product.category === category));
-    filteredProducts.forEach(product => {
-        let card = createProduct(product);
-        productList.appendChild(card);
-    });
+    state.category = category
+    updateContent()
 }
 
+//--------------------------------------------------------------------------------------------------//
+function filterProductsByPrice() {
+    const minPrice = document.getElementById('min-price').value;
+    const maxPrice = document.getElementById('max-price').value;
+    
+    state.minPrice = minPrice
+    state.maxPrice = maxPrice
+    updateContent()
+}
 //----------------------------------------------------------------------------------------------//
-
 //searach button click
 function filterProductBySearch() {
     let searchInput = document.getElementById("search-input").value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
 
-    cards.forEach(card => {
-        let productName = card.querySelector(".product-name").textContent.toLowerCase();
-        card.style.display = productName.includes(searchInput) ? '' : 'none';
-    });
+    state.searchTerm = searchInput
+    updateContent()
 }
 //----------------------------------------------------------------------------------------------//
 
-// //loop throug all element
-// elements.fCorEach((element, index) => {
-//     //check if text includes the search value
-//     if (element.innerText.includes(searachInput.toUpperCase())) {
-//         //display matching card
-//         card[index].classList.remove("hide");
-//     }
-//     else {
-//         //hide others
-//         cards[index].classList.add("hide");
-//     }
-// })
+async function loadData(searchTerm) {
+    const response = await fetch('/api/products/?search=' + encodeURIComponent(searchTerm));
+    const data = await response.json()
+    return data;
+}
 
-//product.productName.indexOf(searchtext) != -1
+async function addNewProduct() {
+    const response = await fetch('/api/products', {
+        method: "POST",
+        headers: {
+/*          'Accept': 'application/json', */
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
 
-
-//----------------------------------------------------------------------------------------------//
+            //*productName: "Irem's Jacket",
+            //*category:"Jacket",
+            //*price: "240",
+            //*image: "brown-jacket.jpg",    
+        })
+    })
+    console.log('response', response.status, response.statusText)
+    products = await loadData('');
+    filterProductByCategory("All");
+}
+/*------------------------------------------------------------------------------------------*/
 
 //initially display all products
 window.onload = async () => {
     products = await loadData('');
     filterProductByCategory("All");
+
+    //addNewProduct()
 };
