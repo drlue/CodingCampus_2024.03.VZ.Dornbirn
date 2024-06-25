@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/drawer";
 import { MenuIcon } from "lucide-react";
 import NavbarCenter from "./NavBarCenter";
-import NavbarLeft from "./NavbarLeft";
 
 export default function SandwichMenu() {
   return (
@@ -22,7 +21,6 @@ export default function SandwichMenu() {
           <MenuIcon />
         </DrawerTrigger>
         <DrawerContent className="sm:hidden">
-          <NavbarLeft />
           <NavbarCenter />
           <DrawerFooter>
             <DrawerClose>

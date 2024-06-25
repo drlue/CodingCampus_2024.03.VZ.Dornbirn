@@ -10,7 +10,6 @@ import MainContentBottom from "@/components/mainContentBottom/MainContentBottom"
 import SandwichMenu from "@/components/navBar/SandwichMenu";
 import { DatePickerDemo, MonthLinks } from "@/components/DatePickerdemo";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -31,13 +30,11 @@ export default function RootLayout({
             <SandwichMenu />
             <NavigationBar />
             <div className="flex-1 flex">
-              
               <CalenderElement />
               <div className="flex flex-col flex-1">
                 <MainContentTop />
                 <MainContentBottom />
               </div>
-               
             </div>
             {children}
           </ThemeProvider>

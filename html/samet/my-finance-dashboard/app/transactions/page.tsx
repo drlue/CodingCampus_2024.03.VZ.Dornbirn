@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
 function transactions() {
   return (
-    <main>
-        <h2>Transactions</h2>
+    <main className="flex align-middle">
+      <h2>Transactions</h2>
     </main>
-  )
+  );
 }
 
-export default transactions
+export default transactions;
