@@ -53,6 +53,7 @@ let products = {
 */
 
 let products = undefined
+let wishlist = []; 
 let state = {
     category: "All",
     minPrice: 0,
@@ -99,6 +100,14 @@ function createProduct(i) {
     };
     container.appendChild(deleteButton);
 
+    let addButton = document.createElement('button');
+    addButton.innerText = "Add to Wishlist";
+    addButton.className = "common-button"; 
+    addButton.onclick = function () {
+        addToWishlist(i);
+    };
+    container.appendChild(addButton);
+
     card.appendChild(container);
     return card;
 }
@@ -106,29 +115,68 @@ function createProduct(i) {
 //----------------------------------------------------------------------------------------------//
  function showDetails(product) {
     let modal = document.createElement("div");
-    modal.style.position = "fixed";
-    modal.style.left = "0";
-    modal.style.top = "0";
-    modal.style.width = "100%";
-    modal.style.height = "100%";
-    modal.style.backgroundColor = "rgba(0,0,0,0.5)";
-    modal.style.display = "flex";
-    modal.style.alignItems = "center";
-    modal.style.justifyContent = "center";
-    modal.style.flexDirection = "column";
-    modal.innerHTML = `<div style="background:white; padding:20px; border-radius:5px;">
-        <h1>${product.productName}</h1>
-        <p>Price: $${product.price}</p>
-        <img src="${product.image}" alt="${product.productName}" style="height:200px;">
-        <button onclick="this.parentNode.parentNode.removeChild(this.parentNode)">Close</button>
-    </div>`;
+    modal.classList.add('modalBackground')
+
+    let detailContainer = document.createElement('div')
+    detailContainer.classList.add('detailsContainer')
+
+    let h1Element = document.createElement('h1')
+    h1Element.innerText = product.productName
+    detailContainer.appendChild(h1Element)
+
+    let pElement = document.createElement('p')
+    h1Element.innerText = "Price: $" + product.price
+    detailContainer.appendChild(pElement)
+
+    let imgElement = document.createElement('img')
+    imgElement.classList.add('detailsImage')
+    imgElement.src = product.image
+    imgElement.alt = product.productName
+    detailContainer.appendChild(imgElement)
+
+    let closeButton = document.createElement('button')
+    closeButton.innerText = "Nicht schließen"
+    closeButton.addEventListener('click', () => {
+        document.body.removeChild(modal)
+    })
+    detailContainer.appendChild(closeButton)
+    modal.appendChild(detailContainer)
     document.body.appendChild(modal);
 }
 
 //----------------------------------------------------------------------------------------------//
 
+function addToWishlist(product) {
+    if (!wishlist.some(item => item.productName === product.productName)) {
+        wishlist.push(product);
+        displayWishlist();
+    }
+}
+
+function displayWishlist() {
+    const wishlistItems = document.getElementById('wishlist-items');
+    wishlistItems.innerHTML = ''; // Clear existing wishlist items
+    wishlist.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('card');
+        itemDiv.innerHTML = `
+            <h5>${item.productName}</h5>
+            <p>$${item.price}</p>
+            <button onclick="removeFromWishlist('${item.productName}')">Remove</button>
+        `;
+        wishlistItems.appendChild(itemDiv);
+    });
+}
+
+function removeFromWishlist(productName) {
+    wishlist = wishlist.filter(item => item.productName !== productName);
+    displayWishlist();
+}
+
+//------------------------------------------------------------------------------------------------------//
+
 function updateContent(){
-    console.log('udateContent: ', state)
+    //onsole.log('udateContent: ', state, products.data)
     const productList = document.getElementById("products")
     while (productList.firstChild) {
         productList.removeChild(productList.firstChild)
@@ -137,8 +185,8 @@ function updateContent(){
     const filteredProducts = products.data.filter(product => 
         ((state.category == 'All') || (product.category == state.category)) &&
         (state.searchTerm === '' || product.productName.toLocaleUpperCase().includes(state.searchTerm.toLocaleUpperCase())) &&
-        (state.minPrice === '' || product.price >= state.minPrice) &&
-        (state.maxPrice === '' || product.price <= state.maxPrice) 
+        (state.minPrice === '' || Number(product.price) >= Number(state.minPrice)) &&
+        (state.maxPrice === '' || Number(product.price) <= Number(state.maxPrice)) 
     );
     for (let i of filteredProducts) {
         let card = createProduct(i)
@@ -213,6 +261,8 @@ async function addNewProduct() {
     filterProductByCategory("All");
 }
 /*------------------------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------------------------------*/
 
 //initially display all products
 window.onload = async () => {
