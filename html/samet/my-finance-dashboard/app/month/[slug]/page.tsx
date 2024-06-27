@@ -1,3 +1,9 @@
-export default function Page({ params }: { params: { slug: string } }) {
+type PageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function Page({ params }: PageProps) {
   return <div>Month: {params.slug}</div>;
 }

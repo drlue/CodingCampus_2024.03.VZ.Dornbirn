@@ -1,4 +1,4 @@
-import { prisma } from "@/prisma/prisma";
+import prisma from "@/service/db";
 
 const getData = async () => {
   let d = await prisma.transaction.findMany({
@@ -10,13 +10,13 @@ const getData = async () => {
   return d;
 };
 
-export default async function DbConnection() {
+export default async function QueryTransaction() {
   const data = await getData();
   return (
     <ul className="py-10">
       {data.map((t) => (
-        <li key={t.id} style={{ color: t.type === "Income" ? "green" : "red" }}>
-          {t.type}: {t.category} / {t.amount}
+        <li key={t.id} style={{ color: t.amount < 0 ? "red" : "green" }}>
+          {t.category}: {t.description}/ {t.amount}€
         </li>
       ))}
     </ul>

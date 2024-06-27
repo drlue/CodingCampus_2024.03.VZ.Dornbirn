@@ -1,6 +1,6 @@
 "use server";
 
-import { prisma } from "@/prisma/prisma";
+import prisma from "@/service/db";
 import { Transaction } from "@prisma/client";
 
 export async function createTransaction(t: Transaction) {

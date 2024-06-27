@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogClose,
 } from "@/components/ui/dialog";
 import DemoPage from "@/app/payments/page";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,11 +25,13 @@ export default function Dialoge() {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle className="flex justify-center">
-            You can put your Transactions here!
+          <DialogTitle className="flex justify-center underline">
+            Transactions
           </DialogTitle>
           <DialogDescription>
+            <DialogClose asChild />
             <DemoPage />
+            <DialogClose />
           </DialogDescription>
         </DialogHeader>
       </DialogContent>
