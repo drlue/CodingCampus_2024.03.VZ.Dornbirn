@@ -63,7 +63,7 @@ export default function DemoPage() {
             className={`mt-1 block w-full ${
               errors.type ? "border-red-500" : "border-gray-300"
             }`}
-            placeholder="income or expense"
+            placeholder="income, expense or savings"
           />
           {errors.type && (
             <p className="mt-2 text-sm text-red-600">{errors.type.message}</p>

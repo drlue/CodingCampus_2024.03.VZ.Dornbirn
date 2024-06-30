@@ -4,9 +4,7 @@ import React from "react";
 export default function categories() {
   return (
     <div>
-      <div>
-        <QueryCategories />
-      </div>
+      <div></div>
     </div>
   );
 }

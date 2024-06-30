@@ -15,5 +15,5 @@ export default function Overview() {
       />
     );
   }
-  return <div>{monthList}</div>;
+  return <div className="grid md:grid-cols-3 md:gap-y-6">{monthList}</div>;
 }

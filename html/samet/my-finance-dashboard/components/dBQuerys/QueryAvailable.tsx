@@ -21,10 +21,11 @@ export default async function QueryAviable() {
     .reduce((acc, curr) => acc - curr.amount, 0);
 
   const availableBalance = totalIncome - totalExpense;
+  const formattedBalance = availableBalance.toFixed(2);
 
   return (
     <div className="text-xs font-bold py-1">
-      <div className="">{availableBalance}€</div>
+      <div className="">{formattedBalance}€</div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import QueryAviable from "../dBQuerys/QueryAvailable";
 
 export default function Aviable() {
   return (
-    <div className="bg-blue-500 rounded-lg shadow-xl text-center p-1">
+    <div className="border border-gray-100 rounded-lg shadow-xl text-center p-1">
       <div className="underline"> AVAILABLE BALANCE</div>
       <div>
         <QueryAviable />
