@@ -16,7 +16,7 @@ export default async function QueryExpense() {
   const totalExpense = data.reduce((acc, curr) => acc + curr.amount, 0);
 
   return (
-    <div className="text-xs font-bold py-1">
+    <div className="text-lg font-bold py-1">
       <div>{totalExpense}€</div>
     </div>
   );

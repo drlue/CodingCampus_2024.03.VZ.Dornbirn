@@ -3,22 +3,14 @@
 import { Transaction } from "@prisma/client";
 import React from "react";
 import useSWR from "swr";
-import {
-  Chart as Chartjs,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-  Tooltip,
-  Legend,
-  BarOptions,
-} from "chart.js";
+import { Chart as Chartjs, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 
-import { Bar } from "react-chartjs-2";
-Chartjs.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+Chartjs.register(ArcElement, Tooltip, Legend);
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-function BarChart() {
+function PieChart() {
   const { data, error, isLoading } = useSWR<Transaction[]>(
     "/api/transaction",
     fetcher
@@ -28,38 +20,39 @@ function BarChart() {
   if (isLoading) return <div>loading...</div>;
 
   const chartData = {
-    labels: data?.map((tr) => tr.category),
+    labels: data?.map((tr) => `${tr.category}: ${tr.amount}`),
     datasets: [
       {
-        label: "Amount",
         data: data?.map((tr) => tr.amount),
-        backgroundColor: "#B22222",
-        borderColor: "Black",
-        boderWidth: 1,
+        backgroundColor: [
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+          "#FF6384",
+          "#36A2EB",
+          "#FFCE56",
+        ],
       },
     ],
   };
 
   const options = {
-    indexAxis: "y" as const,
-    elements: {
-      bar: {
-        borderWidth: 2,
-      },
-    },
-    responsive: true,
     plugins: {
+      datalabels: {
+        display: false,
+      },
       legend: {
         display: false,
       },
     },
+    cutout: "30%",
   };
 
   return (
     <div>
-      <Bar data={chartData} options={options} />
+      <Pie data={chartData} options={options} />
     </div>
   );
 }
 
-export default BarChart;
+export default PieChart;

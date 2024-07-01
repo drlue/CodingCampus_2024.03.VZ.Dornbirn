@@ -1,5 +1,5 @@
 import React from "react";
-import BarChart from "../chartElement/BarChart";
+import BarChart from "../chartElementMainContent/BarChart";
 
 export default function MonthlyTracking() {
   return (

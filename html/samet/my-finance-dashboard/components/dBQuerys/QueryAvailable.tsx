@@ -24,8 +24,8 @@ export default async function QueryAviable() {
   const formattedBalance = availableBalance.toFixed(2);
 
   return (
-    <div className="text-xs font-bold py-1">
-      <div className="">{formattedBalance}€</div>
+    <div className="text-lg font-bold py-1">
+      <div>{formattedBalance}€</div>
     </div>
   );
 }

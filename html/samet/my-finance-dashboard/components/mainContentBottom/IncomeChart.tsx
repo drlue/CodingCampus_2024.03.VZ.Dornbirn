@@ -1,5 +1,5 @@
 import React from "react";
-import PieChart from "../chartElement/PieChart";
+import PieChart from "../chartElementMainContent/PieChart";
 
 export default function ExpensesDiagram() {
   return (
