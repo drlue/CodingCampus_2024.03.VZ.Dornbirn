@@ -1,7 +1,6 @@
 import {
   faBuildingColumns,
   faChartPie,
-  faPiggyBank,
   faMoneyBillTransfer,
 } from "@fortawesome/free-solid-svg-icons";
 import NavMenuItem from "./NavMenuItem";
@@ -25,9 +24,6 @@ export default function NavbarCenter() {
           href="/transactions"
           icon={faMoneyBillTransfer}
         />
-      </div>
-      <div className="hover:scale-110">
-        <NavMenuItem title="Savings" href="/savings" icon={faPiggyBank} />
       </div>
     </div>
   );

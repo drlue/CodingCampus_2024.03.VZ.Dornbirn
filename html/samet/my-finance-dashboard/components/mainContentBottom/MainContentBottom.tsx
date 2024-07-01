@@ -1,12 +1,10 @@
 import React from "react";
-import Assets from "./Assets";
-import MonthlyTracking from "./MonthlyTracking";
-import ExpensesDiagram from "./ExpensesDiagram";
+import MonthlyTracking from "./ExpenseChart";
+import ExpensesDiagram from "./IncomeChart";
 
 export default function MainContentBottom() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 p-4 flex-grow">
-      <Assets />
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 flex-grow">
       <MonthlyTracking />
       <ExpensesDiagram />
     </div>

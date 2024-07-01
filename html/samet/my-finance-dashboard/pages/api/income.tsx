@@ -6,10 +6,10 @@ export default async function handle(
   res: NextApiResponse
 ) {
   const posts = await prisma.transaction.groupBy({
-    by: ["category"],
+    by: ["type", "category"],
     where: {
       amount: {
-        lt: 0, // Filtert nur Transaktionen mit negativen Beträgen
+        gt: 0,
       },
     },
     _sum: {
@@ -23,6 +23,7 @@ export default async function handle(
   });
 
   const results = posts.map((transaction) => ({
+    type: transaction.type,
     category: transaction.category,
     amount: transaction._sum.amount,
   }));

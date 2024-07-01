@@ -33,7 +33,7 @@ function BarChart() {
       {
         label: "Amount",
         data: data?.map((tr) => tr.amount),
-        backgroundColor: "red",
+        backgroundColor: "#B22222",
         borderColor: "Black",
         boderWidth: 1,
       },
