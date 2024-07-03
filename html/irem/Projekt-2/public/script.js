@@ -1,57 +1,3 @@
-/*
-let products = {
-    data: [{
-        productName: "Regualar White T-shirt",
-        category: "Topwear",
-        price: "30",
-        image: "white-shirt.jpg",
-    },
-    {
-        productName: "Pink Short Skirt",
-        category: "Bottomwear",
-        price: "49",
-        image: "short-skirt.jpg",
-    },
-    {
-        productName: "Sporty Watch",
-        category: "Watch",
-        price: "99",
-        image: "sporty-watch.jpg",
-    },
-    {
-        productName: "Basic Knitten Top",
-        category: "Topware",
-        price: "29",
-        image: "knitted-top.jpg",
-    },
-    {
-        productName: "Black Leather Jacket",
-        category: "Jacket",
-        price: "150",
-        image: "black-leather-jacket.avif",
-    },
-    {
-        productName: "Stylish Denim Pants",
-        category: "Bottomwear",
-        price: "100",
-        image: "blue-jeans.jpg",
-    },
-    {
-        productName: "Brown Jacket",
-        category: "Jacket",
-        price: "140",
-        image: "brown-jacket.jpg",
-    },
-    {
-        productName: "Confy Gray Pants",
-        category: "Bottomwear",
-        price: "50",
-        image: "comfy-gray-pants.webp",
-    },
-  ],
-};
-*/
-
 let products = undefined
 let wishlist = []; 
 let state = {
@@ -83,7 +29,14 @@ function createProduct(i) {
     container.appendChild(name);
 
     let price = document.createElement("h6");
-    price.innerText = "$" + i.price;
+    if (i.isOnSale) {
+        const salePrice = i.price - (i.price * i.discountPercentage / 100);
+        price.innerText = "$" + salePrice.toFixed(2) + " (Sale)";
+        price.style.color = "red";
+        //price.innerText = "$" + i.price;
+    } else {
+        price.innerText = "$" + i.price;
+    }
     container.appendChild(price);
 
     let detailButton = document.createElement("button");
@@ -111,9 +64,8 @@ function createProduct(i) {
     card.appendChild(container);
     return card;
 }
-
 //----------------------------------------------------------------------------------------------//
- function showDetails(product) {
+function showDetails(product) {
     let modal = document.createElement("div");
     modal.classList.add('modalBackground')
 
@@ -125,7 +77,22 @@ function createProduct(i) {
     detailContainer.appendChild(h1Element)
 
     let pElement = document.createElement('p')
-    h1Element.innerText = "Price: $" + product.price
+    if (product.isOnSale) {
+        let originalPrice = document.createElement('span'); // span-> hat keinen bedeutung kann es anweden ohne etwas zu beeinflussen.
+        originalPrice.style.textDecoration = 'line-through';
+        originalPrice.innerText = "$" + product.price;
+        
+        let salePrice = document.createElement('span');
+        salePrice.style.color = 'red';
+        let discountedPrice = product.price - (product.price * product.discountPercentage / 100);
+        salePrice.innerText = " $" + discountedPrice.toFixed(2);
+        
+        pElement.appendChild(originalPrice);
+        pElement.appendChild(document.createTextNode(' Now:'));
+        pElement.appendChild(salePrice);
+    } else {
+        pElement.innerText = "Price: $" + product.price;
+    }
     detailContainer.appendChild(pElement)
 
     let imgElement = document.createElement('img')
@@ -135,7 +102,7 @@ function createProduct(i) {
     detailContainer.appendChild(imgElement)
 
     let closeButton = document.createElement('button')
-    closeButton.innerText = "Nicht schließen"
+    closeButton.innerText = "Schließen"
     closeButton.addEventListener('click', () => {
         document.body.removeChild(modal)
     })
@@ -143,7 +110,6 @@ function createProduct(i) {
     modal.appendChild(detailContainer)
     document.body.appendChild(modal);
 }
-
 //----------------------------------------------------------------------------------------------//
 
 function addToWishlist(product) {
@@ -210,12 +176,9 @@ function filterProductByCategory(category) {
             button.classList.remove("active");
         }
     });
-
-
     state.category = category
     updateContent()
 }
-
 //--------------------------------------------------------------------------------------------------//
 function filterProductsByPrice() {
     const minPrice = document.getElementById('min-price').value;
@@ -261,6 +224,15 @@ async function addNewProduct() {
     filterProductByCategory("All");
 }
 /*------------------------------------------------------------------------------------------*/
+//Sale 
+function toggleSale(productName, isOnSale, discount) {
+    const product = products.data.find(p => p.productName === productName);
+    if (product) {
+        product.isOnSale = isOnSale;
+        product.discountPercentage = discount;
+        updateContent(); // Aktualisiere die Anzeige
+    }
+}
 
 /*---------------------------------------------------------------------------------------------------*/
 
@@ -268,6 +240,8 @@ async function addNewProduct() {
 window.onload = async () => {
     products = await loadData('');
     filterProductByCategory("All");
+     // Setzt bestimmte Produkte in den Sale-Modus
+     toggleSale("Produktname", true, 20);
 
     //addNewProduct()
 };
