@@ -1,5 +1,5 @@
 import React from "react";
-import QueryExpense from "../dBQuerys/QueryExpenses";
+import QueryExpense from "../expense/QueryExpenses";
 
 export default function Expense() {
   return (

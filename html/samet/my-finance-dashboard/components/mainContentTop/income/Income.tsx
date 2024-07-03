@@ -1,5 +1,5 @@
 import React from "react";
-import QueryIncome from "../dBQuerys/QueryIncome";
+import QueryIncome from "@/components/mainContentTop/income/QueryIncome";
 
 export default function Income() {
   return (

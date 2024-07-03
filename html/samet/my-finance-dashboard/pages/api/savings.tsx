@@ -6,25 +6,19 @@ export default async function handle(
   res: NextApiResponse
 ) {
   const posts = await prisma.transaction.groupBy({
-    by: ["category"],
+    by: ["date"],
     where: {
-      amount: {
-        lt: 0,
+      type: {
+        equals: "Savings",
       },
     },
     _sum: {
       amount: true,
     },
-    orderBy: {
-      _sum: {
-        amount: "asc",
-      },
-    },
   });
-
-  const results = posts.map((transaction) => ({
-    category: transaction.category,
+  const result = posts.map((transaction) => ({
+    type: transaction.date,
     amount: transaction._sum.amount,
   }));
-  res.json(results);
+  res.json(result);
 }

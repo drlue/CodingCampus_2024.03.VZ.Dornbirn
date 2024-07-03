@@ -1,19 +1,20 @@
-import OverViewMenuItem from "@/components/overViewMenu/overViewMenuItem";
-import React from "react";
-import QueryExpense from "@/components/dBQuerys/QueryExpenses";
+import { redirect } from "next/navigation";
 
-export default function Overview() {
-  let monthList = [];
-  for (let i = 0; i < 12; ++i) {
-    monthList.push(
-      <OverViewMenuItem
-        key={i}
-        link="/month/"
-        month={new Date(new Date().getFullYear(), i)}
-        income={0}
-        expense={0}
-      />
-    );
-  }
-  return <div className="grid md:grid-cols-3 md:gap-y-6">{monthList}</div>;
-}
+type MonthlyData = {
+  income: number;
+  expense: number;
+};
+
+const fetchIncomeExpenseDataForYear = async (
+  year: number
+): Promise<{ [key: number]: MonthlyData }> => {
+  const response = await fetch(`/api/income-expense?year=${year}`);
+  const data = await response.json();
+  return data;
+};
+
+const Overview = () => {
+  redirect("overview/" + new Date().getFullYear());
+};
+
+export default Overview;

@@ -1,0 +1,61 @@
+import prisma from "@/service/db";
+
+const getTransactionData = async () => {
+  let d = await prisma.transaction.findMany({
+    orderBy: {
+      amount: "desc",
+    },
+    take: 10,
+  });
+  return d;
+};
+
+const getIncomeData = async () => {
+  let d = await prisma.transaction.findMany({
+    where: {
+      type: {
+        equals: "Income",
+      },
+    },
+  });
+  return d;
+};
+
+const getExpenseData = async () => {
+  let d = await prisma.transaction.findMany({
+    where: {
+      type: {
+        in: ["Expense", "Savings"],
+      },
+    },
+  });
+  return d;
+};
+
+const getAviableData = async () => {
+  let d = await prisma.transaction.findMany({
+    orderBy: {
+      amount: "desc",
+    },
+  });
+  return d;
+};
+
+const getSavingsData = async () => {
+  let d = await prisma.transaction.findMany({
+    where: {
+      type: {
+        equals: "Savings",
+      },
+    },
+  });
+  return d;
+};
+
+export {
+  getTransactionData,
+  getIncomeData,
+  getExpenseData,
+  getAviableData,
+  getSavingsData,
+};

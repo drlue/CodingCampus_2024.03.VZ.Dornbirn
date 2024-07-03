@@ -1,4 +1,4 @@
-import QueryTransaction from "@/components/dBQuerys/QueryTransaction";
+import QueryTransaction from "@/components/mainContentTop/transactions/QueryTransaction";
 import React from "react";
 
 export default function Transactions() {

@@ -20,6 +20,12 @@ function PieChart() {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
+  const calculateTotal = (data: Transaction[]) => {
+    return data.reduce((sum, tr) => sum + tr.amount, 0);
+  };
+
+  const totalAmount = data ? calculateTotal(data) : 0;
+
   const chartData = {
     labels: data?.map((tr) => `${tr.category}: ${tr.amount}`),
     datasets: [
@@ -47,12 +53,15 @@ function PieChart() {
         display: false,
       },
     },
-    cutout: "30%",
+    cutout: "55%",
   };
 
   return (
-    <div>
+    <div className="relative">
       <Pie data={chartData} options={options} />
+      <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-green-500">
+        {totalAmount} €
+      </div>
     </div>
   );
 }

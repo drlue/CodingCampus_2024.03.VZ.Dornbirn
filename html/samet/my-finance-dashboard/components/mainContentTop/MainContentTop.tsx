@@ -1,10 +1,10 @@
 import React from "react";
 import TotalNetWorth from "./TotalNetWorth";
-import Transactions from "./Transactions";
-import Income from "./Income";
-import Savings from "./Savings";
-import Aviable from "./Aviable";
-import Expense from "./Expense";
+import Transactions from "./transactions/Transactions";
+import Income from "./income/Income";
+import Savings from "./savings/Savings";
+import Aviable from "./aviable/Aviable";
+import Expense from "./expense/Expense";
 
 export default function MainContentTop() {
   return (

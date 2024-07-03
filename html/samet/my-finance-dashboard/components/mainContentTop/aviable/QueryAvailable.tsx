@@ -1,16 +1,7 @@
-import prisma from "@/service/db";
-
-const getData = async () => {
-  let d = await prisma.transaction.findMany({
-    orderBy: {
-      amount: "desc",
-    },
-  });
-  return d;
-};
+import { getAviableData } from "@/service/transactionQuerry";
 
 export default async function QueryAviable() {
-  const data = await getData();
+  const data = await getAviableData();
 
   const totalIncome = data
     .filter((t) => t.type === "Income")
@@ -20,7 +11,11 @@ export default async function QueryAviable() {
     .filter((t) => t.type === "Expense")
     .reduce((acc, curr) => acc - curr.amount, 0);
 
-  const availableBalance = totalIncome - totalExpense;
+  const totalSavings = data
+    .filter((t) => t.type === "Savings")
+    .reduce((acc, curr) => acc - curr.amount, 0);
+
+  const availableBalance = totalIncome - totalExpense - totalSavings;
   const formattedBalance = availableBalance.toFixed(2);
 
   return (

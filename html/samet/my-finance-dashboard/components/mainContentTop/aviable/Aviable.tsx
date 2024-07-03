@@ -1,5 +1,5 @@
 import React from "react";
-import QueryAviable from "../dBQuerys/QueryAvailable";
+import QueryAviable from "../aviable/QueryAvailable";
 
 export default function Aviable() {
   return (
