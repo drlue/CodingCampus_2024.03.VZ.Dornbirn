@@ -1,4 +1,4 @@
-import { ModeToggle } from "../themeToggle";
+import { ModeToggle } from "../darkLightTheme/themeToggle";
 
 export default function NavbarRight() {
   return (

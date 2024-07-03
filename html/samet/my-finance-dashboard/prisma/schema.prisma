@@ -13,26 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// model User {
-//  id           Int           @id @default(autoincrement())
-//  email        String        @unique
-//  name         String
-//  password     String
-//  accounts     Account[]
-//  transactions Transaction[]
-//  assets       Asset[]
-//  goals        Goal[]
-//}
-
-// model Account {
-//   id           Int           @id @default(autoincrement())
-//   userId       Int
-//   name         String
-//   balance      Float
-//   user         User          @relation(fields: [userId], references: [id])
-//   transactions Transaction[]
-// }
-
 model Transaction {
   id          Int      @id @default(autoincrement())
   type        String
@@ -40,23 +20,17 @@ model Transaction {
   amount      Float
   description String?
   date        DateTime
-  //  user        User     @relation(fields: [userId], references: [id])
-  //  account     Account  @relation(fields: [accountId], references: [id])
 }
 
 //model Asset {
 //  id     Int    @id @default(autoincrement())
-//  userId Int
 //  type   String
 //  value  Float
-//  user   User   @relation(fields: [userId], references: [id])
 //}
 
 //model Goal {
 //  id          Int    @id @default(autoincrement())
-//  userId      Int
 //  description String
 //  target      Float
 //  progress    Float
-//  user        User   @relation(fields: [userId], references: [id])
 //}
