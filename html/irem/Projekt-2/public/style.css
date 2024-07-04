@@ -1,20 +1,17 @@
-*{
-    padding: 0%; /* Innenabstand zwischen inhalt eines Elements und seinem Rand kien Abstand besteht */
-    margin: 0%; /* Ausenabstand*/
-    box-sizing: border-box; /*Gesamtbreite und -höhe eines Elements */
-    border: none; /*Entfernt alle Rahmenlinien von Elementen*/
-    outline: none; /*ntfernt die Umrisse von Elementen*/
-    font-family: "Poppins", sans-serif; /*Schriftart der Textinhalte auf der Webseite*/
+* {
+    padding: 0; /* Setzt den Innenabstand aller Elemente auf 0 */
+    margin: 0; /* Setzt den Außenabstand aller Elemente auf 0 */
+    box-sizing: border-box; /* Die Breite und Höhe von Elementen schließt Padding und Border mit ein */
+    font-family: "Poppins", sans-serif; /* Setzt die Schriftart global auf Poppins */
 }
 body{
     background-color: #f5f8ff; /*Hintergrundfarbe des gesamten Dokuments*/
-
 }
-.wrapper{ /*Definiert eine umgebende Box*/
-    width: 95%;
-    margin: 0 auto;
+.wrapper {
+    width: 95%; /* Setzt die Breite des Containers auf 95% des verfügbaren Platzes */
+    margin: 0 auto; /* Zentriert den Container horizontal */
+    padding: 20px 50px; /* Setzt das Padding innerhalb des Containers */
 }
-
 /* Search,..... */
 /*Gestaltet ein Suchfeld, Hintergrund,Unterstrichlinie,Fokussieren des Eingabefeldes ändert sich die Farbe der Unterstrichlinie,*/                      
 /*Button wird rechts vom Eingabefeld positioniert,abgerundete Ecken, und seine Textfarbe*/
@@ -26,7 +23,7 @@ body{
 #search-container input{
     background-color: transparent;
     width: 40%;
-    border-bottom: 2px solid #110f29;
+    border-bottom: 2px solid #440087;
     padding: 1em 0.3em;
 }
 #search-container input:focus{
@@ -46,7 +43,7 @@ body{
 
 button {          
     background-color: #6759ff; 
-    color: #110f29; 
+    color: #ffffff; 
     padding: 10px 20px; 
     border: none; 
     border-radius: 5px; 
@@ -85,7 +82,7 @@ button:hover {
     margin-top: 1em;
     padding: 1em;
     border-radius: 5px;
-    box-shadow: 1em 2em 2.5em rgba(1,2,68,0.08);
+    box-shadow: 1em 2em 2.5em rgba(146, 85, 23, 0.08);
     border-radius: 20px;
 }
 /*Image,..*/
@@ -198,19 +195,56 @@ input[type="number"], button {
 /*--------------------------------------------------------------------------------*/
 /* Wishlist Container Styling */
 #wishlist-container {
-    padding: 5px;
-    margin-top: 5px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(255, 255, 255);
+    background-color: #6759ff; /* Hintergrundfarbe wie Such-Button */
+    color: #ffffff; /* Textfarbe wie Such-Button */
+    border-radius: 5px; /* Abgerundete Ecken */
+    padding: 10px; /* Innerer Abstand */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Schatten für bessere Sichtbarkeit */
+    position: absolute;
+    top: 20px; /* Abstand von oben */
+    right: 20px; /* Abstand von rechts */
+    margin-top: 20px; /* Fügt oben einen Abstand hinzu */
+    margin-left: 50px; /* Verschiebt die Wishlist nach rechts */
+
 }
 
-#wishlist-items {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    margin-top: 7px;
+#wishlist-container h4 {
+    font-family: "Poppins", sans-serif; /* Gleiche Schriftart wie der Rest der Webseite */
+    font-weight: 300; /* Leichtere Schriftstärke für die Überschrift */
 }
+
+#wishlist-container button {
+    background-color: #bcb8eb; /* Abweichende Hintergrundfarbe für Buttons innerhalb der Wishlist */
+    color: #110f29; /* Dunklere Textfarbe für besseren Kontrast */
+    border-radius: 5px;
+    padding: 1em 2em;
+    border: none;
+    cursor: pointer;
+    margin-top: 0.5em;
+    font-weight: 300; /* Leichtere Schriftstärke für die Buttons */
+}
+
+#wishlist-container button:hover {
+    background-color: #6759ff; /* Farbe beim Hover wie Such-Button */
+    color: #ffffff;
+}
+#wishlist-items h5 {
+    font-family: Arial, sans-serif; /* Ändert die Schriftart */
+    font-size: 16px; /* Setzt eine spezifische Schriftgröße */
+    font-weight: bold; /* Macht den Text fett */
+    color: #333; /* Dunkelgraue Textfarbe */
+}
+
+#wishlist-items p {
+    font-family: 'Times New Roman', serif; /* Ändert die Schriftart zu einer Serifenschrift */
+    font-size: 14px; /* Kleinere Schriftgröße für Preise */
+    color: #666; /* Mittelgraue Textfarbe */
+}
+#wishlist-items {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
 /* Common button styling */
 .common-button {
     padding: 1em 2em; 
@@ -232,7 +266,7 @@ input[type="number"], button {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(182, 122, 205, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -246,5 +280,5 @@ input[type="number"], button {
 }
 
 .detailsImage{
-    height:200px;
+    height:500px;
 }
