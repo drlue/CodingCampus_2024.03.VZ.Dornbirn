@@ -1,8 +1,9 @@
 import Link from "next/link";
+import BarChart from "./BarChart";
 
 interface CategoryMenuItemProps {
   month: Date;
-  BarChartComponent: JSX.Element;
+  data: { category: string; amount: number }[];
   link: string;
 }
 
@@ -25,7 +26,9 @@ export default function CategoryMenuItem(props: CategoryMenuItemProps) {
       <Link href={getMonthDetailURL(props.link, props.month)}>
         <div className="hover:underline">{getMonthName(props.month)}</div>
       </Link>
-      <div>{props.BarChartComponent}</div>
+      <div>
+        <BarChart data={props.data} />
+      </div>
     </div>
   );
 }

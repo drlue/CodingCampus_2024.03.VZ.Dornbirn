@@ -13,7 +13,7 @@ const fetchCategoryData = async (
 };
 
 const Category = () => {
-  redirect("category/" + new Date().getFullYear());
+  redirect("categories/" + new Date().getFullYear());
 };
 
 export default Category;

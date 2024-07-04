@@ -27,11 +27,13 @@ const getCategoryDataByMonth = async (
   });
 
   const categoryData = transactions.reduce((acc, transaction) => {
-    const category = transaction.category;
-    if (!acc[category]) {
-      acc[category] = 0;
+    if (transaction.amount < 0) {
+      const category = transaction.category;
+      if (!acc[category]) {
+        acc[category] = 0;
+      }
+      acc[category] += transaction.amount;
     }
-    acc[category] += transaction.amount;
     return acc;
   }, {} as CategoryData);
 
@@ -41,10 +43,10 @@ const getCategoryDataByMonth = async (
 const getCategoryDataForYear = async (
   year: number
 ): Promise<{ [key: number]: CategoryData }> => {
-  let dataByMonth: { [key: number]: CategoryData } = {};
+  const dataByMonth: { [key: number]: CategoryData } = {};
 
   for (let month = 1; month <= 12; month++) {
-    let data = await getCategoryDataByMonth(year, month);
+    const data = await getCategoryDataByMonth(year, month);
     dataByMonth[month] = data;
   }
 

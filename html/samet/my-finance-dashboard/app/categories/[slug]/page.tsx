@@ -1,7 +1,6 @@
 "use client";
 
 import CategoryMenuItem from "@/components/categoriesMenu/CategoryMenuItem";
-import BarChart from "@/components/categoriesMenu/BarChart";
 import { useState, useEffect } from "react";
 
 type CategoryDataProps = {
@@ -57,12 +56,17 @@ const Category = ({ params }: PageProps) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-y-6">
       {Object.keys(dataByMonth).map((month) => {
-        const monthData = dataByMonth[Number(month)];
+        const monthData = Object.keys(dataByMonth[Number(month)]).map(
+          (category) => ({
+            category,
+            amount: dataByMonth[Number(month)][category],
+          })
+        );
         return (
           <CategoryMenuItem
             key={month}
             month={new Date(year, Number(month) - 1)}
-            BarChartComponent={<BarChart />}
+            data={monthData}
             link="/month-details"
           />
         );

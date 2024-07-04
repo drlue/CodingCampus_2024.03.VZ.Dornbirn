@@ -1,8 +1,6 @@
 "use client";
 
-import { Transaction } from "@prisma/client";
 import React from "react";
-import useSWR from "swr";
 import {
   Chart as Chartjs,
   BarElement,
@@ -10,32 +8,27 @@ import {
   LinearScale,
   Tooltip,
   Legend,
-  BarOptions,
 } from "chart.js";
-
 import { Bar } from "react-chartjs-2";
+
 Chartjs.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+interface BarChartProps {
+  data: { category: string; amount: number }[];
+}
 
-function BarChart() {
-  const { data, error, isLoading } = useSWR<Transaction[]>(
-    "/api/transaction",
-    fetcher
-  );
-
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+function BarChart({ data }: BarChartProps) {
+  const sortedData = [...data].sort((a, b) => b.amount - a.amount);
 
   const chartData = {
-    labels: data?.map((tr) => tr.category),
+    labels: sortedData.map((tr) => tr.category),
     datasets: [
       {
         label: "Amount",
-        data: data?.map((tr) => tr.amount),
+        data: sortedData.map((tr) => tr.amount),
         backgroundColor: "#B22222",
         borderColor: "Black",
-        boderWidth: 1,
+        borderWidth: 1,
       },
     ],
   };
