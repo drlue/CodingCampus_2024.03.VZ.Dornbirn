@@ -11,6 +11,8 @@ let products = {
         category: "Bottomwear",
         price: "49",
         image: "short-skirt.jpg",
+        isOnSale: true,
+        discountPercentage: 30
     },
     {
         productName: "Sporty Watch",
@@ -29,6 +31,8 @@ let products = {
         category: "Jacket",
         price: "150",
         image: "black-leather-jacket.avif",
+        isOnSale: true,
+        discountPercentage: 10
     },
     {
         productName: "Stylish Denim Pants",
@@ -47,11 +51,12 @@ let products = {
         category: "Bottomwear",
         price: "50",
         image: "comfy-gray-pants.webp",
+        isOnSale: true,
+        discountPercentage: 20
+
     },
   ],
 };
-
-
 
 export default function initProducts(app){
     app.get('/api/products', (req, res) => {
