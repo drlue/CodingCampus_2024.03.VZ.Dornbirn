@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface CategoryMenuItemProps {
   month: Date;
-  PieChartComponent: JSX.Element;
+  BarChartComponent: JSX.Element;
   link: string;
 }
 
@@ -25,7 +25,7 @@ export default function CategoryMenuItem(props: CategoryMenuItemProps) {
       <Link href={getMonthDetailURL(props.link, props.month)}>
         <div className="hover:underline">{getMonthName(props.month)}</div>
       </Link>
-      <div>{props.PieChartComponent}</div>
+      <div>{props.BarChartComponent}</div>
     </div>
   );
 }

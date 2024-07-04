@@ -1,22 +1,19 @@
-import CategoryMenuItem from "@/components/categoriesMenu/CategoryMenuItem";
-import PieChart from "@/components/categoriesMenu/PieChart";
-import React from "react";
+import { redirect } from "next/navigation";
 
-export default function Categories() {
-  let monthList = [];
-  for (let i = 0; i < 12; ++i) {
-    monthList.push(
-      <CategoryMenuItem
-        key={i}
-        link="/month/"
-        month={new Date(new Date().getFullYear(), i)}
-        PieChartComponent={<PieChart />}
-      />
-    );
-  }
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-6 md:gap-y-6">
-      {monthList}
-    </div>
-  );
-}
+type CategoryData = {
+  [category: string]: number;
+};
+
+const fetchCategoryData = async (
+  year: number
+): Promise<{ [key: number]: CategoryData }> => {
+  const response = await fetch(`/api/category-year?year=${year}`);
+  const data = await response.json();
+  return data;
+};
+
+const Category = () => {
+  redirect("category/" + new Date().getFullYear());
+};
+
+export default Category;
