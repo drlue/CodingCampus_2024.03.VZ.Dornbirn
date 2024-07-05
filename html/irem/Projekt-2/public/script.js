@@ -11,7 +11,7 @@ let state = { // Definiert ein Objekt `state`, das die Zustände verschiedener F
     searchTerm: "",// Der Suchbegriff ist initial leer, es wird also ohne Einschränkung nach Namen gefiltert.
 }
 
-//----------------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 function createProduct(i) { //Parameter i eigenschaften -> category, image, productName, isOnSale, price, und discountPercentage
     let card = document.createElement("div");//div element als Container für gesamte Produktkarte
@@ -19,20 +19,19 @@ function createProduct(i) { //Parameter i eigenschaften -> category, image, prod
 
     let imgContainer = document.createElement("div");
     imgContainer.classList.add("image-container");//ist für das Bild Produkt vorgesehen
-    let image = document.createElement("img");//Setzt Attribute auf die Bild Url die im Produktobjekt gespeichert ist--------
-    image.src = i.image;//----------------------
+    let image = document.createElement("img");//Setzt Attribute auf die Bild Url die im Produktobjekt gespeichert ist----
+    image.src = i.image;//-----------------------------------------------------------------------------------------------
     imgContainer.appendChild(image);
     card.appendChild(imgContainer);
 
-    let container = document.createElement("div");// erneutes div für die Aufnahme weiterer Produktdetails-----
-    container.classList.add("container");//-----------------
+    let container = document.createElement("div");// erneutes div für die Aufnahme weiterer Produktdetails---
+    container.classList.add("container");//------------------------------------------------------------------
 
-    let name = document.createElement("h5");// h5 element für produktnamen in gross buchstaben------
-    name.classList.add("product-name");
-    name.innerText = i.productName.toUpperCase();//------------
+    let name = document.createElement("h5");// h5 element für produktnamen in gross buchstaben----
+    name.innerText = i.productName.toUpperCase();//----------------------------------------------
     container.appendChild(name);
 
-    let price = document.createElement("h6");//h6 element für Preis 
+    let price = document.createElement("h6");//h6 element für Preis-----------
     if (i.isOnSale) {
         const salePrice = i.price - (i.price * i.discountPercentage / 100);
         price.innerText = "$" + salePrice.toFixed(2) + " (Sale)";
@@ -42,15 +41,15 @@ function createProduct(i) { //Parameter i eigenschaften -> category, image, prod
     }
     container.appendChild(price);
 
-    let detailButton = document.createElement("button"); // beim klicken wird die showDetail aufgerufen
+    let detailButton = document.createElement("button"); // beim klicken wird die showDetail aufgerufen-----
     detailButton.innerText = "Details";
-    detailButton.className = "common-button"; // Stellt sicher, dass dieser Button die gleiche Klasse hat
+    detailButton.className = "common-button"; // Stellt sicher, dass dieser Button die gleiche Klasse hat----
     detailButton.onclick = function () {
         showDetails(i);
     };
     container.appendChild(detailButton);
 
-    let addButton = document.createElement('button'); //Beim Klick wird addToWishlist(i) aufgerufen
+    let addButton = document.createElement('button'); //Beim Klick wird addToWishlist(i) aufgerufen----
     addButton.innerText = "Add to Wishlist";
     addButton.className = "common-button"; 
     addButton.onclick = function () {
@@ -58,10 +57,10 @@ function createProduct(i) { //Parameter i eigenschaften -> category, image, prod
     };
     container.appendChild(addButton);
 
-    card.appendChild(container); // Alle erstellten Elemente (Name, Preis, Buttons) werden zum container hinzugefügt
-    return card;                //und der container wird wiederum zum card hinzugefügt
+    card.appendChild(container); // Alle erstellten Elemente (Name, Preis, Buttons) werden zum container hinzugefügt----
+    return card;                //und der container wird wiederum zum card hinzugefügt----------------------------------
 }
-//----------------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 function showDetails(product) {
     // Erstellt ein div-Element für den Hintergrund des Modals
     let modal = document.createElement("div");
@@ -152,7 +151,15 @@ function removeFromWishlist(productName) {
     wishlist = wishlist.filter(item => item.productName !== productName);
     displayWishlist(); // Aktualisiert die Anzeige der Wunschliste nach der Entfernung
 }
-
+//Funktionalität des Auf- und Zuklappens zu ermöglichen
+document.getElementById('toggle-wishlist').addEventListener('click', function() {
+    var wishlist = document.getElementById('wishlist-items');
+    if (wishlist.style.display === 'none') {
+        wishlist.style.display = 'block';
+    } else {
+        wishlist.style.display = 'none';
+    }
+});
 //------------------------------------------------------------------------------------------------------------------------------------------------//
 function updateContent(){
     // Zugriff auf das DOM-Element, das die Produktliste enthält
@@ -266,16 +273,6 @@ function toggleSale(productName, isOnSale, discount) {
         updateContent(); // Aktualisiere die Anzeige
     }
 }
-//------------------------------------------------------------------------------------------------------------------------------------------------//
-//Funktionalität des Auf- und Zuklappens zu ermöglichen
-document.getElementById('toggle-wishlist').addEventListener('click', function() {
-    var wishlist = document.getElementById('wishlist-items');
-    if (wishlist.style.display === 'none') {
-        wishlist.style.display = 'block';
-    } else {
-        wishlist.style.display = 'none';
-    }
-});
 //------------------------------------------------------------------------------------------------------------------------------------------------//
 //initially display all products
 window.onload = async () => {
