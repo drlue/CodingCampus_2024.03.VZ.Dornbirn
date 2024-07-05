@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Stellt sicher, dass die Webseite auf unterschiedlichen Geräten korrekt dargestellt wird -->
+    <!-- Stellt sicher, dass die Webseite auf unterschiedlichen Geräten korrekt dargestellt wird -------------------------------------------------->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product Filter And Search</title>
-    <!-- Bindet die externe CSS-Datei für das Styling der Webseite ein -->
+    <!-- Bindet die externe CSS-Datei für das Styling der Webseite ein ---------------------------------------------------------------------------->
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Haupt-Container, der alle anderen Elemente umfasst -->
+    <!-- Haupt-Container, der alle anderen Elemente umfasst --------------------------------------------------------------------------------------->
     <div class="wrapper">
-        <!-- Container für die Such- und Wunschlistenfunktionen -->
+        <!-- Container für die Such- und Wunschlistenfunktionen ----------------------------------------------------------------------------------->
         <div id="search-container">
-            <!-- Wunschlisten-Container mit Hintergrundfarbe und Titel -->
+            <!-- Wunschlisten-Container mit Hintergrundfarbe und Titel ---------------------------------------------------------------------------->
             <div id="wishlist-container" style="background-color: #6759ff;">
                 <h4>Your Wishlist <button id="toggle-wishlist">Toggle</button></h4>
-                <!-- Container, der die Elemente der Wunschliste anzeigt -->
+                <!-- Container, der die Elemente der Wunschliste anzeigt -------------------------------------------------------------------------->
                 <div id="wishlist-items" style="display: none;"></div>
             </div>
-            <!-- Suchfeld, ermöglicht das Eingeben eines Suchbegriffs -->
+            <!-- Suchfeld, ermöglicht das Eingeben eines Suchbegriffs ----------------------------------------------------------------------------->
             <input type="search" id="search-input" placeholder="Search Product Name here..." />
             <!-- Button, der die Suchfunktion auslöst -->
             <button id="search" onclick="filterProductBySearch()">Search</button>
         </div>
-        <!-- Container für die Kategoriefilter-Buttons -->
+        <!-- Container für die Kategoriefilter-Buttons -------------------------------------------------------------------------------------------->
         <div id="button">
             <!--statt onlick kann man auch addEventListener()verwenden-->
             <button class="button-value" onclick="filterProductByCategory('All')">All</button>
@@ -32,17 +32,17 @@
             <button class="button-value" onclick="filterProductByCategory('Jacket')">Jacket</button>
             <button class="button-value" onclick="filterProductByCategory('Watch')">Watch</button>
         </div>
-        <!-- Container für die Preiseingabefelder und den Filter-Button -->
+        <!-- Container für die Preiseingabefelder und den Filter-Button --------------------------------------------------------------------------->
         <div id="price-filter">
             <input type="number" id="min-price" placeholder="Min Price" />
             <input type="number" id="max-price" placeholder="Max Price" />
             <button onclick="filterProductsByPrice()">Filter</button>
         </div>
-        <!-- Container für die Anzeige der gefilterten Produkte -->
+        <!-- Container für die Anzeige der gefilterten Produkte ----------------------------------------------------------------------------------->
         <div id="products">
         </div>
     </div>
-    <!-- Fußzeile mit Links zu sozialen Medien und Urheberrechtshinweis -->
+    <!-- Fußzeile mit Links zu sozialen Medien und Urheberrechtshinweis --------------------------------------------------------------------------->
     <footer>
         <p>Folgen Sie uns auf Social Media:</p>
         <a href="https://facebook.com" target="_blank">Facebook</a>
@@ -50,7 +50,7 @@
         <a href="https://twitter.com" target="_blank">Twitter</a>
         <p>&copy; 2024 MadeByMeri. Alle Rechte vorbehalten.</p>
     </footer>
-    <!-- Bindet das JavaScript-Script ein, das für die Interaktivität der Seite sorgt -->
+    <!-- Bindet das JavaScript-Script ein, das für die Interaktivität der Seite sorgt ------------------------------------------------------------->
     <script src="script.js"></script>
 </body>
 </html>

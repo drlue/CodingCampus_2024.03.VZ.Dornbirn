@@ -276,10 +276,7 @@ document.getElementById('toggle-wishlist').addEventListener('click', function() 
         wishlist.style.display = 'none';
     }
 });
-
-
 //------------------------------------------------------------------------------------------------------------------------------------------------//
-
 //initially display all products
 window.onload = async () => {
     // Lädt alle Produkte beim Start der Anwendung

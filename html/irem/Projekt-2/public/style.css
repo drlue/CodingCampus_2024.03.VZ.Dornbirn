@@ -12,6 +12,7 @@ body{
     margin: 0 auto; /* Zentriert den Container horizontal */
     padding: 20px 50px; /* Setzt das Padding innerhalb des Containers */
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /* Search,..... */
 /*Gestaltet ein Suchfeld, Hintergrund,Unterstrichlinie,Fokussieren des Eingabefeldes ändert sich die Farbe der Unterstrichlinie,*/                      
 /*Button wird rechts vom Eingabefeld positioniert,abgerundete Ecken, und seine Textfarbe*/
@@ -37,6 +38,7 @@ body{
     border-radius: 5px;
     margin-top: 0.5em;
 }  
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 
 /*Button, hover...*/
 /*Definiert den Stil für alle Buttons auf der Seite, mit spezifischen Farben, Abständen und ohne Rahmen. Beim Überfahren mit der Maus ändert sich die Hintergrundfarbe*/
@@ -63,11 +65,13 @@ button:hover {
     color: #6759ff;
     cursor: pointer;
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /*aktiven Status eines Elements zu signalisieren*/
 .active{
     background-color: #6759ff;
     color: #ffffff;
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /* Erstellt ein Grid-Layout für die Produktliste, mit drei Spalten und einem Abstand zwischen den Spalten*/
 #products {
     display: grid;
@@ -75,6 +79,7 @@ button:hover {
     grid-column-gap: 1.5em;
     padding: 2em 0;
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /*Definiert einen "Karten"-Stil*/
 .card {
     background-color: #ffffff;
@@ -85,6 +90,7 @@ button:hover {
     box-shadow: 1em 2em 2.5em rgba(146, 85, 23, 0.08);
     border-radius: 20px;
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /*Image,..*/
 /*Zentriert Bilder innerhalb ihrer Container*/
 
@@ -99,6 +105,7 @@ img{
     height: 15em;
    
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /*Container fungieren */
 .container{
     padding-top: 1em;
@@ -113,6 +120,7 @@ img{
 .hide{
     display: none;
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 
 /*Passt das Layout für Bildschirme an*/
 @media screen and (max-width: 720px) {
@@ -131,6 +139,7 @@ img{
     }
     
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /*Styling für Socail Media */
 footer {
     background: #ffffff;
@@ -140,26 +149,29 @@ footer {
 }
 
 footer p, footer a {
+    /*Dies definiert das Styling für alle <p>- und <a>-Tags im Foote*/
     color: #6759ff;
     text-decoration: none;
 }
 
 footer a:hover {
+    /*Spezifiziert das Hover-Verhalten für Links im Footer.*/
     text-decoration: underline;
 }
 
 footer p {
+    /*Spezifische Stile für <p>-Elemente im Footer.*/
     margin: 10px 0;
 }
-/*---------------------------------------------------------------
-/* Stylesheet for alignment and spacing */
 body, html {
+    /*Allgemeines Layout für die gesamte Webseite.*/
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
 header .top-bar {
+    /*Spezifiziert das Styling für die .top-bar Klasse im <header>-Element.*/
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -167,12 +179,14 @@ header .top-bar {
 }
 
 #search-container {
+    /*Stil für einen Container, der die ID search-container verwendet.*/
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 #price-filter {
+    /*Styling für einen Element-Container mit der ID price-filter*/
     display: flex;
     justify-content: start;
     gap: 10px;
@@ -180,9 +194,10 @@ header .top-bar {
 }
 
 .wrapper {
+    /*Stil für Elemente mit der Klasse .wrapper*/
     padding: 20px 50px;
 }
-/*-----------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /*MAX UND MIN*/
 #price-filter {
     margin-bottom: 20px;
@@ -192,7 +207,7 @@ input[type="number"], button {
     padding: 8px;
     margin-right: 10px;
 }
-/*--------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 /* Wishlist Container Styling */
 #wishlist-container {
     background-color: #6759ff; /* Hintergrundfarbe wie Such-Button */
@@ -244,6 +259,7 @@ input[type="number"], button {
     transition: all 0.3s ease;
     overflow: hidden;
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------//
 
 /* Common button styling */
 .common-button {
@@ -266,12 +282,13 @@ input[type="number"], button {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(182, 122, 205, 0.5);
+    background-color: rgba(184, 164, 246, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+/*------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .detailsContainer{
     background:white; 
