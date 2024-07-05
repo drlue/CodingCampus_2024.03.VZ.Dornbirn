@@ -1,6 +1,6 @@
 import {
   faBuildingColumns,
-  faChartPie,
+  faChartSimple,
   faMoneyBillTransfer,
 } from "@fortawesome/free-solid-svg-icons";
 import NavMenuItem from "./NavMenuItem";
@@ -16,7 +16,11 @@ export default function NavbarCenter() {
         />
       </div>
       <div className="hover:scale-110">
-        <NavMenuItem title="Categories" href="/categories" icon={faChartPie} />
+        <NavMenuItem
+          title="Categories"
+          href="/categories"
+          icon={faChartSimple}
+        />
       </div>
       <div className="hover:scale-110">
         <NavMenuItem

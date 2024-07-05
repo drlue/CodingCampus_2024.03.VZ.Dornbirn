@@ -1,17 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import OverViewMenuItem from "@/components/overViewMenu/overViewMenuItem";
+import CategoryMenuItem from "@/components/categoriesMenu/CategoryMenuItem";
+import { useState, useEffect } from "react";
 
-type MonthlyData = {
-  income: number;
-  expense: number;
+type CategoryDataProps = {
+  [category: string]: number;
 };
 
-const fetchIncomeExpenseDataForYear = async (
+const fetchCategoryData = async (
   year: number
-): Promise<{ [key: number]: MonthlyData }> => {
-  const response = await fetch(`/api/income-expense?year=${year}`);
+): Promise<{ [key: number]: CategoryDataProps }> => {
+  const response = await fetch(`/api/category-year?year=${year}`);
   const data = await response.json();
   return data;
 };
@@ -22,10 +21,10 @@ type PageProps = {
   };
 };
 
-const Overview = ({ params }: PageProps) => {
+const Category = ({ params }: PageProps) => {
   const year = Number(params.slug);
   const [dataByMonth, setDataByMonth] = useState<{
-    [key: number]: MonthlyData;
+    [key: number]: CategoryDataProps;
   }>({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -33,8 +32,7 @@ const Overview = ({ params }: PageProps) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("fetchIncomeExpenseDataForYear", year);
-        const data = await fetchIncomeExpenseDataForYear(year);
+        const data = await fetchCategoryData(year);
         setDataByMonth(data);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -56,15 +54,19 @@ const Overview = ({ params }: PageProps) => {
   }
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-y-6">
       {Object.keys(dataByMonth).map((month) => {
-        const monthData = dataByMonth[Number(month)];
+        const monthData = Object.keys(dataByMonth[Number(month)]).map(
+          (category) => ({
+            category,
+            amount: dataByMonth[Number(month)][category],
+          })
+        );
         return (
-          <OverViewMenuItem
+          <CategoryMenuItem
             key={month}
             month={new Date(year, Number(month) - 1)}
-            income={monthData.income}
-            expense={monthData.expense}
+            data={monthData}
             link="/month-details"
           />
         );
@@ -73,4 +75,4 @@ const Overview = ({ params }: PageProps) => {
   );
 };
 
-export default Overview;
+export default Category;
