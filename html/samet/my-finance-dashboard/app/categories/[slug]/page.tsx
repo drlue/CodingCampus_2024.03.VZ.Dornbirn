@@ -67,7 +67,7 @@ const Category = ({ params }: PageProps) => {
             key={month}
             month={new Date(year, Number(month) - 1)}
             data={monthData}
-            link="/month-details"
+            link="/month/"
           />
         );
       })}

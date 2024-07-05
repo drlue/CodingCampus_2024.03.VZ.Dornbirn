@@ -13,6 +13,16 @@ import { Bar } from "react-chartjs-2";
 
 Chartjs.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
+function generateColors(count: number): string[] {
+  let steps = Math.floor(255 / count);
+  let colors: string[] = [];
+  for (let i = 0; i <= 255; i += steps) {
+    let currentStep = i.toString(16);
+    colors.push("#FF0000" + currentStep);
+  }
+  return colors.reverse();
+}
+
 interface BarChartProps {
   data: { category: string; amount: number }[];
 }
@@ -26,9 +36,10 @@ function BarChart({ data }: BarChartProps) {
       {
         label: "Amount",
         data: sortedData.map((tr) => tr.amount),
-        backgroundColor: "#B22222",
-        borderColor: "Black",
+        backgroundColor: generateColors(data?.length ?? 0),
+        borderColor: "white",
         borderWidth: 1,
+        borderRadius: 10,
       },
     ],
   };
@@ -37,7 +48,7 @@ function BarChart({ data }: BarChartProps) {
     indexAxis: "y" as const,
     elements: {
       bar: {
-        borderWidth: 2,
+        borderWidth: 1,
       },
     },
     responsive: true,

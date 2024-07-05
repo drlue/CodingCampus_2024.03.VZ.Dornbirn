@@ -11,6 +11,16 @@ Chartjs.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
+function generateColors(count: number): string[] {
+  let steps = Math.floor(255 / count);
+  let colors: string[] = [];
+  for (let i = 0; i <= 255; i += steps) {
+    let currentStep = i.toString(16);
+    colors.push("#00FF00" + currentStep);
+  }
+  return colors.reverse();
+}
+
 function PieChart() {
   const { data, error, isLoading } = useSWR<Transaction[]>(
     "/api/income",
@@ -30,18 +40,13 @@ function PieChart() {
     labels: data?.map((tr) => `${tr.category}: ${tr.amount}`),
     datasets: [
       {
-        data: data?.map((tr) => tr.amount),
-        backgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-        ],
+        data: data?.map((tr) => tr.amount).sort((lhs, rhs) => rhs - lhs),
+        backgroundColor: generateColors(data?.length ?? 0),
         datalabels: {
-          color: "yellow",
+          color: "white",
         },
+        borderColor: "White",
+        borderWidth: 1,
       },
     ],
   };
@@ -53,13 +58,13 @@ function PieChart() {
         display: false,
       },
     },
-    cutout: "55%",
+    cutout: "50%",
   };
 
   return (
     <div className="relative">
       <Pie data={chartData} options={options} />
-      <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-green-500">
+      <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-[#556B2F]">
         {totalAmount} €
       </div>
     </div>

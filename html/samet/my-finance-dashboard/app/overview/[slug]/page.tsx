@@ -65,7 +65,7 @@ const Overview = ({ params }: PageProps) => {
             month={new Date(year, Number(month) - 1)}
             income={monthData.income}
             expense={monthData.expense}
-            link="/month-details"
+            link="/month/"
           />
         );
       })}

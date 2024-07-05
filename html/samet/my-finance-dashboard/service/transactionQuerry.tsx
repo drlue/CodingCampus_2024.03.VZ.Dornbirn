@@ -5,7 +5,7 @@ const getTransactionData = async () => {
     orderBy: {
       amount: "desc",
     },
-    take: 10,
+    take: 15,
   });
   return d;
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import TotalNetWorth from "./TotalNetWorth";
+import TotalNetWorth from "./totalNetWorth/TotalNetWorth";
 import Transactions from "./transactions/Transactions";
 import Income from "./income/Income";
 import Savings from "./savings/Savings";
