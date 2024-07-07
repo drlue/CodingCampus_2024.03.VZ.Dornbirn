@@ -4,10 +4,12 @@ import NetWorthQuerry from "@/components/mainContentTop/totalNetWorth/NetWorthQu
 
 export default function TotalNetWorth() {
   return (
-    <div className="border border-gray-100 rounded-lg shadow-xl text-center p-1">
-      <div>TOTAL NET WORTH</div>
+    <div className="border border-gray-100 rounded-lg shadow-xl text-center  flex justify-center items-center">
       <div>
-        <NetWorthQuerry />
+        <div className="underline">TOTAL NET WORTH</div>
+        <div className="flex justify-center items-center">
+          <NetWorthQuerry />
+        </div>
       </div>
     </div>
   );

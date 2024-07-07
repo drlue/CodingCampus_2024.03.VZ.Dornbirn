@@ -10,25 +10,19 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import generateColors from "@/lib/hsl2rgb";
 
 Chartjs.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
-
-function generateColors(count: number): string[] {
-  let steps = Math.floor(255 / count);
-  let colors: string[] = [];
-  for (let i = 0; i <= 255; i += steps) {
-    let currentStep = i.toString(16);
-    colors.push("#FF0000" + currentStep);
-  }
-  return colors.reverse();
-}
 
 interface BarChartProps {
   data: { category: string; amount: number }[];
 }
 
 function BarChart({ data }: BarChartProps) {
-  const sortedData = [...data].sort((a, b) => b.amount - a.amount);
+  const sortedData = [...data].sort((a, b) => a.amount - b.amount);
+
+  const colors = generateColors(0, 0.9, 0.3, 0.2, 0.8, data?.length ?? 0);
+  console.log("Colors: ", colors);
 
   const chartData = {
     labels: sortedData.map((tr) => tr.category),
@@ -36,7 +30,7 @@ function BarChart({ data }: BarChartProps) {
       {
         label: "Amount",
         data: sortedData.map((tr) => tr.amount),
-        backgroundColor: generateColors(data?.length ?? 0),
+        backgroundColor: colors,
         borderColor: "white",
         borderWidth: 1,
         borderRadius: 10,
@@ -49,6 +43,18 @@ function BarChart({ data }: BarChartProps) {
     elements: {
       bar: {
         borderWidth: 1,
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
       },
     },
     responsive: true,

@@ -10,24 +10,13 @@ import {
   LinearScale,
   Tooltip,
   Legend,
-  BarOptions,
 } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
+import generateColors from "@/lib/hsl2rgb";
 Chartjs.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
-
-//Function to step the Colors in the Barchart
-function generateColors(count: number): string[] {
-  let steps = Math.floor(255 / count);
-  let colors: string[] = [];
-  for (let i = 0; i <= 255; i += steps) {
-    let currentStep = i.toString(16);
-    colors.push("#FF0000" + currentStep);
-  }
-  return colors.reverse();
-}
 
 function BarChart() {
   const { data, error, isLoading } = useSWR<Transaction[]>(
@@ -38,13 +27,16 @@ function BarChart() {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
+  const colors = generateColors(0, 0.9, 0.3, 0.2, 0.8, data?.length ?? 0);
+  console.log("Colors: ", colors);
+
   const chartData = {
     labels: data?.map((tr) => tr.category),
     datasets: [
       {
         label: "Amount",
         data: data?.map((tr) => tr.amount),
-        backgroundColor: generateColors(data?.length ?? 0),
+        backgroundColor: colors,
         borderColor: "white",
         boderWidth: 1,
         borderRadius: 10,
@@ -57,6 +49,18 @@ function BarChart() {
     elements: {
       bar: {
         borderWidth: 1,
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
       },
     },
     responsive: true,

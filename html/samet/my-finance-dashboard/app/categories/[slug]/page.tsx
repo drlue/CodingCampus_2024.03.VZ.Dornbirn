@@ -1,5 +1,4 @@
 "use client";
-
 import CategoryMenuItem from "@/components/categoriesMenu/CategoryMenuItem";
 import { useState, useEffect } from "react";
 
@@ -54,7 +53,7 @@ const Category = ({ params }: PageProps) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-y-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-y-6 p-10">
       {Object.keys(dataByMonth).map((month) => {
         const monthData = Object.keys(dataByMonth[Number(month)]).map(
           (category) => ({
