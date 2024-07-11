@@ -281,7 +281,7 @@ window.onload = async () => {
     // Setzt den Filter auf "All", um alle Produkte anzuzeigen
     filterProductByCategory("All");
      // Setzt bestimmte Produkte in den Sale-Modus
-     toggleSale("Produktname", true, 20); // Hier sollte der korrekte Produktname angegeben werden
+    // toggleSale("Produktname", true, 20); // Hier sollte der korrekte Produktname angegeben werden
 
     //addNewProduct()
     // Diese Zeile kann aktiviert werden, um automatisch ein neues Produkt hinzuzufügen
