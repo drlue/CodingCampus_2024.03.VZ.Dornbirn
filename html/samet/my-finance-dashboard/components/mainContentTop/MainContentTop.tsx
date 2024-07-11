@@ -1,8 +1,7 @@
 import React from "react";
 import TotalNetWorth from "./totalNetWorth/TotalNetWorth";
-import Transactions from "./transactions/Transactions";
+import Transactions from "../../app/overview/OverviewDetailTransactions";
 import Income from "./income/Income";
-import Savings from "./savings/Savings";
 import Aviable from "./aviable/Aviable";
 import Expense from "./expense/Expense";
 

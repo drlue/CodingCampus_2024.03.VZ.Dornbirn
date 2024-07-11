@@ -1,4 +1,4 @@
-import TransactionTable from "@/components/mainContentTop/transactions/TransactionTable.tsx";
+import TransactionTable from "@/app/overview/OverviewTransactionTable";
 import React from "react";
 
 export default function Transactions() {

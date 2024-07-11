@@ -38,21 +38,4 @@ const getAviableData = async () => {
   return d;
 };
 
-const getSavingsData = async () => {
-  let d = await prisma.transaction.findMany({
-    where: {
-      type: {
-        equals: "Savings",
-      },
-    },
-  });
-  return d;
-};
-
-export {
-  getTransactionData,
-  getIncomeData,
-  getExpenseData,
-  getAviableData,
-  getSavingsData,
-};
+export { getTransactionData, getIncomeData, getExpenseData, getAviableData };

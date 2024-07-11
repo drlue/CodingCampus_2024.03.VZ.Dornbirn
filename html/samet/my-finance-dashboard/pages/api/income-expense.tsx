@@ -56,8 +56,8 @@ const getIncomeExpenseDataByMonth = async (
   );
 
   return {
-    income: totalIncome,
-    expense: totalExpense,
+    income: parseFloat(totalIncome.toFixed(2)),
+    expense: parseFloat(totalExpense.toFixed(2)),
   };
 };
 
