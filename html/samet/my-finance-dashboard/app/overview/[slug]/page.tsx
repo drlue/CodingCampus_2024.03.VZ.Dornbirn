@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import OverViewMenuItem from "@/components/overViewMenu/overViewMenuItem";
 
@@ -56,7 +55,7 @@ const Overview = ({ params }: PageProps) => {
   }
 
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 gap-4 p-10">
       {Object.keys(dataByMonth).map((month) => {
         const monthData = dataByMonth[Number(month)];
         return (
@@ -65,7 +64,7 @@ const Overview = ({ params }: PageProps) => {
             month={new Date(year, Number(month) - 1)}
             income={monthData.income}
             expense={monthData.expense}
-            link="/month-details"
+            link="/month/"
           />
         );
       })}

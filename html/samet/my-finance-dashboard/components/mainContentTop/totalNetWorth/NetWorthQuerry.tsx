@@ -1,6 +1,6 @@
 import { getAviableData } from "@/service/transactionQuerry";
 
-export default async function QueryAviable() {
+export default async function TotalNetWorth() {
   const data = await getAviableData();
 
   const totalIncome = data
@@ -8,7 +8,7 @@ export default async function QueryAviable() {
     .reduce((acc, curr) => acc + curr.amount, 0);
 
   const totalExpense = data
-    .filter((t) => t.type === "Expense" || t.type === "Savings")
+    .filter((t) => t.type === "Expense")
     .reduce((acc, curr) => acc - curr.amount, 0);
 
   const availableBalance = totalIncome - totalExpense;

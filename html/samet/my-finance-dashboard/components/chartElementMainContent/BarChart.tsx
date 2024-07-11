@@ -10,10 +10,10 @@ import {
   LinearScale,
   Tooltip,
   Legend,
-  BarOptions,
 } from "chart.js";
 
 import { Bar } from "react-chartjs-2";
+import generateColors from "@/lib/hsl2rgb";
 Chartjs.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -27,15 +27,19 @@ function BarChart() {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
+  const colors = generateColors(0, 0.9, 0.3, 0.2, 0.8, data?.length ?? 0);
+  console.log("Colors: ", colors);
+
   const chartData = {
     labels: data?.map((tr) => tr.category),
     datasets: [
       {
         label: "Amount",
         data: data?.map((tr) => tr.amount),
-        backgroundColor: "#B22222",
-        borderColor: "Black",
+        backgroundColor: colors,
+        borderColor: "white",
         boderWidth: 1,
+        borderRadius: 10,
       },
     ],
   };
@@ -44,7 +48,19 @@ function BarChart() {
     indexAxis: "y" as const,
     elements: {
       bar: {
-        borderWidth: 2,
+        borderWidth: 1,
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
       },
     },
     responsive: true,

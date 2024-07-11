@@ -1,10 +1,8 @@
-import Link from "next/link";
 import BarChart from "./BarChart";
 
 interface CategoryMenuItemProps {
   month: Date;
   data: { category: string; amount: number }[];
-  link: string;
 }
 
 const getMonthDetailURL = (link: string, d: Date): string => {
@@ -23,9 +21,7 @@ const getMonthName = (d: Date): string => {
 export default function CategoryMenuItem(props: CategoryMenuItemProps) {
   return (
     <div className="rounded-lg shadow-xl text-center p-1">
-      <Link href={getMonthDetailURL(props.link, props.month)}>
-        <div className="hover:underline">{getMonthName(props.month)}</div>
-      </Link>
+      <div>{getMonthName(props.month)}</div>
       <div>
         <BarChart data={props.data} />
       </div>

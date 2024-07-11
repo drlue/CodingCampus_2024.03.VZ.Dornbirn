@@ -6,6 +6,7 @@ import useSWR from "swr";
 import { Chart as Chartjs, ArcElement, Tooltip, Legend } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Pie } from "react-chartjs-2";
+import generateColors from "@/lib/hsl2rgb";
 
 Chartjs.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -20,6 +21,9 @@ function PieChart() {
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
 
+  const colors = generateColors(0.37, 0.9, 0.3, 0.2, 0.8, data?.length ?? 0);
+  console.log("Colors: ", colors);
+
   const calculateTotal = (data: Transaction[]) => {
     return data.reduce((sum, tr) => sum + tr.amount, 0);
   };
@@ -30,18 +34,13 @@ function PieChart() {
     labels: data?.map((tr) => `${tr.category}: ${tr.amount}`),
     datasets: [
       {
-        data: data?.map((tr) => tr.amount),
-        backgroundColor: [
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-          "#FF6384",
-          "#36A2EB",
-          "#FFCE56",
-        ],
+        data: data?.map((tr) => tr.amount).sort((lhs, rhs) => rhs - lhs),
+        backgroundColor: colors,
         datalabels: {
-          color: "yellow",
+          color: "white",
         },
+        borderColor: "White",
+        borderWidth: 1,
       },
     ],
   };
@@ -53,13 +52,13 @@ function PieChart() {
         display: false,
       },
     },
-    cutout: "55%",
+    cutout: "50%",
   };
 
   return (
     <div className="relative">
       <Pie data={chartData} options={options} />
-      <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-green-500">
+      <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-white font-bold">
         {totalAmount} €
       </div>
     </div>

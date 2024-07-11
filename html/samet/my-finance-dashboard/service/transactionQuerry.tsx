@@ -2,10 +2,7 @@ import prisma from "@/service/db";
 
 const getTransactionData = async () => {
   let d = await prisma.transaction.findMany({
-    orderBy: {
-      amount: "desc",
-    },
-    take: 10,
+    take: 5,
   });
   return d;
 };

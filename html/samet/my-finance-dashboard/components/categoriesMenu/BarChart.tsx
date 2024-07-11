@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
+import generateColors from "@/lib/hsl2rgb";
 
 Chartjs.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
@@ -18,7 +19,10 @@ interface BarChartProps {
 }
 
 function BarChart({ data }: BarChartProps) {
-  const sortedData = [...data].sort((a, b) => b.amount - a.amount);
+  const sortedData = [...data].sort((a, b) => a.amount - b.amount);
+
+  const colors = generateColors(0, 0.9, 0.3, 0.2, 0.8, data?.length ?? 0);
+  console.log("Colors: ", colors);
 
   const chartData = {
     labels: sortedData.map((tr) => tr.category),
@@ -26,9 +30,10 @@ function BarChart({ data }: BarChartProps) {
       {
         label: "Amount",
         data: sortedData.map((tr) => tr.amount),
-        backgroundColor: "#B22222",
-        borderColor: "Black",
+        backgroundColor: colors,
+        borderColor: "white",
         borderWidth: 1,
+        borderRadius: 10,
       },
     ],
   };
@@ -37,7 +42,19 @@ function BarChart({ data }: BarChartProps) {
     indexAxis: "y" as const,
     elements: {
       bar: {
-        borderWidth: 2,
+        borderWidth: 1,
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        grid: {
+          display: false,
+        },
       },
     },
     responsive: true,
