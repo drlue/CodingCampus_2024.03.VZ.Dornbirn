@@ -27,7 +27,7 @@ export default function OverViewMenuItem(props: OverViewMenuItemProps) {
         <Link href={getMonthDetailURL(props.link, props.month)}>
           <div className="hover:underline">{getMonthName(props.month)}</div>
         </Link>
-        <div className="grid col-span-1 sm:grid-cols-2 gap-2 text-xs text-center p-1">
+        <div className="grid col-span-1 sm:grid-cols-2 gap-2 text-xs text-center p-1 bg-g">
           <div className="bg-[#556B2F] rounded-lg shadow-xl p-2">
             <div>Income</div>
             <div>{props.income}</div>

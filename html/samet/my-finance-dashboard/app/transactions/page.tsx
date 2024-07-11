@@ -1,5 +1,5 @@
 import React from "react";
-import Dialoge from "@/components/dialoge/DialogeFeature";
+import Dialoge from "@/app/transactions/TransactionPopUp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoneyBillTransfer } from "@fortawesome/free-solid-svg-icons";
 
