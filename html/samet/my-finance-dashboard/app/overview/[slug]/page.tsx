@@ -1,7 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import OverViewMenuItem from "@/components/overViewMenu/overViewMenuItem";
-import { Button } from "@/components/ui/button";
+import CircleLoader from "react-spinners/CircleLoader";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+};
 
 type MonthlyData = {
   income: number;
@@ -32,16 +37,19 @@ const Overview = ({ params }: PageProps) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        console.log("fetchIncomeExpenseDataForYear", year);
-        const data = await fetchIncomeExpenseDataForYear(year);
-        setDataByMonth(data);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        setError("Failed to fetch data");
-      } finally {
-        setLoading(false);
-      }
+      setLoading(true);
+      setTimeout(async () => {
+        try {
+          console.log("fetchIncomeExpenseDataForYear", year);
+          const data = await fetchIncomeExpenseDataForYear(year);
+          setDataByMonth(data);
+        } catch (err) {
+          console.error("Error fetching data:", err);
+          setError("Failed to fetch data");
+        } finally {
+          setLoading(false);
+        }
+      }, 1000);
     };
 
     fetchData();
@@ -49,34 +57,16 @@ const Overview = ({ params }: PageProps) => {
 
   if (loading) {
     return (
-      <div>
-        <button
-          type="button"
-          className="bg-indigo-500 text-white font-bold py-2 px-4 rounded inline-flex items-center"
-          disabled
-        >
-          <svg
-            className="animate-spin-slow h-5 w-5 mr-3 text-white"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-              className="opacity-25"
-            />
-            <path
-              d="M4 12a8 8 0 018-8v8l-3.5 3.5a8 8 0 01-4.5-3.5z"
-              fill="currentColor"
-              className="opacity-75"
-            />
-          </svg>
-          Loading ...
-        </button>
+      <div className="flex items-center justify-center h-screen">
+        <div className="flex flex-col items-center">
+          <CircleLoader
+            color={"white"}
+            loading={loading}
+            cssOverride={override}
+            size={250}
+          />
+          <div>Loading...</div>
+        </div>
       </div>
     );
   }

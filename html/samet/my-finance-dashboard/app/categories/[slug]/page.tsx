@@ -1,6 +1,12 @@
 "use client";
 import CategoryMenuItem from "@/components/categoriesMenu/CategoryMenuItem";
 import { useState, useEffect } from "react";
+import CircleLoader from "react-spinners/CircleLoader";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+};
 
 type CategoryDataProps = {
   [category: string]: number;
@@ -30,22 +36,37 @@ const Category = ({ params }: PageProps) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const data = await fetchCategoryData(year);
-        setDataByMonth(data);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        setError("Failed to fetch data");
-      } finally {
-        setLoading(false);
-      }
+      setLoading(true);
+      setTimeout(async () => {
+        try {
+          const data = await fetchCategoryData(year);
+          setDataByMonth(data);
+        } catch (err) {
+          console.error("Error fetching data:", err);
+          setError("Failed to fetch data");
+        } finally {
+          setLoading(false);
+        }
+      }, 1000);
     };
 
     fetchData();
   }, [year]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="flex flex-col items-center">
+          <CircleLoader
+            color={"white"}
+            loading={loading}
+            cssOverride={override}
+            size={250}
+          />
+          <div>Loading...</div>
+        </div>
+      </div>
+    );
   }
 
   if (error) {
