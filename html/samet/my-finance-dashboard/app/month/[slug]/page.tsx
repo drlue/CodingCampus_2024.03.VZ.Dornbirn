@@ -46,7 +46,7 @@ const getMonthString = (monthNumber: number) => {
 export default function Page({ params }: PageProps) {
   const position = params.slug.indexOf("-");
   let year = new Date().getFullYear();
-  let month = new Date().getMonth() + 1; // +1 because getMonth() returns 0-based month
+  let month = new Date().getMonth() + 1;
   if (position >= 0 && position < params.slug.length) {
     let testYear = Number(params.slug.substring(0, position));
     let testMonth = Number(params.slug.substring(position + 1));
@@ -100,12 +100,14 @@ export default function Page({ params }: PageProps) {
   const monthData = dataByMonth ? dataByMonth[month] : [];
 
   return (
-    <div className="p-1">
+    <div className="p-5">
       {getMonthString(month)} {year}
       {monthData.length > 0 ? (
         <OverviewTable data={monthData} />
       ) : (
-        <div>No transactions found for this month.</div>
+        <div className="p-3 font-bold">
+          No transactions found for this month!
+        </div>
       )}
     </div>
   );

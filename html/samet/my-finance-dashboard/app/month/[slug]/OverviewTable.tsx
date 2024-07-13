@@ -28,7 +28,7 @@ const OverviewTable: React.FC<OverviewTableProps> = ({ data }) => {
         <TableCaption className="font-bold">
           A list of your recent Transactions.
         </TableCaption>
-        <TableHeader>
+        <TableHeader className="underline">
           <TableRow>
             <TableHead className="w-[100px]">Type</TableHead>
             <TableHead className="text-center">Category</TableHead>

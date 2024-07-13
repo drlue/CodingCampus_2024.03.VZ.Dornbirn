@@ -55,13 +55,13 @@ const Category = ({ params }: PageProps) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex items-center justify-center">
         <div className="flex flex-col items-center">
           <CircleLoader
-            color={"white"}
+            color={"blue"}
             loading={loading}
             cssOverride={override}
-            size={250}
+            size={50}
           />
           <div>Loading...</div>
         </div>

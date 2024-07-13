@@ -18,7 +18,7 @@ export default async function TransactionTable() {
           A list of your recent Transactions.
         </TableCaption>
         <TableHeader>
-          <TableRow className="text-xs">
+          <TableRow className="text-xs underline">
             <TableHead className="w-[100px]">Type</TableHead>
             <TableHead className="text-center">Category</TableHead>
             <TableHead className="text-center">Description</TableHead>
